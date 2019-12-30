@@ -1,13 +1,9 @@
 //package com.ecologicalRanch.utils;//package com.example.demo.pagehelper;
 //
 //
-//
-//
-//import com.alibaba.druid.util.StringUtils;
 //import com.github.pagehelper.Page;
 //import com.github.pagehelper.PageInfo;
 //import lombok.Data;
-//
 //
 //import java.util.List;
 //
