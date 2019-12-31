@@ -2,7 +2,7 @@ package com.ecologicalRanch.project.controller;
 
 import com.ecologicalRanch.project.entity.Admin;
 import com.ecologicalRanch.project.service.IAdminService;
-import com.ecologicalRanch.utils.JSONResult;
+import com.ecologicalRanch.utils2.JSONResult;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;

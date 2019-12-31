@@ -3,7 +3,7 @@ package com.ecologicalRanch.project.service.Impl;
 import com.ecologicalRanch.project.entity.Localtioninfo;
 import com.ecologicalRanch.project.mapper.LocaltioninfoMapper;
 import com.ecologicalRanch.project.service.LocaltioninfoService;
-import com.ecologicalRanch.utils.Convert;
+import com.ecologicalRanch.utils2.Convert;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -3,7 +3,7 @@ package com.ecologicalRanch.project.service.Impl;
 import com.ecologicalRanch.project.entity.Discount;
 import com.ecologicalRanch.project.mapper.DiscountMapper;
 import com.ecologicalRanch.project.service.DiscountService;
-import com.ecologicalRanch.utils.Convert;
+import com.ecologicalRanch.utils2.Convert;
 import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

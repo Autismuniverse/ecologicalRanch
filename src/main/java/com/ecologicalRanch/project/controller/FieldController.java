@@ -1,5 +1,6 @@
 package com.ecologicalRanch.project.controller;
 
+import com.ecologicalRanch.common.pagehelper.CommonPage;
 import com.ecologicalRanch.project.entity.Field;
 import com.ecologicalRanch.project.result.CommonResult;
 import com.ecologicalRanch.project.service.FieldService;
@@ -21,20 +22,18 @@ public class FieldController {
     @Autowired
     private FieldService fieldService;
 
-    public FieldController() {
+
+    /**
+     * 查询Field列表
+     */
+    @ApiOperation(" 查询Field列表")
+    @PostMapping("/selectFieldList")
+    @ResponseBody
+    public CommonResult selectFieldList(Field field,
+                                        @RequestParam(value = "pageNum",defaultValue = "1",required = false) int pageNum,
+                                        @RequestParam(value = "pageSize",defaultValue = "10",required = false)int pageSize){
+        return CommonResult.success(CommonPage.restPage(fieldService.selectFieldList(field,pageNum,pageSize)));
     }
-//
-//    /**
-//     * 查询Field列表
-//     */
-//    @ApiOperation(" 查询Field列表")
-//    @PostMapping("/selectFieldList")
-//    @ResponseBody
-//    public CommonResult selectFieldList(Field field,
-//                                        @RequestParam(value = "pageNum",defaultValue = "1",required = false) int pageNum,
-//                                        @RequestParam(value = "pageNum",defaultValue = "10",required = false)int pageSize){
-//        return CommonResult.success(CommonPage.restPage(fieldService.selectFieldList(field,pageNum,pageSize)));
-//    }
 
     /**
      * 通过Id查询Field

@@ -3,17 +3,12 @@ package com.ecologicalRanch.project.service.Impl;
 import com.ecologicalRanch.project.entity.User;
 import com.ecologicalRanch.project.mapper.UserMapper;
 import com.ecologicalRanch.project.service.UserService;
-import com.ecologicalRanch.utils.Convert;
+import com.ecologicalRanch.utils2.Convert;
 import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
-
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  *

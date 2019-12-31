@@ -1,8 +1,10 @@
 package com.ecologicalRanch.project.controller;
 
+import com.ecologicalRanch.common.pagehelper.CommonPage;
 import com.ecologicalRanch.project.entity.Discount;
 import com.ecologicalRanch.project.result.CommonResult;
 import com.ecologicalRanch.project.service.DiscountService;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
  * @author u-fun
  * @date '2019-12-28 14:23:46'
  */
+@Api(tags = "折扣")
 @Controller
 @RequestMapping("/app/discount")
 public class DiscountController {
@@ -21,18 +24,17 @@ public class DiscountController {
     @Autowired
     private DiscountService discountService;
 
-//    /**
-//     * 查询Discount列表
-//     */
-//    @ApiOperation(" 查询Discount列表")
-//    @NeedLoginToken
-//    @PostMapping("/selectDiscountList")
-//    @ResponseBody
-//    public CommonResult selectDiscountList(Discount discount,
-//                                           @RequestParam(value = "pageNum",defaultValue = "1",required = false) int pageNum,
-//                                           @RequestParam(value = "pageNum",defaultValue = "10",required = false)int pageSize){
-//        return CommonResult.success(CommonPage.restPage(discountService.selectDiscountList(discount,pageNum,pageSize)));
-//    }
+    /**
+     * 查询Discount列表
+     */
+    @ApiOperation(" 查询Discount列表")
+    @PostMapping("/selectDiscountList")
+    @ResponseBody
+    public CommonResult selectDiscountList(Discount discount,
+                                           @RequestParam(value = "pageNum",defaultValue = "1",required = false) int pageNum,
+                                           @RequestParam(value = "pageSize",defaultValue = "10",required = false)int pageSize){
+        return CommonResult.success(CommonPage.restPage(discountService.selectDiscountList(discount,pageNum,pageSize)));
+    }
 
     /**
      * 通过Id查询Discount

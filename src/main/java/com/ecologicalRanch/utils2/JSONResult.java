@@ -1,4 +1,4 @@
-package com.ecologicalRanch.utils;
+package com.ecologicalRanch.utils2;
 
 /**
  * @Description: 自定义响应数据结构

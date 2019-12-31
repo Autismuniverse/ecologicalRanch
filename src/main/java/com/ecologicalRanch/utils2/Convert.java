@@ -1,6 +1,6 @@
-package com.ecologicalRanch.utils;
+package com.ecologicalRanch.utils2;
 
-//import com.fun.common.utils.StringUtils;
+//import com.fun.common.utils2.StringUtils;
 
 import org.apache.commons.lang3.StringUtils;
 
