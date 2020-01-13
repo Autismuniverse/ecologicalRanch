@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ecologicalRanch.project.mapper.CarouselMapper">
+
+    <resultMap id="CarouselResult" type="Carousel" >
+        <result column="carousel_Id" property="carouselId" />
+        <result column="src" property="src" />
+    </resultMap>
+
+    <sql id="CarouselResultVo">
+        select
+        carousel_Id,src
+         from carousel
+    </sql>
+
+    <select id="selectCarouselById" parameterType="Long" resultMap="CarouselResult">
+        <include refid="CarouselResultVo" />
+        WHERE carousel_Id = #{carouselId}
+    </select>
+
+    <select id="selectCarouselList" parameterType="Carousel" resultMap="CarouselResult">
+        <include refid="CarouselResultVo"/>
+        <where>
+            <if test="carouselId != null and carouselId != 0">
+                and carousel_Id = #{carouselId}
+            </if>
+        </where>
+    </select>
+
+    <insert id="insertCarousel" parameterType="Carousel" useGeneratedKeys="true">
+        INSERT INTO carousel
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="carouselId != null  and carouselId != ''">carousel_Id, </if>
+            <if test="src != null  and src != ''">src </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="carouselId != null  and carouselId != ''">#{carouselId},</if>
+            <if test="src != null  and src != ''">#{src}</if>
+        </trim>
+    </insert>
+
+    <update id="updateCarousel" parameterType="Carousel" >
+        UPDATE carousel
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="carouselId != null  and carouselId != ''">carousel_Id = #{carouselId},</if>
+            <if test="src != null  and src != ''">src = #{src},</if>
+        </trim>
+        WHERE  carousel_Id = #{carouselId}
+    </update>
+
+    <delete id="deleteCarouselById" parameterType="Long">
+        DELETE FROM carousel
+        WHERE  carousel_Id = #{carouselId}
+    </delete>
+
+    <delete id="deleteCarouselByIds" parameterType="String">
+        delete from carousel where carousel_Id in
+        <foreach item="item" collection="array" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+
+</mapper>

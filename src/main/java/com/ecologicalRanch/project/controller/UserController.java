@@ -3,6 +3,7 @@ package com.ecologicalRanch.project.controller;
 import com.ecologicalRanch.project.entity.User;
 import com.ecologicalRanch.project.result.CommonResult;
 import com.ecologicalRanch.project.service.UserService;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,6 +21,7 @@ import org.springframework.web.bind.annotation.*;
  * @author u-fun
  * @date '2019-12-18 13:29:26'
  */
+@Api(tags = "用户")
 @Controller
 @RequestMapping("/app/user")
 public class UserController {

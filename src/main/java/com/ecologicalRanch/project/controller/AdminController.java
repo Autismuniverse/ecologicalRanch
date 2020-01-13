@@ -45,4 +45,15 @@ public class AdminController {
     @ApiOperation(value = "登录",notes = "userId,password")
     @PostMapping("login/")
     public JSONResult login(@RequestBody Admin admin) {return JSONResult.ok(adminService.login(admin)); }
+
+   public String openid="o_JIB5U6B0th388-RCa3T95iwiqE";
+    /**
+     * openid
+     * @param code 对象
+     * @return code对象
+     */
+    @ApiOperation(value = "we登录",notes = "openid")
+    @PostMapping("openid")
+    public JSONResult welogin(String code) {return JSONResult.ok(openid); }
 }
+

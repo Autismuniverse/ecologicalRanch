@@ -48,6 +48,10 @@ spring:
           config:
             multi-statement-allow: true
 
+  preread:
+    #文件上传目录（注意Linux和Windows上的目录结构不同）
+    uploadPath: E:/image/
+
 # MyBatis 映射配置
 mybatis:
   typeAliasesPackage: com.ecologicalRanch.project

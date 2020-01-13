@@ -4,6 +4,7 @@ import com.ecologicalRanch.common.pagehelper.CommonPage;
 import com.ecologicalRanch.project.entity.Field;
 import com.ecologicalRanch.project.result.CommonResult;
 import com.ecologicalRanch.project.service.FieldService;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
  * @author u-fun
  * @date '2019-12-30 14:31:08'
  */
+@Api(tags = "养殖场")
 @Controller
 @RequestMapping("/app/field")
 public class FieldController {
@@ -39,7 +41,7 @@ public class FieldController {
      * 通过Id查询Field
      */
     @ApiOperation("通过Id查询Field")
-    @GetMapping("/selectFieldById/{fieldId}")
+    @PostMapping("/selectFieldById/{fieldId}")
     @ResponseBody
     public CommonResult selectFieldById(@PathVariable("fieldId") Long fieldId){
         return CommonResult.success(fieldService.selectFieldById(fieldId));
