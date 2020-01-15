@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
  * @author u-fun
  * @date '2019-12-31 15:23:10'
  */
-@Api(tags = "折扣")
+@Api(tags = "牲畜")
 @Controller
 @RequestMapping("/app/livestock")
 public class LivestockController {

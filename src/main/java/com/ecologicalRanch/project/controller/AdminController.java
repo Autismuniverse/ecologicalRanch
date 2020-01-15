@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
 
 
-
 @Api(tags = "管理员")
 @RestController
 @RequestMapping("/admin")
@@ -44,16 +43,47 @@ public class AdminController {
      */
     @ApiOperation(value = "登录",notes = "userId,password")
     @PostMapping("login/")
-    public JSONResult login(@RequestBody Admin admin) {return JSONResult.ok(adminService.login(admin)); }
+    @ResponseBody
+    public JSONResult login(Admin admin){ return JSONResult.ok(adminService.login(admin)); }
 
-   public String openid="o_JIB5U6B0th388-RCa3T95iwiqE";
+    //public String openid="o_JIB5U6B0th388-RCa3T95iwiqE";
     /**
      * openid
      * @param code 对象
-     * @return code对象
+     * @return openid对象
      */
-    @ApiOperation(value = "we登录",notes = "openid")
-    @PostMapping("openid")
-    public JSONResult welogin(String code) {return JSONResult.ok(openid); }
+//    @ApiOperation(value = "we登录",notes = "openid")
+//    @PostMapping("openid")
+//    public JSONResult welogin(String code) {return JSONResult.ok(this.openid); }
+
+
+//    @RestController
+//    public class LoginHandler {
+//
+//        private String appID = "wx4bd8b4a9b1e3c26e";
+//        private String appSecret = "bfffc7550da959acf43dc02013585b0d";
+//
+//        @PostMapping("/we/login")
+//        public String userLogin(@RequestParam("code") String code) throws IOException {
+//            String result = "";
+//            try{//请求微信服务器，用code换取openid。HttpUtil是工具类，后面会给出实现，Configure类是小程序配置信息，后面会给出代码
+//                result = HttpUtil.doGet(
+//                        "https://api.weixin.qq.com/sns/jscode2session?appid="
+//                                + this.appID + "&secret="
+//                                + this.appSecret + "&js_code="
+//                                + code
+//                                + "&grant_type=authorization_code", null);
+//            }
+//            catch (Exception e) {
+//                e.printStackTrace();
+//            }
+//            ObjectMapper mapper = new ObjectMapper();
+//            OpenIdJson openIdJson = mapper.readValue(result,OpenIdJson.class);
+//            System.out.println(result.toString());
+//            System.out.println(openIdJson.getOpenid());
+//            return result;
+//        }
+//
+//    }
 }
 
