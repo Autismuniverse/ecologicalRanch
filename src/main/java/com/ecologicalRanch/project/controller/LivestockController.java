@@ -30,7 +30,7 @@ public class LivestockController {
     @ApiOperation(" 查询Livestock列表")
     @PostMapping("/selectLivestockList")
     @ResponseBody
-    public CommonResult selectLivestockList(Livestock livestock,
+    public CommonResult selectLivestockList(@RequestBody Livestock livestock,
                                             @RequestParam(value = "pageNum",defaultValue = "1",required = false) int pageNum,
                                             @RequestParam(value = "pageSize",defaultValue = "10",required = false)int pageSize){
         return CommonResult.success(CommonPage.restPage(livestockService.selectLivestockList(livestock,pageNum,pageSize)));
@@ -53,7 +53,7 @@ public class LivestockController {
     @ApiOperation("新增Livestock")
     @PostMapping("/insertLivestock")
     @ResponseBody
-    public CommonResult insertLivestock(Livestock livestock){
+    public CommonResult insertLivestock(@RequestBody Livestock livestock){
         return CommonResult.success(livestockService.insertLivestock(livestock));
     }
 
@@ -63,7 +63,7 @@ public class LivestockController {
     @ApiOperation("修改Livestock信息")
     @PostMapping("/updateLivestock")
     @ResponseBody
-    public CommonResult updateLivestock(Livestock livestock){
+    public CommonResult updateLivestock(@RequestBody Livestock livestock){
         return CommonResult.success(livestockService.updateLivestock(livestock));
     }
 

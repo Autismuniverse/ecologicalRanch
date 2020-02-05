@@ -30,7 +30,7 @@ public class DiscountController {
     @ApiOperation(" 查询Discount列表")
     @PostMapping("/selectDiscountList")
     @ResponseBody
-    public CommonResult selectDiscountList(Discount discount,
+    public CommonResult selectDiscountList(@RequestBody Discount discount,
                                            @RequestParam(value = "pageNum",defaultValue = "1",required = false) int pageNum,
                                            @RequestParam(value = "pageSize",defaultValue = "10",required = false)int pageSize){
         return CommonResult.success(CommonPage.restPage(discountService.selectDiscountList(discount,pageNum,pageSize)));
@@ -62,7 +62,7 @@ public class DiscountController {
     @ApiOperation("修改Discount信息")
     @PostMapping("/updateDiscount")
     @ResponseBody
-    public CommonResult updateDiscount(Discount discount){
+    public CommonResult updateDiscount(@RequestBody Discount discount){
         return CommonResult.success(discountService.updateDiscount(discount));
     }
 

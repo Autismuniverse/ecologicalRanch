@@ -2,7 +2,6 @@ package com.ecologicalRanch.project.entity;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
-import java.util.Date;
 
 /**
  *
@@ -76,7 +75,7 @@ public class Livestock {
      * 预计出笼时间
      */
     @ApiModelProperty(value = "出笼时间")
-    private Date outTime;
+    private String outTime;
 
     /**
      * 预购状态（0，正常；1，被预定；-1，已售出）

@@ -31,7 +31,7 @@ public class FieldController {
     @ApiOperation(" 查询Field列表")
     @PostMapping("/selectFieldList")
     @ResponseBody
-    public CommonResult selectFieldList(Field field,
+    public CommonResult selectFieldList(@RequestBody Field field,
                                         @RequestParam(value = "pageNum",defaultValue = "1",required = false) int pageNum,
                                         @RequestParam(value = "pageSize",defaultValue = "10",required = false)int pageSize){
         return CommonResult.success(CommonPage.restPage(fieldService.selectFieldList(field,pageNum,pageSize)));
@@ -41,9 +41,9 @@ public class FieldController {
      * 通过Id查询Field
      */
     @ApiOperation("通过Id查询Field")
-    @PostMapping("/selectFieldById/{fieldId}")
+    @PostMapping("/selectFieldById/")
     @ResponseBody
-    public CommonResult selectFieldById(@PathVariable("fieldId") Long fieldId){
+    public CommonResult selectFieldById(@RequestBody Long fieldId){
         return CommonResult.success(fieldService.selectFieldById(fieldId));
     }
 
@@ -53,7 +53,7 @@ public class FieldController {
     @ApiOperation("新增Field")
     @PostMapping("/insertField")
     @ResponseBody
-    public CommonResult insertField(Field field){
+    public CommonResult insertField(@RequestBody Field field){
         return CommonResult.success(fieldService.insertField(field));
     }
 
@@ -63,7 +63,7 @@ public class FieldController {
     @ApiOperation("修改Field信息")
     @PostMapping("/updateField")
     @ResponseBody
-    public CommonResult updateField(Field field){
+    public CommonResult updateField(@RequestBody Field field){
         return CommonResult.success(fieldService.updateField(field));
     }
 

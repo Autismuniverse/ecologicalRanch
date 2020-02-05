@@ -30,12 +30,15 @@ public class LoginHandler {
         if (str.endsWith("}")) {
             str = str.substring(0,str.length() - 1);
         }
+
+        String str1 = str.replaceAll("\"", "");
+        String str2 = str1.replaceAll("code:", "");
         try{//请求微信服务器，用code换取openid。HttpUtil是工具类，后面会给出实现，Configure类是小程序配置信息，后面会给出代码
             result = HttpUtil.doGet(
                     "https://api.weixin.qq.com/sns/jscode2session?appid="
                             + appID + "&secret="
                             + appSecret + "&js_code="
-                            + str
+                            + str2
                             + "&grant_type=authorization_code", null
                             );
         }
@@ -43,18 +46,13 @@ public class LoginHandler {
         catch (Exception e) {
             e.printStackTrace();
         }
-//        ObjectMapper mapper = new ObjectMapper();
-//        OpenIdJson openIdJson = mapper.readValue(result,OpenIdJson.class);
-//        System.out.println(result.toString());
-//        System.out.println(openIdJson.getOpenid());
+
         System.out.println("https://api.weixin.qq.com/sns/jscode2session?appid="
                 + appID + "&secret="
                 + appSecret + "&js_code="
-                + str
+                + str2
                 + "&grant_type=authorization_code");
 
-
-        System.out.println(str);
         return CommonResult.success(result);
     }
 

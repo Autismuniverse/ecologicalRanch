@@ -29,9 +29,9 @@ public class CarouselController {
     @ApiOperation(" 查询Carousel列表")
     @PostMapping("/selectCarouselList")
     @ResponseBody
-    public CommonResult selectCarouselList(Carousel carousel,
+    public CommonResult selectCarouselList(@RequestBody Carousel carousel,
                                            @RequestParam(value = "pageNum",defaultValue = "1",required = false) int pageNum,
-                                           @RequestParam(value = "pageSize",defaultValue = "10",required = false)int pageSize){
+                                           @RequestParam(value = "pageSize",defaultValue = "10",required = false) int pageSize){
         return CommonResult.success(CommonPage.restPage(carouselService.selectCarouselList(carousel,pageNum,pageSize)));
     }
 
@@ -51,7 +51,7 @@ public class CarouselController {
     @ApiOperation("新增Carousel")
     @PostMapping("/insertCarousel")
     @ResponseBody
-    public CommonResult insertCarousel(Carousel carousel){
+    public CommonResult insertCarousel(@RequestBody Carousel carousel){
         return CommonResult.success(carouselService.insertCarousel(carousel));
     }
 
@@ -61,7 +61,7 @@ public class CarouselController {
     @ApiOperation("修改Carousel信息")
     @PostMapping("/updateCarousel")
     @ResponseBody
-    public CommonResult updateCarousel(Carousel carousel){
+    public CommonResult updateCarousel(@RequestBody Carousel carousel){
         return CommonResult.success(carouselService.updateCarousel(carousel));
     }
 
