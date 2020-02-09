@@ -32,8 +32,13 @@
     <select id="selectLivestockList" parameterType="Livestock" resultMap="LivestockResult">
         <include refid="LivestockResultVo"/>
         <where>
-            <if test="livestockId != null and livestockId != 0">
-                and livestock_id = #{livestockId}
+        <if test="livestockId != null and livestockId != 0">
+            and livestock_id = #{livestockId}
+        </if>
+        </where>
+        <where>
+            <if test="outTime != null ">
+                out_time like CONCAT(CONCAT('%',#{outTime}),'%')
             </if>
         </where>
     </select>
