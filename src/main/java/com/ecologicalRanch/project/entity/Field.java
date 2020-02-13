@@ -2,6 +2,8 @@ package com.ecologicalRanch.project.entity;
 
 import lombok.Data;
 
+import javax.validation.constraints.NotNull;
+
 /**
  *
  *
@@ -13,7 +15,7 @@ public class Field {
     /**
      * 场地ID
      */
-
+    @NotNull(message = "id不能为空")
     private Long fieldId;
 
     /**

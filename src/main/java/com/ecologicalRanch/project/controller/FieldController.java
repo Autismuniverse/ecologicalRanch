@@ -39,12 +39,18 @@ public class FieldController {
 
     /**
      * 通过Id查询Field
+     *
+     * {
+     *     "fieldId":1
+     * }
      */
     @ApiOperation("通过Id查询Field")
     @PostMapping("/selectFieldById/")
     @ResponseBody
-    public CommonResult selectFieldById(@RequestBody Long fieldId){
-        return CommonResult.success(fieldService.selectFieldById(fieldId));
+    public CommonResult selectFieldById(@RequestBody Field field){
+
+
+        return CommonResult.success(fieldService.selectFieldById(field.getFieldId()));
     }
 
     /**

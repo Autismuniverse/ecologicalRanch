@@ -89,7 +89,6 @@
 
 
 
-
 <!--    <resultMap id="FieldResultByLivestock" type="Field" >-->
 <!--        <result column="admin_id" property="adminId" />-->
 <!--        <result column="field_name" property="fieldName" />-->
