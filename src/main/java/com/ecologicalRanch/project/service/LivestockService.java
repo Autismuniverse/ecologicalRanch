@@ -43,4 +43,8 @@ public interface LivestockService {
      */
     int updateLivestock(Livestock livestock);
 
+    /**
+     * 模糊查询Livestock信息
+     */
+    List<Livestock> fuzzyLivestockList(Livestock livestock);
 }

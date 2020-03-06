@@ -2,16 +2,16 @@ package com.ecologicalRanch.project.service.Impl;
 
 import com.ecologicalRanch.project.entity.Admin;
 import com.ecologicalRanch.project.mapper.AdminMapper;
-import com.ecologicalRanch.project.service.IAdminService;
+import com.ecologicalRanch.project.service.AdminService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
 import java.util.List;
 
 @Service
-public class AdminServiceImpl implements IAdminService {
+public class AdminServiceImpl implements AdminService {
 
-    @Resource
+    @Autowired
     private AdminMapper adminMapper;
 
     @Override

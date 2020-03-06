@@ -86,4 +86,14 @@ public class LivestockController {
     public CommonResult deleteLivestockByIds(String livestockIds){
         return CommonResult.success(livestockService.deleteLivestockByIds(livestockIds));
     }
+
+    /**
+     * 模糊查询Livestock列表
+     */
+    @ApiOperation(" 模糊查询Livestock列表")
+    @PostMapping("/fuzzyLivestockList")
+    @ResponseBody
+    public CommonResult fuzzyLivestockList(@RequestBody Livestock livestock){
+        return CommonResult.success(livestockService.fuzzyLivestockList(livestock));
+    }
 }

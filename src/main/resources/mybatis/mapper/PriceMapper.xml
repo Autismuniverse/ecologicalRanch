@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ecologicalRanch.project.mapper.PriceMapper">
+
+    <resultMap id="PriceResult" type="Price" >
+        <result column="livestock_price_id" property="livestockPriceId" />
+        <result column="field_id" property="fieldId" />
+        <result column="type" property="type" />
+        <result column="original_price" property="originalPrice" />
+        <result column="create_time" property="createTime" />
+        <result column="take_effect_time" property="takeEffectTime" />
+    </resultMap>
+
+    <sql id="PriceResultVo">
+        select
+        livestock_price_id,field_id,type,original_price,create_time,take_effect_time
+         from livestock_price
+    </sql>
+
+    <select id="selectPriceById" parameterType="Long" resultMap="PriceResult">
+        <include refid="PriceResultVo" />
+        WHERE livestock_price_id = #{livestockPriceId}
+    </select>
+
+    <select id="selectPriceList" parameterType="Price" resultMap="PriceResult">
+        <include refid="PriceResultVo"/>
+        <where>
+            <if test="livestockPriceId != null and livestockPriceId != 0">
+                and livestock_price_id = #{livestockPriceId}
+            </if>
+            <if test="fieldId != null and fieldId != 0">
+                and field_id = #{fieldId}
+            </if>
+        </where>
+    </select>
+
+    <insert id="insertPrice" parameterType="Price" useGeneratedKeys="true">
+        INSERT INTO livestock_price
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="livestockPriceId != null  and livestockPriceId != ''">livestock_price_id, </if>
+            <if test="fieldId != null  and fieldId != ''">field_id, </if>
+            <if test="type != null  and type != ''">type, </if>
+            <if test="originalPrice != null  and originalPrice != ''">original_price, </if>
+            <if test="createTime != null  and createTime != ''">create_time, </if>
+            <if test="takeEffectTime != null  and takeEffectTime != ''">take_effect_time </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="livestockPriceId != null  and livestockPriceId != ''">#{livestockPriceId},</if>
+            <if test="fieldId != null  and fieldId != ''">#{fieldId},</if>
+            <if test="type != null  and type != ''">#{type},</if>
+            <if test="originalPrice != null  and originalPrice != ''">#{originalPrice},</if>
+            <if test="createTime != null  and createTime != ''">#{createTime},</if>
+            <if test="takeEffectTime != null  and takeEffectTime != ''">#{takeEffectTime}</if>
+        </trim>
+    </insert>
+
+    <update id="updatePrice" parameterType="Price" >
+        UPDATE livestock_price
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="livestockPriceId != null  and livestockPriceId != ''">livestock_price_id = #{livestockPriceId},</if>
+            <if test="fieldId != null  and fieldId != ''">field_id = #{fieldId},</if>
+            <if test="type != null  and type != ''">type = #{type},</if>
+            <if test="originalPrice != null  and originalPrice != ''">original_price = #{originalPrice},</if>
+            <if test="createTime != null  and createTime != ''">create_time = #{createTime},</if>
+            <if test="takeEffectTime != null  and takeEffectTime != ''">take_effect_time = #{takeEffectTime},</if>
+        </trim>
+        WHERE  livestock_price_id = #{livestockPriceId}
+    </update>
+
+    <delete id="deletePriceById" parameterType="Long">
+        DELETE FROM livestock_price
+        WHERE  livestock_price_id = #{livestockPriceId}
+    </delete>
+
+    <delete id="deletePriceByIds" parameterType="String">
+        delete from livestock_price where livestock_price_id in
+        <foreach item="item" collection="array" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+
+</mapper>

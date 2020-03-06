@@ -1,23 +1,23 @@
 package com.ecologicalRanch.project.controller;
 
 import com.ecologicalRanch.project.entity.Admin;
-import com.ecologicalRanch.project.service.IAdminService;
+import com.ecologicalRanch.project.service.AdminService;
 import com.ecologicalRanch.utils2.JSONResult;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-
-import javax.annotation.Resource;
 
 
 @Api(tags = "管理员")
-@RestController
+@Controller
 @RequestMapping("/admin")
-@CrossOrigin
+//@CrossOrigin
 public class AdminController {
 
-    @Resource
-    private IAdminService adminService;
+    @Autowired
+    private AdminService adminService;
 
     /**
      * 查询所有管理员信息

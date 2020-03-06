@@ -72,4 +72,12 @@ public class LivestockServiceImpl implements LivestockService {
         return livestockMapper.updateLivestock(livestock);
     }
 
+    /**
+     * 模糊查询 Livestock
+     */
+    @Override
+    public List<Livestock> fuzzyLivestockList(Livestock livestock) {
+        return livestockMapper.fuzzyLivestockList(livestock);
+    }
+
 }

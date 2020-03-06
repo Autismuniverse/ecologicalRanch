@@ -4,7 +4,7 @@ import com.ecologicalRanch.project.entity.Admin;
 
 import java.util.List;
 
-public interface IAdminService {
+public interface AdminService {
 
     List<Admin> queryAll();
 

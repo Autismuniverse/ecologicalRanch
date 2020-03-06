@@ -54,5 +54,11 @@ public interface LivestockMapper {
      */
     int deleteLivestockByIds(String[] livestockIds);
 
+    /**
+     * 通过livestock模糊查询
+     * @param livestock 查询
+     * @return 查询对象
+     */
+    List<Livestock> fuzzyLivestockList(Livestock livestock);
 }
 
