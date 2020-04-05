@@ -83,5 +83,9 @@ public class Livestock {
     @ApiModelProperty(value = "预购状态（0，正常；1，被预定；-1，已售出）")
     private Integer preorderStatus;
 
+    /**
+     * 步数类
+     */
+    private Step Step;
 
 }

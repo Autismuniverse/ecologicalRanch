@@ -98,19 +98,19 @@
 
 
 
-    <resultMap id="FieldResultByLivestock" type="Field" >
-        <result column="admin_id" property="adminId" />
-        <result column="field_name" property="fieldName" />
-        <result column="address" property="address" />
-        <result column="qualified" property="qualified" />
-        <result column="grade" property="grade" />
-        <result column="logo_Src" property="logoSrc" />
-        <result column="style_class" property="styleClass" />
-        <association property="fieldId"
-                     select="com.ecologicalRanch.project.mapper.LivestockMapper.selectLivestockList" column="field_id"
-        >
-        </association>
-    </resultMap>
+<!--    <resultMap id="FieldResultByLivestock" type="Field" >-->
+<!--        <result column="admin_id" property="adminId" />-->
+<!--        <result column="field_name" property="fieldName" />-->
+<!--        <result column="address" property="address" />-->
+<!--        <result column="qualified" property="qualified" />-->
+<!--        <result column="grade" property="grade" />-->
+<!--        <result column="logo_Src" property="logoSrc" />-->
+<!--        <result column="style_class" property="styleClass" />-->
+<!--        <association property="fieldId"-->
+<!--                     select="com.ecologicalRanch.project.mapper.LivestockMapper.selectLivestockList" column="field_id"-->
+<!--        >-->
+<!--        </association>-->
+<!--    </resultMap>-->
 <!--    -->
 <!--    <select id="selectFieldByLivestock"  resultMap="FieldResultByLivestock">-->
 <!--        <include refid="FieldResultVo" />-->

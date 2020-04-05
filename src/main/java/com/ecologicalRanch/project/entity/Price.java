@@ -47,5 +47,10 @@ public class Price  {
 
     private Date takeEffectTime;
 
+    /**
+     * 鸡的图片
+     */
+    private String img;
+
 
 }

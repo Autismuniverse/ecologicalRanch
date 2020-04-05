@@ -5,6 +5,7 @@ import com.ecologicalRanch.common.pagehelper.CommonPage;
 import com.ecologicalRanch.common.result.CommonResult;
 import com.ecologicalRanch.project.entity.Carousel;
 import com.ecologicalRanch.project.service.CarouselService;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
  * @author u-fun
  * @date '2020-01-10 16:30:19'
  */
+@Api(tags = "轮播图")
 @Controller
 @RequestMapping("/app/carousel")
 public class CarouselController {

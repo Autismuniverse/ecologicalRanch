@@ -93,7 +93,23 @@ public class LivestockController {
     @ApiOperation(" 模糊查询Livestock列表")
     @PostMapping("/fuzzyLivestockList")
     @ResponseBody
-    public CommonResult fuzzyLivestockList(@RequestBody Livestock livestock){
-        return CommonResult.success(livestockService.fuzzyLivestockList(livestock));
+    public CommonResult fuzzyLivestockList(@RequestBody Livestock livestock,
+                                           @RequestParam(value = "pageNum",defaultValue = "1",required = false) int pageNum,
+                                           @RequestParam(value = "pageSize",defaultValue = "10",required = false)int pageSize){
+
+        return CommonResult.success(CommonPage.restPage(livestockService.fuzzyLivestockList(livestock,pageNum,pageSize)));
+
+    }
+
+    /**
+     * 查询Livestock列表
+     */
+    @ApiOperation(" 查询Livestock列表")
+    @PostMapping("/selectStep")
+    @ResponseBody
+    public CommonResult selectStep(@RequestBody Livestock livestock,
+                                            @RequestParam(value = "pageNum",defaultValue = "1",required = false) int pageNum,
+                                            @RequestParam(value = "pageSize",defaultValue = "10",required = false)int pageSize){
+        return CommonResult.success(CommonPage.restPage(livestockService.selectStep(livestock,pageNum,pageSize)));
     }
 }

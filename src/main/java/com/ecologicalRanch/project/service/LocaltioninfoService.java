@@ -2,6 +2,8 @@ package com.ecologicalRanch.project.service;
 
 import com.ecologicalRanch.project.entity.Localtioninfo;
 
+import java.util.List;
+
 /**
  *
  *
@@ -10,10 +12,10 @@ import com.ecologicalRanch.project.entity.Localtioninfo;
  */
 public interface LocaltioninfoService {
 
-//    /**
-//     * 查询Localtioninfo列表
-//     */
-//    List<Localtioninfo> selectLocaltioninfoList(Localtioninfo localtioninfo,int pageNum,int pageSize);
+    /**
+     * 查询Localtioninfo列表
+     */
+    List<Localtioninfo> selectLocaltioninfoList(Localtioninfo localtioninfo, int pageNum, int pageSize);
 
     /**
      * 通过Id查询 Localtioninfo

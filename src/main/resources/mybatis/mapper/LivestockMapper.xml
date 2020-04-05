@@ -5,23 +5,29 @@
 
     <resultMap id="LivestockResult" type="Livestock" >
         <result column="livestock_id" property="livestockId" />
-<!--        <result column="field_id" property="fieldId" />-->
-<!--        <result column="step_num_id" property="stepNumId" />-->
-<!--        <result column="bluetooth_id" property="bluetoothId" />-->
-<!--        <result column="rfid_id" property="rfidId" />-->
-<!--        <result column="sex" property="sex" />-->
-<!--        <result column="species" property="species" />-->
-<!--        <result column="weight" property="weight" />-->
-<!--        <result column="image" property="image" />-->
-<!--        <result column="batch" property="batch" />-->
-<!--        <result column="out_time" property="outTime" />-->
-<!--        <result column="preorder_status" property="preorderStatus" />-->
+        <result column="field_id" property="fieldId" />
+        <result column="step_num_id" property="stepNumId" />
+        <result column="bluetooth_id" property="bluetoothId" />
+        <result column="rfid_id" property="rfidId" />
+        <result column="sex" property="sex" />
+        <result column="species" property="species" />
+        <result column="weight" property="weight" />
+        <result column="image" property="image" />
+        <result column="batch" property="batch" />
+        <result column="out_time" property="outTime" />
+        <result column="preorder_status" property="preorderStatus" />
     </resultMap>
 
     <sql id="LivestockResultVo">
         select
         livestock_id,field_id,step_num_id,bluetooth_id,rfid_id,sex,species,weight,image,batch,out_time,preorder_status
         from livestock
+    </sql>
+
+    <sql id="LivestockStepVo">
+        select
+        livestock_id,field_id,step_num_id,bluetooth_id,rfid_id,sex,species,weight,image,batch,out_time,preorder_status
+
     </sql>
 
     <select id="selectLivestockById" parameterType="Long" resultMap="LivestockResult">
@@ -140,6 +146,33 @@
         </if>
         </where>
 </select>
+
+ <resultMap id="LivestockStep" type="Livestock" >
+    <result column="livestock_id" property="livestockId" />
+    <result column="field_id" property="fieldId" />
+    <result column="step_num_id" property="stepNumId" />
+    <result column="bluetooth_id" property="bluetoothId" />
+    <result column="rfid_id" property="rfidId" />
+    <result column="sex" property="sex" />
+    <result column="species" property="species" />
+    <result column="weight" property="weight" />
+    <result column="image" property="image" />
+    <result column="batch" property="batch" />
+    <result column="out_time" property="outTime" />
+    <result column="preorder_status" property="preorderStatus" />
+     <association property="step_number" javaType="com.ecologicalRanch.project.entity.Step">
+         <result column="step_num_id" property="stepNumId" />
+         <result column="livestock_id" property="livestockId" />
+         <result column="step_num" property="stepNum" />
+         <result column="creat_time" property="creatTime" />
+     </association>
+</resultMap>
+    <select id="selectStep" parameterType="Livestock" resultMap="LivestockStep">
+    
+    <include refid="LivestockStepVo"></include>
+    from livestock l RIGHT JOIN step_number s ON l.step_num_id = s.step_num_id
+    where l.livestock_id = #{livestockId}
+    </select>
 
 
 </mapper>

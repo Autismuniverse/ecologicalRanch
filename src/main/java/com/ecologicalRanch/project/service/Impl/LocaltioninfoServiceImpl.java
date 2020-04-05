@@ -4,8 +4,11 @@ import com.ecologicalRanch.project.entity.Localtioninfo;
 import com.ecologicalRanch.project.mapper.LocaltioninfoMapper;
 import com.ecologicalRanch.project.service.LocaltioninfoService;
 import com.ecologicalRanch.utils2.Convert;
+import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  *
@@ -27,14 +30,14 @@ public class LocaltioninfoServiceImpl implements LocaltioninfoService {
         return localtioninfoMapper.selectLocaltioninfoById(bluetoothId);
     }
 
-//    /**
-//     * 查询Localtioninfo列表
-//     */
-//
-//    @Override
-//    public List<Localtioninfo> selectLocaltioninfoList(Localtioninfo localtioninfo,int pageNum,int pageSize){
-//        return  PageHelper.startPage(pageNum,pageSize).doSelectPage(()->localtioninfoMapper.selectLocaltioninfoList(localtioninfo));
-//    }
+    /**
+     * 查询Localtioninfo列表
+     */
+
+    @Override
+    public List<Localtioninfo> selectLocaltioninfoList(Localtioninfo localtioninfo, int pageNum, int pageSize){
+        return  PageHelper.startPage(pageNum,pageSize).doSelectPage(()->localtioninfoMapper.selectLocaltioninfoList(localtioninfo));
+    }
 
     /**
      * 新增Localtioninfo

@@ -4,6 +4,7 @@ import com.ecologicalRanch.common.pagehelper.CommonPage;
 import com.ecologicalRanch.common.result.CommonResult;
 import com.ecologicalRanch.project.entity.Price;
 import com.ecologicalRanch.project.service.PriceService;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
  * @author xxxfredyang
  * @date '2020-02-27 16:11:23'
  */
+@Api(tags = "价格与品种")
 @Controller
 @RequestMapping("/app/price")
 public class PriceController {

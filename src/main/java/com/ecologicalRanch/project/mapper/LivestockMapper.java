@@ -60,5 +60,12 @@ public interface LivestockMapper {
      * @return 查询对象
      */
     List<Livestock> fuzzyLivestockList(Livestock livestock);
+
+    /**
+     * 查询Livestock步數列表
+     * @param livestock 查询对象
+     * @return 查询列表
+     */
+    List<Livestock> selectStep(Livestock livestock);
 }
 

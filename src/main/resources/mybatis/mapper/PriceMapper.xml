@@ -10,11 +10,12 @@
         <result column="original_price" property="originalPrice" />
         <result column="create_time" property="createTime" />
         <result column="take_effect_time" property="takeEffectTime" />
+        <result column="livestock_img" property="img" />
     </resultMap>
 
     <sql id="PriceResultVo">
         select
-        livestock_price_id,field_id,type,original_price,create_time,take_effect_time
+        livestock_price_id,field_id,type,original_price,create_time,take_effect_time,livestock_img
          from livestock_price
     </sql>
 

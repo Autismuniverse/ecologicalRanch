@@ -1,8 +1,10 @@
 package com.ecologicalRanch.project.controller;
 
+import com.ecologicalRanch.common.pagehelper.CommonPage;
 import com.ecologicalRanch.project.entity.Localtioninfo;
 import com.ecologicalRanch.project.result.CommonResult;
 import com.ecologicalRanch.project.service.LocaltioninfoService;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
  * @author u-fun
  * @date '2019-12-20 14:21:52'
  */
+@Api(tags = "位置信息")
 @Controller
 @RequestMapping("/app/localtioninfo")
 public class LocaltioninfoController {
@@ -21,18 +24,18 @@ public class LocaltioninfoController {
     @Autowired
     private LocaltioninfoService localtioninfoService;
 
-//    /**
-//     * 查询Localtioninfo列表
-//     */
-//    @ApiOperation(" 查询Localtioninfo列表")
-//
-//    @PostMapping("/selectLocaltioninfoList")
-//    @ResponseBody
-//    public CommonResult selectLocaltioninfoList(Localtioninfo localtioninfo,
-//                                                @RequestParam(value = "pageNum",defaultValue = "1",required = false) int pageNum,
-//                                                @RequestParam(value = "pageNum",defaultValue = "10",required = false)int pageSize){
-//        return CommonResult.success(CommonPage.restPage(localtioninfoService.selectLocaltioninfoList(localtioninfo,pageNum,pageSize)));
-//    }
+    /**
+     * 查询Localtioninfo列表
+     */
+    @ApiOperation(" 查询Localtioninfo列表")
+
+    @PostMapping("/selectLocaltioninfoList")
+    @ResponseBody
+    public CommonResult selectLocaltioninfoList(Localtioninfo localtioninfo,
+                                                @RequestParam(value = "pageNum",defaultValue = "1",required = false) int pageNum,
+                                                @RequestParam(value = "pageNum",defaultValue = "10",required = false)int pageSize){
+        return CommonResult.success(CommonPage.restPage(localtioninfoService.selectLocaltioninfoList(localtioninfo,pageNum,pageSize)));
+    }
 
     /**
      * 通过Id查询Localtioninfo

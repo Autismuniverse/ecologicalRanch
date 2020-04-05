@@ -46,5 +46,10 @@ public interface LivestockService {
     /**
      * 模糊查询Livestock信息
      */
-    List<Livestock> fuzzyLivestockList(Livestock livestock);
+    List<Livestock> fuzzyLivestockList(Livestock livestock,int pageNum, int pageSize);
+
+    /**
+     * 查询Livestock步數列表
+     */
+    List<Livestock> selectStep(Livestock livestock, int pageNum, int pageSize);
 }

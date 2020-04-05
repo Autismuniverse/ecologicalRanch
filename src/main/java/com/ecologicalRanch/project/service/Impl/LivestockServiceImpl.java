@@ -76,8 +76,19 @@ public class LivestockServiceImpl implements LivestockService {
      * 模糊查询 Livestock
      */
     @Override
-    public List<Livestock> fuzzyLivestockList(Livestock livestock) {
-        return livestockMapper.fuzzyLivestockList(livestock);
+    public List<Livestock> fuzzyLivestockList(Livestock livestock,int pageNum,int pageSize) {
+
+        return  PageHelper.startPage(pageNum,pageSize).doSelectPage(()->livestockMapper.fuzzyLivestockList(livestock));
+
+    }
+
+    /**
+     * 查询Livestock步數列表
+     */
+
+    @Override
+    public List<Livestock> selectStep(Livestock livestock,int pageNum,int pageSize){
+        return  PageHelper.startPage(pageNum,pageSize).doSelectPage(()->livestockMapper.selectStep(livestock));
     }
 
 }
