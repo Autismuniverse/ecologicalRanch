@@ -104,12 +104,24 @@ public class LivestockController {
     /**
      * 查询Livestock列表
      */
-    @ApiOperation(" 查询Livestock列表")
+    @ApiOperation(" 查询Livestock以及步数列表")
     @PostMapping("/selectStep")
     @ResponseBody
     public CommonResult selectStep(@RequestBody Livestock livestock,
                                             @RequestParam(value = "pageNum",defaultValue = "1",required = false) int pageNum,
                                             @RequestParam(value = "pageSize",defaultValue = "10",required = false)int pageSize){
+        return CommonResult.success(CommonPage.restPage(livestockService.selectStep(livestock,pageNum,pageSize)));
+    }
+
+    /**
+     * 查询Livestock列表
+     */
+    @ApiOperation(" 查询Livestock品种列表")
+    @PostMapping("/selectPrice")
+    @ResponseBody
+    public CommonResult selectPrice(@RequestBody Livestock livestock,
+                                   @RequestParam(value = "pageNum",defaultValue = "1",required = false) int pageNum,
+                                   @RequestParam(value = "pageSize",defaultValue = "10",required = false)int pageSize){
         return CommonResult.success(CommonPage.restPage(livestockService.selectStep(livestock,pageNum,pageSize)));
     }
 }

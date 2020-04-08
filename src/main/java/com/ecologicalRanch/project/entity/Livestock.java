@@ -88,4 +88,10 @@ public class Livestock {
      */
     private Step Step;
 
+
+    /**
+     * 品种类
+     */
+    private Price price;
+
 }

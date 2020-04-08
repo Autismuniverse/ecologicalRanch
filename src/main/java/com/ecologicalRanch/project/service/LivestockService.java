@@ -52,4 +52,9 @@ public interface LivestockService {
      * 查询Livestock步數列表
      */
     List<Livestock> selectStep(Livestock livestock, int pageNum, int pageSize);
+
+    /**
+     * 查询Livestock步數列表
+     */
+    List<Livestock> selectPrice(Livestock livestock, int pageNum, int pageSize);
 }

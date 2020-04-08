@@ -91,4 +91,13 @@ public class LivestockServiceImpl implements LivestockService {
         return  PageHelper.startPage(pageNum,pageSize).doSelectPage(()->livestockMapper.selectStep(livestock));
     }
 
+    /**
+     * 查询Livestock品种列表
+     */
+
+    @Override
+    public List<Livestock> selectPrice(Livestock livestock,int pageNum,int pageSize){
+        return  PageHelper.startPage(pageNum,pageSize).doSelectPage(()->livestockMapper.selectPrice(livestock));
+    }
+
 }

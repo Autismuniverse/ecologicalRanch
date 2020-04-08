@@ -67,5 +67,12 @@ public interface LivestockMapper {
      * @return 查询列表
      */
     List<Livestock> selectStep(Livestock livestock);
+
+    /**
+     * 查询Livestock品种列表
+     * @param livestock 查询对象
+     * @return 查询列表
+     */
+    List<Livestock> selectPrice(Livestock livestock);
 }
 
