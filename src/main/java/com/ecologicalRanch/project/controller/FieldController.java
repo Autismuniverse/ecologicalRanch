@@ -92,5 +92,18 @@ public class FieldController {
     public CommonResult deleteFieldByIds(String fieldIds){
         return CommonResult.success(fieldService.deleteFieldByIds(fieldIds));
     }
+
+    /**
+     * 通过adminId查询Field
+     */
+    @ApiOperation("通过adminId查询Field")
+    @PostMapping("/selectFieldByAdminId/")
+    @ResponseBody
+    public CommonResult selectFieldByAdminId(@RequestBody Field field){
+
+
+//        return CommonResult.success(fieldService.selectFieldById(field.getFieldId()));
+        return CommonResult.success(fieldService.selectFieldByAdminId(field.getAdminId()));
+    }
 }
 

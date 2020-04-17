@@ -25,9 +25,9 @@
     </sql>
 
     <sql id="LivestockStepVo">
-        select
-        livestock_id,field_id,step_num_id,bluetooth_id,rfid_id,sex,species,weight,image,batch,out_time,preorder_status
-
+        select *
+--         l.livestock_id,l.field_id,l.step_num_id,l.bluetooth_id,l.rfid_id,l.sex,l.species,l.weight,l.image,l.batch,l.out_time,l.preorder_status,
+--         s.step_num
     </sql>
 
     <select id="selectLivestockById" parameterType="Long" resultMap="LivestockResult">
@@ -160,7 +160,7 @@
     <result column="batch" property="batch" />
     <result column="out_time" property="outTime" />
     <result column="preorder_status" property="preorderStatus" />
-     <association property="step_number" javaType="com.ecologicalRanch.project.entity.Step">
+     <association property="Step" javaType="com.ecologicalRanch.project.entity.Step">
          <result column="step_num_id" property="stepNumId" />
          <result column="livestock_id" property="livestockId" />
          <result column="step_num" property="stepNum" />
@@ -173,6 +173,5 @@
     from livestock l RIGHT JOIN step_number s ON l.step_num_id = s.step_num_id
     where l.livestock_id = #{livestockId}
     </select>
-
 
 </mapper>

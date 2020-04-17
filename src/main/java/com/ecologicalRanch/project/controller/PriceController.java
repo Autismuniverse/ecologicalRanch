@@ -37,6 +37,16 @@ public class PriceController {
     }
 
     /**
+     * 查询Price不分页列表
+     */
+    @ApiOperation(" 查询Price列表无分页")
+    @PostMapping("/selectPriceListNoPageHelper")
+    @ResponseBody
+    public CommonResult selectPriceListNoPageHelper(@RequestBody Price price){
+        return CommonResult.success(priceService.selectPriceListNoPageHelper(price));
+    }
+
+    /**
      * 通过Id查询Price
      */
     @ApiOperation("通过Id查询Price")
@@ -52,7 +62,7 @@ public class PriceController {
     @ApiOperation("新增Price")
     @PostMapping("/insertPrice")
     @ResponseBody
-    public CommonResult insertPrice(Price price){
+    public CommonResult insertPrice(@RequestBody Price price){
         return CommonResult.success(priceService.insertPrice(price));
     }
 
@@ -62,7 +72,7 @@ public class PriceController {
     @ApiOperation("修改Price信息")
     @PostMapping("/updatePrice")
     @ResponseBody
-    public CommonResult updatePrice(Price price){
+    public CommonResult updatePrice(@RequestBody Price price){
         return CommonResult.success(priceService.updatePrice(price));
     }
 
@@ -72,8 +82,8 @@ public class PriceController {
     @ApiOperation("通过id删除Price")
     @PostMapping("/deletePriceById")
     @ResponseBody
-    public CommonResult deletePriceById(@RequestBody Long livestockPriceId){
-        return CommonResult.success(priceService.deletePriceById(livestockPriceId));
+    public CommonResult deletePriceById(@RequestBody Price price){
+        return CommonResult.success(priceService.deletePriceById(price.getLivestockPriceId()));
     }
 
     /**

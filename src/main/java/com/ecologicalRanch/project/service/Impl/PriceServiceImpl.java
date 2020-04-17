@@ -39,6 +39,10 @@ public class PriceServiceImpl implements PriceService {
         return  PageHelper.startPage(pageNum,pageSize).doSelectPage(()->priceMapper.selectPriceList(price));
     }
 
+    @Override
+    public List<Price> selectPriceListNoPageHelper(Price price){
+        return  priceMapper.selectPriceList(price);    }
+
     /**
      * 新增Price
      */

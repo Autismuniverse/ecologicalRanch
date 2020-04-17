@@ -42,4 +42,8 @@ public interface FieldService {
      */
     int updateField(Field field);
 
+    /**
+     * 通过adminId查询 Field
+     */
+    List<Field> selectFieldByAdminId(Long adminId);
 }

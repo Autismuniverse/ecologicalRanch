@@ -22,7 +22,7 @@ public class Field {
      * 牲畜场管理员id
      */
 
-    private Integer adminId;
+    private Long adminId;
 
     /**
      * 场地名称

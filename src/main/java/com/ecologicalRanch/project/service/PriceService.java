@@ -18,6 +18,11 @@ public interface PriceService {
     List<Price> selectPriceList(Price price, int pageNum, int pageSize);
 
     /**
+     * 查询Price列表不分页
+     */
+    List<Price> selectPriceListNoPageHelper(Price price);
+
+    /**
      * 通过Id查询 Price
      */
     Price selectPriceById(Long livestockPriceId);

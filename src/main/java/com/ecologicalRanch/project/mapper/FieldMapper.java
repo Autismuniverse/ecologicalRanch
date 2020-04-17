@@ -54,4 +54,11 @@ public interface FieldMapper {
      */
     int deleteFieldByIds(String[] fieldIds);
 
+    /**
+     * 通过AdminId查询 Field
+     * @param Adminid 查询
+     * @return 查询对象
+     */
+    List<Field> selectFieldByAdminId(Long adminid);
+
 }

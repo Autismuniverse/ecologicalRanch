@@ -71,4 +71,12 @@ public class FieldServiceImpl implements FieldService {
         return fieldMapper.updateField(field);
     }
 
+    /**
+     * 通过adminId查询 Field
+     */
+    @Override
+    public  List<Field> selectFieldByAdminId(Long adminId) {
+        return fieldMapper.selectFieldByAdminId(adminId);
+    }
+
 }
