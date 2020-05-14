@@ -25,6 +25,11 @@
         WHERE field_id = #{fieldId}
     </select>
 
+    <select id="selectFieldByAdminId" parameterType="Field" resultMap="FieldResult">
+        <include refid="FieldResultVo" />
+        WHERE admin_id = #{adminId}
+    </select>
+
 
 
     <select id="selectFieldList" parameterType="Field" resultMap="FieldResult">
