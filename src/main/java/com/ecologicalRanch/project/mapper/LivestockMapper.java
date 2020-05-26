@@ -73,6 +73,6 @@ public interface LivestockMapper {
      * @param livestock 查询对象
      * @return 查询列表
      */
-    List<Livestock> selectPrice(Livestock livestock);
+    List<Livestock> selectOutTime(Livestock livestock);
 }
 

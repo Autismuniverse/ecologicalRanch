@@ -4,7 +4,6 @@ import com.ecologicalRanch.project.entity.Discount;
 import com.ecologicalRanch.project.mapper.DiscountMapper;
 import com.ecologicalRanch.project.service.DiscountService;
 import com.ecologicalRanch.utils2.Convert;
-import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -35,8 +34,8 @@ public class DiscountServiceImpl implements DiscountService {
      */
 
     @Override
-    public List<Discount> selectDiscountList(Discount discount, int pageNum, int pageSize){
-        return  PageHelper.startPage(pageNum,pageSize).doSelectPage(()->discountMapper.selectDiscountList(discount));
+    public List<Discount> selectDiscountList(Discount discount){
+        return  discountMapper.selectDiscountList(discount);
     }
 
     /**

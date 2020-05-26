@@ -174,4 +174,27 @@
     where l.livestock_id = #{livestockId}
     </select>
 
+
+    <resultMap id="LivestockOutTime" type="java.util.HashMap" >
+
+<!--        <result column="species" property="species" />-->
+    </resultMap>
+
+    <select id="selectOutTime" parameterType="Livestock" resultMap="LivestockOutTime">
+        SELECT  DISTINCT out_time  FROM livestock
+        <if test="fieldId != null and fieldId != ''">
+            where field_id = #{fieldId}
+        </if>
+
+<!--        <if test="outTime != null and outTime != ''">-->
+<!--            and out_time like CONCAT(CONCAT('%',#{outTime}),'%')-->
+<!--        </if>-->
+
+<!--        <where>-->
+<!--            <if test="outTime != null  and outTime != ''">out_time = #{outTime},</if>-->
+<!--            <if test="species != null  and species != ''">species = #{species}</if>-->
+
+<!--        </where>-->
+    </select>
+
 </mapper>

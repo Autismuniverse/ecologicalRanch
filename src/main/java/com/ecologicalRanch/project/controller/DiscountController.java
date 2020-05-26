@@ -1,6 +1,5 @@
 package com.ecologicalRanch.project.controller;
 
-import com.ecologicalRanch.common.pagehelper.CommonPage;
 import com.ecologicalRanch.project.entity.Discount;
 import com.ecologicalRanch.project.result.CommonResult;
 import com.ecologicalRanch.project.service.DiscountService;
@@ -30,10 +29,8 @@ public class DiscountController {
     @ApiOperation(" 查询Discount列表")
     @PostMapping("/selectDiscountList")
     @ResponseBody
-    public CommonResult selectDiscountList(@RequestBody Discount discount,
-                                           @RequestParam(value = "pageNum",defaultValue = "1",required = false) int pageNum,
-                                           @RequestParam(value = "pageSize",defaultValue = "10",required = false)int pageSize){
-        return CommonResult.success(CommonPage.restPage(discountService.selectDiscountList(discount,pageNum,pageSize)));
+    public CommonResult selectDiscountList(@RequestBody Discount discount){
+        return CommonResult.success(discountService.selectDiscountList(discount));
     }
 
     /**

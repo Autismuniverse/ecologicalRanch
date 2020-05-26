@@ -96,8 +96,8 @@ public class LivestockServiceImpl implements LivestockService {
      */
 
     @Override
-    public List<Livestock> selectPrice(Livestock livestock,int pageNum,int pageSize){
-        return  PageHelper.startPage(pageNum,pageSize).doSelectPage(()->livestockMapper.selectPrice(livestock));
+    public List<Livestock> selectOutTime(Livestock livestock){
+        return  livestockMapper.selectOutTime(livestock);
     }
 
 }

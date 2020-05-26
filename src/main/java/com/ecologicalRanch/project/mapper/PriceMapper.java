@@ -54,5 +54,12 @@ public interface PriceMapper {
      */
     int deletePriceByIds(String[] livestockPriceIds);
 
+    /**
+     * 查询Price列表只返回一个type字段
+     * @param price 查询对象
+     * @return 查询列表
+     */
+    List<Price> selectPriceListNoPageHelperOneType(Price price);
+
 }
 

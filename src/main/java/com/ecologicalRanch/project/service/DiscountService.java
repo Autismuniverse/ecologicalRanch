@@ -15,7 +15,7 @@ public interface DiscountService {
     /**
      * 查询Discount列表
      */
-    List<Discount> selectDiscountList(Discount discount, int pageNum, int pageSize);
+    List<Discount> selectDiscountList(Discount discount);
 
     /**
      * 通过Id查询 Discount

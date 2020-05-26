@@ -81,4 +81,16 @@
         </foreach>
     </delete>
 
+
+    <resultMap id="selectPriceListNoPageHelperOneType" type="java.util.HashMap" >
+        <result column="type" property="type" />
+    </resultMap>
+
+    <select id="selectPriceListNoPageHelperOneType"  resultMap="selectPriceListNoPageHelperOneType">
+        select type from livestock_price
+        <if test="fieldId != null and fieldId != 0">
+            where field_id = #{fieldId}
+        </if>
+    </select>
+
 </mapper>

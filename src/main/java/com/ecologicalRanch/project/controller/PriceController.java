@@ -95,4 +95,13 @@ public class PriceController {
     public CommonResult deletePriceByIds(String livestockPriceIds){
         return CommonResult.success(priceService.deletePriceByIds(livestockPriceIds));
     }
+    /**
+     * 查询Price只返回一个type字段
+     */
+    @ApiOperation(" 查询鸡的type列表无分页，只返回一个type字段")
+    @PostMapping("/selectPriceListNoPageHelperOneType")
+    @ResponseBody
+    public CommonResult selectPriceListNoPageHelperOneType(@RequestBody Price price){
+        return CommonResult.success(priceService.selectPriceListNoPageHelperOneType(price));
+    }
 }

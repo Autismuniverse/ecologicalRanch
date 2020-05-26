@@ -47,4 +47,10 @@ public interface PriceService {
      */
     int updatePrice(Price price);
 
+    /**
+     * 查询Price列表不分页只返回一个type字段
+     */
+    List<Price> selectPriceListNoPageHelperOneType(Price price);
+
+
 }

@@ -38,7 +38,9 @@ public class PriceServiceImpl implements PriceService {
     public List<Price> selectPriceList(Price price, int pageNum, int pageSize){
         return  PageHelper.startPage(pageNum,pageSize).doSelectPage(()->priceMapper.selectPriceList(price));
     }
-
+    /**
+     * 查询Price列表无分页
+     */
     @Override
     public List<Price> selectPriceListNoPageHelper(Price price){
         return  priceMapper.selectPriceList(price);    }
@@ -75,5 +77,11 @@ public class PriceServiceImpl implements PriceService {
         return priceMapper.updatePrice(price);
     }
 
+    /**
+     * 查询Price列表无分页只返回一个type字段
+     */
+    @Override
+    public List<Price> selectPriceListNoPageHelperOneType(Price price){
+        return  priceMapper.selectPriceListNoPageHelperOneType(price);    }
 }
 
