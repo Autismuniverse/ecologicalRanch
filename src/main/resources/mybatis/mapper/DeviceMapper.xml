@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ecologicalRanch.project.mapper.DeviceMapper">
+
+    <resultMap id="DeviceResult" type="Device" >
+        <result column="bluetooth_id" property="bluetoothId" />
+        <result column="rfid_id" property="rfidId" />
+        <result column="field_id" property="fieldId" />
+        <result column="power" property="power" />
+    </resultMap>
+
+    <sql id="DeviceResultVo">
+        select
+        bluetooth_id,rfid_id,field_id,power
+         from device
+    </sql>
+
+    <select id="selectDeviceById" parameterType="Long" resultMap="DeviceResult">
+        <include refid="DeviceResultVo" />
+        WHERE bluetooth_id = #{bluetoothId}
+    </select>
+
+    <select id="selectDeviceList" parameterType="Device" resultMap="DeviceResult">
+        <include refid="DeviceResultVo"/>
+        <where>
+            <if test="bluetoothId != null and bluetoothId != 0">
+                and bluetooth_id = #{bluetoothId}
+            </if>
+        </where>
+    </select>
+
+    <insert id="insertDevice" parameterType="Device" useGeneratedKeys="true">
+        INSERT INTO device
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="bluetoothId != null  and bluetoothId != ''">bluetooth_id, </if>
+            <if test="rfidId != null  and rfidId != ''">rfid, </if>
+            <if test="fieldId != null  and fieldId != ''">field_id </if>
+            <if test="power != null  and power != ''">power </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="bluetoothId != null  and bluetoothId != ''">#{bluetoothId},</if>
+            <if test="rfidId != null  and rfidId != ''">#{rfidId},</if>
+            <if test="fieldId != null  and fieldId != ''">#{fieldId}</if>
+            <if test="power != null  and power != ''">#{power}</if>
+        </trim>
+    </insert>
+
+    <update id="updateDevice" parameterType="Device" >
+        UPDATE device
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="bluetoothId != null  and bluetoothId != ''">bluetooth_id = #{bluetoothId},</if>
+            <if test="rfidId != null  and rfidId != ''">rfid = #{rfidId},</if>
+            <if test="fieldId != null  and fieldId != ''">field_id = #{fieldId},</if>
+            <if test="power != null  and power != ''">power = #{power},</if>
+        </trim>
+        WHERE  bluetooth_id = #{bluetoothId}
+    </update>
+
+    <delete id="deleteDeviceById" parameterType="Long">
+        DELETE FROM device
+        WHERE  bluetooth_id = #{bluetoothId}
+    </delete>
+
+    <delete id="deleteDeviceByIds" parameterType="String">
+        delete from device where bluetooth_id in
+        <foreach item="item" collection="array" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+
+</mapper>

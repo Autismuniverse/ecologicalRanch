@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ecologicalRanch.project.mapper.GatewayMapper">
+
+    <resultMap id="GatewayResult" type="Gateway" >
+        <result column="gateway_id" property="gatewayId" />
+        <result column="mac" property="mac" />
+        <result column="coordinate_x" property="coordinateX" />
+        <result column="coordinate_y" property="coordinateY" />
+    </resultMap>
+
+    <sql id="GatewayResultVo">
+        select
+        gateway_id,mac,coordinate_x,coordinate_y
+         from gateway
+    </sql>
+
+    <select id="selectGatewayByMac" parameterType="Gateway" resultMap="GatewayResult">
+        <include refid="GatewayResultVo" />
+        WHERE mac = #{mac}
+    </select>
+
+    <select id="selectGatewayList" parameterType="Gateway" resultMap="GatewayResult">
+        <include refid="GatewayResultVo"/>
+        <where>
+            <if test="gatewayId != null and gatewayId != 0">
+                and gateway_id = #{gatewayId}
+            </if>
+        </where>
+    </select>
+
+    <insert id="insertGateway" parameterType="Gateway" useGeneratedKeys="true">
+        INSERT INTO gateway
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="gatewayId != null  and gatewayId != ''">gateway_id, </if>
+            <if test="mac != null  and mac != ''">mac, </if>
+            <if test="coordinateX != null  and coordinateX != ''">coordinate_x, </if>
+            <if test="coordinateY != null  and coordinateY != ''">coordinate_y </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="gatewayId != null  and gatewayId != ''">#{gatewayId},</if>
+            <if test="mac != null  and mac != ''">#{mac},</if>
+            <if test="coordinateX != null  and coordinateX != ''">#{coordinateX},</if>
+            <if test="coordinateY != null  and coordinateY != ''">#{coordinateY}</if>
+        </trim>
+    </insert>
+
+    <update id="updateGateway" parameterType="Gateway" >
+        UPDATE gateway
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="gatewayId != null  and gatewayId != ''">gateway_id = #{gatewayId},</if>
+            <if test="mac != null  and mac != ''">mac = #{mac},</if>
+            <if test="coordinateX != null  and coordinateX != ''">coordinate_x = #{coordinateX},</if>
+            <if test="coordinateY != null  and coordinateY != ''">coordinate_y = #{coordinateY},</if>
+        </trim>
+        WHERE  gateway_id = #{gatewayId}
+    </update>
+
+    <delete id="deleteGatewayById" parameterType="Long">
+        DELETE FROM gateway
+        WHERE  gateway_id = #{gatewayId}
+    </delete>
+
+    <delete id="deleteGatewayByIds" parameterType="String">
+        delete from gateway where gateway_id in
+        <foreach item="item" collection="array" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+
+</mapper>

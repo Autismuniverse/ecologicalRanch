@@ -99,5 +99,9 @@ public class Discount {
 
     private double twelfthMonth;
 
+    /**
+     * 养殖场id
+     */
+    private int fieldId;
 
 }

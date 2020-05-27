@@ -15,18 +15,18 @@
         <result column="image" property="image" />
         <result column="batch" property="batch" />
         <result column="out_time" property="outTime" />
-        <result column="preorder_status" property="preorderStatus" />
+        <result column="status" property="status" />
     </resultMap>
 
     <sql id="LivestockResultVo">
         select
-        livestock_id,field_id,step_num_id,bluetooth_id,rfid_id,sex,species,weight,image,batch,out_time,preorder_status
+        livestock_id,field_id,step_num_id,bluetooth_id,rfid_id,sex,species,weight,image,batch,out_time,status
         from livestock
     </sql>
 
     <sql id="LivestockStepVo">
         select *
---         l.livestock_id,l.field_id,l.step_num_id,l.bluetooth_id,l.rfid_id,l.sex,l.species,l.weight,l.image,l.batch,l.out_time,l.preorder_status,
+--         l.livestock_id,l.field_id,l.step_num_id,l.bluetooth_id,l.rfid_id,l.sex,l.species,l.weight,l.image,l.batch,l.out_time,l.status,
 --         s.step_num
     </sql>
 
@@ -53,9 +53,13 @@
         <if test="fieldId != null and fieldId != ''">
             and field_id = #{fieldId}
         </if>
-        <if test="preorderStatus != null and preorderStatus != ''">
-            and preorder_status = #{preorderStatus}
+        <if test="status != null and status != ''">
+            and status = #{status}
         </if>
+        <if test="species != null and species != ''">
+            and species = #{species}
+        </if>
+
 
         </where>
     </select>
@@ -74,7 +78,7 @@
             <if test="image != null  and image != ''">image, </if>
             <if test="batch != null  and batch != ''">batch, </if>
             <if test="outTime != null  and outTime != ''">out_time, </if>
-            <if test="preorderStatus != null  and preorderStatus != ''">preorder_status </if>
+            <if test="status != null  and status != ''">status </if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="livestockId != null  and livestockId != ''">#{livestockId},</if>
@@ -88,7 +92,7 @@
             <if test="image != null  and image != ''">#{image},</if>
             <if test="batch != null  and batch != ''">#{batch},</if>
             <if test="outTime != null  and outTime != ''">#{outTime},</if>
-            <if test="preorderStatus != null  and preorderStatus != ''">#{preorderStatus}</if>
+            <if test="status != null  and status != ''">#{status}</if>
         </trim>
     </insert>
 
@@ -106,7 +110,7 @@
             <if test="image != null  and image != ''">image = #{image},</if>
             <if test="batch != null  and batch != ''">batch = #{batch},</if>
             <if test="outTime != null  and outTime != ''">out_time = #{outTime},</if>
-            <if test="preorderStatus != null">preorder_status = #{preorderStatus},</if>
+            <if test="status != null">status = #{status},</if>
         </trim>
         WHERE  livestock_id = #{livestockId}
     </update>
@@ -144,10 +148,13 @@
         <if test="outTime != null and batch != ''">
             and out_time like CONCAT(CONCAT('%',#{outTime}),'%')
         </if>
+        <if test="species != null and species != ''">
+            and species = #{species}
+        </if>
         </where>
 </select>
 
- <resultMap id="LivestockStep" type="Livestock" >
+ <resultMap id="LivestockStep" type="java.util.HashMap" >
     <result column="livestock_id" property="livestockId" />
     <result column="field_id" property="fieldId" />
     <result column="step_num_id" property="stepNumId" />
@@ -159,7 +166,7 @@
     <result column="image" property="image" />
     <result column="batch" property="batch" />
     <result column="out_time" property="outTime" />
-    <result column="preorder_status" property="preorderStatus" />
+    <result column="status" property="status" />
      <association property="Step" javaType="com.ecologicalRanch.project.entity.Step">
          <result column="step_num_id" property="stepNumId" />
          <result column="livestock_id" property="livestockId" />
@@ -186,15 +193,7 @@
             where field_id = #{fieldId}
         </if>
 
-<!--        <if test="outTime != null and outTime != ''">-->
-<!--            and out_time like CONCAT(CONCAT('%',#{outTime}),'%')-->
-<!--        </if>-->
 
-<!--        <where>-->
-<!--            <if test="outTime != null  and outTime != ''">out_time = #{outTime},</if>-->
-<!--            <if test="species != null  and species != ''">species = #{species}</if>-->
-
-<!--        </where>-->
     </select>
 
 </mapper>

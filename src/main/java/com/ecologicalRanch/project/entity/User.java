@@ -66,7 +66,7 @@ public class User  {
      * 微信号(open_id)
      */
 
-    private String wechatNum;
+    private String openId;
 
     /**
      * 头像存储路径

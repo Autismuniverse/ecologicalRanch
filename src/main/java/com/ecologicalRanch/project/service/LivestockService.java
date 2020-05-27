@@ -54,7 +54,7 @@ public interface LivestockService {
     List<Livestock> selectStep(Livestock livestock, int pageNum, int pageSize);
 
     /**
-     * 查询Livestock步數列表
+     * 查询Livestock出售时间
      */
     List<Livestock> selectOutTime(Livestock livestock);
 }

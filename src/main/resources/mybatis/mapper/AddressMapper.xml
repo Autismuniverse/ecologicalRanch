@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ecologicalRanch.project.mapper.AddressMapper">
+
+    <resultMap id="AddressResult" type="Address" >
+        <result column="address_id" property="addressId" />
+        <result column="user_id" property="userId" />
+        <result column="consignee" property="consignee" />
+        <result column="address" property="address" />
+        <result column="consignee_phone" property="consigneePhone" />
+        <result column="address_status" property="addressStatus" />
+    </resultMap>
+
+    <sql id="AddressResultVo">
+        select
+        address_id,user_id,consignee,address,consignee_phone,address_status
+         from address
+    </sql>
+
+    <select id="selectAddressById" parameterType="Long" resultMap="AddressResult">
+        <include refid="AddressResultVo" />
+        WHERE address_id = #{addressId}
+    </select>
+
+    <select id="selectAddressList" parameterType="Address" resultMap="AddressResult">
+        <include refid="AddressResultVo"/>
+        <where>
+            <if test="addressId != null and addressId != 0">
+                and address_id = #{addressId}
+            </if>
+        </where>
+    </select>
+
+    <insert id="insertAddress" parameterType="Address" useGeneratedKeys="true">
+        INSERT INTO address
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="addressId != null  and addressId != ''">address_id, </if>
+            <if test="userId != null  and userId != ''">user_id, </if>
+            <if test="consignee != null  and consignee != ''">consignee, </if>
+            <if test="address != null  and address != ''">address, </if>
+            <if test="consigneePhone != null  and consigneePhone != ''">consignee_phone, </if>
+            <if test="addressStatus != null  and addressStatus != ''">address_status </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="addressId != null  and addressId != ''">#{addressId},</if>
+            <if test="userId != null  and userId != ''">#{userId},</if>
+            <if test="consignee != null  and consignee != ''">#{consignee},</if>
+            <if test="address != null  and address != ''">#{address},</if>
+            <if test="consigneePhone != null  and consigneePhone != ''">#{consigneePhone},</if>
+            <if test="addressStatus != null  and addressStatus != ''">#{addressStatus}</if>
+        </trim>
+    </insert>
+
+    <update id="updateAddress" parameterType="Address" >
+        UPDATE address
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="addressId != null  and addressId != ''">address_id = #{addressId},</if>
+            <if test="userId != null  and userId != ''">user_id = #{userId},</if>
+            <if test="consignee != null  and consignee != ''">consignee = #{consignee},</if>
+            <if test="address != null  and address != ''">address = #{address},</if>
+            <if test="consigneePhone != null  and consigneePhone != ''">consignee_phone = #{consigneePhone},</if>
+            <if test="addressStatus != null  and addressStatus != ''">address_status = #{addressStatus},</if>
+        </trim>
+        WHERE  address_id = #{addressId}
+    </update>
+
+    <delete id="deleteAddressById" parameterType="Long">
+        DELETE FROM address
+        WHERE  address_id = #{addressId}
+    </delete>
+
+    <delete id="deleteAddressByIds" parameterType="String">
+        delete from address where address_id in
+        <foreach item="item" collection="array" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+
+</mapper>

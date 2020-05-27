@@ -19,11 +19,12 @@
         <result column="tenth_month" property="tenthMonth" />
         <result column="eleventh_month" property="eleventhMonth" />
         <result column="twelfth_month" property="twelfthMonth" />
+        <result column="field_id" property="fieldId" />
     </resultMap>
 
     <sql id="DiscountResultVo">
         select
-        predetermined_discount_id,create_time,update_time,first_month,second_month,third_month,fourth_month,fifth_month,sixth_month,seventh_month,eighth_month,ninth_month,tenth_month,eleventh_month,twelfth_month
+        predetermined_discount_id,create_time,update_time,first_month,second_month,third_month,fourth_month,fifth_month,sixth_month,seventh_month,eighth_month,ninth_month,tenth_month,eleventh_month,twelfth_month,field_id
 --          predetermined_discount_id,first_month,second_month,third_month,fourth_month,fifth_month,sixth_month,seventh_month,eighth_month,ninth_month,tenth_month,eleventh_month,twelfth_month
                 from predetermined_discount
     </sql>
@@ -38,6 +39,9 @@
         <where>
             <if test="predeterminedDiscountId != null and predeterminedDiscountId != 0">
                 and predetermined_discount_id = #{predeterminedDiscountId}
+            </if>
+            <if test="fieldId != null and fieldId != 0">
+                and field_id = #{fieldId}
             </if>
         </where>
     </select>
@@ -60,6 +64,7 @@
             <if test="tenthMonth != null  and tenthMonth != ''">tenth_month, </if>
             <if test="eleventhMonth != null  and eleventhMonth != ''">eleventh_month, </if>
             <if test="twelfthMonth != null  and twelfthMonth != ''">twelfth_month </if>
+            <if test="fieldId != null  and fieldId != ''">field_id </if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="predeterminedDiscountId != null  and predeterminedDiscountId != ''">#{predeterminedDiscountId},</if>
@@ -77,6 +82,7 @@
             <if test="tenthMonth != null  and tenthMonth != ''">#{tenthMonth},</if>
             <if test="eleventhMonth != null  and eleventhMonth != ''">#{eleventhMonth},</if>
             <if test="twelfthMonth != null  and twelfthMonth != ''">#{twelfthMonth}</if>
+            <if test="fieldId != null  and fieldId != ''">#{fieldId} </if>
         </trim>
     </insert>
 
@@ -98,6 +104,7 @@
             <if test="tenthMonth != null  and tenthMonth != ''">tenth_month = #{tenthMonth},</if>
             <if test="eleventhMonth != null  and eleventhMonth != ''">eleventh_month = #{eleventhMonth},</if>
             <if test="twelfthMonth != null  and twelfthMonth != ''">twelfth_month = #{twelfthMonth},</if>
+            <if test="fieldId != null  and fieldId != ''">field_id = #{fieldId}</if>
         </trim>
         WHERE  predetermined_discount_id = #{predeterminedDiscountId}
     </update>

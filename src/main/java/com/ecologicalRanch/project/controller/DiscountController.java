@@ -49,7 +49,7 @@ public class DiscountController {
     @ApiOperation("新增Discount")
     @PostMapping("/insertDiscount")
     @ResponseBody
-    public CommonResult insertDiscount(Discount discount){
+    public CommonResult insertDiscount(@RequestBody Discount discount){
         return CommonResult.success(discountService.insertDiscount(discount));
     }
 
