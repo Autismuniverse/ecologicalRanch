@@ -34,7 +34,7 @@ public class Order  {
      * 订单状态：0表示未付款；1表示已付款；2表示未发货；3表示已发货；4表示已收货；5表示已预订支付定金 但未支付全额；
      */
 
-    private Integer state;
+    private Integer status;
 
     /**
      * 养殖户id

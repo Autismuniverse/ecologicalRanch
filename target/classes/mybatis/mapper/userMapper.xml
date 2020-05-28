@@ -12,7 +12,7 @@
         <result column="address" property="address" />
         <result column="birthday" property="birthday" />
         <result column="email" property="email" />
-        <result column="wechat_num" property="wechatNum" />
+        <result column="open_id" property="openId" />
         <result column="head_portrait" property="headPortrait" />
         <result column="creat_time" property="creatTime" />
         <result column="state" property="state" />
@@ -20,7 +20,7 @@
 
     <sql id="UserResultVo">
         select
-        user_id,user_pwd,username,sex,phone,address,birthday,email,wechat_num,head_portrait,creat_time,state
+        user_id,user_pwd,username,sex,phone,address,birthday,email,open_id,head_portrait,creat_time,state
          from user
     </sql>
 
@@ -49,7 +49,7 @@
             <if test="address != null  and address != ''">address, </if>
             <if test="birthday != null  and birthday != ''">birthday, </if>
             <if test="email != null  and email != ''">email, </if>
-            <if test="wechatNum != null  and wechatNum != ''">wechat_num, </if>
+            <if test="openId != null  and openId != ''">open_id, </if>
             <if test="headPortrait != null  and headPortrait != ''">head_portrait, </if>
             <if test="creatTime != null  and creatTime != ''">creat_time, </if>
             <if test="state != null  and state != ''">state </if>
@@ -63,7 +63,7 @@
             <if test="address != null  and address != ''">#{address},</if>
             <if test="birthday != null  and birthday != ''">#{birthday},</if>
             <if test="email != null  and email != ''">#{email},</if>
-            <if test="wechatNum != null  and wechatNum != ''">#{wechatNum},</if>
+            <if test="openId != null  and openId != ''">#{openId},</if>
             <if test="headPortrait != null  and headPortrait != ''">#{headPortrait},</if>
             <if test="creatTime != null  and creatTime != ''">#{creatTime},</if>
             <if test="state != null  and state != ''">#{state}</if>
@@ -81,7 +81,7 @@
             <if test="address != null  and address != ''">address = #{address},</if>
             <if test="birthday != null  and birthday != ''">birthday = #{birthday},</if>
             <if test="email != null  and email != ''">email = #{email},</if>
-            <if test="wechatNum != null  and wechatNum != ''">wechat_num = #{wechatNum},</if>
+            <if test="openId != null  and openId != ''">open_id = #{openId},</if>
             <if test="headPortrait != null  and headPortrait != ''">head_portrait = #{headPortrait},</if>
             <if test="creatTime != null  and creatTime != ''">creat_time = #{creatTime},</if>
             <if test="state != null  and state != ''">state = #{state},</if>

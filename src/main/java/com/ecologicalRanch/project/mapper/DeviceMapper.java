@@ -25,7 +25,7 @@ public interface DeviceMapper {
      * @param bluetoothId 查询Id
      * @return 查询对象
      */
-    Device selectDeviceById(Long bluetoothId);
+    Device selectDeviceById(Device device);
 
     /**
      * 新增Device

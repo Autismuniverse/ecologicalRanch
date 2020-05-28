@@ -53,7 +53,7 @@ public class OrderController {
     @ApiOperation("新增Order")
     @PostMapping("/insertOrder")
     @ResponseBody
-    public CommonResult insertOrder(Order order){
+    public CommonResult insertOrder(@RequestBody Order order){
         return CommonResult.success(orderService.insertOrder(order));
     }
 
@@ -90,7 +90,7 @@ public class OrderController {
     /**
      * 根据Order查询field
      */
-    @ApiOperation(" 根据Order查询field")
+    @ApiOperation("查询Order中其他")
     @PostMapping("/selectOrderInfoListByUserId")
     @ResponseBody
     public CommonResult selectOrderInfoListByUserId(@RequestBody Order order,

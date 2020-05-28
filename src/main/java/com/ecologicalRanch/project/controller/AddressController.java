@@ -44,8 +44,8 @@ public class AddressController {
     @ApiOperation("通过Id查询Address")
     @PostMapping("/selectAddressById")
     @ResponseBody
-    public CommonResult selectAddressById(@RequestBody Long addressId){
-        return CommonResult.success(addressService.selectAddressById(addressId));
+    public CommonResult selectAddressById(@RequestBody Address address){
+        return CommonResult.success(addressService.selectAddressById(address.getAddressId()));
     }
 
     /**

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ecologicalRanch.project.mapper.CoordinatesMapper">
+
+    <resultMap id="CoordinatesResult" type="Coordinates" >
+        <result column="bluetooth_id" property="bluetoothId" />
+        <result column="bluetooth_mac" property="bluetoothMac" />
+        <result column="coordinate_x" property="coordinateX" />
+        <result column="coordinate_y" property="coordinateY" />
+    </resultMap>
+
+    <sql id="CoordinatesResultVo">
+        select
+        bluetooth_id,bluetooth_mac,coordinate_x,coordinate_y
+         from bluetooth_coordinates
+    </sql>
+
+    <select id="selectCoordinatesById" parameterType="Long" resultMap="CoordinatesResult">
+        <include refid="CoordinatesResultVo" />
+        WHERE bluetooth_id = #{bluetoothId}
+    </select>
+
+    <select id="selectCoordinatesList" parameterType="Coordinates" resultMap="CoordinatesResult">
+        <include refid="CoordinatesResultVo"/>
+        <where>
+            <if test="bluetoothId != null and bluetoothId != 0">
+                and bluetooth_id = #{bluetoothId}
+            </if>
+        </where>
+    </select>
+
+    <insert id="insertCoordinates" parameterType="Coordinates" useGeneratedKeys="true">
+        INSERT INTO bluetooth_coordinates
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="bluetoothId != null  and bluetoothId != ''">bluetooth_id, </if>
+            <if test="bluetoothMac != null  and bluetoothMac != ''">bluetooth_mac, </if>
+            <if test="coordinateX != null  and coordinateX != ''">coordinate_x, </if>
+            <if test="coordinateY != null  and coordinateY != ''">coordinate_y </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="bluetoothId != null  and bluetoothId != ''">#{bluetoothId},</if>
+            <if test="bluetoothMac != null  and bluetoothMac != ''">#{bluetoothMac},</if>
+            <if test="coordinateX != null  and coordinateX != ''">#{coordinateX},</if>
+            <if test="coordinateY != null  and coordinateY != ''">#{coordinateY}</if>
+        </trim>
+    </insert>
+
+    <update id="updateCoordinates" parameterType="Coordinates" >
+        UPDATE bluetooth_coordinates
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="bluetoothId != null  and bluetoothId != ''">bluetooth_id = #{bluetoothId},</if>
+            <if test="bluetoothMac != null  and bluetoothMac != ''">bluetooth_mac = #{bluetoothMac},</if>
+            <if test="coordinateX != null  and coordinateX != ''">coordinate_x = #{coordinateX},</if>
+            <if test="coordinateY != null  and coordinateY != ''">coordinate_y = #{coordinateY},</if>
+        </trim>
+        WHERE  bluetooth_id = #{bluetoothId}
+    </update>
+
+    <delete id="deleteCoordinatesById" parameterType="Long">
+        DELETE FROM bluetooth_coordinates
+        WHERE  bluetooth_id = #{bluetoothId}
+    </delete>
+
+    <delete id="deleteCoordinatesByIds" parameterType="String">
+        delete from bluetooth_coordinates where bluetooth_id in
+        <foreach item="item" collection="array" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+
+</mapper>

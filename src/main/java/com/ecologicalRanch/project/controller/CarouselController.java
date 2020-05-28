@@ -41,10 +41,10 @@ public class CarouselController {
      * 通过Id查询Carousel
      */
     @ApiOperation("通过Id查询Carousel")
-    @GetMapping("/selectCarouselById/{carouselId}")
+    @GetMapping("/selectCarouselById")
     @ResponseBody
-    public CommonResult selectCarouselById(@PathVariable("carouselId") Long carouselId){
-        return CommonResult.success(carouselService.selectCarouselById(carouselId));
+    public CommonResult selectCarouselById(@RequestBody Carousel carousel){
+        return CommonResult.success(carouselService.selectCarouselById(carousel.getCarouselId()));
     }
 
     /**

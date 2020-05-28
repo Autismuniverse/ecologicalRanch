@@ -31,7 +31,7 @@ public class GatewayController {
     @ApiOperation(" 查询Gateway列表")
     @PostMapping("/selectGatewayList")
     @ResponseBody
-    public CommonResult selectGatewayList(Gateway gateway,
+    public CommonResult selectGatewayList(@RequestBody Gateway gateway,
                                           @RequestParam(value = "pageNum",defaultValue = "1",required = false) int pageNum,
                                           @RequestParam(value = "pageSize",defaultValue = "10",required = false)int pageSize){
         return CommonResult.success(CommonPage.restPage(gatewayService.selectGatewayList(gateway,pageNum,pageSize)));

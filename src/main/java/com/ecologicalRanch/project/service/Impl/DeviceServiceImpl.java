@@ -27,8 +27,8 @@ public class DeviceServiceImpl implements DeviceService {
      * 通过Id查询 Device
      */
     @Override
-    public Device selectDeviceById(Long bluetoothId) {
-        return deviceMapper.selectDeviceById(bluetoothId);
+    public Device selectDeviceById(Device device) {
+        return deviceMapper.selectDeviceById(device);
     }
 
     /**

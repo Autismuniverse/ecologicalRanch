@@ -55,8 +55,8 @@ public class DeviceController {
     @ApiOperation("通过Id查询Device")
     @PostMapping("/selectDeviceById")
     @ResponseBody
-    public CommonResult selectDeviceById(@RequestBody  Long bluetoothId){
-        return CommonResult.success(deviceService.selectDeviceById(bluetoothId));
+    public CommonResult selectDeviceById(@RequestBody  Device device){
+        return CommonResult.success(deviceService.selectDeviceById(device));
     }
 
     /**

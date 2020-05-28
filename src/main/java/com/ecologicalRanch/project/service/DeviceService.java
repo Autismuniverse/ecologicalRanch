@@ -26,7 +26,7 @@ public interface DeviceService {
     /**
      * 通过Id查询 Device
      */
-    Device selectDeviceById(Long bluetoothId);
+    Device selectDeviceById(Device device);
 
     /**
      * 新增Device
