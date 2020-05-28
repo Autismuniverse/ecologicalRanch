@@ -87,5 +87,19 @@ public class AddressController {
     public CommonResult deleteAddressByIds(@RequestBody String addressIds){
         return CommonResult.success(addressService.deleteAddressByIds(addressIds));
     }
+
+
+    /**
+     * 通过userId查询默认Address
+     */
+    @ApiOperation("通过userId查询默认Address")
+    @PostMapping("/selectDefaultAddressByUserId")
+    @ResponseBody
+    public CommonResult selectDefaultAddressByUserId(@RequestBody Address address){
+        if(addressService.selectDefaultAddressByUserId(address)==null) {
+            return CommonResult.success(addressService.selectDefaultAddressByUserIdElse(address));
+        }
+        return CommonResult.success(addressService.selectDefaultAddressByUserId(address));
+    }
 }
 

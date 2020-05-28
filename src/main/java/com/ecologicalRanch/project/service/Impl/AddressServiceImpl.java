@@ -73,5 +73,21 @@ public class AddressServiceImpl implements AddressService {
         return addressMapper.updateAddress(address);
     }
 
+    /**
+     * 通过userId查询默认Address
+     */
+    @Override
+    public Address selectDefaultAddressByUserId(Address address) {
+        return addressMapper.selectDefaultAddressByUserId(address);
+    }
+
+    /**
+     * 通过userId查询默认Address else
+     */
+    @Override
+    public Address selectDefaultAddressByUserIdElse(Address address) {
+        return addressMapper.selectDefaultAddressByUserIdElse(address);
+    }
+
 }
 

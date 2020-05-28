@@ -55,5 +55,18 @@ public interface AddressMapper {
      */
     int deleteAddressByIds(String[] addressIds);
 
+    /**
+     * 通过userId查询默认 Address
+     * @param address 里面的查询Id
+     * @return 查询对象
+     */
+    Address selectDefaultAddressByUserId(Address address);
+
+    /**
+     * 通过userId查询默认 Address
+     * @param address 里面的查询Id
+     * @return 查询对象
+     */
+    Address selectDefaultAddressByUserIdElse(Address address);
 }
 

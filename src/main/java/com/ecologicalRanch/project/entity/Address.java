@@ -38,7 +38,7 @@ public class Address  {
      * 收货电话
      */
 
-    private Integer consigneePhone;
+    private String consigneePhone;
 
     /**
      * 0为不默认，1为默认地址

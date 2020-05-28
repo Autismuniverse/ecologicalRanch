@@ -77,4 +77,15 @@
         </foreach>
     </delete>
 
+
+    <select id="selectDefaultAddressByUserId" parameterType="Address" resultMap="AddressResult">
+        <include refid="AddressResultVo" />
+        WHERE user_id = #{userId} and address_status = 1 LIMIT 1
+    </select>
+
+    <select id="selectDefaultAddressByUserIdElse" parameterType="Address" resultMap="AddressResult">
+        <include refid="AddressResultVo" />
+        WHERE user_id = #{userId} and address_status = 0 LIMIT 1
+    </select>
+
 </mapper>

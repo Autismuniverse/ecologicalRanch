@@ -43,5 +43,14 @@ public interface AddressService {
      */
     int updateAddress(Address address);
 
+    /**
+     * 通过userId查询默认Address
+     */
+    Address selectDefaultAddressByUserId(Address address);
+
+    /**
+     * 通过userId查询默认Address else
+     */
+    Address selectDefaultAddressByUserIdElse(Address address);
 }
 
