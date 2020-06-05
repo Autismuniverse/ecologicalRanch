@@ -4,22 +4,18 @@ import com.ecologicalRanch.common.pagehelper.CommonPage;
 import com.ecologicalRanch.common.result.CommonResult;
 import com.ecologicalRanch.project.entity.Device;
 import com.ecologicalRanch.project.service.DeviceService;
-import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-
 
 
 /**
  *
  *
  * @author xxxfredyang
- * @date '2020-05-26 16:01:07'
+ * @date '2020-05-31 18:15:45'
  */
-@Controller
-@Api(tags = "设备接口")
+@RestController
 @RequestMapping("/app/device")
 public class DeviceController {
 
@@ -41,13 +37,12 @@ public class DeviceController {
     /**
      * 查询Device列表
      */
-    @ApiOperation(" 查询Device列表无分页")
+    @ApiOperation(" 查询Device列表")
     @PostMapping("/selectDeviceListNoPageHelper")
     @ResponseBody
-    public CommonResult selectDeviceListNoPageHelper(@RequestBody Device device  ){
+    public CommonResult selectDeviceListNoPageHelper(@RequestBody Device device){
         return CommonResult.success(deviceService.selectDeviceListNoPageHelper(device));
     }
-
 
     /**
      * 通过Id查询Device
@@ -55,8 +50,8 @@ public class DeviceController {
     @ApiOperation("通过Id查询Device")
     @PostMapping("/selectDeviceById")
     @ResponseBody
-    public CommonResult selectDeviceById(@RequestBody  Device device){
-        return CommonResult.success(deviceService.selectDeviceById(device));
+    public CommonResult selectDeviceById(@RequestBody Long deviceId){
+        return CommonResult.success(deviceService.selectDeviceById(deviceId));
     }
 
     /**
@@ -85,8 +80,8 @@ public class DeviceController {
     @ApiOperation("通过id删除Device")
     @PostMapping("/deleteDeviceById")
     @ResponseBody
-    public CommonResult deleteDeviceById(@RequestBody  Long bluetoothId){
-        return CommonResult.success(deviceService.deleteDeviceById(bluetoothId));
+    public CommonResult deleteDeviceById(Long deviceId){
+        return CommonResult.success(deviceService.deleteDeviceById(deviceId));
     }
 
     /**
@@ -95,8 +90,7 @@ public class DeviceController {
     @ApiOperation("通过id批量删除Device")
     @PostMapping("/deleteList")
     @ResponseBody
-    public CommonResult deleteDeviceByIds(@RequestBody String bluetoothIds){
-        return CommonResult.success(deviceService.deleteDeviceByIds(bluetoothIds));
+    public CommonResult deleteDeviceByIds(@RequestBody String deviceIds){
+        return CommonResult.success(deviceService.deleteDeviceByIds(deviceIds));
     }
 }
-

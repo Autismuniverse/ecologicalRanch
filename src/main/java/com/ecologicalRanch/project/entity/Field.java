@@ -58,5 +58,11 @@ public class Field {
 
     private String styleClass;
 
+    /**
+     * 样式名
+     */
+
+    private String style;
+
 
 }

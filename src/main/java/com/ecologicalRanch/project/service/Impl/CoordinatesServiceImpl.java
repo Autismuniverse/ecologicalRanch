@@ -28,8 +28,17 @@ public class CoordinatesServiceImpl implements CoordinatesService {
      * 通过Id查询 Coordinates
      */
     @Override
-    public Coordinates selectCoordinatesById(Long bluetoothId) {
+    public Coordinates selectCoordinatesById(String bluetoothId) {
         return coordinatesMapper.selectCoordinatesById(bluetoothId);
+    }
+
+    /**
+     * 通过Mac查询 Coordinates
+     */
+    @Override
+    public Coordinates selectCoordinatesByMac(String bluetoothMac) {
+        return coordinatesMapper.selectCoordinatesByMac(bluetoothMac);
+
     }
 
     /**
@@ -39,6 +48,11 @@ public class CoordinatesServiceImpl implements CoordinatesService {
     @Override
     public List<Coordinates> selectCoordinatesList(Coordinates coordinates,int pageNum,int pageSize){
         return  PageHelper.startPage(pageNum,pageSize).doSelectPage(()->coordinatesMapper.selectCoordinatesList(coordinates));
+    }
+
+    @Override
+    public List<Coordinates> selectCoordinatesListNoPageHelper(Coordinates coordinates){
+        return  coordinatesMapper.selectCoordinatesList(coordinates);
     }
 
     /**

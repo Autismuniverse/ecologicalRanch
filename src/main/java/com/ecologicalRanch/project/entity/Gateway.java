@@ -34,5 +34,12 @@ public class Gateway {
 
     private Integer coordinateY;
 
+    /**
+     * 设备id
+     */
+
+    private String deviceId;
+
+
 
 }

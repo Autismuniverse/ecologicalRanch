@@ -9,6 +9,8 @@
         <setting name="mapUnderscoreToCamelCase" value="true"/>
         <!-- 允许 JDBC 支持自动生成主键 -->
         <setting name="useGeneratedKeys"         value="true" />
+        <!-- 字段为null时，不予以显示该字段 好像没用 -->
+        <setting name="callSettersOnNulls"       value="true"/>
     </settings>
 
 </configuration>

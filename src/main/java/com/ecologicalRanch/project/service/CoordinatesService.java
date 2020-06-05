@@ -19,9 +19,19 @@ public interface CoordinatesService {
     List<Coordinates> selectCoordinatesList(Coordinates coordinates, int pageNum, int pageSize);
 
     /**
+     * 查询Coordinates列表
+     */
+    List<Coordinates> selectCoordinatesListNoPageHelper(Coordinates coordinates);
+
+    /**
      * 通过Id查询 Coordinates
      */
-    Coordinates selectCoordinatesById(Long bluetoothId);
+    Coordinates selectCoordinatesById(String bluetoothId);
+
+    /**
+     * 通过Mac查询 Coordinates
+     */
+    Coordinates selectCoordinatesByMac(String bluetoothMac);
 
     /**
      * 新增Coordinates

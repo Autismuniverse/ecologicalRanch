@@ -19,6 +19,11 @@ public interface LivestockService {
     List<Livestock> selectLivestockList(Livestock livestock, int pageNum, int pageSize);
 
     /**
+     * 查询Livestock列表无分页
+     */
+    List<Livestock> selectLivestockListNoPageHelper(Livestock livestock);
+
+    /**
      * 通过Id查询 Livestock
      */
     Livestock selectLivestockById(Long livestockId);

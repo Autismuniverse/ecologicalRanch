@@ -15,7 +15,7 @@ import java.util.List;
  *
  *
  * @author xxxfredyang
- * @date '2020-05-26 16:01:07'
+ * @date '2020-05-31 18:15:45'
  */
 @Service
 public class DeviceServiceImpl implements DeviceService {
@@ -27,8 +27,8 @@ public class DeviceServiceImpl implements DeviceService {
      * 通过Id查询 Device
      */
     @Override
-    public Device selectDeviceById(Device device) {
-        return deviceMapper.selectDeviceById(device);
+    public Device selectDeviceById(Long deviceId) {
+        return deviceMapper.selectDeviceById(deviceId);
     }
 
     /**
@@ -36,7 +36,7 @@ public class DeviceServiceImpl implements DeviceService {
      */
 
     @Override
-    public List<Device> selectDeviceList(Device device,int pageNum,int pageSize){
+    public List<Device> selectDeviceList(Device device, int pageNum, int pageSize){
         return  PageHelper.startPage(pageNum,pageSize).doSelectPage(()->deviceMapper.selectDeviceList(device));
     }
 
@@ -61,16 +61,16 @@ public class DeviceServiceImpl implements DeviceService {
      * 通过id删除Device
      */
     @Override
-    public int deleteDeviceById(Long bluetoothId) {
-        return deviceMapper.deleteDeviceById(bluetoothId);
+    public int deleteDeviceById(Long deviceId) {
+        return deviceMapper.deleteDeviceById(deviceId);
     }
 
     /**
      * 通过id批量删除Device
      */
     @Override
-    public int deleteDeviceByIds(String bluetoothIds){
-        return deviceMapper.deleteDeviceByIds(Convert.toStrArray(bluetoothIds));
+    public int deleteDeviceByIds(String deviceIds){
+        return deviceMapper.deleteDeviceByIds(Convert.toStrArray(deviceIds));
     }
 
     /**
@@ -82,4 +82,3 @@ public class DeviceServiceImpl implements DeviceService {
     }
 
 }
-

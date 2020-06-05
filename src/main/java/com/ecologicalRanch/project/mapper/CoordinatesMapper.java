@@ -25,7 +25,14 @@ public interface CoordinatesMapper {
      * @param bluetoothId 查询Id
      * @return 查询对象
      */
-    Coordinates selectCoordinatesById(Long bluetoothId);
+    Coordinates selectCoordinatesById(String bluetoothId);
+
+    /**
+     * 通过Id查询 Coordinates
+     * @param bluetoothMac 查询Id
+     * @return 查询对象
+     */
+    Coordinates selectCoordinatesByMac(String bluetoothMac);
 
     /**
      * 新增Coordinates

@@ -4,12 +4,11 @@ import com.ecologicalRanch.project.entity.Device;
 
 import java.util.List;
 
-
 /**
  *
  *
  * @author xxxfredyang
- * @date '2020-05-26 16:01:07'
+ * @date '2020-05-31 18:15:45'
  */
 public interface DeviceService {
 
@@ -26,7 +25,7 @@ public interface DeviceService {
     /**
      * 通过Id查询 Device
      */
-    Device selectDeviceById(Device device);
+    Device selectDeviceById(Long deviceId);
 
     /**
      * 新增Device
@@ -36,12 +35,12 @@ public interface DeviceService {
     /**
      * 通过id删除Device
      */
-    int deleteDeviceById(Long bluetoothId);
+    int deleteDeviceById(Long deviceId);
 
     /**
      * 通过id批量删除Device
      */
-    int deleteDeviceByIds(String bluetoothIds);
+    int deleteDeviceByIds(String deviceIds);
 
     /**
      * 修改Device信息

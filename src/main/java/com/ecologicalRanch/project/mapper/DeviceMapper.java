@@ -1,6 +1,5 @@
 package com.ecologicalRanch.project.mapper;
 
-
 import com.ecologicalRanch.project.entity.Device;
 
 import java.util.List;
@@ -9,7 +8,7 @@ import java.util.List;
  *
  *
  * @author xxxfredyang
- * @date '2020-05-26 16:01:07'
+ * @date '2020-05-31 18:15:45'
  */
 public interface DeviceMapper {
 
@@ -22,10 +21,10 @@ public interface DeviceMapper {
 
     /**
      * 通过Id查询 Device
-     * @param bluetoothId 查询Id
+     * @param deviceId 查询Id
      * @return 查询对象
      */
-    Device selectDeviceById(Device device);
+    Device selectDeviceById(Long deviceId);
 
     /**
      * 新增Device
@@ -43,16 +42,16 @@ public interface DeviceMapper {
 
     /**
      * 通过id删除Device
-     * @param bluetoothId 删除id
+     * @param deviceId 删除id
      * @return 删除行数
      */
-    int deleteDeviceById(Long bluetoothId);
+    int deleteDeviceById(Long deviceId);
 
     /**
      * 通过id批量删除Device
-     * @param bluetoothIds 删除ids
+     * @param deviceIds 删除ids
      * @return 删除行数
      */
-    int deleteDeviceByIds(String[] bluetoothIds);
+    int deleteDeviceByIds(String[] deviceIds);
 
 }

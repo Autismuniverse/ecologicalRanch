@@ -26,7 +26,7 @@ public class Livestock {
      * 步数表ID
      */
 
-    private Integer stepNumId;
+    private String stepNum;
 
     /**
      * 蓝牙ID
@@ -38,7 +38,7 @@ public class Livestock {
      * RFID_id
      */
 
-    private Integer rfidId;
+    private String rfidId;
 
     /**
      *
@@ -58,11 +58,7 @@ public class Livestock {
 
     private double weight;
 
-    /**
-     * 照片路径
-     */
 
-    private String image;
 
     /**
      * 批次(购买这一批雏鸡的时间)
@@ -83,14 +79,14 @@ public class Livestock {
     private Integer status;
 
     /**
-     * 步数类
+     * 鸡的品种
      */
-    private Step Step;
+    private String type;
 
 
-    /**
-     * 品种类
-     */
-    private Price price;
+
+
+
+
 
 }

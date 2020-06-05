@@ -14,7 +14,7 @@ public class Coordinates   {
      * 蓝牙id
      */
 
-    private Long bluetoothId;
+    private String bluetoothId;
 
     /**
      * 蓝牙mac地址
@@ -33,6 +33,12 @@ public class Coordinates   {
      */
 
     private Integer coordinateY;
+
+    /**
+     * 设备id
+     */
+
+    private String deviceId;
 
 
 }

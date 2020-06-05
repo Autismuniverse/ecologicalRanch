@@ -4,6 +4,7 @@ import com.ecologicalRanch.common.pagehelper.CommonPage;
 import com.ecologicalRanch.common.result.CommonResult;
 import com.ecologicalRanch.project.entity.Order;
 import com.ecologicalRanch.project.service.OrderService;
+import com.ecologicalRanch.project.service.PriceService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,9 @@ public class OrderController {
 
     @Autowired
     private OrderService orderService;
+    @Autowired
+    private PriceService priceService;
+
 
     /**
      * 查询Order列表
@@ -54,6 +58,15 @@ public class OrderController {
     @PostMapping("/insertOrder")
     @ResponseBody
     public CommonResult insertOrder(@RequestBody Order order){
+//        Order order1 = order;
+//        Price price  =new Price();
+//        price.setFieldId(order1.getFieldId());
+////        price.setType(priceService.selectPriceListNoPageHelper(pr));
+//        order1.setOriginalPrice(priceService.selectPriceListNoPageHelper());
+
+
+//        order1.setCreationTime();
+
         return CommonResult.success(orderService.insertOrder(order));
     }
 
@@ -63,7 +76,7 @@ public class OrderController {
     @ApiOperation("修改Order信息")
     @PostMapping("/updateOrder")
     @ResponseBody
-    public CommonResult updateOrder(Order order){
+    public CommonResult updateOrder(@RequestBody Order order){
         return CommonResult.success(orderService.updateOrder(order));
     }
 

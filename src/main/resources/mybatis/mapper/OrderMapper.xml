@@ -84,9 +84,9 @@
             <if test="paymentAmount != null  and paymentAmount != ''">payment_amount = #{paymentAmount},</if>
             <if test="originalPrice != null  and originalPrice != ''">original_price = #{originalPrice},</if>
             <if test="commentId != null  and commentId != ''">comment_id = #{commentId},</if>
-            <if test="creationTime != null  and creationTime != ''">creation_time = #{creationTime},</if>
-            <if test="paymentTime != null  and paymentTime != ''">payment_time = #{paymentTime},</if>
-            <if test="deliveryTime != null  and deliveryTime != ''">delivery_time = #{deliveryTime},</if>
+            <if test="creationTime != null">creation_time = #{creationTime},</if>
+            <if test="paymentTime != null">payment_time = #{paymentTime},</if>
+            <if test="deliveryTime != null">delivery_time = #{deliveryTime},</if>
             <if test="addressId != null  and addressId != ''">address_id = #{addressId},</if>
         </trim>
         WHERE  order_id = #{orderId}
@@ -130,7 +130,6 @@
             <result column="image" property="image" />
             <result column="batch" property="batch" />
             <result column="out_time" property="outTime" />
-            <result column="preorder_status" property="preorderStatus" />
         </association>
         <association property="Step" javaType="java.util.HashMap">
             <result column="step_num" property="stepNum" />
@@ -141,9 +140,11 @@
 
     <select id="selectOrderInfoListByUserId" parameterType="Order" resultMap="OrderFieldResult">
         Select *
-        from my_order o,field f,livestock l,step_number s
-        Where f.field_id=o.field_id and o.livestock_id=l.livestock_id and
-        l.step_num_id=s.step_num_id and o.user_id = #{userId}
+        from my_order o,field f,livestock l
+        Where f.field_id=o.field_id and o.livestock_id=l.livestock_id
+        <if test="userId != null  and userId != 0">
+        and o.user_id = #{userId}
+        </if>
         </select>
 <!--&#45;&#45;         select *-->
 <!--&#45;&#45;         from my_order o RIGHT JOIN field f ON o.field_id = f.field_id-->

@@ -24,16 +24,27 @@ public class CoordinatesController {
     @Autowired
     private CoordinatesService coordinatesService;
 
+
     /**
      * 查询Coordinates列表
      */
     @ApiOperation(" 查询Coordinates列表")
     @PostMapping("/selectCoordinatesList")
     @ResponseBody
-    public CommonResult selectCoordinatesList(Coordinates coordinates,
+    public CommonResult selectCoordinatesList(@RequestBody Coordinates coordinates,
                                               @RequestParam(value = "pageNum",defaultValue = "1",required = false) int pageNum,
                                               @RequestParam(value = "pageSize",defaultValue = "10",required = false)int pageSize){
         return CommonResult.success(CommonPage.restPage(coordinatesService.selectCoordinatesList(coordinates,pageNum,pageSize)));
+    }
+
+    /**
+     * 查询Coordinates列表无分页
+     */
+    @ApiOperation(" 查询Coordinates列表无分页")
+    @PostMapping("/selectCoordinatesListNoPageHelper")
+    @ResponseBody
+    public CommonResult selectCoordinatesListNoPageHelper(@RequestBody Coordinates coordinates){
+        return CommonResult.success(coordinatesService.selectCoordinatesListNoPageHelper(coordinates));
     }
 
     /**
@@ -44,6 +55,16 @@ public class CoordinatesController {
     @ResponseBody
     public CommonResult selectCoordinatesById(@RequestBody Coordinates coordinates){
         return CommonResult.success(coordinatesService.selectCoordinatesById(coordinates.getBluetoothId()));
+    }
+
+    /**
+     * 通过Id查询Coordinates
+     */
+    @ApiOperation("通过Mac查询Coordinates")
+    @PostMapping("/selectCoordinatesByMac")
+    @ResponseBody
+    public CommonResult selectCoordinatesByMac(@RequestBody Coordinates coordinates){
+        return CommonResult.success(coordinatesService.selectCoordinatesByMac(coordinates.getBluetoothMac()));
     }
 
     /**

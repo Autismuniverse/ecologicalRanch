@@ -41,6 +41,15 @@ public class LivestockServiceImpl implements LivestockService {
     }
 
     /**
+     * 查询Livestock列表
+     */
+
+    @Override
+    public List<Livestock> selectLivestockListNoPageHelper(Livestock livestock){
+        return  livestockMapper.selectLivestockList(livestock);
+    }
+
+    /**
      * 新增Livestock
      */
     @Override
