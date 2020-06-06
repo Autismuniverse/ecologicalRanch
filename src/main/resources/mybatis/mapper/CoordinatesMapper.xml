@@ -50,6 +50,9 @@
             <if test="bluetoothId != null and bluetoothId != ''">
                 and bluetooth_id = #{bluetoothId}
             </if>
+            <if test="bluetoothMac != null and bluetoothMac != ''">
+                and bluetooth_mac = #{bluetoothMac}
+            </if>
         </where>
     </select>
 
