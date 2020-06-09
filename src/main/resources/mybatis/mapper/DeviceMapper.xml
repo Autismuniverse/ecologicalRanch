@@ -79,4 +79,12 @@
         </foreach>
     </delete>
 
+    <resultMap id="DeviceName" type="java.util.HashMap" >
+
+    </resultMap>
+    <select id="selectDeviceNameByFieldId" parameterType="Long" resultMap="DeviceName">
+        SELECT  DISTINCT device_name  FROM device
+        WHERE field_id = #{fieldId}
+    </select>
+
 </mapper>

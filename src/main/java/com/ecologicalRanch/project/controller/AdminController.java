@@ -1,5 +1,6 @@
 package com.ecologicalRanch.project.controller;
 
+import com.ecologicalRanch.common.result.CommonResult;
 import com.ecologicalRanch.project.entity.Admin;
 import com.ecologicalRanch.project.service.AdminService;
 import com.ecologicalRanch.utils2.JSONResult;
@@ -33,8 +34,8 @@ public class AdminController {
      * @return admin对象
      */
     @ApiOperation(value = "通过adminID查询管理员信息",notes = "adminId")
-    @PostMapping("selectById/{adminId}")
-    public JSONResult selectById(@PathVariable("adminId") long adminId) { return JSONResult.ok(adminService.selectById(adminId));}
+    @GetMapping("selectById/{adminId}")
+    public CommonResult selectById(@PathVariable Long adminId) { return CommonResult.success((adminService.selectById(adminId)));}
 
     /**
      * 登录

@@ -11,7 +11,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 
-
 /**
  *
  *
@@ -47,6 +46,8 @@ public class AddressController {
     public CommonResult selectAddressById(@RequestBody Address address){
         return CommonResult.success(addressService.selectAddressById(address.getAddressId()));
     }
+
+
 
     /**
      * 新增Address

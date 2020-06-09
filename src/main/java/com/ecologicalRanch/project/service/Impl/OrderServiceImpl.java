@@ -2,6 +2,7 @@ package com.ecologicalRanch.project.service.Impl;
 
 import com.ecologicalRanch.common.utils.text.Convert;
 import com.ecologicalRanch.project.entity.Order;
+import com.ecologicalRanch.project.mapper.LivestockMapper;
 import com.ecologicalRanch.project.mapper.OrderMapper;
 import com.ecologicalRanch.project.service.OrderService;
 import com.github.pagehelper.PageHelper;
@@ -23,6 +24,8 @@ public class OrderServiceImpl implements OrderService {
 
     @Autowired
     private OrderMapper orderMapper;
+    @Autowired
+    private LivestockMapper livestockMapper;
 
     /**
      * 通过Id查询 Order
@@ -46,6 +49,8 @@ public class OrderServiceImpl implements OrderService {
      */
     @Override
     public int insertOrder(Order order) {
+
+
         return orderMapper.insertOrder(order);
     }
 

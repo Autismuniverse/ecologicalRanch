@@ -55,6 +55,9 @@
         <if test="fieldId != null and fieldId != ''">
             and field_id = #{fieldId}
         </if>
+        <if test="status != null">
+                and status = #{status}
+            </if>
 
 
         </where>
@@ -132,6 +135,9 @@
         <if test="fieldId != null and fieldId != ''">
             and field_id like CONCAT(CONCAT('%',#{fieldId}),'%')
         </if>
+        <if test="status != null">
+            and status = #{status}
+        </if>
         <if test="bluetoothId != null and bluetoothId != ''">
             and bluetooth_id like CONCAT(CONCAT('%',#{bluetoothId}),'%')
         </if>
@@ -140,6 +146,9 @@
         </if>
         <if test="outTime != null and batch != ''">
             and out_time like CONCAT(CONCAT('%',#{outTime}),'%')
+        </if>
+        <if test="type != null and type != ''">
+            and type like CONCAT(CONCAT('%',#{type}),'%')
         </if>
 
         </where>
@@ -178,11 +187,16 @@
 
     <select id="selectOutTime" parameterType="Livestock" resultMap="LivestockOutTime">
         SELECT  DISTINCT out_time  FROM livestock
-        <if test="fieldId != null and fieldId != ''">
-            where field_id = #{fieldId}
-        </if>
 
+        where field_id = #{fieldId}
+    </select>
 
+    <select id="selectLivestockListByIds" parameterType="String" resultMap="LivestockResult">
+        <include refid="LivestockResultVo"/>
+        where livestock_id IN
+        <foreach item="item" collection="array" open="(" separator="," close=")">
+            #{item}
+        </foreach>
     </select>
 
 </mapper>

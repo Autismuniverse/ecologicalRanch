@@ -105,5 +105,17 @@ public class FieldController {
 //        return CommonResult.success(fieldService.selectFieldById(field.getFieldId()));
         return CommonResult.success(fieldService.selectFieldByAdminId(field.getAdminId()));
     }
+
+    /**
+     * 通过FieldIds查询Field
+     */
+    @ApiOperation("通过FieldIds数组查询Field")
+    @GetMapping("/selectFieldByFieldIds/{fieldIds}")
+    @ResponseBody
+    public CommonResult selectFieldByFieldIds(@PathVariable String fieldIds){
+
+        return CommonResult.success(fieldService.selectFieldByFieldIds(fieldIds));
+
+    }
 }
 

@@ -54,4 +54,12 @@ public interface DeviceMapper {
      */
     int deleteDeviceByIds(String[] deviceIds);
 
+
+    /**
+     * 通过DeviceName查询 Device
+     * @param deviceName 设备名字
+     * @return 查询对象
+     */
+    List<Device> selectDeviceNameByFieldId(Long FieldId);
+
 }

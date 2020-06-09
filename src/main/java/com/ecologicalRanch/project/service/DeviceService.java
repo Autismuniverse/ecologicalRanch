@@ -47,4 +47,9 @@ public interface DeviceService {
      */
     int updateDevice(Device device);
 
+    /**
+     * 查看养殖场中Device有哪些种类（去重）
+     */
+    List<Device> selectDeviceNameByFieldId(Long fieldId);
+
 }

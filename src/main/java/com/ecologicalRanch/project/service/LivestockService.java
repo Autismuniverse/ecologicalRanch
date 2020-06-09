@@ -24,6 +24,10 @@ public interface LivestockService {
     List<Livestock> selectLivestockListNoPageHelper(Livestock livestock);
 
     /**
+     * 查询LivestockIds列表无分页
+     */
+    List<Livestock> selectLivestockListByIds(String livestockIds);
+    /**
      * 通过Id查询 Livestock
      */
     Livestock selectLivestockById(Long livestockId);
@@ -62,4 +66,6 @@ public interface LivestockService {
      * 查询Livestock出售时间
      */
     List<Livestock> selectOutTime(Livestock livestock);
+
+    String selectLivestockPrice(String livestockIds);
 }

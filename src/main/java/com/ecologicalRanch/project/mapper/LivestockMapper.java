@@ -74,5 +74,12 @@ public interface LivestockMapper {
      * @return 查询列表
      */
     List<Livestock> selectOutTime(Livestock livestock);
+
+    /**
+     * 查询Livestock列表
+     * @param livestockIds 查询对象
+     * @return 查询列表
+     */
+    List<Livestock> selectLivestockListByIds(String[] livestockIds);
 }
 

@@ -59,6 +59,15 @@ public interface FieldMapper {
      * @param Adminid 查询
      * @return 查询对象
      */
-    List<Field> selectFieldByAdminId(Long adminid);
+    List<Field> selectFieldByAdminId(Long AdminId);
+
+    /**
+     * 通过FieldIds查询 Field
+     * @param FieldIds 查询
+     * @return 查询对象
+     */
+    List<Field> selectFieldByFieldIds(String[] FieldIds);
+
+
 
 }

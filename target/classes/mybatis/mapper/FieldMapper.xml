@@ -98,6 +98,14 @@
         </foreach>
     </delete>
 
+    <select id="selectFieldByFieldIds" parameterType="String" resultMap="FieldResult">
+        <include refid="FieldResultVo" />
+        WHERE field_id in
+        <foreach item="item" collection="array" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </select>
+
 
 
 

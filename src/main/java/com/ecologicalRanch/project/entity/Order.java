@@ -46,13 +46,13 @@ public class Order  {
      * 支付金额
      */
 
-    private Integer paymentAmount;
+    private double paymentAmount;
 
     /**
      *原价
      */
 
-    private Integer originalPrice;
+    private double originalPrice;
 
     /**
      * 评价id

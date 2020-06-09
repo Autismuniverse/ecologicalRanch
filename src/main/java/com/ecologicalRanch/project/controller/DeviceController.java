@@ -93,4 +93,14 @@ public class DeviceController {
     public CommonResult deleteDeviceByIds(@RequestBody String deviceIds){
         return CommonResult.success(deviceService.deleteDeviceByIds(deviceIds));
     }
+
+    /**
+     * 查询Device列表
+     */
+    @ApiOperation(" 查询每个养殖场有哪些种类Device（去重）")
+    @GetMapping("/selectDeviceNameByFieldId/{fieldId}")
+    @ResponseBody
+    public CommonResult selectDeviceNameByFieldId(@PathVariable Long fieldId){
+        return CommonResult.success(deviceService.selectDeviceNameByFieldId(fieldId));
+    }
 }

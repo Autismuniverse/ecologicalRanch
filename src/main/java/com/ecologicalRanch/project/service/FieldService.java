@@ -46,4 +46,11 @@ public interface FieldService {
      * 通过adminId查询 Field
      */
     List<Field> selectFieldByAdminId(Long adminId);
+
+    /**
+     * 通过FieldIds查询 Field
+     */
+    List<Field> selectFieldByFieldIds(String FieldIds);
+
+
 }

@@ -4,6 +4,7 @@ import com.ecologicalRanch.common.pagehelper.CommonPage;
 import com.ecologicalRanch.common.result.CommonResult;
 import com.ecologicalRanch.project.entity.Livestock;
 import com.ecologicalRanch.project.service.LivestockService;
+import com.ecologicalRanch.project.service.PriceService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,8 @@ public class LivestockController {
 
     @Autowired
     private LivestockService livestockService;
+    @Autowired
+    private PriceService priceService;
 
     /**
      * 查询Livestock列表
@@ -92,7 +95,7 @@ public class LivestockController {
      * 通过id批量删除Livestock
      */
     @ApiOperation("通过id批量删除Livestock")
-    @PostMapping("/deleteList")
+    @GetMapping("/deleteList")
     @ResponseBody
     public CommonResult deleteLivestockByIds(String livestockIds){
         return CommonResult.success(livestockService.deleteLivestockByIds(livestockIds));
@@ -127,10 +130,30 @@ public class LivestockController {
     /**
      * 查询Livestock列表
      */
-    @ApiOperation(" 查询Livestockc出售时间去重")
+    @ApiOperation(" 查询Livestock出售时间去重")
     @PostMapping("/selectOutTime")
     @ResponseBody
     public CommonResult selectPrice(@RequestBody Livestock livestock){
         return CommonResult.success(livestockService.selectOutTime(livestock));
+    }
+
+    /**
+     * 通过Ids查询Livestock
+     */
+    @ApiOperation("通过Ids查询Livestock列表")
+    @GetMapping("/selectLivestockListByIds/{livestockIds}")
+    @ResponseBody
+    public CommonResult selectLivestockById(@PathVariable String livestockIds){
+        return CommonResult.success(livestockService.selectLivestockListByIds(livestockIds));
+    }
+
+    /**
+     * 通过LivestockIds查询Livestock价格
+     */
+    @ApiOperation("通过LivestockIds查询Livestock价格列表")
+    @GetMapping("/selectLivestockPriceByIds/{livestockIds}")
+    @ResponseBody
+    public CommonResult selectLivestockPrice(@PathVariable String livestockIds){
+        return CommonResult.success(livestockService.selectLivestockPrice(livestockIds));
     }
 }

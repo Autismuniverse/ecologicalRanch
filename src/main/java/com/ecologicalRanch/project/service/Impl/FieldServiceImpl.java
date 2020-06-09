@@ -79,4 +79,13 @@ public class FieldServiceImpl implements FieldService {
         return fieldMapper.selectFieldByAdminId(adminId);
     }
 
+    /**
+     * 通过FieldIds查询 Field
+     */
+    @Override
+    public  List<Field> selectFieldByFieldIds(String fieldIds) {
+//        System.out.println(fieldMapper.selectFieldByFieldIds(Convert.toStrArray(fieldIds)));
+        return fieldMapper.selectFieldByFieldIds(Convert.toStrArray(fieldIds));
+    }
+
 }

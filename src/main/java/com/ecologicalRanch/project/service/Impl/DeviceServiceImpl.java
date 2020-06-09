@@ -81,4 +81,13 @@ public class DeviceServiceImpl implements DeviceService {
         return deviceMapper.updateDevice(device);
     }
 
+    /**
+     * 查询Device列表
+     */
+
+    @Override
+    public List<Device> selectDeviceNameByFieldId(Long fieldId){
+        return  deviceMapper.selectDeviceNameByFieldId(fieldId);
+    }
+
 }

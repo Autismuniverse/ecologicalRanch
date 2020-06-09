@@ -3,7 +3,9 @@ package com.ecologicalRanch.project.service.Impl;
 
 import com.ecologicalRanch.common.utils.text.Convert;
 import com.ecologicalRanch.project.entity.Livestock;
+import com.ecologicalRanch.project.entity.Price;
 import com.ecologicalRanch.project.mapper.LivestockMapper;
+import com.ecologicalRanch.project.mapper.PriceMapper;
 import com.ecologicalRanch.project.service.LivestockService;
 import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +24,8 @@ public class LivestockServiceImpl implements LivestockService {
 
     @Autowired
     private LivestockMapper livestockMapper;
+    @Autowired
+    private PriceMapper priceMapper;
 
     /**
      * 通过Id查询 Livestock
@@ -36,8 +40,8 @@ public class LivestockServiceImpl implements LivestockService {
      */
 
     @Override
-    public List<Livestock> selectLivestockList(Livestock livestock,int pageNum,int pageSize){
-        return  PageHelper.startPage(pageNum,pageSize).doSelectPage(()->livestockMapper.selectLivestockList(livestock));
+    public List<Livestock> selectLivestockList(Livestock livestock, int pageNum, int pageSize) {
+        return PageHelper.startPage(pageNum, pageSize).doSelectPage(() -> livestockMapper.selectLivestockList(livestock));
     }
 
     /**
@@ -45,8 +49,17 @@ public class LivestockServiceImpl implements LivestockService {
      */
 
     @Override
-    public List<Livestock> selectLivestockListNoPageHelper(Livestock livestock){
-        return  livestockMapper.selectLivestockList(livestock);
+    public List<Livestock> selectLivestockListNoPageHelper(Livestock livestock) {
+        return livestockMapper.selectLivestockList(livestock);
+    }
+
+    /**
+     * 通过Ids查询Livestock列表
+     */
+
+    @Override
+    public List<Livestock> selectLivestockListByIds(String livestockIds) {
+        return livestockMapper.selectLivestockListByIds(Convert.toStrArray(livestockIds));
     }
 
     /**
@@ -69,7 +82,7 @@ public class LivestockServiceImpl implements LivestockService {
      * 通过id批量删除Livestock
      */
     @Override
-    public int deleteLivestockByIds(String livestockIds){
+    public int deleteLivestockByIds(String livestockIds) {
         return livestockMapper.deleteLivestockByIds(Convert.toStrArray(livestockIds));
     }
 
@@ -85,9 +98,9 @@ public class LivestockServiceImpl implements LivestockService {
      * 模糊查询 Livestock
      */
     @Override
-    public List<Livestock> fuzzyLivestockList(Livestock livestock,int pageNum,int pageSize) {
+    public List<Livestock> fuzzyLivestockList(Livestock livestock, int pageNum, int pageSize) {
 
-        return  PageHelper.startPage(pageNum,pageSize).doSelectPage(()->livestockMapper.fuzzyLivestockList(livestock));
+        return PageHelper.startPage(pageNum, pageSize).doSelectPage(() -> livestockMapper.fuzzyLivestockList(livestock));
 
     }
 
@@ -96,8 +109,8 @@ public class LivestockServiceImpl implements LivestockService {
      */
 
     @Override
-    public List<Livestock> selectStep(Livestock livestock,int pageNum,int pageSize){
-        return  PageHelper.startPage(pageNum,pageSize).doSelectPage(()->livestockMapper.selectStep(livestock));
+    public List<Livestock> selectStep(Livestock livestock, int pageNum, int pageSize) {
+        return PageHelper.startPage(pageNum, pageSize).doSelectPage(() -> livestockMapper.selectStep(livestock));
     }
 
     /**
@@ -105,8 +118,22 @@ public class LivestockServiceImpl implements LivestockService {
      */
 
     @Override
-    public List<Livestock> selectOutTime(Livestock livestock){
-        return  livestockMapper.selectOutTime(livestock);
+    public List<Livestock> selectOutTime(Livestock livestock) {
+        return livestockMapper.selectOutTime(livestock);
     }
 
-}
+
+    @Override
+    public String selectLivestockPrice(String livestockIds) {
+        List<Price> priceList = priceMapper.selectPriceList(new Price());
+        StringBuffer stringBuffer = new StringBuffer();
+
+        for (Livestock s : selectLivestockListByIds(livestockIds)) {
+//            stringBuffer.append(s.getLivestockId() + ":");
+            for (Price p : priceList)
+                if (s.getFieldId().equals(p.getFieldId()) && s.getType().equals(p.getType()))
+                    stringBuffer.append(p.getOriginalPrice() + ",");
+            }
+            return stringBuffer.toString();
+        }
+    }

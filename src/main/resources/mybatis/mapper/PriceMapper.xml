@@ -33,6 +33,10 @@
             <if test="fieldId != null and fieldId != 0">
                 and field_id = #{fieldId}
             </if>
+
+            <if test="type != null">
+                and type = #{type}
+            </if>
         </where>
     </select>
 
