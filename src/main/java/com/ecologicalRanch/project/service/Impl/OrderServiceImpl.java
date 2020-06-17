@@ -1,6 +1,7 @@
 package com.ecologicalRanch.project.service.Impl;
 
 import com.ecologicalRanch.common.utils.text.Convert;
+import com.ecologicalRanch.project.entity.Livestock;
 import com.ecologicalRanch.project.entity.Order;
 import com.ecologicalRanch.project.mapper.LivestockMapper;
 import com.ecologicalRanch.project.mapper.OrderMapper;
@@ -49,7 +50,10 @@ public class OrderServiceImpl implements OrderService {
      */
     @Override
     public int insertOrder(Order order) {
-
+        Livestock livestock = new Livestock();
+        livestock.setLivestockId(order.getLivestockId().longValue());
+        livestock.setStatus(order.getStatus());
+        livestockMapper.updateLivestock(livestock);
 
         return orderMapper.insertOrder(order);
     }

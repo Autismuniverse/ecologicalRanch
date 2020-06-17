@@ -24,7 +24,6 @@ public class CoordinatesController {
     @Autowired
     private CoordinatesService coordinatesService;
 
-
     /**
      * 查询Coordinates列表
      */

@@ -7,12 +7,11 @@ import com.ecologicalRanch.utils2.JSONResult;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 
 @Api(tags = "管理员")
-@Controller
+@RestController
 @RequestMapping("/admin")
 //@CrossOrigin
 public class AdminController {
@@ -44,7 +43,6 @@ public class AdminController {
      */
     @ApiOperation(value = "登录",notes = "userId,password")
     @PostMapping("login/")
-    @ResponseBody
     public JSONResult login(@RequestBody Admin admin){ return JSONResult.ok(adminService.login(admin)); }
 
 }

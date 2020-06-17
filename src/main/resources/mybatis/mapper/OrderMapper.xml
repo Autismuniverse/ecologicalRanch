@@ -127,6 +127,7 @@
             <result column="sex" property="sex" />
             <result column="species" property="species" />
             <result column="weight" property="weight" />
+            <result column="type" property="type" />
             <result column="image" property="image" />
             <result column="batch" property="batch" />
             <result column="out_time" property="outTime" />

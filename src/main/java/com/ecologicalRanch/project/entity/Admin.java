@@ -34,4 +34,10 @@ public class Admin {
      */
 
     private boolean state;
+
+    /**
+     * 管理员名字
+     */
+
+    private String adminName;
 }
