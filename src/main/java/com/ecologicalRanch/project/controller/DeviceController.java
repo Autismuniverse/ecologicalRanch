@@ -4,6 +4,7 @@ import com.ecologicalRanch.common.pagehelper.CommonPage;
 import com.ecologicalRanch.common.result.CommonResult;
 import com.ecologicalRanch.project.entity.Device;
 import com.ecologicalRanch.project.service.DeviceService;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
  * @author xxxfredyang
  * @date '2020-05-31 18:15:45'
  */
+@Api(tags ="设备总接口")
 @RestController
 @RequestMapping("/app/device")
 public class DeviceController {

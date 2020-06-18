@@ -122,6 +122,14 @@ public class LivestockServiceImpl implements LivestockService {
         return livestockMapper.selectOutTime(livestock);
     }
 
+    /**
+     * 修改Livestock信息
+     */
+    @Override
+    public int updateLivestockStep(Livestock livestock) {
+        livestockMapper.selectLivestockList(livestock).forEach(s->livestock.setStepNum(s.getStepNum()+livestock.getStepNum()));
+        return livestockMapper.updateLivestock(livestock);
+    }
 
     @Override
     public String selectLivestockPrice(String livestockIds) {

@@ -26,7 +26,7 @@ public class Livestock {
      * 步数表ID
      */
 
-    private String stepNum;
+    private Integer stepNum;
 
     /**
      * 蓝牙ID

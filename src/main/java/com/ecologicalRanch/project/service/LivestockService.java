@@ -68,4 +68,12 @@ public interface LivestockService {
     List<Livestock> selectOutTime(Livestock livestock);
 
     String selectLivestockPrice(String livestockIds);
+
+
+    /**
+     * 更新步数
+     * @param livestock
+     * @return
+     */
+    int updateLivestockStep(Livestock livestock);
 }
