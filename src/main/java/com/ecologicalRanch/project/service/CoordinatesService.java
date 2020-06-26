@@ -51,6 +51,6 @@ public interface CoordinatesService {
     /**
      * 修改Coordinates信息
      */
-    int updateCoordinates(Coordinates coordinates);
+    String updateCoordinates(Coordinates coordinates);
 
 }

@@ -76,6 +76,7 @@ public class ClientMQTT {
 
     public void stop() {
         try {
+            client.unsubscribe(TOPIC1);
             // 断开连接
             client.disconnect();
             // 关闭客户端

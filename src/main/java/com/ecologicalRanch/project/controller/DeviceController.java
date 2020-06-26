@@ -42,7 +42,7 @@ public class DeviceController {
     @ApiOperation(" 查询Device列表")
     @PostMapping("/selectDeviceListNoPageHelper")
     @ResponseBody
-    public CommonResult selectDeviceListNoPageHelper(@RequestBody Device device){
+    public CommonResult selectDeviceListNoPageHelper(@RequestBody  Device device){
         return CommonResult.success(deviceService.selectDeviceListNoPageHelper(device));
     }
 

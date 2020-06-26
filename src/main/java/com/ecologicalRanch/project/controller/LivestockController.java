@@ -156,4 +156,15 @@ public class LivestockController {
     public CommonResult selectLivestockPrice(@PathVariable String livestockIds){
         return CommonResult.success(livestockService.selectLivestockPrice(livestockIds));
     }
+
+
+    @ApiOperation("根据养殖场id查询Livestock步数排名列表")
+    @GetMapping("/selectLivestockListRank/{fieldId}")
+    @ResponseBody
+    public CommonResult selectLivestockListRank(@PathVariable Long fieldId){
+        return CommonResult.success(livestockService.selectLivestockListRank(fieldId));
+    }
+
+
+
 }

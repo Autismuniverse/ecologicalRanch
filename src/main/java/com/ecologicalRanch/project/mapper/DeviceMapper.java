@@ -27,6 +27,13 @@ public interface DeviceMapper {
     Device selectDeviceById(Long deviceId);
 
     /**
+     * 通过mac查询 Device
+     * @param mac 查询Id
+     * @return 查询对象
+     */
+    Device selectDeviceByMac(String mac);
+
+    /**
      * 新增Device
      * @param device 新增对象
      * @return 插入行数

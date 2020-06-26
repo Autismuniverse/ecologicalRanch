@@ -8,6 +8,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -20,6 +21,7 @@ import org.springframework.web.bind.annotation.*;
 @Api(tags = "收货地址")
 @Controller
 @RequestMapping("/app/address")
+@Validated
 public class AddressController {
 
     @Autowired
@@ -55,7 +57,7 @@ public class AddressController {
     @ApiOperation("新增Address")
     @PostMapping("/insertAddress")
     @ResponseBody
-    public CommonResult insertAddress(@RequestBody Address address){
+    public CommonResult insertAddress(@RequestBody @Validated Address address){
         return CommonResult.success(addressService.insertAddress(address));
     }
 

@@ -81,5 +81,16 @@ public interface LivestockMapper {
      * @return 查询列表
      */
     List<Livestock> selectLivestockListByIds(String[] livestockIds);
+
+
+    /**
+     * 根据养殖场id查询Livestock步数排名列表
+     * @param fieldId 查询对象
+     * @return 查询列表
+     */
+    List<Livestock> selectLivestockListRank(Long fieldId);
+
+
+
 }
 

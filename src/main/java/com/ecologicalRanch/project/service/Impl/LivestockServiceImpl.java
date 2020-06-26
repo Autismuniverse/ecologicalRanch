@@ -131,6 +131,12 @@ public class LivestockServiceImpl implements LivestockService {
         return livestockMapper.updateLivestock(livestock);
     }
 
+
+    /**
+     * 查询价格
+     * @param livestockIds
+     * @return
+     */
     @Override
     public String selectLivestockPrice(String livestockIds) {
         List<Price> priceList = priceMapper.selectPriceList(new Price());
@@ -144,4 +150,14 @@ public class LivestockServiceImpl implements LivestockService {
             }
             return stringBuffer.toString();
         }
+
+    /**
+     * 根据养殖场id查询Livestock步数排名列表
+     * @param fieldId
+     * @return
+     */
+    @Override
+    public List<Livestock> selectLivestockListRank(Long fieldId){
+        return livestockMapper.selectLivestockListRank(fieldId);
     }
+}

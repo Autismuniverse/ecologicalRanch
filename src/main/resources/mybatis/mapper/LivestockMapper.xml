@@ -123,6 +123,7 @@
         </foreach>
     </delete>
 
+
     <select id="fuzzyLivestockList" parameterType="Livestock" resultMap="LivestockResult">
         <include refid="LivestockResultVo"/>
         <where>
@@ -197,6 +198,13 @@
         <foreach item="item" collection="array" open="(" separator="," close=")">
             #{item}
         </foreach>
+    </select>
+
+
+    <select id="selectLivestockListRank" parameterType="Long" resultMap="LivestockResult">
+    <include refid="LivestockResultVo"/>
+    where field_id = #{fieldId}  order by step_num desc
+
     </select>
 
 </mapper>

@@ -73,7 +73,7 @@ public class CalculationThread extends Thread {
             coordinates.setCoordinateX(point.x);
             coordinates.setCoordinateY(point.y);
             coordinates.setBluetoothId(bluetoothId);
-//            System.out.println(bluetoothId+"计算结果："+point.x+","+point.y);
+            System.out.println(bluetoothId+"计算结果："+point.x+","+point.y);
             coordinatesService.updateCoordinates(coordinates);
 
             int Steps = (int) count_distance(point, po) / 5;

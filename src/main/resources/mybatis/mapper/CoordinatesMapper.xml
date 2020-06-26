@@ -83,7 +83,7 @@
             <if test="coordinateY != null  and coordinateY != ''">coordinate_y = #{coordinateY},</if>
             <if test="deviceId != null  and deviceId != ''">device_id = #{deviceId},</if>
         </trim>
-        WHERE  bluetooth_mac = #{bluetoothMac}
+        WHERE  bluetooth_id = #{bluetoothId}
     </update>
 
     <delete id="deleteCoordinatesById" parameterType="String">

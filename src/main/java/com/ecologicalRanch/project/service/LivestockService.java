@@ -76,4 +76,11 @@ public interface LivestockService {
      * @return
      */
     int updateLivestockStep(Livestock livestock);
+
+    /**
+     * 根据养殖场id查询Livestock步数排名列表
+     * @param fieldId
+     * @return
+     */
+    List<Livestock> selectLivestockListRank(Long fieldId);
 }

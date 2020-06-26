@@ -60,6 +60,8 @@ public class CoordinatesServiceImpl implements CoordinatesService {
      */
     @Override
     public int insertCoordinates(Coordinates coordinates) {
+//        if(coordinatesMapper.selectCoordinatesByMac(coordinates.getBluetoothMac()).getBluetoothMac()==coordinates.getBluetoothMac())
+//            return 0;
         return coordinatesMapper.insertCoordinates(coordinates);
     }
 
@@ -83,7 +85,8 @@ public class CoordinatesServiceImpl implements CoordinatesService {
      * 修改Coordinates信息
      */
     @Override
-    public int updateCoordinates(Coordinates coordinates) {
+    public String updateCoordinates(Coordinates coordinates) {
+        System.out.println(coordinates);
         return coordinatesMapper.updateCoordinates(coordinates);
     }
 

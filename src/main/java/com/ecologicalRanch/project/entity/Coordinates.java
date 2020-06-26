@@ -2,6 +2,8 @@ package com.ecologicalRanch.project.entity;
 
 import lombok.Data;
 
+import javax.validation.constraints.Pattern;
+
 /**
  *
  *
@@ -19,7 +21,7 @@ public class Coordinates   {
     /**
      * 蓝牙mac地址
      */
-
+    @Pattern(regexp = "/^[A-F0-9]{2}(:[A-F0-9]{2}){5}$/",message = "mac地址有误")
     private String bluetoothMac;
 
     /**

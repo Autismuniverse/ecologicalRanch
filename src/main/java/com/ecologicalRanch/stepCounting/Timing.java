@@ -19,7 +19,7 @@ public class Timing{
 
     @Scheduled(cron = "0/3 * * * * ?")
     public void proces(){
-        System.out.println("执行定时器");
+//        System.out.println("执行定时器");
         List<BluetoothRssiInfo> list = saveRssiService.getRssiList();
 
         if (list != null) {

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ecologicalRanch.project.mapper.TotalBluetoothMapper">
+
+    <resultMap id="BluetoothResult" type="TotalBluetooth" >
+        <result column="bluetooth_id" property="bluetoothId" />
+        <result column="bluetooth_mac" property="bluetoothMac" />
+    </resultMap>
+
+    <sql id="BluetoothResultVo">
+        select
+        bluetooth_id,bluetooth_mac
+         from total_bluetooth
+    </sql>
+
+    <select id="selectTotalBluetoothById" parameterType="String" resultMap="BluetoothResult">
+        <include refid="BluetoothResultVo" />
+        WHERE bluetooth_id = #{bluetoothId}
+    </select>
+
+    <select id="selectTotalBluetoothList" parameterType="TotalBluetooth" resultMap="BluetoothResult">
+        <include refid="BluetoothResultVo"/>
+        <where>
+            <if test="bluetoothId != null and bluetoothId != 0">
+                and bluetooth_id = #{bluetoothId}
+            </if>
+        </where>
+    </select>
+
+    <insert id="insertTotalBluetooth" parameterType="TotalBluetooth" useGeneratedKeys="true">
+        INSERT INTO total_bluetooth
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="bluetoothId != null  and bluetoothId != ''">bluetooth_id, </if>
+            <if test="bluetoothMac != null  and bluetoothMac != ''">bluetooth_mac </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="bluetoothId != null  and bluetoothId != ''">#{bluetoothId},</if>
+            <if test="bluetoothMac != null  and bluetoothMac != ''">#{bluetoothMac}</if>
+        </trim>
+    </insert>
+
+    <update id="updateTotalBluetooth" parameterType="TotalBluetooth" >
+        UPDATE total_bluetooth
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="bluetoothId != null  and bluetoothId != ''">bluetooth_id = #{bluetoothId},</if>
+            <if test="bluetoothMac != null  and bluetoothMac != ''">bluetooth_mac = #{bluetoothMac},</if>
+        </trim>
+        WHERE  bluetooth_id = #{bluetoothId}
+    </update>
+
+    <delete id="deleteTotalBluetoothById" parameterType="Long">
+        DELETE FROM total_bluetooth
+        WHERE  bluetooth_id = #{bluetoothId}
+    </delete>
+
+    <delete id="deleteTotalBluetoothByIds" parameterType="String">
+        delete from total_bluetooth where bluetooth_id in
+        <foreach item="item" collection="array" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+
+</mapper>

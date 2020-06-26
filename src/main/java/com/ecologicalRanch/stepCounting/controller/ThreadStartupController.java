@@ -14,7 +14,7 @@ import java.util.concurrent.ScheduledFuture;
 //import com.ecologicalRanch.stepCounting.ProgramStart;
 
 @RestController
-@Api("线程控制")
+@Api(tags = "线程控制")
 @RequestMapping("/thread")
 @Slf4j
 public class ThreadStartupController {

@@ -2,6 +2,7 @@ package com.ecologicalRanch.project.entity;
 
 import lombok.Data;
 
+import javax.validation.constraints.Pattern;
 import java.util.Date;
 
 //import com.fun.framework.web.entity.BaseEntity;
@@ -41,13 +42,12 @@ public class User  {
     /**
      * 电话号码
      */
-
+    @Pattern(regexp = "^[1][3,4,5,7,8][0-9]{9}$",message = "请输入正确的电话号码")
     private String phone;
 
     /**
      * 地址
      */
-
     private String address;
 
     /**

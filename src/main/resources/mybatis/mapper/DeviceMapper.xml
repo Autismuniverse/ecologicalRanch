@@ -22,6 +22,11 @@
         WHERE device_id = #{deviceId}
     </select>
 
+    <select id="selectDeviceByMac" parameterType="String" resultMap="DeviceResult">
+        <include refid="DeviceResultVo" />
+        WHERE device_mac = #{deviceMac}
+    </select>
+
     <select id="selectDeviceList" parameterType="Device" resultMap="DeviceResult">
         <include refid="DeviceResultVo"/>
         <where>

@@ -1,7 +1,9 @@
 package com.ecologicalRanch.project.service.Impl;
 
 import com.ecologicalRanch.common.utils.text.Convert;
+import com.ecologicalRanch.project.entity.Coordinates;
 import com.ecologicalRanch.project.entity.Device;
+import com.ecologicalRanch.project.mapper.CoordinatesMapper;
 import com.ecologicalRanch.project.mapper.DeviceMapper;
 import com.ecologicalRanch.project.service.DeviceService;
 import com.github.pagehelper.PageHelper;
@@ -22,6 +24,8 @@ public class DeviceServiceImpl implements DeviceService {
 
     @Autowired
     private DeviceMapper deviceMapper;
+    @Autowired
+    private CoordinatesMapper coordinatesMapper;
 
     /**
      * 通过Id查询 Device
@@ -54,7 +58,19 @@ public class DeviceServiceImpl implements DeviceService {
      */
     @Override
     public int insertDevice(Device device) {
-        return deviceMapper.insertDevice(device);
+//        if(deviceMapper.selectDeviceByMac(device.getDeviceMac()).getDeviceMac().equals(device.getDeviceMac())){
+//            return 0;
+//        }
+//        else
+        if (device.getDeviceName().equals("蓝牙")){
+            Coordinates coordinates =new Coordinates();
+            coordinates.setBluetoothMac(device.getDeviceMac());
+            coordinates.setBluetoothId(device.getDeviceMac().substring(0,2));
+            coordinatesMapper.insertCoordinates(coordinates);
+            System.out.println("蓝牙设备添加成功");
+
+        }
+            return deviceMapper.insertDevice(device);
     }
 
     /**
@@ -78,6 +94,7 @@ public class DeviceServiceImpl implements DeviceService {
      */
     @Override
     public int updateDevice(Device device) {
+
         return deviceMapper.updateDevice(device);
     }
 
