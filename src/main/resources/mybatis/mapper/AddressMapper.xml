@@ -88,4 +88,9 @@
         WHERE user_id = #{userId} and address_status = 0 LIMIT 1
     </select>
 
+    <update id="updateDefaultAddress" parameterType="Address" >
+        UPDATE address SET address_status = 0
+        WHERE  user_id = #{userId}
+    </update>
+
 </mapper>

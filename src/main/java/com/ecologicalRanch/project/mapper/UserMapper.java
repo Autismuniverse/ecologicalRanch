@@ -27,6 +27,13 @@ public interface UserMapper {
     User selectUserById(Long userId);
 
     /**
+     * 登录
+     * @param user 登录
+     * @return 查询对象
+     */
+    User login(User user);
+
+    /**
      * 新增User
      * @param user 新增对象
      * @return 插入行数

@@ -104,5 +104,15 @@ public class AddressController {
         }
         return CommonResult.success(addressService.selectDefaultAddressByUserId(address));
     }
+
+    /**
+     * 修改Address信息
+     */
+    @ApiOperation("修改默认Address")
+    @PostMapping("/updateDefaultAddress")
+    @ResponseBody
+    public CommonResult updateDefaultAddress(@RequestBody Address address){
+        return CommonResult.success(addressService.updateDefaultAddress(address));
+    }
 }
 

@@ -52,5 +52,12 @@ public interface AddressService {
      * 通过userId查询默认Address else
      */
     Address selectDefaultAddressByUserIdElse(Address address);
+
+    /**
+     * 用户更改默认地址
+     * @param address
+     * @return
+     */
+    int updateDefaultAddress(Address address);
 }
 

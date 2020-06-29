@@ -46,7 +46,7 @@ public interface CoordinatesMapper {
      * @param  coordinates 用户对象
      * @return 更新行数
      */
-    String updateCoordinates(Coordinates coordinates);
+    int updateCoordinates(Coordinates coordinates);
 
     /**
      * 通过id删除Coordinates

@@ -54,7 +54,7 @@ public class User  {
      * 出生日期
      */
 
-    private Object birthday;
+    private String birthday;
 
     /**
      * 邮箱

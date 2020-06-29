@@ -68,5 +68,14 @@ public interface AddressMapper {
      * @return 查询对象
      */
     Address selectDefaultAddressByUserIdElse(Address address);
+
+    /**
+     * user更改默认地址 Address
+     * @param address 里面的查询Id
+     * @return 查询对象
+     */
+    int updateDefaultAddress(Address address);
+
+
 }
 

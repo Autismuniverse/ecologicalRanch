@@ -39,6 +39,10 @@ public class UserServiceImpl implements UserService {
         return  PageHelper.startPage(pageNum,pageSize).doSelectPage(()->userMapper.selectUserList(user));
     }
 
+    @Override
+    public User login(User user){
+        return userMapper.login(user);
+    }
     /**
      * 新增User
      */

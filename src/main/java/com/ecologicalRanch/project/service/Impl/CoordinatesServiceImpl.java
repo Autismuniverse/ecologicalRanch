@@ -85,7 +85,7 @@ public class CoordinatesServiceImpl implements CoordinatesService {
      * 修改Coordinates信息
      */
     @Override
-    public String updateCoordinates(Coordinates coordinates) {
+    public int updateCoordinates(Coordinates coordinates) {
         System.out.println(coordinates);
         return coordinatesMapper.updateCoordinates(coordinates);
     }

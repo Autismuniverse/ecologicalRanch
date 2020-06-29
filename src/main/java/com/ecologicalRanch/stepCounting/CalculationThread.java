@@ -28,8 +28,8 @@ public class CalculationThread extends Thread {
     private  Kalman kalman_1 = new Kalman(8.2, 100.0);
     private  Kalman kalman_2 = new Kalman(8.2, 100.0);
     private  Kalman kalman_3 = new Kalman(8.2, 100.0);
-    public static int Le = 56;
-    public static double Eaf = 3.4;
+    public static int Le = 60;
+    public static double Eaf = 3.8;
     public static  int deviation=5;
 /*
 
@@ -82,7 +82,10 @@ public class CalculationThread extends Thread {
                 Livestock livestock = new Livestock();
                 livestock.setStepNum(Steps);
                 livestock.setBluetoothId(bluetoothId);
+                System.out.println("aaa");
                 livestockService.updateLivestockStep(livestock);
+                System.out.println(livestock);
+
             }
 //            System.out.println(livestock);
         }

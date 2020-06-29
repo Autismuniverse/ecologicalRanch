@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ecologicalRanch.project.mapper.CartMapper">
+
+    <resultMap id="CartResult" type="Cart" >
+        <result column="shopping_cart_id" property="shoppingCartId" />
+        <result column="user_id" property="userId" />
+        <result column="livestock_id" property="livestockId" />
+        <result column="status" property="status" />
+        <result column="create_time" property="createTime" />
+        <result column="delete_time" property="deleteTime" />
+    </resultMap>
+
+    <sql id="CartResultVo">
+        select
+        shopping_cart_id,user_id,livestock_id,status,create_time,delete_time
+         from shopping_cart
+    </sql>
+
+    <select id="selectCartById" parameterType="Long" resultMap="CartResult">
+        <include refid="CartResultVo" />
+        WHERE shopping_cart_id = #{shoppingCartId}
+    </select>
+
+    <select id="selectCartList" parameterType="Cart" resultMap="CartResult">
+        <include refid="CartResultVo"/>
+        <where>
+            <if test="shoppingCartId != null and shoppingCartId != 0">
+                and shopping_cart_id = #{shoppingCartId}
+            </if>
+        </where>
+    </select>
+
+    <insert id="insertCart" parameterType="Cart" useGeneratedKeys="true">
+        INSERT INTO shopping_cart
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="shoppingCartId != null  and shoppingCartId != ''">shopping_cart_id, </if>
+            <if test="userId != null  and userId != ''">user_id, </if>
+            <if test="livestockId != null  and livestockId != ''">livestock_id, </if>
+            <if test="status != null  and status != ''">status, </if>
+            <if test="createTime != null  and createTime != ''">create_time, </if>
+            <if test="deleteTime != null  and deleteTime != ''">delete_time </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="shoppingCartId != null  and shoppingCartId != ''">#{shoppingCartId},</if>
+            <if test="userId != null  and userId != ''">#{userId},</if>
+            <if test="livestockId != null  and livestockId != ''">#{livestockId},</if>
+            <if test="status != null  and status != ''">#{status},</if>
+            <if test="createTime != null  and createTime != ''">#{createTime},</if>
+            <if test="deleteTime != null  and deleteTime != ''">#{deleteTime}</if>
+        </trim>
+    </insert>
+
+    <update id="updateCart" parameterType="Cart" >
+        UPDATE shopping_cart
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="shoppingCartId != null  and shoppingCartId != ''">shopping_cart_id = #{shoppingCartId},</if>
+            <if test="userId != null  and userId != ''">user_id = #{userId},</if>
+            <if test="livestockId != null  and livestockId != ''">livestock_id = #{livestockId},</if>
+            <if test="status != null  and status != ''">status = #{status},</if>
+            <if test="createTime != null  and createTime != ''">create_time = #{createTime},</if>
+            <if test="deleteTime != null  and deleteTime != ''">delete_time = #{deleteTime},</if>
+        </trim>
+        WHERE  shopping_cart_id = #{shoppingCartId}
+    </update>
+
+    <delete id="deleteCartById" parameterType="Long">
+        DELETE FROM shopping_cart
+        WHERE  shopping_cart_id = #{shoppingCartId}
+    </delete>
+
+    <delete id="deleteCartByIds" parameterType="String">
+        delete from shopping_cart where shopping_cart_id in
+        <foreach item="item" collection="array" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+
+</mapper>

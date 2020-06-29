@@ -37,8 +37,8 @@ public class ClientMQTT {
             options.setConnectionTimeout(10);//设置超过时间
             options.setKeepAliveInterval(120);//设置会话心跳时间
             client.setCallback(new PushCallback());
-            @SuppressWarnings("unused")
-            MqttTopic topic = client.getTopic(TOPIC1);
+//            @SuppressWarnings("unused")
+//            MqttTopic topic = client.getTopic(TOPIC1);
 //����        options.setWill(topic, "close".getBytes(), 2, true);
 
 
@@ -46,10 +46,7 @@ public class ClientMQTT {
             e.printStackTrace();
         }
     }
-    public void publish(MqttTopic topic , MqttMessage message) throws MqttPersistenceException, MqttException {
-      MqttDeliveryToken token = topic.publish(message);
-      token.waitForCompletion();
-   }
+
     public void start() {
         try {
             while (true) {

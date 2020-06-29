@@ -40,7 +40,15 @@ public class UserController {
 //                                       @RequestParam(value = "pageNum",defaultValue = "10",required = false)int pageSize){
 //        return CommonResult.success(CommonPage.restPage(userService.selectUserList(user,pageNum,pageSize)));
 //    }
-
+    /**
+     * 登录
+     */
+    @ApiOperation("登录")
+    @PostMapping("/userLogin")
+    @ResponseBody
+    public CommonResult login(@RequestBody User user ){
+        return CommonResult.success(userService.login(user));
+    }
     /**
      * 通过Id查询User
      */
@@ -57,7 +65,7 @@ public class UserController {
     @ApiOperation("新增User")
     @PostMapping("/insertUser")
     @ResponseBody
-    public CommonResult insertUser(User user){
+    public CommonResult insertUser(@RequestBody User user){
         return CommonResult.success(userService.insertUser(user));
     }
 

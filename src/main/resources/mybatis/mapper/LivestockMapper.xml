@@ -108,7 +108,12 @@
             <if test="type != null  and type != ''">type = #{type},</if>
             <if test="status != null">status = #{status}</if>
         </trim>
+        <if test="livestockId != null">
         WHERE  livestock_id = #{livestockId}
+        </if>
+        <if test="bluetoothId != null">
+        WHERE  bluetooth_id = #{bluetoothId}
+        </if>
     </update>
 
     <delete id="deleteLivestockById" parameterType="Long">

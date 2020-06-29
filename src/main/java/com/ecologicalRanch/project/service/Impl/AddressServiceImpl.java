@@ -89,5 +89,14 @@ public class AddressServiceImpl implements AddressService {
         return addressMapper.selectDefaultAddressByUserIdElse(address);
     }
 
+    /**
+     * user更改默认地址 Address
+     */
+    @Override
+    public int updateDefaultAddress(Address address){
+        addressMapper.updateDefaultAddress(address);
+        return addressMapper.updateAddress(address);
+    }
+
 }
 

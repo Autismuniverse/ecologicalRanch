@@ -29,6 +29,11 @@
         WHERE user_id = #{userId}
     </select>
 
+    <select id="login" parameterType="User" resultMap="UserResult">
+        <include refid="UserResultVo" />
+        WHERE user_id = #{userId} and user_pwd = #{userPwd}
+    </select>
+
     <select id="selectUserList" parameterType="User" resultMap="UserResult">
         <include refid="UserResultVo"/>
         <where>

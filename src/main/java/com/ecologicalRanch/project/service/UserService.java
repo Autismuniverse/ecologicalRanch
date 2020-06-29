@@ -4,8 +4,6 @@ import com.ecologicalRanch.project.entity.User;
 
 import java.util.List;
 
-import java.util.Map;
-
 /**
  *
  *
@@ -18,6 +16,11 @@ public interface UserService {
      * 查询User列表
      */
     List<User> selectUserList(User user,int pageNum,int pageSize);
+
+    /**
+     * 登录
+     */
+    User login(User user);
 
     /**
      * 通过Id查询 User
