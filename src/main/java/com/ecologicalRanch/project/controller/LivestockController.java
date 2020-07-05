@@ -9,6 +9,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -33,7 +34,7 @@ public class LivestockController {
     @ApiOperation(" 查询Livestock列表")
     @PostMapping("/selectLivestockList")
     @ResponseBody
-    public CommonResult selectLivestockList(@RequestBody Livestock livestock,
+    public CommonResult selectLivestockList(@RequestBody @Validated Livestock livestock,
                                             @RequestParam(value = "pageNum",defaultValue = "1",required = false) int pageNum,
                                             @RequestParam(value = "pageSize",defaultValue = "10",required = false)int pageSize){
         return CommonResult.success(CommonPage.restPage(livestockService.selectLivestockList(livestock,pageNum,pageSize)));
@@ -57,7 +58,7 @@ public class LivestockController {
     @ApiOperation(" 查询Livestock列表无分页")
     @PostMapping("/selectLivestockListNoPageHelper")
     @ResponseBody
-    public CommonResult selectLivestockList(@RequestBody Livestock livestock){
+    public CommonResult selectLivestockList(@RequestBody @Validated Livestock livestock){
         return CommonResult.success(livestockService.selectLivestockListNoPageHelper(livestock));
     }
 
@@ -67,7 +68,7 @@ public class LivestockController {
     @ApiOperation("新增Livestock")
     @PostMapping("/insertLivestock")
     @ResponseBody
-    public CommonResult insertLivestock(@RequestBody Livestock livestock){
+    public CommonResult insertLivestock(@RequestBody @Validated Livestock livestock){
         return CommonResult.success(livestockService.insertLivestock(livestock));
     }
 
@@ -77,7 +78,7 @@ public class LivestockController {
     @ApiOperation("修改Livestock信息")
     @PostMapping("/updateLivestock")
     @ResponseBody
-    public CommonResult updateLivestock(@RequestBody Livestock livestock){
+    public CommonResult updateLivestock(@RequestBody @Validated Livestock livestock){
         return CommonResult.success(livestockService.updateLivestock(livestock));
     }
 

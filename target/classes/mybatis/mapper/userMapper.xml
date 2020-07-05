@@ -29,6 +29,11 @@
         WHERE user_id = #{userId}
     </select>
 
+    <select id="login" parameterType="User" resultMap="UserResult">
+        <include refid="UserResultVo" />
+        WHERE user_id = #{userId} and user_pwd = #{userPwd}
+    </select>
+
     <select id="selectUserList" parameterType="User" resultMap="UserResult">
         <include refid="UserResultVo"/>
         <where>
@@ -73,7 +78,6 @@
     <update id="updateUser" parameterType="User" >
         UPDATE user
         <trim prefix="SET" suffixOverrides=",">
-            <if test="userId != null  and userId != ''">user_id = #{userId},</if>
             <if test="userPwd != null  and userPwd != ''">user_pwd = #{userPwd},</if>
             <if test="username != null  and username != ''">username = #{username},</if>
             <if test="sex != null  and sex != ''">sex = #{sex},</if>
@@ -84,7 +88,7 @@
             <if test="openId != null  and openId != ''">open_id = #{openId},</if>
             <if test="headPortrait != null  and headPortrait != ''">head_portrait = #{headPortrait},</if>
             <if test="creatTime != null  and creatTime != ''">creat_time = #{creatTime},</if>
-            <if test="state != null  and state != ''">state = #{state},</if>
+            <if test="state != null  and state != ''">state = #{state}</if>
         </trim>
         WHERE  user_id = #{userId}
     </update>

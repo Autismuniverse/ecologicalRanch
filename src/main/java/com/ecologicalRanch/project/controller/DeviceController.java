@@ -7,6 +7,7 @@ import com.ecologicalRanch.project.service.DeviceService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -52,7 +53,7 @@ public class DeviceController {
     @ApiOperation("通过Id查询Device")
     @PostMapping("/selectDeviceById")
     @ResponseBody
-    public CommonResult selectDeviceById(@RequestBody Long deviceId){
+    public CommonResult selectDeviceById( @RequestBody Long deviceId){
         return CommonResult.success(deviceService.selectDeviceById(deviceId));
     }
 
@@ -62,7 +63,7 @@ public class DeviceController {
     @ApiOperation("新增Device")
     @PostMapping("/insertDevice")
     @ResponseBody
-    public CommonResult insertDevice(@RequestBody Device device){
+    public CommonResult insertDevice(@RequestBody @Validated Device device){
         return CommonResult.success(deviceService.insertDevice(device));
     }
 
@@ -72,7 +73,7 @@ public class DeviceController {
     @ApiOperation("修改Device信息")
     @PostMapping("/updateDevice")
     @ResponseBody
-    public CommonResult updateDevice(@RequestBody Device device){
+    public CommonResult updateDevice(@RequestBody @Validated Device device){
         return CommonResult.success(deviceService.updateDevice(device));
     }
 

@@ -29,6 +29,9 @@
             <if test="addressId != null and addressId != 0">
                 and address_id = #{addressId}
             </if>
+            <if test="userId != null and userId != 0">
+                and user_id = #{userId}
+            </if>
         </where>
     </select>
 
@@ -60,7 +63,7 @@
             <if test="consignee != null  and consignee != ''">consignee = #{consignee},</if>
             <if test="address != null  and address != ''">address = #{address},</if>
             <if test="consigneePhone != null  and consigneePhone != ''">consignee_phone = #{consigneePhone},</if>
-            <if test="addressStatus != null  and addressStatus != ''">address_status = #{addressStatus},</if>
+            <if test="addressStatus != null">address_status = #{addressStatus},</if>
         </trim>
         WHERE  address_id = #{addressId}
     </update>
@@ -89,7 +92,7 @@
     </select>
 
     <update id="updateDefaultAddress" parameterType="Address" >
-        UPDATE address SET address_status = 0
+        UPDATE address SET address_status = false
         WHERE  user_id = #{userId}
     </update>
 

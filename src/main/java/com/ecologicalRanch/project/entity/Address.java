@@ -46,7 +46,7 @@ public class Address  {
      * 0为不默认，1为默认地址
      */
 
-    private Integer addressStatus;
+    private boolean addressStatus;
 
 
 }

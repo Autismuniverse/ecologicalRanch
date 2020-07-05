@@ -70,6 +70,7 @@ public class AddressServiceImpl implements AddressService {
      */
     @Override
     public int updateAddress(Address address) {
+        if (address.isAddressStatus()==true)addressMapper.updateDefaultAddress(address);
         return addressMapper.updateAddress(address);
     }
 

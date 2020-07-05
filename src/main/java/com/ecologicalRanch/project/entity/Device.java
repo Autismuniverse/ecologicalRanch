@@ -38,13 +38,13 @@ public class Device  {
      * 设备mac地址
      */
 
-    @Pattern(regexp = "/^[A-F0-9]{2}(:[A-F0-9]{2}){5}$/",message = "mac地址有误")
+    @Pattern(regexp = "^([0-9a-fA-F]{2})(([/\\s:][0-9a-fA-F]{2}){5})$",message = "mac地址有误")
     private String deviceMac;
 
     /**
      * 设备ip地址
      */
-
+    @Pattern(regexp = "/^((25[0-5]|2[0-4]\\d|[01]?\\d\\d?)\\.){3}(25[0-5]|2[0-4]\\d|[01]?\\d\\d?)$/")
     private String deviceIp;
 
 

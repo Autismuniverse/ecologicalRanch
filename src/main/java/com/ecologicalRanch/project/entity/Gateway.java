@@ -21,7 +21,7 @@ public class Gateway {
     /**
      * 网关mac地址
      */
-    @Pattern(regexp = "/^[A-F0-9]{2}(:[A-F0-9]{2}){5}$/",message = "mac地址有误")
+    @Pattern(regexp = "^([0-9a-fA-F]{2})(([/\\s:][0-9a-fA-F]{2}){5})$",message = "mac地址有误")
     private String mac;
 
     /**

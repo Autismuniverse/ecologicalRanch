@@ -75,7 +75,7 @@ public class UserController {
     @ApiOperation("修改User信息")
     @PostMapping("/updateUser")
     @ResponseBody
-    public CommonResult updateUser(User user){
+    public CommonResult updateUser(@RequestBody User user){
         return CommonResult.success(userService.updateUser(user));
     }
 

@@ -2,7 +2,8 @@ package com.ecologicalRanch.project.entity;
 
 
 import lombok.Data;
-import java.util.Date;
+
+import java.time.LocalDateTime;
 
 /**
  *
@@ -64,19 +65,19 @@ public class Order  {
      * 创建时间
      */
 
-    private Date creationTime;
+    private LocalDateTime creationTime;
 
     /**
      * 支付时间
      */
 
-    private Date paymentTime;
+    private LocalDateTime paymentTime;
 
     /**
      * 发货时间
      */
 
-    private Date deliveryTime;
+    private LocalDateTime deliveryTime;
 
     /**
      * 物流地址id

@@ -8,6 +8,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.*;
 @Api(tags = "蓝牙位置数据")
 @Controller
 @RequestMapping("/app/coordinates")
+@Validated
 public class CoordinatesController {
 
     @Autowired
@@ -62,7 +64,7 @@ public class CoordinatesController {
     @ApiOperation("通过Mac查询Coordinates")
     @PostMapping("/selectCoordinatesByMac")
     @ResponseBody
-    public CommonResult selectCoordinatesByMac(@RequestBody Coordinates coordinates){
+    public CommonResult selectCoordinatesByMac(@RequestBody @Validated Coordinates coordinates){
         return CommonResult.success(coordinatesService.selectCoordinatesByMac(coordinates.getBluetoothMac()));
     }
 
@@ -72,7 +74,7 @@ public class CoordinatesController {
     @ApiOperation("新增Coordinates")
     @PostMapping("/insertCoordinates")
     @ResponseBody
-    public CommonResult insertCoordinates(@RequestBody Coordinates coordinates){
+    public CommonResult insertCoordinates(@RequestBody @Validated Coordinates coordinates){
         return CommonResult.success(coordinatesService.insertCoordinates(coordinates));
     }
 
@@ -82,7 +84,7 @@ public class CoordinatesController {
     @ApiOperation("修改Coordinates信息")
     @PostMapping("/updateCoordinates")
     @ResponseBody
-    public CommonResult updateCoordinates(@RequestBody Coordinates coordinates){
+    public CommonResult updateCoordinates(@RequestBody @Validated Coordinates coordinates){
         return CommonResult.success(coordinatesService.updateCoordinates(coordinates));
     }
 
