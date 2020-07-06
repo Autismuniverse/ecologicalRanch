@@ -139,7 +139,7 @@
             and livestock_id like CONCAT(CONCAT('%',#{livestockId}),'%')
         </if>
         <if test="fieldId != null and fieldId != ''">
-            and field_id like CONCAT(CONCAT('%',#{fieldId}),'%')
+            and field_id = #{fieldId}
         </if>
         <if test="status != null">
             and status = #{status}

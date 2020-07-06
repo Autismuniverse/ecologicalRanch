@@ -27,6 +27,13 @@ public interface DiscountMapper {
     Discount selectDiscountById(Long predeterminedDiscountId);
 
     /**
+     * 通过Id查询 Discount
+     * @param fieldId 查询Id
+     * @return 查询对象
+     */
+    Discount selectDiscountByFieldId(Integer fieldId);
+
+    /**
      * 新增Discount
      * @param discount 新增对象
      * @return 插入行数

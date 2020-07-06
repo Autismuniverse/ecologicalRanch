@@ -2,7 +2,7 @@ package com.ecologicalRanch.project.entity;
 
 import lombok.Data;
 
-import java.time.LocalDateTime;
+import java.util.Date;
 
 /**
  *
@@ -72,7 +72,7 @@ public class Livestock {
      * 预计出笼时间
      */
 
-    private LocalDateTime outTime;
+    private Date outTime;
 
     /**
      * 预购状态（0，正常；1，被预定；-1，已售出）

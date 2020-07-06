@@ -67,7 +67,7 @@ public interface LivestockService {
      */
     List<Livestock> selectOutTime(Livestock livestock);
 
-    String selectLivestockPrice(String livestockIds);
+    String[] selectLivestockPrice(String livestockIds);
 
 
     /**

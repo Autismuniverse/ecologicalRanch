@@ -34,6 +34,12 @@
         WHERE predetermined_discount_id = #{predeterminedDiscountId}
     </select>
 
+    <select id="selectDiscountByFieldId" parameterType="Integer" resultMap="DiscountResult">
+        <include refid="DiscountResultVo" />
+        WHERE field_id = #{fieldId}
+    </select>
+
+
     <select id="selectDiscountList" parameterType="Discount" resultMap="DiscountResult">
         <include refid="DiscountResultVo"/>
         <where>
