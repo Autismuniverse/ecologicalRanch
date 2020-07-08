@@ -19,8 +19,6 @@ import java.util.Date;
 import java.util.List;
 
 /**
- *
- *
  * @author u-fun
  * @date '2019-12-31 15:23:10'
  */
@@ -134,13 +132,14 @@ public class LivestockServiceImpl implements LivestockService {
      */
     @Override
     public int updateLivestockStep(Livestock livestock) {
-        livestockMapper.selectLivestockList(livestock).forEach(s->livestock.setStepNum(s.getStepNum()+livestock.getStepNum()));
+        livestockMapper.selectLivestockList(livestock).forEach(s -> livestock.setStepNum(s.getStepNum() + livestock.getStepNum()));
         return livestockMapper.updateLivestock(livestock);
     }
 
 
     /**
      * 查询价格
+     *
      * @param livestockIds
      * @return
      */
@@ -156,64 +155,47 @@ public class LivestockServiceImpl implements LivestockService {
         for (Livestock s : selectLivestockListByIds(livestockIds)) {
             for (Price p : priceList) {
                 if (s.getFieldId().equals(p.getFieldId()) && s.getType().equals(p.getType())) {
-//                    System.out.println(df.format(day));
-//                    System.out.println(s.getOutTime());
-//                    System.out.println(df.format(s.getOutTime()));
+//
                     Discount discount = discountMapper.selectDiscountByFieldId(p.getFieldId());
-                    if(Days.differentDays(df.format(day),df.format(s.getOutTime()))<=30){
-                        p.setOriginalPrice(p.getOriginalPrice() * discount.getFirstMonth());
-                    }
-                    else if (Days.differentDays(df.format(day),df.format(s.getOutTime()))>30&&Days.differentDays(df.format(day),df.format(s.getOutTime()))<=60){
-                        p.setOriginalPrice(p.getOriginalPrice() * discount.getSecondMonth());
-                    }
-                    else if (Days.differentDays(df.format(day),df.format(s.getOutTime()))>60&&Days.differentDays(df.format(day),df.format(s.getOutTime()))<=90){
-                        p.setOriginalPrice(p.getOriginalPrice() * discount.getThirdMonth());
-                    }
-                    else if (Days.differentDays(df.format(day),df.format(s.getOutTime()))>90&&Days.differentDays(df.format(day),df.format(s.getOutTime()))<=120){
-                        p.setOriginalPrice(p.getOriginalPrice() * discount.getFourthMonth());
-                    }
-                    else if (Days.differentDays(df.format(day),df.format(s.getOutTime()))>120&&Days.differentDays(df.format(day),df.format(s.getOutTime()))<=150){
-                        p.setOriginalPrice(p.getOriginalPrice() * discount.getFifthMonth());
-                    }
-                    else if (Days.differentDays(df.format(day),df.format(s.getOutTime()))>150&&Days.differentDays(df.format(day),df.format(s.getOutTime()))<=180){
-                        p.setOriginalPrice(p.getOriginalPrice() * discount.getSixthMonth());
-                    }
-                    else if (Days.differentDays(df.format(day),df.format(s.getOutTime()))>180&&Days.differentDays(df.format(day),df.format(s.getOutTime()))<=210){
-                        p.setOriginalPrice(p.getOriginalPrice() * discount.getSeventhMonth());
-                    }
-                    else if (Days.differentDays(df.format(day),df.format(s.getOutTime()))>210&&Days.differentDays(df.format(day),df.format(s.getOutTime()))<=240){
-                        p.setOriginalPrice(p.getOriginalPrice() * discount.getEighthMonth());
-                    }
-                    else if (Days.differentDays(df.format(day),df.format(s.getOutTime()))>240&&Days.differentDays(df.format(day),df.format(s.getOutTime()))<=270){
-                        p.setOriginalPrice(p.getOriginalPrice() * discount.getNinthMonth());
-                    }
-                    else if (Days.differentDays(df.format(day),df.format(s.getOutTime()))>270&&Days.differentDays(df.format(day),df.format(s.getOutTime()))<=300){
-                        p.setOriginalPrice(p.getOriginalPrice() * discount.getTenthMonth());
-                    }
-                    else if (Days.differentDays(df.format(day),df.format(s.getOutTime()))>300&&Days.differentDays(df.format(day),df.format(s.getOutTime()))<=330){
-                        p.setOriginalPrice(p.getOriginalPrice() * discount.getEleventhMonth());
-                    }
-                    else if (Days.differentDays(df.format(day),df.format(s.getOutTime()))>330&&Days.differentDays(df.format(day),df.format(s.getOutTime()))<=360){
-                        p.setOriginalPrice(p.getOriginalPrice() * discount.getTwelfthMonth());
-                    }
+                    double nowDis = 0;
 
+                    System.out.println("获取的折扣id："+discount.getPredeterminedDiscountId());
 
-                    stringBuffer.append(s.getLivestockId().toString() + ":" + p.getOriginalPrice() + ",");
+                    switch (Days.differentDays(df.format(day), df.format(s.getOutTime()))/30){
+                        case 0: nowDis = discount.getFirstMonth(); break;
+                        case 1: nowDis = discount.getSecondMonth(); break;
+                        case 2: nowDis = discount.getThirdMonth(); break;
+                        case 3: nowDis = discount.getFourthMonth(); break;
+                        case 4: nowDis = discount.getFifthMonth(); break;
+                        case 5: nowDis = discount.getSixthMonth(); break;
+                        case 6: nowDis = discount.getSeventhMonth(); break;
+                        case 7: nowDis = discount.getEighthMonth(); break;
+                        case 8: nowDis = discount.getNinthMonth(); break;
+                        case 9: nowDis = discount.getTenthMonth(); break;
+                        case 10: nowDis = discount.getEleventhMonth(); break;
+                        case 11: nowDis = discount.getTwelfthMonth(); break;
+                        default: nowDis = 1;break;
+                    }
+                    stringBuffer.append(s.getLivestockId().toString()).append(":")
+                            .append(p.getOriginalPrice() * nowDis).append(",");
+                    System.out.println(stringBuffer);
+
                 }
 
             }
         }
-            return Convert.toStrArray(stringBuffer.toString());
+        return Convert.toStrArray(stringBuffer.toString());
     }
 
 
     /**
      * 根据养殖场id查询Livestock步数排名列表
+     *
      * @param fieldId
      * @return
      */
     @Override
-    public List<Livestock> selectLivestockListRank(Long fieldId){
+    public List<Livestock> selectLivestockListRank(Long fieldId) {
         return livestockMapper.selectLivestockListRank(fieldId);
     }
 }
