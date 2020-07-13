@@ -5,8 +5,8 @@ import lombok.Data;
 /**
  *
  *
- * @author u-fun
- * @date '2019-12-28 14:23:46'
+ * @author xxxfredyang
+ * @date '2020-05-27 16:48:59'
  */
 @Data
 public class Discount {

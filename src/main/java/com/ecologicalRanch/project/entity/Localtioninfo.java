@@ -4,8 +4,8 @@ import lombok.Data;
 /**
  *
  *
- * @author u-fun
- * @date '2019-12-20 14:21:52'
+ * @author xxxfredyang
+ * @date '2020-01-19 18:10:04'
  */
 @Data
 public class Localtioninfo{

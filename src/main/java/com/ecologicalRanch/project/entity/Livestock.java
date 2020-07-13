@@ -7,8 +7,8 @@ import java.util.Date;
 /**
  *
  *
- * @author u-fun
- * @date '2019-12-31 15:23:10'
+ * @author xxxfredyang
+ * @date '2020-01-19 18:10:04'
  */
 @Data
 public class Livestock {

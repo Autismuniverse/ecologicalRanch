@@ -5,8 +5,8 @@ import lombok.Data;
 /**
  *
  *
- * @author u-fun
- * @date '2020-01-10 16:30:19'
+ * @author xxxfredyang
+ * @date '2020-05-27 16:48:59'
  */
 @Data
 public class Carousel {

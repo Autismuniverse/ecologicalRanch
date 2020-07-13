@@ -5,6 +5,12 @@ import org.hibernate.validator.constraints.Length;
 
 import javax.validation.constraints.Pattern;
 
+/**
+ *
+ *
+ * @author xxxfredyang
+ * @date '2020-05-27 16:48:59'
+ */
 @Data
 public class Admin {
 

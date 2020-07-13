@@ -17,10 +17,11 @@ public class LoginHandler {
     private String appID = "wx4bd8b4a9b1e3c26e";
     private String appSecret = "bfffc7550da959acf43dc02013585b0d";
 
+
+
     @GetMapping("/we/login")
 
     public CommonResult userLogin(@RequestBody JSONObject code) {
-
         System.out.println(code);
 
 //        //判断第一个字符是否为“{”

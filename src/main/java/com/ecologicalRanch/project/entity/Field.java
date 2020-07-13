@@ -5,8 +5,8 @@ import lombok.Data;
 /**
  *
  *
- * @author u-fun
- * @date '2019-12-30 14:31:08'
+ * @author xxxfredyang
+ * @date '2020-01-19 18:10:04'
  */
 @Data
 public class Field {
