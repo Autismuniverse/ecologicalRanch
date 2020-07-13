@@ -24,6 +24,10 @@ import org.springframework.web.bind.annotation.*;
 @Validated
 public class AddressController {
 
+    /**
+     * githubTest
+     */
+
     @Autowired
     private AddressService addressService;
 
