@@ -3,7 +3,6 @@ package com.ecologicalRanch.project.controller;
 import com.ecologicalRanch.common.result.CommonResult;
 import com.ecologicalRanch.project.entity.Admin;
 import com.ecologicalRanch.project.service.AdminService;
-import com.ecologicalRanch.utils2.JSONResult;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +24,7 @@ public class AdminController {
      */
     @ApiOperation("查询所有管理员信息")
     @GetMapping("queryAll")
-    public JSONResult queryAll(){ return JSONResult.ok(adminService.queryAll());}
+    public CommonResult queryAll(){ return CommonResult.success(adminService.queryAll());}
 
     /**
      * 通过管理员id查询管理员信息
@@ -43,7 +42,8 @@ public class AdminController {
      */
     @ApiOperation(value = "登录",notes = "userId,password")
     @PostMapping("login/")
-    public JSONResult login(@RequestBody Admin admin){ return JSONResult.ok(adminService.login(admin)); }
+    public CommonResult login(@RequestBody Admin admin){
+        return CommonResult.success(adminService.login(admin)); }
 
 }
 
