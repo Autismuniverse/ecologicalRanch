@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@Api("RSSI信息")
+@Api(tags="RSSI信息")
 @RequestMapping("/redis")
 public class RedisController {
 

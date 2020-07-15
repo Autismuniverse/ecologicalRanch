@@ -50,4 +50,9 @@ public class Admin {
      */
 
     private String adminName;
+
+    /**
+     * 盐
+     */
+    private String salt;
 }

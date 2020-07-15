@@ -20,6 +20,24 @@
         <include refid="AdminResultVo"/>
         where admin_id = #{adminId} and password = #{password}
     </select>
-
+    <insert id="insertAdmin" parameterType="com.ecologicalRanch.project.entity.Admin" useGeneratedKeys="true">
+        INSERT INTO admin
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="adminId != null  and adminId != ''">admin_id,</if>
+            <if test="password != null  and password != ''">password,</if>
+            <if test="adminName != null  and adminName != ''">admin_name,</if>
+            <if test="phone != null  and phone != ''">phone,</if>
+            <if test="role != null  and role != ''">role,</if>
+            <if test="state != null  and state != ''">state</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="adminId != null  and adminId != ''">#{adminId},</if>
+            <if test="password != null  and password != ''">#{password},</if>
+            <if test="adminName != null  and adminName != ''">#{adminName},</if>
+            <if test="phone != null  and phone != ''">#{phone},</if>
+            <if test="role != null  and role != ''">#{role},</if>
+            <if test="state != null  and state != ''">#{state}</if>
+        </trim>
+    </insert>
 
 </mapper>

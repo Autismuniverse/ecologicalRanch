@@ -85,6 +85,10 @@ public class User  {
      */
 
     private Integer state;
+    /**
+     * 盐
+     */
+    private String salt;
 
 
 }

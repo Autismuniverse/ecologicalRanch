@@ -47,7 +47,10 @@ public class UserController {
     @PostMapping("/userLogin")
     @ResponseBody
     public CommonResult login(@RequestBody User user ){
-        return CommonResult.success(userService.login(user));
+        if(userService.login(user)!=null){
+            return CommonResult.success("登录成功");
+        }
+        return CommonResult.failed("账号或密码错误");
     }
     /**
      * 通过Id查询User

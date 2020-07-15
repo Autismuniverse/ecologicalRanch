@@ -25,4 +25,10 @@ public interface AdminMapper {
      * @return admin 对象
      */
     Admin login(Admin admin);
+    /**
+     * 新增一个管理员
+     * @param admin 对象
+     * @return admin对象
+     */
+    int insertAdmin(Admin admin);
 }

@@ -1,7 +1,8 @@
 package com.ecologicalRanch.project.entity;
 
 import lombok.Data;
-import java.util.Date;
+
+import java.sql.Timestamp;
 
 /**
  *
@@ -29,21 +30,24 @@ public class Cart  {
 
     private Integer livestockId;
 
+
     /**
      * 商品状态（1:正常；0：删除）
      */
+    private boolean status;
 
 
     /**
      * 创建（加入购物车）时间
      */
+    private Timestamp createTime;
 
 
     /**
      * 删除时间
      */
 
-    private Date deleteTime;
+    private Timestamp deleteTime;
 
 
 }

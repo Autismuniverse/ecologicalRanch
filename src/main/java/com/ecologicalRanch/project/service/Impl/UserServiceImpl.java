@@ -1,5 +1,6 @@
 package com.ecologicalRanch.project.service.Impl;
 
+import com.ecologicalRanch.common.utils.MD5Utils;
 import com.ecologicalRanch.project.entity.User;
 import com.ecologicalRanch.project.mapper.UserMapper;
 import com.ecologicalRanch.project.service.UserService;
@@ -41,6 +42,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User login(User user){
+        user.setUserPwd(MD5Utils.string2MD5(user.getUserPwd(),user.getSalt()));
         return userMapper.login(user);
     }
     /**
@@ -48,6 +50,9 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public int insertUser(User user) {
+        String salt=MD5Utils.salt();
+        user.setSalt(salt);
+        user.setUserPwd(MD5Utils.string2MD5(user.getUserPwd(),salt));
         return userMapper.insertUser(user);
     }
 
@@ -72,6 +77,9 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public int updateUser(User user) {
+        String salt=MD5Utils.salt();
+        user.setSalt(salt);
+        user.setUserPwd(MD5Utils.string2MD5(user.getUserPwd(),salt));
         return userMapper.updateUser(user);
     }
 

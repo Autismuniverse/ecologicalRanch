@@ -5,6 +5,7 @@ import com.ecologicalRanch.common.pagehelper.CommonPage;
 import com.ecologicalRanch.common.result.CommonResult;
 import com.ecologicalRanch.project.entity.Cart;
 import com.ecologicalRanch.project.service.CartService;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
  * @author xxxfredyang
  * @date '2020-06-27 16:34:04'
  */
+@Api(tags = "购物车")
 @Controller
 @RequestMapping("/app/cart")
 public class CartController {

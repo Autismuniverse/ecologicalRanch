@@ -45,5 +45,15 @@ public class AdminController {
     public CommonResult login(@RequestBody Admin admin){
         return CommonResult.success(adminService.login(admin)); }
 
+    /**
+     * 新增管理员
+     * @param admin 对象
+     * @return int对象
+     */
+    @ApiOperation(value = "插入",notes = "userId,password")
+    @PostMapping("insert/")
+    public CommonResult insert(@RequestBody Admin admin){
+        return CommonResult.success(adminService.insertAdmin(admin)); }
+
 }
 

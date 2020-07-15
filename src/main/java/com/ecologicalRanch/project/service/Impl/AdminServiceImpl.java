@@ -1,5 +1,6 @@
 package com.ecologicalRanch.project.service.Impl;
 
+import com.ecologicalRanch.common.utils.MD5Utils;
 import com.ecologicalRanch.project.entity.Admin;
 import com.ecologicalRanch.project.mapper.AdminMapper;
 import com.ecologicalRanch.project.service.AdminService;
@@ -21,5 +22,16 @@ public class AdminServiceImpl implements AdminService {
     public  Admin selectById(long adminId) { return adminMapper.selectById(adminId); }
 
     @Override
-    public  Admin login(Admin admin) { return  adminMapper.login(admin);}
+    public  Admin login(Admin admin) {
+        admin.setPassword(MD5Utils.string2MD5(admin.getPassword(),admin.getSalt()));
+        return  adminMapper.login(admin);
+    }
+
+    @Override
+    public int insertAdmin(Admin admin){
+        String salt = MD5Utils.salt();
+        admin.setSalt(salt);
+        admin.setPassword(MD5Utils.string2MD5(admin.getPassword(),salt));
+        return adminMapper.insertAdmin(admin);
+    }
 }

@@ -11,4 +11,6 @@ public interface AdminService {
     Admin selectById(long userId);
 
     Admin login(Admin admin);
+
+    int insertAdmin(Admin admin);
 }
