@@ -73,11 +73,13 @@ public class ClientMQTT {
 
     public void stop() {
         try {
-            client.unsubscribe(TOPIC1);
-            // 断开连接
-            client.disconnect();
-            // 关闭客户端
-            client.close();
+            if(client.isConnected()) {
+                client.unsubscribe(TOPIC1);
+                // 断开连接
+                client.disconnect();
+                // 关闭客户端
+                client.close();
+            }
         } catch (MqttException e) {
             e.printStackTrace();
         }

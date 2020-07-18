@@ -2,6 +2,8 @@ package com.ecologicalRanch.project.entity;
 
 import lombok.Data;
 
+import javax.validation.constraints.NotNull;
+
 /**
  *
  *
@@ -30,73 +32,73 @@ public class Discount {
     /**
      *
      */
-
+    @NotNull
     private double firstMonth;
 
     /**
      *
      */
-
+    @NotNull
     private double secondMonth;
 
     /**
      *
      */
-
+    @NotNull
     private double thirdMonth;
 
     /**
      *
      */
-
+    @NotNull
     private double fourthMonth;
 
     /**
      *
      */
-
+    @NotNull
     private double fifthMonth;
 
     /**
      *
      */
-
+    @NotNull
     private double sixthMonth;
 
     /**
      *
      */
-
+    @NotNull
     private double seventhMonth;
 
     /**
      *
      */
-
+    @NotNull
     private double eighthMonth;
 
     /**
      *
      */
-
+    @NotNull
     private double ninthMonth;
 
     /**
      *
      */
-
+    @NotNull
     private double tenthMonth;
 
     /**
      *
      */
-
+    @NotNull
     private double eleventhMonth;
 
     /**
      *
      */
-
+    @NotNull
     private double twelfthMonth;
 
     /**

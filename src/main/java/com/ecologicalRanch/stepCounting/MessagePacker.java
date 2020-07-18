@@ -13,8 +13,6 @@ public class MessagePacker {
 
 	private  String gateway_mac;
 	private static long Data_length;
-	public static int Le=56;
-	public static double Eaf=3.3;
 	public static String[] label_data;
 
 	public MessagePacker(){
@@ -59,26 +57,11 @@ public class MessagePacker {
 		}
 		return false;
     }
-	/**
-	 * 字节转十六进制
-	 * @param bytes
-	 * @return
-	 */
-	public String BytesToHex(byte[] bytes) {
-		StringBuffer sb = new StringBuffer();
-		for(int i = 0; i < bytes.length; i++) {
-			String hex = Integer.toHexString(bytes[i] & 0xFF);
-			if(hex.length() < 2){
-				sb.append(0);
-			}
-			sb.append(hex);
-		}
-		return sb.toString();
-	}
+
 
 	private boolean Label_up(String string){
         string = string.toUpperCase();
-        String ladel_mac = null, uuid = null;
+        String ladel_mac, uuid;
         int rssi;
         String str;
         str = string.substring(16, 18);

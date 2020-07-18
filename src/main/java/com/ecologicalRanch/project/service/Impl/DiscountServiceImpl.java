@@ -10,8 +10,6 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 /**
- *
- *
  * @author u-fun
  * @date '2019-12-28 11:27:04'
  */
@@ -34,8 +32,8 @@ public class DiscountServiceImpl implements DiscountService {
      */
 
     @Override
-    public List<Discount> selectDiscountList(Discount discount){
-        return  discountMapper.selectDiscountList(discount);
+    public List selectDiscountList(Discount discount) {
+        return discountMapper.selectDiscountList(discount);
     }
 
     /**
@@ -58,7 +56,7 @@ public class DiscountServiceImpl implements DiscountService {
      * 通过id批量删除Discount
      */
     @Override
-    public int deleteDiscountByIds(String predeterminedDiscountIds){
+    public int deleteDiscountByIds(String predeterminedDiscountIds) {
         return discountMapper.deleteDiscountByIds(Convert.toStrArray(predeterminedDiscountIds));
     }
 
@@ -69,5 +67,4 @@ public class DiscountServiceImpl implements DiscountService {
     public int updateDiscount(Discount discount) {
         return discountMapper.updateDiscount(discount);
     }
-
 }

@@ -7,6 +7,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -49,7 +50,7 @@ public class DiscountController {
     @ApiOperation("新增Discount")
     @PostMapping("/insertDiscount")
     @ResponseBody
-    public CommonResult insertDiscount(@RequestBody Discount discount){
+    public CommonResult insertDiscount(@RequestBody @Validated Discount discount){
         return CommonResult.success(discountService.insertDiscount(discount));
     }
 
@@ -59,7 +60,7 @@ public class DiscountController {
     @ApiOperation("修改Discount信息")
     @PostMapping("/updateDiscount")
     @ResponseBody
-    public CommonResult updateDiscount(@RequestBody Discount discount){
+    public CommonResult updateDiscount(@RequestBody @Validated Discount discount){
         return CommonResult.success(discountService.updateDiscount(discount));
     }
 
