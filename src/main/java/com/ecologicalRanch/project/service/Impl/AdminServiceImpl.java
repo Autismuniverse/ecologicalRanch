@@ -23,7 +23,8 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     public  Admin login(Admin admin) {
-        admin.setPassword(MD5Utils.string2MD5(admin.getPassword(),admin.getSalt()));
+        Admin result= this.selectByPhone(admin.getPhone());
+        admin.setPassword(MD5Utils.string2MD5(admin.getPassword(),result.getSalt()));
         return  adminMapper.login(admin);
     }
 
@@ -33,5 +34,10 @@ public class AdminServiceImpl implements AdminService {
         admin.setSalt(salt);
         admin.setPassword(MD5Utils.string2MD5(admin.getPassword(),salt));
         return adminMapper.insertAdmin(admin);
+    }
+
+    @Override
+    public Admin selectByPhone(String phone){
+        return adminMapper.selectByPhone(phone);
     }
 }

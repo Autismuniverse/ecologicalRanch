@@ -4,6 +4,7 @@ package com.ecologicalRanch.project.service;
 import com.ecologicalRanch.project.entity.Livestock;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  *
@@ -67,7 +68,7 @@ public interface LivestockService {
      */
     List<Livestock> selectOutTime(Livestock livestock);
 
-    String[] selectLivestockPrice(String livestockIds);
+    Map<String,Double> selectLivestockPrice(String livestockIds);
 
 
     /**

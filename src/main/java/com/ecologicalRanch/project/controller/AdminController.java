@@ -50,7 +50,7 @@ public class AdminController {
      * @param admin 对象
      * @return int对象
      */
-    @ApiOperation(value = "插入",notes = "userId,password")
+    @ApiOperation(value = "插入")
     @PostMapping("insert/")
     public CommonResult insert(@RequestBody Admin admin){
         return CommonResult.success(adminService.insertAdmin(admin)); }

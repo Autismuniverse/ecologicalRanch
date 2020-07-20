@@ -31,6 +31,8 @@
         </where>
     </select>
 
+
+
     <insert id="insertFollow" parameterType="Follow" useGeneratedKeys="true">
         INSERT INTO follow
         <trim prefix="(" suffix=")" suffixOverrides=",">

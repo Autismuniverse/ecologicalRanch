@@ -16,7 +16,9 @@ import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author u-fun
@@ -145,12 +147,13 @@ public class LivestockServiceImpl implements LivestockService {
      */
 
     @Override
-    public String[] selectLivestockPrice(String livestockIds) {
+    public  Map<String,Double> selectLivestockPrice(String livestockIds) {
         List<Price> priceList = priceMapper.selectPriceList(new Price());
 
         StringBuffer stringBuffer = new StringBuffer();
         Date day = new Date();
         SimpleDateFormat df = new SimpleDateFormat("yyyyMMdd");
+        Map<String,Double> map = new HashMap<>();
 
         for (Livestock s : selectLivestockListByIds(livestockIds)) {
             for (Price p : priceList) {
@@ -176,15 +179,22 @@ public class LivestockServiceImpl implements LivestockService {
                         case 11: nowDis = discount.getTwelfthMonth(); break;
                         default: nowDis = 1;break;
                     }
+
                     stringBuffer.append(s.getLivestockId().toString()).append(":")
                             .append(p.getOriginalPrice() * nowDis).append(",");
+                    map.put(s.getLivestockId().toString(),p.getOriginalPrice() * nowDis);
+
                     System.out.println(stringBuffer);
+
+
 
                 }
 
             }
         }
-        return Convert.toStrArray(stringBuffer.toString());
+
+//        return Convert.toStrArray(stringBuffer.toString());
+        return map;
     }
 
 

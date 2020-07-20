@@ -31,4 +31,8 @@ public interface AdminMapper {
      * @return admin对象
      */
     int insertAdmin(Admin admin);
+
+    Admin selectMaxId();
+
+    Admin selectByPhone(String phone);
 }

@@ -72,6 +72,7 @@ public class Livestock {
      * 预计出笼时间
      */
 
+//    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date outTime;
 
     /**

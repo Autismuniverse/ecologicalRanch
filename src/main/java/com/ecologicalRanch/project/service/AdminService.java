@@ -13,4 +13,6 @@ public interface AdminService {
     Admin login(Admin admin);
 
     int insertAdmin(Admin admin);
+
+    Admin selectByPhone(String phone);
 }
