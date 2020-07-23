@@ -53,7 +53,7 @@ public class GatewayController {
     @ApiOperation("新增Gateway")
     @PostMapping("/insertGateway")
     @ResponseBody
-    public CommonResult insertGateway(Gateway gateway){
+    public CommonResult insertGateway(@RequestBody Gateway gateway){
         return CommonResult.success(gatewayService.insertGateway(gateway));
     }
 

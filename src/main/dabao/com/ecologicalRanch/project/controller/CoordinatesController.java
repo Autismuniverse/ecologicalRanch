@@ -104,7 +104,7 @@ public class CoordinatesController {
     @ApiOperation("通过id批量删除Coordinates")
     @PostMapping("/deleteList")
     @ResponseBody
-    public CommonResult deleteCoordinatesByIds(@RequestBody String bluetoothIds){
+    public CommonResult deleteCoordinatesByIds(String bluetoothIds){
         return CommonResult.success(coordinatesService.deleteCoordinatesByIds(bluetoothIds));
     }
 }

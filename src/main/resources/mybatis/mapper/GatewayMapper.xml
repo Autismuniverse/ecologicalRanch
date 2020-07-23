@@ -14,7 +14,7 @@
 
     <sql id="GatewayResultVo">
         select
-        gateway_id,mac,coordinate_x,coordinate_y,fieldId
+        gateway_id,mac,coordinate_x,coordinate_y,field_id
          from gateway
     </sql>
 
@@ -42,14 +42,13 @@
             <if test="mac != null  and mac != ''">mac, </if>
             <if test="coordinateX != null  and coordinateX != ''">coordinate_x, </if>
             <if test="coordinateY != null  and coordinateY != ''">coordinate_y,</if>
-            <if test="fieldId != null  and fieldId != ''">device_id </if>
-
+            <if test="fieldId != null  and fieldId != ''">field_id </if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="gatewayId != null  and gatewayId != ''">#{gatewayId},</if>
             <if test="mac != null  and mac != ''">#{mac},</if>
             <if test="coordinateX != null  and coordinateX != ''">#{coordinateX},</if>
-            <if test="coordinateY != null  and coordinateY != ''">#{coordinateY}</if>
+            <if test="coordinateY != null  and coordinateY != ''">#{coordinateY},</if>
             <if test="fieldId != null  and fieldId != ''">#{fieldId}</if>
         </trim>
     </insert>
@@ -62,7 +61,6 @@
             <if test="coordinateX != null  and coordinateX != ''">coordinate_x = #{coordinateX},</if>
             <if test="coordinateY != null  and coordinateY != ''">coordinate_y = #{coordinateY},</if>
             <if test="fieldId != null  and fieldId != ''">field_id = #{fieldId},</if>
-
         </trim>
         WHERE  gateway_id = #{gatewayId}
     </update>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ecologicalRanch.project.mapper.CommentMapper">
+
+    <resultMap id="CommentResult" type="Comment" >
+        <result column="comment_id" property="commentId" />
+        <result column="user_id" property="userId" />
+        <result column="livestock_id" property="livestockId" />
+        <result column="contents" property="contents" />
+        <result column="order_id" property="orderId" />
+    </resultMap>
+
+    <sql id="CommentResultVo">
+        select
+        comment_id,user_id,livestock_id,contents,order_id
+         from comment
+    </sql>
+
+    <select id="selectCommentById" parameterType="Long" resultMap="CommentResult">
+        <include refid="CommentResultVo" />
+        WHERE comment_id = #{commentId}
+    </select>
+
+    <select id="selectCommentList" parameterType="Comment" resultMap="CommentResult">
+        <include refid="CommentResultVo"/>
+        <where>
+            <if test="commentId != null and commentId != 0">
+                and comment_id = #{commentId}
+            </if>
+            <if test="userId != null and userId != 0">
+                and user_id = #{userId}
+            </if>
+            <if test="livestockId != null and livestockId != 0">
+                and livestock_id = #{livestockId}
+            </if>
+        </where>
+    </select>
+
+    <insert id="insertComment" parameterType="Comment" useGeneratedKeys="true">
+        INSERT INTO comment
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="commentId != null  and commentId != ''">comment_id, </if>
+            <if test="userId != null  and userId != ''">user_id, </if>
+            <if test="livestockId != null  and livestockId != ''">livestock_id, </if>
+            <if test="contents != null  and contents != ''">contents, </if>
+            <if test="orderId != null  and orderId != ''">order_id </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="commentId != null  and commentId != ''">#{commentId},</if>
+            <if test="userId != null  and userId != ''">#{userId},</if>
+            <if test="livestockId != null  and livestockId != ''">#{livestockId},</if>
+            <if test="contents != null  and contents != ''">#{contents},</if>
+            <if test="orderId != null  and orderId != ''">#{orderId}</if>
+        </trim>
+    </insert>
+
+    <update id="updateComment" parameterType="Comment" >
+        UPDATE comment
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="commentId != null  and commentId != ''">comment_id = #{commentId},</if>
+            <if test="userId != null  and userId != ''">user_id = #{userId},</if>
+            <if test="livestockId != null  and livestockId != ''">livestock_id = #{livestockId},</if>
+            <if test="contents != null  and contents != ''">contents = #{contents},</if>
+            <if test="orderId != null  and orderId != ''">order_id = #{orderId},</if>
+        </trim>
+        WHERE  comment_id = #{commentId}
+    </update>
+
+    <delete id="deleteCommentById" parameterType="Long">
+        DELETE FROM comment
+        WHERE  comment_id = #{commentId}
+    </delete>
+
+    <delete id="deleteCommentByIds" parameterType="String">
+        delete from comment where comment_id in
+        <foreach item="item" collection="array" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+
+</mapper>
