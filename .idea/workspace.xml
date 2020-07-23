@@ -13,20 +13,49 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="39bc4dc4-f9c4-4ab6-91e3-8b6d746c1aa5" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/config/RedisConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/controller/CameraController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/entity/Camera.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/mapper/CameraMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/service/CameraService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/service/Impl/CameraServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/stepCounting/Calculation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/stepCounting/Mqtt.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/application-jdbc.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/CameraMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/ecologicalRanchApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/ecologicalRanchApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/controller/AdminController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/controller/LoginHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/controller/LoginHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/entity/Livestock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/entity/Livestock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/mapper/AdminMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/mapper/AdminMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/service/AdminService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/service/AdminService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/service/Impl/AdminServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/service/Impl/AdminServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/service/Impl/LivestockServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/service/Impl/LivestockServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/service/LivestockService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/service/LivestockService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/controller/DeviceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/controller/DeviceController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/entity/Coordinates.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/entity/Coordinates.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/entity/Device.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/entity/Device.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/entity/Gateway.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/entity/Gateway.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/service/Impl/DeviceServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/service/Impl/DeviceServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/redis/utils/RedisUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/redis/utils/RedisUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/stepCounting/CalculationThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/stepCounting/CalculationThread.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/stepCounting/ClientMQTT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/stepCounting/ClientMQTT.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/stepCounting/Kalman.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/stepCounting/Kalman.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/stepCounting/MessagePacker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/stepCounting/MessagePacker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/stepCounting/MqttLoadServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/stepCounting/MqttLoadServer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/stepCounting/ProgramStart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/stepCounting/ProgramStart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/stepCounting/PushCallback.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/stepCounting/PushCallback.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/FollowMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/FollowMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/adminMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/adminMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/CoordinatesMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/CoordinatesMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/GatewayMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/GatewayMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/LiveStock/livestockByIds.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/LiveStock/livestockByIds.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ecologicalRanch/ecologicalRanchApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ecologicalRanch/ecologicalRanchApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ecologicalRanch/project/controller/AdminController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ecologicalRanch/project/controller/AdminController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ecologicalRanch/project/controller/LivestockController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ecologicalRanch/project/controller/LivestockController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ecologicalRanch/project/controller/LoginHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ecologicalRanch/project/controller/LoginHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ecologicalRanch/project/entity/Livestock.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ecologicalRanch/project/entity/Livestock.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ecologicalRanch/project/mapper/AdminMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ecologicalRanch/project/mapper/AdminMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ecologicalRanch/project/service/Impl/AdminServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ecologicalRanch/project/service/Impl/AdminServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ecologicalRanch/project/service/Impl/LivestockServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ecologicalRanch/project/service/Impl/LivestockServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ecologicalRanch/project/service/LivestockService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ecologicalRanch/project/service/LivestockService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mybatis/mapper/FollowMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/FollowMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mybatis/mapper/adminMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/adminMapper.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -58,74 +87,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/adminMapper.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="46" column="64" lean-forward="true" selection-start-line="46" selection-start-column="64" selection-end-line="46" selection-end-column="64" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/controller/CartController.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/ecologicalRanch/config/RedisConfig.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="73">
-              <caret line="21" column="26" lean-forward="true" selection-start-line="21" selection-start-column="17" selection-end-line="21" selection-end-column="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/controller/LoginHandler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="239">
-              <caret line="21" column="47" selection-start-line="21" selection-start-column="47" selection-end-line="21" selection-end-column="47" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/controller/LocaltioninfoController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="55" column="45" selection-start-line="55" selection-start-column="45" selection-end-line="55" selection-end-column="45" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/controller/AdminController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="349">
-              <caret line="58" lean-forward="true" selection-start-line="58" selection-end-line="58" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/service/LivestockService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="70" column="23" selection-start-line="70" selection-start-column="23" selection-end-line="70" selection-end-column="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/service/Impl/LivestockServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="148" column="13" lean-forward="true" selection-start-line="148" selection-start-column="13" selection-end-line="148" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/entity/Livestock.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="271">
-              <caret line="80" lean-forward="true" selection-start-line="80" selection-end-line="80" />
+            <state relative-caret-position="695">
+              <caret line="26" column="51" lean-forward="true" selection-start-line="26" selection-start-column="51" selection-end-line="26" selection-end-column="51" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -134,19 +100,59 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/controller/LivestockController.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/ecologicalRanch/redis/utils/JedisUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="158" column="5" lean-forward="true" selection-start-line="158" selection-start-column="5" selection-end-line="158" selection-end-column="5" />
+            <state relative-caret-position="570">
+              <caret line="27" column="32" selection-start-line="27" selection-start-column="32" selection-end-line="27" selection-end-column="32" />
+              <folding>
+                <element signature="e#407#408#0" expanded="true" />
+                <element signature="e#469#470#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/application-jdbc.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="66" column="21" lean-forward="true" selection-start-line="66" selection-start-column="21" selection-end-line="66" selection-end-column="21" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/controller/CarouselController.java">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/application.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="103">
-              <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
+            <state relative-caret-position="270">
+              <caret line="9" column="14" lean-forward="true" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/ecologicalRanch/redis/utils/RedisUtil.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="11" column="18" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/ecologicalRanch/ecologicalRanchApplication.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-73">
+              <caret line="9" column="56" selection-start-line="9" selection-start-column="56" selection-end-line="9" selection-end-column="56" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/ecologicalRanch/redis/controller/RedisController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret line="14" column="14" lean-forward="true" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -165,6 +171,7 @@
         <option value="FxmlFile" />
         <option value="Interface" />
         <option value="mybatisMapper" />
+        <option value="AnnotationType" />
         <option value="Class" />
       </list>
     </option>
@@ -198,6 +205,9 @@
       <find>selectPriceListNoPageHelperOneType</find>
       <find>str</find>
       <find>red</find>
+      <find>device_id</find>
+      <find>deviceId</find>
+      <find>redis</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -210,6 +220,8 @@
       <replace>totalBluetooth</replace>
       <replace>TotalBluetooth</replace>
       <replace>code</replace>
+      <replace>field_id</replace>
+      <replace>fieldId</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -223,48 +235,10 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/controller/CoordinatesController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/entity/Address.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/service/Impl/AddressServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/controller/DeviceController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/entity/Device.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/entity/Coordinates.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/entity/Gateway.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/mybatis/mapper/LivestockMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/entity/Order.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/common/utils/differentDays.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/mybatis/mapper/DiscountMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/mapper/DiscountMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/common/utils/Days.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/controller/GatewayController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/controller/Test.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/entity/Carousel.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/entity/Field.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/entity/Localtioninfo.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/controller/AddressController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/controller/CartController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/redis/controller/RedisController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/entity/Cart.java" />
-        <option value="$PROJECT_DIR$/src/test/java/LiveStock/livestockByIds.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/entity/User.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/resources/mybatis/mapper/userMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/controller/UserController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/common/utils/MD5Utils.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/entity/Admin.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/service/Impl/UserServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/controller/DiscountController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/stepCounting/PushCallback.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/stepCounting/MessagePacker.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/entity/Discount.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/service/DiscountService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/service/Impl/DiscountServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mybatis/mapper/FollowMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/mybatis/mapper/AddressMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/stepCounting/ProgramStart.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/application.yml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/stepCounting/ClientMQTT.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/controller/AdminController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/mapper/AdminMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/service/AdminService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/service/Impl/AdminServiceImpl.java" />
@@ -274,6 +248,44 @@
         <option value="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/service/Impl/LivestockServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/service/LivestockService.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mybatis/mapper/adminMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/service/Impl/DeviceServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/entity/Device.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/entity/Gateway.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/entity/Coordinates.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/controller/DeviceController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mybatis/mapper/GatewayMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/resources/mybatis/mapper/CoordinatesMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/controller/CameraContrller.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/entity/Camera.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/service/CameraService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/service/Impl/CameraServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/mapper/CameraMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/controller/CameraController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/config/Swagger2.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/stepCounting/DatasourcePro.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/stepCounting/Datasource.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/ecologicalRanchApplication.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/stepCounting/CalculationParameters.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/stepCounting/SpringBootTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/stepCounting/Kalman.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/stepCounting/MessagePacker.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/stepCounting/PushCallback.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/stepCounting/ProgramStart.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mybatis/mapper/CameraMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/stepCounting/Calculation.java" />
+        <option value="$PROJECT_DIR$/src/test/java/LiveStock/livestockByIds.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/controller/AdminController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/stepCounting/CalculationThread.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/stepCounting/MqttLoadServer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/stepCounting/Mqtt.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/stepCounting/ClientMQTT.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/application-redis.yml" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/resources/application.yml" />
+        <option value="$PROJECT_DIR$/src/main/resources/application-jdbc.yml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/config/RedisConfig.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/redis/utils/JedisUtil.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ecologicalRanch/redis/utils/RedisUtil.java" />
       </list>
     </option>
   </component>
@@ -293,13 +305,39 @@
   </component>
   <component name="MavenProjectNavigator">
     <treeState>
-      <expand />
+      <expand>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="ecologicalRanch" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="ecologicalRanch" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="ecologicalRanch" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Dependencies" type="f4be9f2a:MavenProjectsStructure$DependenciesNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="ecologicalRanch" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Dependencies" type="f4be9f2a:MavenProjectsStructure$DependenciesNode" />
+          <item name="redis.clients:jedis:2.9.0" type="c0821a7e:MavenProjectsStructure$DependencyNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="ecologicalRanch" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Dependencies" type="f4be9f2a:MavenProjectsStructure$DependenciesNode" />
+          <item name="org.apache.httpcomponents:httpclient:4.5.6" type="c0821a7e:MavenProjectsStructure$DependencyNode" />
+        </path>
+      </expand>
       <select />
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="433" />
-    <option name="y" value="58" />
+    <option name="x" value="401" />
     <option name="width" value="1362" />
     <option name="height" value="718" />
   </component>
@@ -334,137 +372,7 @@
               <item name="ecologicalRanch" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ecologicalRanch" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ecologicalRanch" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="ecologicalRanch" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ecologicalRanch" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ecologicalRanch" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="ecologicalRanch" type="462c0819:PsiDirectoryNode" />
-              <item name="project" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ecologicalRanch" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ecologicalRanch" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="ecologicalRanch" type="462c0819:PsiDirectoryNode" />
-              <item name="project" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ecologicalRanch" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ecologicalRanch" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="ecologicalRanch" type="462c0819:PsiDirectoryNode" />
-              <item name="project" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ecologicalRanch" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ecologicalRanch" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="ecologicalRanch" type="462c0819:PsiDirectoryNode" />
-              <item name="project" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-              <item name="Impl" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ecologicalRanch" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ecologicalRanch" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="ecologicalRanch" type="462c0819:PsiDirectoryNode" />
-              <item name="redis" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ecologicalRanch" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ecologicalRanch" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="ecologicalRanch" type="462c0819:PsiDirectoryNode" />
-              <item name="redis" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ecologicalRanch" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ecologicalRanch" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="ecologicalRanch" type="462c0819:PsiDirectoryNode" />
-              <item name="redis" type="462c0819:PsiDirectoryNode" />
-              <item name="entity" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ecologicalRanch" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ecologicalRanch" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="ecologicalRanch" type="462c0819:PsiDirectoryNode" />
-              <item name="redis" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ecologicalRanch" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ecologicalRanch" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="ecologicalRanch" type="462c0819:PsiDirectoryNode" />
-              <item name="redis" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ecologicalRanch" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ecologicalRanch" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="ecologicalRanch" type="462c0819:PsiDirectoryNode" />
-              <item name="stepCounting" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ecologicalRanch" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ecologicalRanch" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ecologicalRanch" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ecologicalRanch" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="mybatis" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ecologicalRanch" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ecologicalRanch" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="mybatis" type="462c0819:PsiDirectoryNode" />
-              <item name="mapper" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ecologicalRanch" type="b2602c69:ProjectViewProjectNode" />
@@ -498,15 +406,19 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="settings.github" />
+    <property name="settings.editor.selected.configurable" value="spring.boot" />
   </component>
   <component name="RecentsManager">
     <key name="OPEN_URL_DIALOG">
       <recent name="https://github.com/Autismuniverse/ecological_ranch/tree/master" />
+    </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.ecologicalRanch.stepCounting" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\projects\ecologicalRanch\src\main\java\com\ecologicalRanch\common\utils" />
@@ -634,10 +546,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.livestockByIds.test" />
         <item itemvalue="JUnit.livestockByIds.ls" />
         <item itemvalue="JUnit.livestockByIds" />
         <item itemvalue="JUnit.livestockByIds.ls (1)" />
-        <item itemvalue="JUnit.livestockByIds.test" />
         <item itemvalue="Application.TEST" />
       </list>
     </recent_temporary>
@@ -686,7 +598,7 @@
       <workItem from="1583483293309" duration="13546000" />
       <workItem from="1584931745533" duration="12813000" />
       <workItem from="1586002169331" duration="424565000" />
-      <workItem from="1591694825066" duration="234106000" />
+      <workItem from="1591694825066" duration="284337000" />
     </task>
     <task id="LOCAL-00001" summary="首次提交">
       <created>1577609017162</created>
@@ -926,31 +838,17 @@
       <option name="project" value="LOCAL" />
       <updated>1595040752240</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="2020 7月20日 更改登录 和计算价格接口">
+      <created>1595218249703</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1595218249703</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="livestockByIds_ls - 2020.07.14 at 11h 09m 46s.xml">
-      <configuration name="livestockByIds.ls" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="livestockByIds_ls - 2020.07.14 at 11h 17m 30s.xml">
-      <configuration name="livestockByIds.ls" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="livestockByIds_ls - 2020.07.14 at 11h 17m 38s.xml">
-      <configuration name="livestockByIds.ls" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="livestockByIds_ls - 2020.07.14 at 11h 18m 15s.xml">
-      <configuration name="livestockByIds.ls" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="livestockByIds_ls - 2020.07.14 at 11h 18m 58s.xml">
-      <configuration name="livestockByIds.ls" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="livestockByIds_ls - 2020.07.14 at 11h 19m 15s.xml">
-      <configuration name="livestockByIds.ls" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="livestockByIds_ls - 2020.07.14 at 11h 19m 51s.xml">
-      <configuration name="livestockByIds.ls" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="livestockByIds - 2020.07.14 at 11h 20m 10s.xml">
       <configuration name="livestockByIds" configurationId="JUnit" />
     </history-entry>
@@ -960,9 +858,30 @@
     <history-entry file="livestockByIds_ls - 2020.07.14 at 15h 28m 00s.xml">
       <configuration name="livestockByIds.ls" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="livestockByIds_test - 2020.07.22 at 16h 44m 13s.xml">
+      <configuration name="livestockByIds.test" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="livestockByIds_test - 2020.07.22 at 16h 44m 41s.xml">
+      <configuration name="livestockByIds.test" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="livestockByIds_test - 2020.07.22 at 17h 08m 30s.xml">
+      <configuration name="livestockByIds.test" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="livestockByIds_test - 2020.07.22 at 18h 13m 30s.xml">
+      <configuration name="livestockByIds.test" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="livestockByIds_test - 2020.07.22 at 18h 14m 02s.xml">
+      <configuration name="livestockByIds.test" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="livestockByIds_test - 2020.07.22 at 18h 15m 12s.xml">
+      <configuration name="livestockByIds.test" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="livestockByIds_test - 2020.07.22 at 18h 15m 27s.xml">
+      <configuration name="livestockByIds.test" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1144165000" />
+    <option name="totallyTimeSpent" value="1194396000" />
   </component>
   <component name="TodoView" selected-index="2">
     <todo-panel id="selected-file">
@@ -975,7 +894,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1050" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Image Layers" order="0" />
       <window_info id="Capture Tool" order="1" />
@@ -988,16 +906,16 @@
       <window_info anchor="bottom" id="Spring" order="0" weight="0.32827735" />
       <window_info anchor="bottom" id="Terminal" order="1" weight="0.32827735" />
       <window_info anchor="bottom" id="Docker" order="2" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="3" sideWeight="0.50160944" side_tool="true" weight="0.3905192" />
+      <window_info anchor="bottom" id="Event Log" order="3" sideWeight="0.55150217" side_tool="true" weight="0.76072234" />
       <window_info anchor="bottom" id="Messages" order="4" sideWeight="0.49946353" weight="0.33295712" />
       <window_info anchor="bottom" id="Java Enterprise" order="5" weight="0.32731378" />
       <window_info anchor="bottom" id="Database Changes" order="6" />
       <window_info anchor="bottom" id="Message" order="7" />
-      <window_info anchor="bottom" id="Find" order="8" weight="0.31960997" />
+      <window_info anchor="bottom" id="Find" order="8" weight="0.3194131" />
       <window_info anchor="bottom" id="Debug" order="9" weight="0.37358916" />
       <window_info anchor="bottom" id="Cvs" order="10" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="11" weight="0.4" />
-      <window_info active="true" anchor="bottom" id="Run" order="12" sideWeight="0.44903433" visible="true" weight="0.4853273" />
+      <window_info active="true" anchor="bottom" id="Run" order="12" sideWeight="0.44849786" visible="true" weight="0.26410836" />
       <window_info anchor="bottom" id="Version Control" order="13" sideWeight="0.49839056" weight="0.39164785" />
       <window_info anchor="bottom" id="TODO" order="14" weight="0.32827735" />
       <window_info anchor="right" id="Palette" order="0" />
@@ -1009,7 +927,7 @@
       <window_info anchor="right" id="Database" order="6" weight="0.3299356" />
       <window_info anchor="right" id="Ant Build" order="7" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="8" weight="0.25" />
-      <window_info anchor="right" id="Maven" order="9" weight="0.22854078" />
+      <window_info anchor="right" id="Maven" order="9" weight="0.33530042" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1056,7 +974,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="2020 2月5日" />
     <MESSAGE value="2020 2月9日" />
     <MESSAGE value="2020 2月13日" />
     <MESSAGE value="2020 3月6日" />
@@ -1081,7 +998,8 @@
     <MESSAGE value="2020 7月13日测试" />
     <MESSAGE value="2020 7月15日 加盐加密" />
     <MESSAGE value="2020 7月18日 打包前备份" />
-    <option name="LAST_COMMIT_MESSAGE" value="2020 7月18日 打包前备份" />
+    <MESSAGE value="2020 7月20日 更改登录 和计算价格接口" />
+    <option name="LAST_COMMIT_MESSAGE" value="2020 7月20日 更改登录 和计算价格接口" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -1093,140 +1011,312 @@
     </SUITE>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/result/CommonResult.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/entity/Price.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="18" column="46" lean-forward="true" selection-start-line="18" selection-start-column="46" selection-end-line="18" selection-end-column="46" />
+        <state relative-caret-position="291">
+          <caret line="36" column="33" lean-forward="true" selection-start-line="36" selection-start-column="33" selection-end-line="36" selection-end-column="33" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/controller/UserController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/service/CameraService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="102" column="5" lean-forward="true" selection-start-line="102" selection-start-column="5" selection-end-line="102" selection-end-column="5" />
+        <state relative-caret-position="132">
+          <caret line="27" column="8" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/io/Serializable.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/mapper/CameraMapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="295">
-          <caret line="168" column="30" lean-forward="true" selection-start-line="168" selection-start-column="30" selection-end-line="168" selection-end-column="30" />
+        <state relative-caret-position="132">
+          <caret line="33" column="8" selection-start-line="33" selection-start-column="8" selection-end-line="33" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mybatis-config.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/service/Impl/CameraServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="10" column="17" lean-forward="true" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+        <state relative-caret-position="162">
+          <caret line="46" column="35" selection-start-line="46" selection-start-column="35" selection-end-line="46" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1141#1142#0" expanded="true" />
+            <element signature="e#1197#1198#0" expanded="true" />
+            <element signature="e#1297#1298#0" expanded="true" />
+            <element signature="e#1359#1360#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/service/Impl/CarouselServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/controller/CoordinatesController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+        <state relative-caret-position="254">
+          <caret line="67" column="64" selection-start-line="67" selection-start-column="64" selection-end-line="67" selection-end-column="64" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/entity/User.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ecologicalRanch/common/utils/ServletUtils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
+        <state relative-caret-position="240">
           <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/userMapper.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ecologicalRanch/common/constant/ScheduleConstants.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-60">
-          <caret line="79" column="23" selection-start-line="79" selection-start-column="23" selection-end-line="79" selection-end-column="23" />
+        <state relative-caret-position="390">
+          <caret line="13" column="26" selection-start-line="13" selection-start-column="11" selection-end-line="13" selection-end-column="26" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/service/Impl/UserServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ecologicalRanch/common/utils/TimestampUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="18" column="3" selection-start-line="18" selection-start-column="3" selection-end-line="18" selection-end-column="3" />
+        <state relative-caret-position="240">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ecologicalRanch/stepCounting/Kalman.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ecologicalRanch/common/utils/SpringUtils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
+        <state relative-caret-position="284">
+          <caret line="15" column="19" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ecologicalRanch/common/utils/SqlUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
           <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ecologicalRanch/stepCounting/MqttLoadServer.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ecologicalRanch/stepCounting/DatasourcePro.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ecologicalRanch/redis/utils/PointUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ecologicalRanch/stepCounting/SpringBootTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="2" column="18" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ecologicalRanch/common/constant/Constants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1080">
+          <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ecologicalRanch/common/constant/PermissionConstants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ecologicalRanch/config/ApplicationContextProvider.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
-          <caret line="6" column="27" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="27" />
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ecologicalRanch/config/DruidConfiguration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="284">
+          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ecologicalRanch/config/Swagger2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
           <folding>
-            <element signature="e#336#337#0" expanded="true" />
-            <element signature="e#374#375#0" expanded="true" />
-            <element signature="e#452#453#0" expanded="true" />
-            <element signature="e#491#492#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/controller/AddressController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="284">
+          <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/controller/CarouselController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="840">
+          <caret line="56" column="39" selection-start-line="56" selection-start-column="39" selection-end-line="56" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/controller/CartController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="41" column="7" lean-forward="true" selection-start-line="41" selection-start-column="7" selection-end-line="41" selection-end-column="7" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/ecologicalRanch/stepCounting/MessagePacker.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="2" selection-start-line="2" selection-end-line="2" selection-end-column="61" />
+        <state relative-caret-position="600">
+          <caret line="36" column="84" selection-start-line="36" selection-start-column="66" selection-end-line="36" selection-end-column="84" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ecologicalRanch/stepCounting/PushCallback.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="388">
+          <caret line="23" column="12" selection-start-line="23" selection-start-column="12" selection-end-line="23" selection-end-column="50" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#779#780#0" expanded="true" />
+            <element signature="e#817#818#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/mapper/DiscountMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="284">
-          <caret line="19" column="19" selection-start-line="19" selection-start-column="19" selection-end-line="19" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/service/DiscountService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="298">
-          <caret line="21" column="7" selection-start-line="21" selection-start-column="7" selection-end-line="21" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/controller/DiscountController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="287">
-          <caret line="36" column="7" selection-start-line="36" selection-start-column="7" selection-end-line="36" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/entity/Discount.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="28" column="29" selection-start-line="28" selection-start-column="19" selection-end-line="28" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/service/Impl/DiscountServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="35" column="58" selection-start-line="35" selection-start-column="58" selection-end-line="35" selection-end-column="58" />
-          <folding>
-            <element signature="e#965#966#0" expanded="true" />
-            <element signature="e#1031#1032#0" expanded="true" />
-            <element signature="e#1125#1126#0" expanded="true" />
-            <element signature="e#1717#1718#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/target/ecologicalRanch.jar.original">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/controller/CameraController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
-          <caret line="128" column="69" selection-start-line="128" selection-start-column="69" selection-end-line="128" selection-end-column="69" />
+          <caret line="36" column="54" selection-start-line="36" selection-start-column="42" selection-end-line="36" selection-end-column="54" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/CameraMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="617">
+          <caret line="63" column="58" lean-forward="true" selection-start-line="63" selection-start-column="58" selection-end-line="63" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/entity/Camera.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="20" column="7" lean-forward="true" selection-start-line="20" selection-start-column="7" selection-end-line="20" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-test/5.1.3.RELEASE/spring-test-5.1.3.RELEASE.jar!/org/springframework/test/context/junit4/SpringJUnit4ClassRunner.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="104">
+          <caret line="65" selection-start-line="65" selection-end-line="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/eclipse/paho/org.eclipse.paho.client.mqttv3/1.2.0/org.eclipse.paho.client.mqttv3-1.2.0.jar!/org/eclipse/paho/client/mqttv3/MqttClient.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ecologicalRanch/stepCounting/Timing.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ecologicalRanch/stepCounting/Kalman.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-180">
+          <caret line="3" column="10" selection-start-line="3" selection-start-column="10" selection-end-line="3" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/controller/AdminController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="30" selection-start-line="30" selection-end-line="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/LiveStock/livestockByIds.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="77">
+          <caret line="14" column="16" lean-forward="true" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ecologicalRanch/stepCounting/ProgramStart.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="18" column="19" lean-forward="true" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ecologicalRanch/stepCounting/MqttLoadServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ecologicalRanch/stepCounting/Calculation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="14" column="21" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ecologicalRanch/stepCounting/CalculationThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="37" column="69" selection-start-line="37" selection-start-column="69" selection-end-line="37" selection-end-column="69" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ecologicalRanch/redis/entity/BluetoothRssiInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1080">
+          <caret line="54" column="1" lean-forward="true" selection-start-line="54" selection-start-column="1" selection-end-line="54" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ecologicalRanch/redis/entity/RedisRssiKey.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-657">
+          <caret line="8" column="10" lean-forward="true" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ecologicalRanch/redis/service/impl/SaveRssiServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3300">
+          <caret line="127" column="1" lean-forward="true" selection-start-line="127" selection-start-column="1" selection-end-line="127" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ecologicalRanch/redis/service/ISaveRssiService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="93">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
         </state>
       </provider>
     </entry>
@@ -1237,247 +1327,86 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ecologicalRanch/redis/entity/BluetoothRssiInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ecologicalRanch/redis/entity/RedisRssiKey.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="268">
-          <caret line="48" column="5" lean-forward="true" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ecologicalRanch/utils2/TEST.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="12" column="1" lean-forward="true" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-30">
-          <caret line="20" column="19" selection-start-line="20" selection-start-column="19" selection-end-line="20" selection-end-column="19" />
+        <state relative-caret-position="1073">
+          <caret line="152" selection-start-line="152" selection-end-line="152" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ecologicalRanch/common/utils/MD5Utils.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ecologicalRanch/stepCounting/Mqtt.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="22" column="17" lean-forward="true" selection-start-line="22" selection-start-column="17" selection-end-line="22" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/DiscountMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="5" column="46" lean-forward="true" selection-start-line="5" selection-start-column="46" selection-end-line="5" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/controller/AddressController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="37" column="31" selection-start-line="37" selection-start-column="31" selection-end-line="37" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/FollowMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="33" column="3" selection-start-line="33" selection-start-column="3" selection-end-line="33" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/AddressMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="22" column="39" lean-forward="true" selection-start-line="22" selection-start-column="39" selection-end-line="22" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ecologicalRanch/stepCounting/PushCallback.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="18" column="9" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ecologicalRanch/stepCounting/controller/ThreadStartupController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="575">
-          <caret line="34" column="26" lean-forward="true" selection-start-line="34" selection-start-column="26" selection-end-line="34" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ecologicalRanch/ecologicalRanchApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="298">
-          <caret line="19" column="26" lean-forward="true" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ecologicalRanch/stepCounting/CalculationThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="690">
-          <caret line="36" column="28" selection-start-line="36" selection-start-column="11" selection-end-line="36" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="48" column="17" lean-forward="true" selection-start-line="48" selection-start-column="17" selection-end-line="48" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ecologicalRanch/stepCounting/ProgramStart.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-60">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+        <state relative-caret-position="30">
+          <caret line="7" selection-start-line="7" selection-end-line="7" selection-end-column="41" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ecologicalRanch/redis/controller/RedisController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="59" column="17" selection-start-line="59" selection-start-column="17" selection-end-line="59" selection-end-column="17" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/ecologicalRanch/stepCounting/ClientMQTT.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1248">
-          <caret line="13" column="10" lean-forward="true" selection-start-line="13" selection-start-column="10" selection-end-line="13" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/mapper/AdminMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="37" column="1" lean-forward="true" selection-start-line="37" selection-start-column="1" selection-end-line="37" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/service/AdminService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="14" column="33" lean-forward="true" selection-start-line="14" selection-start-column="33" selection-end-line="14" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/service/Impl/AdminServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-255">
-          <caret line="24" column="38" lean-forward="true" selection-start-line="24" selection-start-column="38" selection-end-line="24" selection-end-column="38" />
-          <folding>
-            <element signature="e#1256#1257#0" expanded="true" />
-            <element signature="e#1289#1290#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/entity/Admin.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1168">
-          <caret line="53" column="7" lean-forward="true" selection-start-line="53" selection-start-column="7" selection-end-line="53" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/mybatis/mybatis/3.4.6/mybatis-3.4.6.jar!/org/apache/ibatis/reflection/Reflector.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="83">
-          <caret line="436" selection-start-line="436" selection-end-line="436" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/mybatis/mybatis/3.4.6/mybatis-3.4.6.jar!/org/apache/ibatis/reflection/MetaClass.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="83">
-          <caret line="154" selection-start-line="154" selection-end-line="154" />
-          <folding>
-            <element signature="e#5748#5749#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/controller/CartController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="73">
-          <caret line="21" column="26" lean-forward="true" selection-start-line="21" selection-start-column="17" selection-end-line="21" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/controller/CarouselController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="103">
-          <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/controller/LocaltioninfoController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="55" column="45" selection-start-line="55" selection-start-column="45" selection-end-line="55" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/controller/LoginHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="21" column="47" selection-start-line="21" selection-start-column="47" selection-end-line="21" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/entity/Livestock.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="271">
-          <caret line="80" lean-forward="true" selection-start-line="80" selection-end-line="80" />
+        <state relative-caret-position="390">
+          <caret line="25" column="55" selection-start-line="25" selection-start-column="29" selection-end-line="25" selection-end-column="55" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/controller/AdminController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ecologicalRanch/redis/utils/JedisUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="349">
-          <caret line="58" lean-forward="true" selection-start-line="58" selection-end-line="58" />
+        <state relative-caret-position="570">
+          <caret line="27" column="32" selection-start-line="27" selection-start-column="32" selection-end-line="27" selection-end-column="32" />
+          <folding>
+            <element signature="e#407#408#0" expanded="true" />
+            <element signature="e#469#470#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/service/Impl/LivestockServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ecologicalRanch/ecologicalRanchApplication.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="148" column="13" lean-forward="true" selection-start-line="148" selection-start-column="13" selection-end-line="148" selection-end-column="13" />
+        <state relative-caret-position="-73">
+          <caret line="9" column="56" selection-start-line="9" selection-start-column="56" selection-end-line="9" selection-end-column="56" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/service/LivestockService.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ecologicalRanch/redis/controller/RedisController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="70" column="23" selection-start-line="70" selection-start-column="23" selection-end-line="70" selection-end-column="23" />
+        <state>
+          <caret line="14" column="14" lean-forward="true" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ecologicalRanch/project/controller/LivestockController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ecologicalRanch/redis/utils/RedisUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="158" column="5" lean-forward="true" selection-start-line="158" selection-start-column="5" selection-end-line="158" selection-end-column="5" />
+        <state relative-caret-position="119">
+          <caret line="11" column="18" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/adminMapper.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ecologicalRanch/config/RedisConfig.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="46" column="64" lean-forward="true" selection-start-line="46" selection-start-column="64" selection-end-line="46" selection-end-column="64" />
+        <state relative-caret-position="695">
+          <caret line="26" column="51" lean-forward="true" selection-start-line="26" selection-start-column="51" selection-end-line="26" selection-end-column="51" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="9" column="14" lean-forward="true" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application-jdbc.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="66" column="21" lean-forward="true" selection-start-line="66" selection-start-column="21" selection-end-line="66" selection-end-column="21" />
         </state>
       </provider>
     </entry>

@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ecologicalRanch.project.mapper.AdminMapper">
     <sql id="AdminResultVo">
-        select admin_id,password,admin_name,phone,role,state from admin
+        select admin_id,password,admin_name,phone,role,state,salt from admin
     </sql>
 
     <select id="queryAll" resultType="com.ecologicalRanch.project.entity.Admin">
@@ -16,10 +16,16 @@
         where admin_id = #{adminId}
     </select>
 
+    <select id="selectByPhone" resultType="com.ecologicalRanch.project.entity.Admin" parameterType="String">
+        <include refid="AdminResultVo"/>
+        where phone = #{phone}
+    </select>
+
     <select id="login" resultType="com.ecologicalRanch.project.entity.Admin" parameterType="Admin">
         <include refid="AdminResultVo"/>
-        where admin_id = #{adminId} and password = #{password}
+        where phone = #{phone} and password = #{password}
     </select>
+
     <insert id="insertAdmin" parameterType="com.ecologicalRanch.project.entity.Admin" useGeneratedKeys="true">
         INSERT INTO admin
         <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -28,7 +34,8 @@
             <if test="adminName != null  and adminName != ''">admin_name,</if>
             <if test="phone != null  and phone != ''">phone,</if>
             <if test="role != null  and role != ''">role,</if>
-            <if test="state != null  and state != ''">state</if>
+            <if test="state != null  and state != ''">state,</if>
+            <if test="salt != null  and salt != ''">salt</if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="adminId != null  and adminId != ''">#{adminId},</if>
@@ -36,8 +43,15 @@
             <if test="adminName != null  and adminName != ''">#{adminName},</if>
             <if test="phone != null  and phone != ''">#{phone},</if>
             <if test="role != null  and role != ''">#{role},</if>
-            <if test="state != null  and state != ''">#{state}</if>
+            <if test="state != null  and state != ''">#{state},</if>
+            <if test="salt != null  and salt != ''">#{salt}</if>
         </trim>
     </insert>
+
+    <select id="selectMaxId" resultType="com.ecologicalRanch.project.entity.Admin" parameterType="Admin">
+        select top 1
+        <include refid="AdminResultVo"/>
+        order by adminId desc
+    </select>
 
 </mapper>

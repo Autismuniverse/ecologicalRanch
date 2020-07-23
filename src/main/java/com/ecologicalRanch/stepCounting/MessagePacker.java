@@ -5,15 +5,14 @@ import com.ecologicalRanch.redis.service.ISaveRssiService;
 import org.msgpack.core.MessagePack;
 import org.msgpack.core.MessageUnpacker;
 
-import java.io.IOException;
-
+/**
+ * MessagePacker数据类型解析
+ */
 public class MessagePacker {
 
 	private ISaveRssiService saveRssiService;
-
 	private  String gateway_mac;
 	private static long Data_length;
-	public static String[] label_data;
 
 	public MessagePacker(){
 		this.saveRssiService = ApplicationContextProvider.getBean(ISaveRssiService.class);
@@ -21,43 +20,34 @@ public class MessagePacker {
 
 	public boolean dataString(byte[] bs)
     {
-		int n;
 		try {
-//			System.out.println("数据长度"+BytesToHex(bs).length());
 			MessageUnpacker unpacker = MessagePack.newDefaultUnpacker(bs);
-//			MessageUnpacker unpacker = MessagePack.(bs);
-			unpacker.hashCode();
-		    unpacker.unpackString();
-	       // firmware =
-	        unpacker.unpackString();
-	        unpacker.unpackString();
-			//id=
-		    unpacker.unpackInt();
-			unpacker.unpackString();
-			//up_time=
-			unpacker.unpackInt();
-			unpacker.unpackString();
-			//ip=
-			unpacker.unpackString();
-			unpacker.unpackString();
-			gateway_mac=unpacker.unpackString();
-			gateway_mac=insert(gateway_mac);
-			unpacker.unpackString();
-			Data_length=unpacker.unpackArrayHeader();
-			label_data=new String[(int)Data_length];
-	    	for (int j = 0; j <Data_length; j++) {
-	    		n=unpacker.unpackBinaryHeader();
-	    		label_data[j]=bytesToHex(unpacker.readPayload(n));
-	    		Label_up(label_data[j]);
+			int n=unpacker.unpackMapHeader();
+			for(int i=0;i<n;i++) {
+				switch (unpacker.unpackString()) {
+					case "v":    unpacker.unpackString(); break;
+					case "mid":  unpacker.unpackInt();    break;
+					case "time": unpacker.unpackInt();    break;
+					case "ip":   unpacker.unpackString(); break;
+					case "mac":  gateway_mac=insert(unpacker.unpackString());break;
+					case "devices": {
+						Data_length = unpacker.unpackArrayHeader();
+						if (Data_length >= 1)
+							for (int j = 0; j < Data_length; j++) {
+								byte[] bytes1 = new byte[unpacker.unpackBinaryHeader()];
+								unpacker.readPayload(bytes1);
+								Label_up(bytesToHex(bytes1));
+							}
+					}
+					break;
+				}
 			}
-		    unpacker.close();
-		    return true;
-		} catch (IOException e) {
+			return true;
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return false;
     }
-
 
 	private boolean Label_up(String string){
         string = string.toUpperCase();
@@ -73,14 +63,12 @@ public class MessagePacker {
             str = string.substring(14, 16);//
             rssi = (int) Long.parseLong(str, 16) - 256;
             rssi = Math.abs(rssi);
-//			System.out.println("标签："+ladel_mac+"     网关："+gateway_mac+""+"    rssi:"+rssi);
-
             try {
                 saveRssiService.saveRssi(ladel_mac, gateway_mac, Integer.toString(rssi));
             }
             catch (Exception e)
             {
-                e.getMessage();
+                e.printStackTrace();
             }
 
 

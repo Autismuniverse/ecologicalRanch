@@ -7,6 +7,7 @@ import javax.servlet.ServletContextListener;
 public class MqttLoadServer implements ServletContextListener {
 
     public static ClientMQTT mqttReceiveTest = new  ClientMQTT();
+
     @Override
     public void contextDestroyed(ServletContextEvent arg0) {
         mqttReceiveTest.stop();

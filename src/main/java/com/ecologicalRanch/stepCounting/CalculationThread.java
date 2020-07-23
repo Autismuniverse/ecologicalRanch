@@ -25,23 +25,25 @@ public class CalculationThread extends Thread {
 
     private String bluetoothId;
     private HashMap<String, String> bluetoothInfo;
-    private  Kalman kalman_1 = new Kalman(8.2, 100.0);
-    private  Kalman kalman_2 = new Kalman(8.2, 100.0);
-    private  Kalman kalman_3 = new Kalman(8.2, 100.0);
-    public static int Le = 60;
-    public static double Eaf = 3.8;
-    public static  int deviation=5;
+
+    private static Calculation datasourcePro;
+    private static Kalman kalman_1 ;
+    private static Kalman kalman_2 ;
+    private static Kalman kalman_3 ;
 /*
 
  */
     public CalculationThread(BluetoothRssiInfo bluetoothRssiInfo) {//  String bluetoothId
+        this.datasourcePro=ApplicationContextProvider.getBean(Calculation.class);
         this.saveRssiService = ApplicationContextProvider.getBean(ISaveRssiService.class);
         this.coordinatesService = ApplicationContextProvider.getBean(CoordinatesService.class);
         this.gatewayService = ApplicationContextProvider.getBean(GatewayService.class);
         this.livestockService = ApplicationContextProvider.getBean(LivestockService.class);
-
         this.bluetoothId = bluetoothRssiInfo.getBluetoothId();
         this.bluetoothInfo = bluetoothRssiInfo.getGatewayInfo();//saveRssiService.getRssiWithHashMap(bluetoothId);
+        kalman_1 = new Kalman(datasourcePro.getVarianc(), datasourcePro.getNoiseVariance());
+        kalman_2 = new Kalman(datasourcePro.getVarianc(), datasourcePro.getNoiseVariance());
+        kalman_3 = new Kalman(datasourcePro.getVarianc(), datasourcePro.getNoiseVariance());
     }
 
     @Override
@@ -61,11 +63,8 @@ public class CalculationThread extends Thread {
                 }
                 count++;
             }
-           // deleteCoordinatesByIds
-           // saveRssiService.delByBluetoothId(bluetoothId);//若执行成功，将删除对应蓝牙的相关数据
             coordinates = coordinatesService.selectCoordinatesById(bluetoothId);
             Point po = new Point(coordinates.getCoordinateX(), coordinates.getCoordinateY());
-
             rssi[0] = (new Double(kalman_count(kalman_1, data[0]) * 100)).intValue();
             rssi[1] = (new Double(kalman_count(kalman_2, data[1]) * 100)).intValue();
             rssi[2] = (new Double(kalman_count(kalman_3, data[2]) * 100)).intValue();
@@ -75,19 +74,13 @@ public class CalculationThread extends Thread {
             coordinates.setBluetoothId(bluetoothId);
             System.out.println(bluetoothId+"计算结果："+point.x+","+point.y);
             coordinatesService.updateCoordinates(coordinates);
-
             int Steps = (int) count_distance(point, po) / 5;
-//            System.out.println(bluetoothId+":"+Steps);
-            if(Steps>10) {
+            if(Steps>datasourcePro.getError()) {
                 Livestock livestock = new Livestock();
                 livestock.setStepNum(Steps);
                 livestock.setBluetoothId(bluetoothId);
-                System.out.println("aaa");
                 livestockService.updateLivestockStep(livestock);
-                System.out.println(livestock);
-
             }
-//            System.out.println(livestock);
         }
         catch (Exception e)
         {
@@ -95,9 +88,12 @@ public class CalculationThread extends Thread {
         }
     }
 
-/*
-
- */
+    /**
+     * 通过滤波计算距离
+     * @param kalman
+     * @param rssi
+     * @return
+     */
     private static double kalman_count(Kalman kalman, int[] rssi) {
         double gap = 0;
         int d=0;
@@ -114,29 +110,35 @@ public class CalculationThread extends Thread {
         }
         return Count(gap);
     }
+
+    /**
+     * 通过偏差筛选
+     * @param d
+     * @param b
+     * @return
+     */
     private  static int Limiting(int d,int b)
     {
-        if((b-d)<=deviation)//(((d-b)<=deviation)||((b-d)<=deviation))
+        if((b-d)<=datasourcePro.getDeviation())//(((d-b)<=deviation)||((b-d)<=deviation))
             return b;
         else
             return d;
     }
 
     /**
-     * ͨ��RSSIֵ�������
-     *
+     * 通过RSSI计算距离
      * @param rssi
-     * @return
+     * @return 距离
      */
     private static double Count(double rssi) {
         double n;
-        n = (double) Math.abs(rssi);
-        n = (double) ((n - Le) / (10 * Eaf));
-        n = (double) Math.pow(10, n);
+        n = Math.abs(rssi);
+        n = ((n - datasourcePro.getCalibration()) / (10 * datasourcePro.getEnvironmentalFactor()));
+        n =  Math.pow(10, n);
         n += 0.005;
         n *= 100;
         n = (int) n;
-        n = (double) n / 100;
+        n = n / 100;
         return n;
     }
 
@@ -165,7 +167,6 @@ public class CalculationThread extends Thread {
                     x += gateway_coordinate[i].x + (gateway_coordinate[j].x - gateway_coordinate[i].x) * dis[i] / (dis[i] + dis[j]);
                     y += gateway_coordinate[i].y + (gateway_coordinate[j].y - gateway_coordinate[i].y) * dis[i] / (dis[i] + dis[j]);
                 } else {
-                    //�ཻ�����ù�ʽ�������Ƶ����ģ�
                     double dr = p2p / 2 + (dis[i] * dis[i] - dis[j] * dis[j]) / (2 * p2p);
                     x += gateway_coordinate[i].x + (gateway_coordinate[j].x - gateway_coordinate[i].x) * dr / p2p;
                     y += gateway_coordinate[i].y + (gateway_coordinate[j].y - gateway_coordinate[i].y) * dr / p2p;
@@ -177,7 +178,7 @@ public class CalculationThread extends Thread {
         return new Point((new Double(x).intValue()), (new Double(y).intValue()));
     }
 
-    /*
+    /**
      *通过坐标位置计算距离
      * @param a
      * @param b

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ecologicalRanch.project.mapper.CameraMapper">
+
+    <resultMap id="CameraResult" type="Camera" >
+        <result column="camera_id" property="cameraId" />
+        <result column="camera_ip" property="cameraIp" />
+        <result column="camera_mac" property="cameraMac" />
+        <result column="streaming" property="streaming" />
+        <result column="field_id" property="fieldId" />
+    </resultMap>
+
+    <sql id="CameraResultVo">
+        select
+        camera_id,camera_ip,camera_mac,streaming,field_id
+         from camera
+    </sql>
+
+    <select id="selectCameraById" parameterType="Long" resultMap="CameraResult">
+        <include refid="CameraResultVo" />
+        WHERE camera_id = #{cameraId}
+    </select>
+
+    <select id="selectCameraList" parameterType="Camera" resultMap="CameraResult">
+        <include refid="CameraResultVo"/>
+        <where>
+            <if test="cameraId != null and cameraId != 0">
+                and camera_id = #{cameraId}
+            </if>
+        </where>
+    </select>
+
+    <insert id="insertCamera" parameterType="Camera" useGeneratedKeys="true">
+        INSERT INTO camera
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="cameraId != null  and cameraId != ''">camera_id, </if>
+            <if test="cameraIp != null  and cameraIp != ''">camera_ip, </if>
+            <if test="cameraMac != null  and cameraMac != ''">camera_mac, </if>
+            <if test="streaming != null  and streaming != ''">streaming, </if>
+            <if test="fieldId != null  and fieldId != ''">field_id </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="cameraId != null  and cameraId != ''">#{cameraId},</if>
+            <if test="cameraIp != null  and cameraIp != ''">#{cameraIp},</if>
+            <if test="cameraMac != null  and cameraMac != ''">#{cameraMac},</if>
+            <if test="streaming != null  and streaming != ''">#{streaming},</if>
+            <if test="fieldId != null  and fieldId != ''">#{fieldId}</if>
+        </trim>
+    </insert>
+
+    <update id="updateCamera" parameterType="Camera" >
+        UPDATE camera
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="cameraId != null  and cameraId != ''">camera_id = #{cameraId},</if>
+            <if test="cameraIp != null  and cameraIp != ''">camera_ip = #{cameraIp},</if>
+            <if test="cameraMac != null  and cameraMac != ''">camera_mac = #{cameraMac},</if>
+            <if test="streaming != null  and streaming != ''">streaming = #{streaming},</if>
+            <if test="fieldId != null  and fieldId != ''">field_id = #{fieldId},</if>
+        </trim>
+        WHERE  camera_id = #{cameraId}
+    </update>
+
+    <delete id="deleteCameraById" parameterType="Integer">
+        DELETE FROM camera
+        WHERE  camera_id = #{cameraId}
+    </delete>
+
+    <delete id="deleteCameraByIds" parameterType="String">
+        delete from camera where camera_id in
+        <foreach item="item" collection="array" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+
+</mapper>

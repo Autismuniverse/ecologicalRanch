@@ -1,7 +1,7 @@
 package com.ecologicalRanch.stepCounting;
 
 /**
- * �������˲��㷨
+ * 卡尔曼滤波算法
  * @author 15281
  *
  */

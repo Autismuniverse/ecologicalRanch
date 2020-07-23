@@ -40,7 +40,7 @@ public class Coordinates   {
      * 设备id
      */
 
-    private String deviceId;
+    private Integer fieldId;
 
 
 }

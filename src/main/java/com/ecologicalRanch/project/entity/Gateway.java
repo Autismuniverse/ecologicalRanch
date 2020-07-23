@@ -40,7 +40,7 @@ public class Gateway {
      * 设备id
      */
 
-    private String deviceId;
+    private Integer fieldId;
 
 
 

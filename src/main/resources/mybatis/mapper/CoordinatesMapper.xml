@@ -8,7 +8,7 @@
         <result column="bluetooth_mac" property="bluetoothMac" />
         <result column="coordinate_x" property="coordinateX" />
         <result column="coordinate_y" property="coordinateY" />
-        <result column="device_id" property="deviceId" />
+        <result column="field_id" property="deviceId" />
     </resultMap>
 
 
@@ -23,7 +23,7 @@
 
     <sql id="CoordinatesResultVo">
         select
-        bluetooth_id,bluetooth_mac,coordinate_x,coordinate_y,device_id
+        bluetooth_id,bluetooth_mac,coordinate_x,coordinate_y,field_id
          from bluetooth_coordinates
     </sql>
 
@@ -53,6 +53,9 @@
             <if test="bluetoothMac != null and bluetoothMac != ''">
                 and bluetooth_mac = #{bluetoothMac}
             </if>
+            <if test="fieldId != null and fieldId != 0">
+                and field_id = #{fieldId}
+            </if>
         </where>
     </select>
 
@@ -63,7 +66,7 @@
             <if test="bluetoothMac != null  and bluetoothMac != ''">bluetooth_mac, </if>
             <if test="coordinateX != null  and coordinateX != ''">coordinate_x, </if>
             <if test="coordinateY != null  and coordinateY != ''">coordinate_y, </if>
-            <if test="deviceId != null  and  deviceId != ''">device_id </if>
+            <if test="deviceId != null  and  deviceId != ''">field_id </if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="bluetoothId != null  and bluetoothId != ''">#{bluetoothId},</if>
@@ -81,7 +84,7 @@
             <if test="bluetoothMac != null  and bluetoothMac != ''">bluetooth_mac = #{bluetoothMac},</if>
             <if test="coordinateX != null  and coordinateX != ''">coordinate_x = #{coordinateX},</if>
             <if test="coordinateY != null  and coordinateY != ''">coordinate_y = #{coordinateY},</if>
-            <if test="deviceId != null  and deviceId != ''">device_id = #{deviceId},</if>
+            <if test="deviceId != null  and deviceId != ''">field_id = #{fieldId},</if>
         </trim>
         WHERE  bluetooth_id = #{bluetoothId}
     </update>

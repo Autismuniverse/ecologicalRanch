@@ -26,6 +26,8 @@ public class DeviceServiceImpl implements DeviceService {
     private DeviceMapper deviceMapper;
     @Autowired
     private CoordinatesMapper coordinatesMapper;
+    @Autowired
+    private GatewayServiceImpl gatewayService;
 
     /**
      * 通过Id查询 Device
@@ -58,18 +60,26 @@ public class DeviceServiceImpl implements DeviceService {
      */
     @Override
     public int insertDevice(Device device) {
-//        if(deviceMapper.selectDeviceByMac(device.getDeviceMac()).getDeviceMac().equals(device.getDeviceMac())){
-//            return 0;
-//        }
-//        else
+
         if (device.getDeviceName().equals("蓝牙")){
             Coordinates coordinates =new Coordinates();
             coordinates.setBluetoothMac(device.getDeviceMac());
             coordinates.setBluetoothId(device.getDeviceMac().substring(0,2));
             coordinatesMapper.insertCoordinates(coordinates);
-            System.out.println("蓝牙设备添加成功");
 
-        }
+            return deviceMapper.insertDevice(device);
+            }
+
+//        if (device.getDeviceName().equals("网关")){
+//            Gateway gateway =new Gateway();
+//            gateway.setMac(device.getDeviceMac());
+//
+//
+//
+//            return coordinatesMapper.insertCoordinates(coordinates);
+//        }
+
+        else
             return deviceMapper.insertDevice(device);
     }
 

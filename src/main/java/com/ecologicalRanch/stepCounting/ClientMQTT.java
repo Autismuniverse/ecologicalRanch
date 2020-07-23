@@ -1,5 +1,6 @@
 package com.ecologicalRanch.stepCounting;
 
+import com.ecologicalRanch.config.ApplicationContextProvider;
 import org.eclipse.paho.client.mqttv3.MqttClient;
 import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
 import org.eclipse.paho.client.mqttv3.MqttException;
@@ -7,42 +8,31 @@ import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 
 import java.util.concurrent.ScheduledExecutorService;
 
-
-
-
 /**
- * ������Ϣ
- * @author 
- *
+ * MQTT连接
  */
 
-public class ClientMQTT {  
-    public static final String HOST = "tcp://10.12.11.32:1883";  
-    public static final String TOPIC1 = "qwe";  
-    private static final String clientid = "aeca9180b52b4d6bbb718b6b6f9fbb40";
-   // private static JIS jedis;
-    public MqttClient client;
-    private MqttConnectOptions options;  
-    private String userName = "zengyong";    
-    private String passWord = "zengyong312";  
+public class ClientMQTT {
+
+    private Mqtt datasourcePro;
+    private MqttClient client;
+    private MqttConnectOptions options;
+
     @SuppressWarnings("unused")
     private ScheduledExecutorService scheduler;
-    public ClientMQTT()
-    {
+
+    ClientMQTT() {
+
+        this.datasourcePro = ApplicationContextProvider.getBean(Mqtt.class);
         try {
-            client = new MqttClient(HOST, clientid, new MemoryPersistence());
+            client = new MqttClient(datasourcePro.getHOST(), datasourcePro.getClientId(), new MemoryPersistence());
             options = new MqttConnectOptions();
-            options.setCleanSession(true);
-            //断开连接时是否清除连接（重连获取以前数据）
-            options.setUserName(userName);
-            options.setPassword(passWord.toCharArray());
+            options.setCleanSession(true);//断开连接时是否清除连接（重连获取以前数据）
+            options.setUserName(datasourcePro.getUserName());
+            options.setPassword(datasourcePro.getPassWord().toCharArray());
             options.setConnectionTimeout(10);//设置超过时间
             options.setKeepAliveInterval(120);//设置会话心跳时间
             client.setCallback(new PushCallback());
-//            @SuppressWarnings("unused")
-//            MqttTopic topic = client.getTopic(TOPIC1);
-//����        options.setWill(topic, "close".getBytes(), 2, true);
-
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -65,7 +55,7 @@ public class ClientMQTT {
             }
             //订阅消息
             int[] Qos  = {0};
-            String[] topic1 = {TOPIC1};
+            String[] topic1 = {datasourcePro.getTOPIC1()};
             client.subscribe(topic1, Qos);
 
         } catch (Exception e) {
@@ -76,7 +66,7 @@ public class ClientMQTT {
     public void stop() {
         try {
             if(client.isConnected()) {
-                client.unsubscribe(TOPIC1);
+                client.unsubscribe(datasourcePro.getTOPIC1());
                 // 断开连接
                 client.disconnect();
                 // 关闭客户端
