@@ -6,11 +6,12 @@
     <resultMap id="BluetoothResult" type="TotalBluetooth" >
         <result column="bluetooth_id" property="bluetoothId" />
         <result column="bluetooth_mac" property="bluetoothMac" />
+        <result column="field_id" property="fieldId" />
     </resultMap>
 
     <sql id="BluetoothResultVo">
         select
-        bluetooth_id,bluetooth_mac
+        bluetooth_id,bluetooth_mac,field_id
          from total_bluetooth
     </sql>
 
@@ -22,7 +23,7 @@
     <select id="selectTotalBluetoothList" parameterType="TotalBluetooth" resultMap="BluetoothResult">
         <include refid="BluetoothResultVo"/>
         <where>
-            <if test="bluetoothId != null and bluetoothId != 0">
+            <if test="bluetoothId != null">
                 and bluetooth_id = #{bluetoothId}
             </if>
         </where>
@@ -33,10 +34,12 @@
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="bluetoothId != null  and bluetoothId != ''">bluetooth_id, </if>
             <if test="bluetoothMac != null  and bluetoothMac != ''">bluetooth_mac </if>
+            <if test="fieldId != null  and fieldId != ''">field_id, </if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="bluetoothId != null  and bluetoothId != ''">#{bluetoothId},</if>
-            <if test="bluetoothMac != null  and bluetoothMac != ''">#{bluetoothMac}</if>
+            <if test="bluetoothMac != null  and bluetoothMac != ''">#{bluetoothMac},</if>
+            <if test="fieldId != null  and fieldId != ''">#{field_id}</if>
         </trim>
     </insert>
 
@@ -45,6 +48,7 @@
         <trim prefix="SET" suffixOverrides=",">
             <if test="bluetoothId != null  and bluetoothId != ''">bluetooth_id = #{bluetoothId},</if>
             <if test="bluetoothMac != null  and bluetoothMac != ''">bluetooth_mac = #{bluetoothMac},</if>
+            <if test="fieldId != ''">field_id = #{fieldId},</if>
         </trim>
         WHERE  bluetooth_id = #{bluetoothId}
     </update>

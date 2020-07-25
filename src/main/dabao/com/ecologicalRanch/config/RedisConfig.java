@@ -1,17 +1,25 @@
 package com.ecologicalRanch.config;
 
+import lombok.Getter;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.redis.connection.RedisPassword;
+import org.springframework.data.redis.connection.RedisStandaloneConfiguration;
+import org.springframework.data.redis.connection.jedis.JedisClientConfiguration;
+import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
+
+import java.time.Duration;
 
 
 /**
  * Redis 相关配置
  */
 @Configuration
+@Getter
 public class RedisConfig {
 
     @Value("${spring.redis.host}")
@@ -40,23 +48,24 @@ public class RedisConfig {
         if (StringUtils.isNotBlank(password)) {
             return new JedisPool(jedisPoolConfig, host, port, timeout, password, database);
         } else {
+            System.out.println(host + port + timeout+ database);
             return new JedisPool(jedisPoolConfig, host, port, timeout, null, database);
         }
     }
 
-//    @Bean
-//    JedisConnectionFactory jedisConnectionFactory() {
-//        RedisStandaloneConfiguration redisStandaloneConfiguration = new RedisStandaloneConfiguration();
-//        redisStandaloneConfiguration.setHostName(host);
-//        redisStandaloneConfiguration.setPort(port);
-//        redisStandaloneConfiguration.setPassword(RedisPassword.of(password));
-//        redisStandaloneConfiguration.setDatabase(database);
-//
-//        JedisClientConfiguration.JedisClientConfigurationBuilder jedisClientConfiguration = JedisClientConfiguration.builder();
-//        jedisClientConfiguration.connectTimeout(Duration.ofMillis(timeout));
-//        jedisClientConfiguration.usePooling();
-//        return new JedisConnectionFactory(redisStandaloneConfiguration, jedisClientConfiguration.build());
-//    }
+    @Bean
+    JedisConnectionFactory jedisConnectionFactory() {
+        RedisStandaloneConfiguration redisStandaloneConfiguration = new RedisStandaloneConfiguration();
+        redisStandaloneConfiguration.setHostName(host);
+        redisStandaloneConfiguration.setPort(port);
+        redisStandaloneConfiguration.setPassword(RedisPassword.of(password));
+        redisStandaloneConfiguration.setDatabase(database);
+
+        JedisClientConfiguration.JedisClientConfigurationBuilder jedisClientConfiguration = JedisClientConfiguration.builder();
+        jedisClientConfiguration.connectTimeout(Duration.ofMillis(timeout));
+        jedisClientConfiguration.usePooling();
+        return new JedisConnectionFactory(redisStandaloneConfiguration, jedisClientConfiguration.build());
+    }
 
 //    @Bean(name = "redisTemplate")
 //    @SuppressWarnings({"unchecked", "rawtypes"})

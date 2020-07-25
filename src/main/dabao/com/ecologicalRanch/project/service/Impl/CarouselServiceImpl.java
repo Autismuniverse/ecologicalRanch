@@ -27,7 +27,7 @@ public class CarouselServiceImpl implements CarouselService {
      */
     @Override
     public Carousel selectCarouselById(Long carouselId) {
-        return carouselMapper.selectCarouselById(carouselId);
+                return carouselMapper.selectCarouselById(carouselId);
     }
 
     /**

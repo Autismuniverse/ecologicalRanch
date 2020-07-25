@@ -41,6 +41,11 @@ public class TotalBluetoothServiceImpl implements TotalBluetoothService {
         return  PageHelper.startPage(pageNum,pageSize).doSelectPage(()->totalBluetoothMapper.selectTotalBluetoothList(TotalBluetooth));
     }
 
+    @Override
+    public List<TotalBluetooth> selectTotalBluetoothListNoPageHelper(TotalBluetooth TotalBluetooth){
+        return  totalBluetoothMapper.selectTotalBluetoothList(TotalBluetooth);
+    }
+
     /**
      * 新增TotalBluetooth
      */

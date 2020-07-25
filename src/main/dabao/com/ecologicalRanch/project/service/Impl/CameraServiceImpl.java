@@ -39,6 +39,11 @@ public class CameraServiceImpl implements CameraService {
         return  PageHelper.startPage(pageNum,pageSize).doSelectPage(()->cameraMapper.selectCameraList(camera));
     }
 
+    @Override
+    public List<Camera> selectCameraListNoPageHelper(Camera camera){
+        return cameraMapper.selectCameraList(camera);
+    }
+
     /**
      * 新增Camera
      */

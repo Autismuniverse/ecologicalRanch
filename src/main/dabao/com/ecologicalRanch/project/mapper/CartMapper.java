@@ -21,6 +21,13 @@ public interface CartMapper {
     List<Cart> selectCartList(Cart cart);
 
     /**
+     * 查询Cart列表
+     * @param cart 查询对象
+     * @return 购物车显示所有所需信息查询列表
+     */
+    List<Cart> selectUserCart(Integer userId);
+
+    /**
      * 通过Id查询 Cart
      * @param shoppingCartId 查询Id
      * @return 查询对象

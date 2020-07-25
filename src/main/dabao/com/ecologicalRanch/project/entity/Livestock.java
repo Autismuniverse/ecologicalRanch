@@ -2,8 +2,6 @@ package com.ecologicalRanch.project.entity;
 
 import lombok.Data;
 
-import java.util.Date;
-
 /**
  *
  *
@@ -73,7 +71,7 @@ public class Livestock {
      */
 
 //    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private Date outTime;
+    private String outTime;
 
     /**
      * 预购状态（0，正常；1，被预定；-1，已售出）

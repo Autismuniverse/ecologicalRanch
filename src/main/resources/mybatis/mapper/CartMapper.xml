@@ -12,15 +12,66 @@
         <result column="delete_time" property="deleteTime" />
     </resultMap>
 
+    <resultMap id="CartSelectResult" type="Cart" >
+        <result column="shopping_cart_id" property="shoppingCartId" />
+        <result column="user_id" property="userId" />
+        <result column="livestock_id" property="livestockId" />
+        <result column="status" property="status" />
+        <result column="create_time" property="createTime" />
+        <result column="delete_time" property="deleteTime" />
+        <association property="field" javaType="com.ecologicalRanch.project.entity.Field">
+            <result column="field_id" property="fieldId" />
+            <result column="admin_id" property="adminId" />
+            <result column="field_name" property="fieldName" />
+            <result column="address" property="address" />
+            <result column="qualified" property="qualified" />
+            <result column="grade" property="grade" />
+            <result column="logo_Src" property="logoSrc" />
+            <result column="style_class" property="styleClass" />
+        </association>
+        <association property="livestock" javaType="com.ecologicalRanch.project.entity.Livestock">
+            <result column="livestock_id" property="livestockId" />
+            <result column="field_id" property="fieldId" />
+            <result column="step_num" property="stepNum" />
+            <result column="bluetooth_id" property="bluetoothId" />
+            <result column="rfid_id" property="rfidId" />
+            <result column="sex" property="sex" />
+            <result column="weight" property="weight" />
+            <result column="batch" property="batch" />
+            <result column="out_time" property="outTime" />
+            <result column="status" property="status" />
+            <result column="type" property="type" />
+        </association>
+        <association property="price" javaType="com.ecologicalRanch.project.entity.Price">
+            <result column="original_price" property="originalPrice" />
+        </association>
+    </resultMap>
+
     <sql id="CartResultVo">
         select
         shopping_cart_id,user_id,livestock_id,status,create_time,delete_time
          from shopping_cart
     </sql>
 
+    <sql id="userCart">
+        select
+        f.field_id,f.admin_id,f.field_name,f.address,f.qualified,f.grade,f.logo_Src,f.style_class,
+        s.shopping_cart_id,s.user_id,s.livestock_id,s.status,s.create_time,s.delete_time,
+        l.livestock_id,l.field_id,l.step_num,l.bluetooth_id,l.rfid_id,l.sex,l.weight,l.batch,l.out_time,l.status,l.type,
+        p.original_price
+    </sql>
+
     <select id="selectCartById" parameterType="Long" resultMap="CartResult">
         <include refid="CartResultVo" />
         WHERE shopping_cart_id = #{shoppingCartId}
+    </select>
+
+    <select id="selectUserCart" parameterType="Integer" resultMap="CartSelectResult">
+        <include refid="userCart" />
+        from livestock l,shopping_cart s,field f,livestock_price p
+        WHERE l.livestock_id = s.livestock_id
+        AND	f.field_id = l.field_id
+        AND s.user_id = #{userId}
     </select>
 
     <select id="selectCartList" parameterType="Cart" resultMap="CartResult">

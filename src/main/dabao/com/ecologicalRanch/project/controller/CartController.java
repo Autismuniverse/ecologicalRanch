@@ -37,6 +37,18 @@ public class CartController {
         return CommonResult.success(CommonPage.restPage(cartService.selectCartList(cart,pageNum,pageSize)));
     }
 
+
+
+    /**
+     * 查询Cart列表
+     */
+    @ApiOperation(" 查询user的Cart列表")
+    @PostMapping("/selectUserCart")
+    @ResponseBody
+    public CommonResult selectUserCart(Integer userId){
+        return CommonResult.success(cartService.selectUserCart(userId));
+    }
+
     /**
      * 通过Id查询Cart
      */

@@ -9,17 +9,54 @@
         <result column="livestock_id" property="livestockId" />
         <result column="contents" property="contents" />
         <result column="order_id" property="orderId" />
+        <result column="field_id" property="fieldId" />
+    </resultMap>
+
+    <resultMap id="selectCommentUserByFieldId" type="Comment" >
+        <result column="comment_id" property="commentId" />
+        <result column="user_id" property="userId" />
+        <result column="livestock_id" property="livestockId" />
+        <result column="contents" property="contents" />
+        <result column="order_id" property="orderId" />
+        <result column="field_id" property="fieldId" />
+        <association property="user" javaType="com.ecologicalRanch.project.entity.User">
+            <result column="user_id" property="userId" />
+            <result column="user_pwd" property="userPwd" />
+            <result column="username" property="username" />
+            <result column="sex" property="sex" />
+            <result column="phone" property="phone" />
+            <result column="address" property="address" />
+            <result column="birthday" property="birthday" />
+            <result column="email" property="email" />
+            <result column="open_id" property="openId" />
+            <result column="head_portrait" property="headPortrait" />
+            <result column="creat_time" property="creatTime" />
+            <result column="state" property="state" />
+        </association>
     </resultMap>
 
     <sql id="CommentResultVo">
         select
-        comment_id,user_id,livestock_id,contents,order_id
+        comment_id,user_id,livestock_id,contents,order_id,field_id
          from comment
+    </sql>
+
+    <sql id="CommentUserResultVo">
+        select
+        c.comment_id,c.user_id,c.livestock_id,c.contents,c.order_id,c.field_id,
+        u.user_id,u.user_pwd,u.username,u.sex,u.phone,u.address,u.birthday,u.email,u.open_id,u.head_portrait,u.creat_time,u.state
+        from comment c,user u
     </sql>
 
     <select id="selectCommentById" parameterType="Long" resultMap="CommentResult">
         <include refid="CommentResultVo" />
         WHERE comment_id = #{commentId}
+    </select>
+
+    <select id="selectCommentUserByFieldId" parameterType="Long" resultMap="selectCommentUserByFieldId">
+        <include refid="CommentUserResultVo" />
+        WHERE c.user_id = u.user_id
+            and c.field_id = #{fieldId}
     </select>
 
     <select id="selectCommentList" parameterType="Comment" resultMap="CommentResult">
@@ -33,6 +70,9 @@
             </if>
             <if test="livestockId != null and livestockId != 0">
                 and livestock_id = #{livestockId}
+            </if>
+            <if test="fieldId != null and fieldId != 0">
+            and field_id = #{fieldId}
             </if>
         </where>
     </select>

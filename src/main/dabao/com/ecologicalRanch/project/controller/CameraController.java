@@ -40,6 +40,17 @@ public class CameraController {
     }
 
     /**
+     * 查询Camera列表不分页
+     */
+    @ApiOperation(" 查询Camera列表不分页")
+    @PostMapping("/selectCameraListNoPageHelper")
+    @ResponseBody
+    public CommonResult selectCameraListNoPageHelper(Camera camera){
+        return CommonResult.success(CommonPage.restPage(cameraService.selectCameraListNoPageHelper(camera)));
+    }
+
+
+    /**
      * 通过Id查询Camera
      */
     @ApiOperation("通过Id查询Camera")

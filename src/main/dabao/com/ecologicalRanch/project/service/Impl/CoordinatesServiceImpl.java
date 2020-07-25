@@ -23,6 +23,8 @@ public class CoordinatesServiceImpl implements CoordinatesService {
 
     @Autowired
     private CoordinatesMapper coordinatesMapper;
+    @Autowired
+    private TotalBluetoothServiceImpl totalBluetoothService;
 
     /**
      * 通过Id查询 Coordinates
@@ -62,6 +64,9 @@ public class CoordinatesServiceImpl implements CoordinatesService {
     public int insertCoordinates(Coordinates coordinates) {
 //        if(coordinatesMapper.selectCoordinatesByMac(coordinates.getBluetoothMac()).getBluetoothMac()==coordinates.getBluetoothMac())
 //            return 0;
+//        TotalBluetooth totalBluetooth =new TotalBluetooth();
+//        totalBluetooth.setFieldId(coordinates.getFieldId());
+//        totalBluetoothService.updateTotalBluetooth(totalBluetooth);
         return coordinatesMapper.insertCoordinates(coordinates);
     }
 
@@ -69,7 +74,7 @@ public class CoordinatesServiceImpl implements CoordinatesService {
      * 通过id删除Coordinates
      */
     @Override
-    public int deleteCoordinatesById(Long bluetoothId) {
+    public int deleteCoordinatesById(String bluetoothId) {
         return coordinatesMapper.deleteCoordinatesById(bluetoothId);
     }
 

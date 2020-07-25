@@ -18,6 +18,11 @@ public interface CameraService {
     List<Camera> selectCameraList(Camera camera, int pageNum, int pageSize);
 
     /**
+     * 查询Camera列表无分页
+     */
+    List<Camera> selectCameraListNoPageHelper(Camera camera);
+
+    /**
      * 通过Id查询 Camera
      */
     Camera selectCameraById(Integer cameraId);

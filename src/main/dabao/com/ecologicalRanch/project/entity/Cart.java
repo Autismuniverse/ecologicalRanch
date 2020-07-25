@@ -49,5 +49,24 @@ public class Cart  {
 
     private Timestamp deleteTime;
 
+    /**
+     * 关联养殖场
+     */
+
+    private Field field;
+
+    /**
+     * 关联牲畜
+     */
+    private Livestock livestock;
+
+    /**
+     * 关联价格
+     */
+    private Price price;
+
+
+
+
 
 }

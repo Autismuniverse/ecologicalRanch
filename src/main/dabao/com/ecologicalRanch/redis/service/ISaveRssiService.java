@@ -16,4 +16,6 @@ public interface ISaveRssiService {
     void delByBluetoothId(String bluetoothId);
 
     String flushAll();
+
+    String getByKey(String key,int indexDB);
 }

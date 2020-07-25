@@ -24,12 +24,30 @@ import org.springframework.web.bind.annotation.*;
 @Validated
 public class AddressController {
 
+
+
     /**
      * githubTest
      */
 
     @Autowired
     private AddressService addressService;
+
+    /**
+     * 根据id查询
+     */
+    @ApiOperation(value = "根据id查询数据")
+    @GetMapping(value = "/test")
+    @ResponseBody
+    public CommonResult test(String username,String password){
+
+        if (username.equals("123") && password.equals("123")){
+        return CommonResult.success("登陆成功");
+        }
+
+        System.out.println("账号："+username+"密码："+password);
+        return CommonResult.failed("账号是123，你输成了："+username+"+++++++++++++++密码是123，你输成了："+password);
+    }
 
     /**
      * 查询Address列表

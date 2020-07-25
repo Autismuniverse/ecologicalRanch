@@ -39,6 +39,11 @@ public class CommentServiceImpl implements CommentService {
         return  PageHelper.startPage(pageNum,pageSize).doSelectPage(()->commentMapper.selectCommentList(comment));
     }
 
+    @Override
+    public List<Comment> selectCommentUserByFieldId(Long fieldId){
+        return  commentMapper.selectCommentUserByFieldId(fieldId);
+    }
+
     /**
      * 新增Comment
      */

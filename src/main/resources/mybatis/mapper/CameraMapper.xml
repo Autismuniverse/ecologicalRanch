@@ -28,6 +28,9 @@
             <if test="cameraId != null and cameraId != 0">
                 and camera_id = #{cameraId}
             </if>
+            <if test="fieldId != null and fieldId != 0">
+                and field_id = #{fieldId}
+            </if>
         </where>
     </select>
 

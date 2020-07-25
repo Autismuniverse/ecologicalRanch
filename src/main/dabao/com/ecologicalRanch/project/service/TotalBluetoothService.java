@@ -11,6 +11,11 @@ public interface TotalBluetoothService {
     List<TotalBluetooth> selectTotalBluetoothList(TotalBluetooth TotalBluetooth, int pageNum, int pageSize);
 
     /**
+     * 查询TotalBluetooth列表无分页
+     */
+    List<TotalBluetooth> selectTotalBluetoothListNoPageHelper(TotalBluetooth TotalBluetooth);
+
+    /**
      * 通过Id查询 TotalBluetooth
      */
     TotalBluetooth selectTotalBluetoothById(String TotalBluetoothId);

@@ -41,6 +41,12 @@ public class CartServiceImpl implements CartService {
         return  PageHelper.startPage(pageNum,pageSize).doSelectPage(()->cartMapper.selectCartList(cart));
     }
 
+    @Override
+    public List<Cart> selectUserCart(Integer userId){
+        System.out.println(userId);
+        return cartMapper.selectUserCart(userId);
+    }
+
     /**
      * 新增Cart
      */

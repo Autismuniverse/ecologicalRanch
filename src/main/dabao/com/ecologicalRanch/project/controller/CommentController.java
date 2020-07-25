@@ -41,6 +41,17 @@ public class CommentController {
     }
 
     /**
+     * 查询Comment列表
+     */
+
+    @ApiOperation(" 根据field查询Comment的user列表")
+    @PostMapping("/selectCommentUserByFieldId")
+    @ResponseBody
+    public CommonResult selectCommentUserByFieldId(Long fieldId){
+        return CommonResult.success(commentService.selectCommentUserByFieldId(fieldId));
+    }
+
+    /**
      * 通过Id查询Comment
      */
     @ApiOperation("通过Id查询Comment")

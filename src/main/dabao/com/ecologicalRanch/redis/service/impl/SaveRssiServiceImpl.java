@@ -8,8 +8,8 @@ import com.ecologicalRanch.project.service.GatewayService;
 import com.ecologicalRanch.redis.entity.BluetoothRssiInfo;
 import com.ecologicalRanch.redis.entity.RedisRssiKey;
 import com.ecologicalRanch.redis.service.ISaveRssiService;
-import com.ecologicalRanch.redis.utils.JedisUtil;
 import com.ecologicalRanch.redis.utils.PointUtil;
+import com.ecologicalRanch.redis.utils.RedisUtil;
 import org.springframework.stereotype.Service;
 
 import java.awt.*;
@@ -26,11 +26,12 @@ public class SaveRssiServiceImpl implements ISaveRssiService {
 
     private CoordinatesService coordinatesService;
 
-    private JedisUtil jedisUtil = new JedisUtil();
+    private RedisUtil redisUtil;
 
     public SaveRssiServiceImpl(){
         this.gatewayService = ApplicationContextProvider.getBean(GatewayService.class);
         this.coordinatesService = ApplicationContextProvider.getBean(CoordinatesService.class);
+        this.redisUtil =  ApplicationContextProvider.getBean(RedisUtil.class);
     }
 
     /**
@@ -52,7 +53,7 @@ public class SaveRssiServiceImpl implements ISaveRssiService {
             RedisRssiKey redisRssiKey = new RedisRssiKey(coordinates.getBluetoothId().toString(), PointUtil.toString(gatewayPoint));
 
 //            System.out.println(redisRssiKey.toString());
-            jedisUtil.append(redisRssiKey.creatKey(), rssi + ",");
+            redisUtil.append(redisRssiKey.creatKey(), rssi + ",");
 //        }
     }
 
@@ -65,10 +66,10 @@ public class SaveRssiServiceImpl implements ISaveRssiService {
     public HashMap<String,String> getRssiWithHashMap(String bluetoothId){
         HashMap<String,String> gatewayInfo = new HashMap<>();
         RedisRssiKey rssiKey;
-        for(String s : jedisUtil.Keys(bluetoothId)) {
+        for(String s : redisUtil.keys(bluetoothId)) {
              rssiKey = new RedisRssiKey(s);
              if(!gatewayInfo.containsKey(rssiKey.getGatewayPoint())) {
-                 String r = jedisUtil.get(s);
+                 String r = redisUtil.get(s,0);
                  if (r.split(",").length > 50)
                      gatewayInfo.put(rssiKey.getGatewayPoint(), r);
              }
@@ -112,8 +113,8 @@ public class SaveRssiServiceImpl implements ISaveRssiService {
      */
     @Override
     public void delByBluetoothId(String bluetoothId){
-        for(String s : jedisUtil.Keys(bluetoothId)) {
-            jedisUtil.del(s);
+        for(String s : redisUtil.keys(bluetoothId)) {
+            redisUtil.del(s);
         }
     }
 
@@ -123,6 +124,12 @@ public class SaveRssiServiceImpl implements ISaveRssiService {
      */
     @Override
     public String flushAll(){
-        return jedisUtil.flushAll();
+        return redisUtil.flushDB();
+    }
+
+
+    @Override
+    public String getByKey(String key,int indexDB){
+        return redisUtil.get(key,indexDB);
     }
 }

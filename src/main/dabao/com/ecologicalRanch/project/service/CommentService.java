@@ -20,6 +20,13 @@ public interface CommentService {
     List<Comment> selectCommentList(Comment comment, int pageNum, int pageSize);
 
     /**
+     *
+     * @param fieldId
+     * @return
+     */
+    List<Comment> selectCommentUserByFieldId(Long fieldId);
+
+    /**
      * 通过Id查询 Comment
      */
     Comment selectCommentById(Long commentId);

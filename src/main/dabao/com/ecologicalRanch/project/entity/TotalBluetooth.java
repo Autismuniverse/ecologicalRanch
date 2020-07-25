@@ -23,5 +23,11 @@ public class TotalBluetooth {
 
     private String bluetoothMac;
 
+    /**
+     * 养殖场id
+     */
+
+    private Integer fieldId;
+
 
 }

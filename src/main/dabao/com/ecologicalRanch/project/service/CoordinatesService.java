@@ -41,7 +41,7 @@ public interface CoordinatesService {
     /**
      * 通过id删除Coordinates
      */
-    int deleteCoordinatesById(Long bluetoothId);
+    int deleteCoordinatesById(String bluetoothId);
 
     /**
      * 通过id批量删除Coordinates

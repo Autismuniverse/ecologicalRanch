@@ -38,6 +38,16 @@ public class TotalBluetoothController {
     }
 
     /**
+     * 查询Bluetooth列表无分页
+     */
+    @ApiOperation(" 查询Bluetooth列表无分页")
+    @PostMapping("/selectTotalBluetoothListNoPageHelper")
+    @ResponseBody
+    public CommonResult selectBluetoothList(TotalBluetooth totalBluetooth){
+        return CommonResult.success(totalBluetoothService.selectTotalBluetoothListNoPageHelper(totalBluetooth));
+    }
+
+    /**
      * 通过Id查询Bluetooth
      */
     @ApiOperation("通过Id查询Bluetooth")

@@ -41,5 +41,17 @@ public class Comment  {
 
     private Integer orderId;
 
+    /**
+     * 养殖场id
+     */
+
+    private String fieldId;
+
+
+    /**
+     * 关联user
+     */
+    private User user;
+
 
 }

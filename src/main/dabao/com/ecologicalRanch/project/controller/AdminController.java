@@ -46,7 +46,7 @@ public class AdminController {
      * @param admin 对象
      * @return admin对象
      */
-    @ApiOperation(value = "登录",notes = "userId,password")
+//    @ApiOperation(value = "登录",notes = "userId,password")
     @PostMapping("login/")
     public CommonResult login(@RequestBody Admin admin){
         return CommonResult.success(adminService.login(admin)); }

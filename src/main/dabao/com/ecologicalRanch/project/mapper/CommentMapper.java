@@ -20,6 +20,14 @@ public interface CommentMapper {
      */
     List<Comment> selectCommentList(Comment comment);
 
+
+    /**
+     * 查询Comment列表
+     * @param fieldId 查询条件
+     * @return 查询列表
+     */
+    List<Comment> selectCommentUserByFieldId(Long fieldId);
+
     /**
      * 通过Id查询 Comment
      * @param commentId 查询Id

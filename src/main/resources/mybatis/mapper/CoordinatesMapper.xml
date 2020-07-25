@@ -8,7 +8,7 @@
         <result column="bluetooth_mac" property="bluetoothMac" />
         <result column="coordinate_x" property="coordinateX" />
         <result column="coordinate_y" property="coordinateY" />
-        <result column="field_id" property="deviceId" />
+        <result column="field_id" property="fieldId" />
     </resultMap>
 
 
@@ -66,14 +66,14 @@
             <if test="bluetoothMac != null  and bluetoothMac != ''">bluetooth_mac, </if>
             <if test="coordinateX != null  and coordinateX != ''">coordinate_x, </if>
             <if test="coordinateY != null  and coordinateY != ''">coordinate_y, </if>
-            <if test="deviceId != null  and  deviceId != ''">field_id </if>
+            <if test="fieldId != null  and  fieldId != ''">field_id </if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="bluetoothId != null  and bluetoothId != ''">#{bluetoothId},</if>
             <if test="bluetoothMac != null  and bluetoothMac != ''">#{bluetoothMac},</if>
             <if test="coordinateX != null  and coordinateX != ''">#{coordinateX},</if>
             <if test="coordinateY != null  and coordinateY != ''">#{coordinateY},</if>
-            <if test="deviceId != null  and deviceId != ''">#{deviceId}</if>
+            <if test="fieldId != null  and fieldId != ''">#{fieldId}</if>
         </trim>
     </insert>
 
@@ -84,7 +84,7 @@
             <if test="bluetoothMac != null  and bluetoothMac != ''">bluetooth_mac = #{bluetoothMac},</if>
             <if test="coordinateX != null  and coordinateX != ''">coordinate_x = #{coordinateX},</if>
             <if test="coordinateY != null  and coordinateY != ''">coordinate_y = #{coordinateY},</if>
-            <if test="deviceId != null  and deviceId != ''">field_id = #{fieldId},</if>
+            <if test="fieldId != null  and fieldId != ''">field_id = #{fieldId},</if>
         </trim>
         WHERE  bluetooth_id = #{bluetoothId}
     </update>

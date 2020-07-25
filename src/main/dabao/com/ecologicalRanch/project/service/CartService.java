@@ -19,6 +19,11 @@ public interface CartService {
     List<Cart> selectCartList(Cart cart, int pageNum, int pageSize);
 
     /**
+     * 查询Cart列表
+     */
+    List<Cart> selectUserCart(Integer userId);
+
+    /**
      * 通过Id查询 Cart
      */
     Cart selectCartById(Long shoppingCartId);

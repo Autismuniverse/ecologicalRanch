@@ -53,7 +53,7 @@ public interface CoordinatesMapper {
      * @param bluetoothId 删除id
      * @return 删除行数
      */
-    int deleteCoordinatesById(Long bluetoothId);
+    int deleteCoordinatesById(String bluetoothId);
 
     /**
      * 通过id批量删除Coordinates

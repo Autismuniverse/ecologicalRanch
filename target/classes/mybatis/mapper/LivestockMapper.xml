@@ -74,7 +74,7 @@
             <if test="sex != null  and sex != ''">sex, </if>
             <if test="weight != null  and weight != ''">weight, </if>
             <if test="batch != null  and batch != ''">batch, </if>
-            <if test="outTime != null  and outTime != ''">out_time, </if>
+            <if test="outTime != null">out_time, </if>
             <if test="type != null  and type != ''">type, </if>
             <if test="status != null  and status != ''">status </if>
         </trim>
@@ -179,8 +179,8 @@
          <result column="creat_time" property="creatTime" />
      </association>
 </resultMap>
+
     <select id="selectStep" parameterType="Livestock" resultMap="LivestockStep">
-    
     <include refid="LivestockStepVo"></include>
     from livestock l RIGHT JOIN step_number s ON l.step_num = s.step_num
     where l.livestock_id = #{livestockId}
@@ -188,7 +188,6 @@
 
 
     <resultMap id="LivestockOutTime" type="java.util.HashMap" >
-
     </resultMap>
 
     <select id="selectOutTime" parameterType="Livestock" resultMap="LivestockOutTime">
