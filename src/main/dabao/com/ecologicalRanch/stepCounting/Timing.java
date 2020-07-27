@@ -24,7 +24,7 @@ public class Timing{
 
         if (list != null) {
             for (BluetoothRssiInfo bluetoothRssiInfo : list) {
-                System.out.println("蓝牙信息: 蓝牙Id：" + bluetoothRssiInfo.getBluetoothId());
+//                System.out.println("蓝牙信息: 蓝牙Id：" + bluetoothRssiInfo.getBluetoothId());
                 ProgramStart.AppThread(bluetoothRssiInfo);
                 saveRssiService.delByBluetoothId(bluetoothRssiInfo.getBluetoothId());
 //                ProgramStart.AppThread(coordinates.getBluetoothId().toString());

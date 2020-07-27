@@ -18,7 +18,6 @@ import java.util.HashMap;
 import java.util.List;
 
 
-
 @Service
 public class SaveRssiServiceImpl implements ISaveRssiService {
 
@@ -28,53 +27,60 @@ public class SaveRssiServiceImpl implements ISaveRssiService {
 
     private RedisUtil redisUtil;
 
-    public SaveRssiServiceImpl(){
+    public SaveRssiServiceImpl() {
         this.gatewayService = ApplicationContextProvider.getBean(GatewayService.class);
         this.coordinatesService = ApplicationContextProvider.getBean(CoordinatesService.class);
-        this.redisUtil =  ApplicationContextProvider.getBean(RedisUtil.class);
+        this.redisUtil = ApplicationContextProvider.getBean(RedisUtil.class);
     }
 
     /**
      * 存储 牲畜的 rssi
+     *
      * @param bluetoothMac 蓝牙Mac
-     * @param gatewayMac 网关Mac
-     * @param rssi RSSI值
+     * @param gatewayMac   网关Mac
+     * @param rssi         RSSI值
      */
     @Override
-    public void saveRssi(String bluetoothMac,String gatewayMac, String rssi){
+    public void saveRssi(String bluetoothMac, String gatewayMac, String rssi) {
 
         Gateway gateway = new Gateway();
         gateway.setMac(gatewayMac);
         String g = gatewayService.selectGatewayByMac(gateway);
         Coordinates coordinates = coordinatesService.selectCoordinatesByMac(bluetoothMac);
 
-//        if(!g.equals("") && coordinates != null) {
+        if (!g.equals("") && coordinates != null) {
             Point gatewayPoint = PointUtil.stringToPoint(g);
-            RedisRssiKey redisRssiKey = new RedisRssiKey(coordinates.getBluetoothId().toString(), PointUtil.toString(gatewayPoint));
+            RedisRssiKey redisRssiKey = new RedisRssiKey(coordinates.getBluetoothId(), PointUtil.toString(gatewayPoint));
 
-//            System.out.println(redisRssiKey.toString());
-            redisUtil.append(redisRssiKey.creatKey(), rssi + ",");
-//        }
+            if (redisUtil.get(redisRssiKey.creatKey(), 0) == null) {
+                redisUtil.set(redisRssiKey.creatKey(), rssi + ",", 0);
+            }
+            else {
+//                System.out.println("网关：" + g + "Key" + redisRssiKey.creatKey());
+                redisUtil.append(redisRssiKey.creatKey(), rssi + ",");
+            }
+        }
     }
 
     /**
      * 通过 牲畜标签 获取 Rssi 值
+     *
      * @param bluetoothId 牲畜id
      * @return HashMap
      */
     @Override
-    public HashMap<String,String> getRssiWithHashMap(String bluetoothId){
-        HashMap<String,String> gatewayInfo = new HashMap<>();
+    public HashMap<String, String> getRssiWithHashMap(String bluetoothId) {
+        HashMap<String, String> gatewayInfo = new HashMap<>();
         RedisRssiKey rssiKey;
-        for(String s : redisUtil.keys(bluetoothId)) {
-             rssiKey = new RedisRssiKey(s);
-             if(!gatewayInfo.containsKey(rssiKey.getGatewayPoint())) {
-                 String r = redisUtil.get(s,0);
-                 if (r.split(",").length > 50)
-                     gatewayInfo.put(rssiKey.getGatewayPoint(), r);
-             }
-             if (gatewayInfo.size() > 2)
-                 break;
+        for (String s : redisUtil.keys(bluetoothId + "*")) {
+            rssiKey = new RedisRssiKey(s);
+            if (!gatewayInfo.containsKey(rssiKey.getGatewayPoint())) {
+                String r = redisUtil.get(s, 0);
+                if (r.split(",").length > 50)
+                    gatewayInfo.put(rssiKey.getGatewayPoint(), r);
+            }
+            if (gatewayInfo.size() > 2)
+                break;
         }
         if (gatewayInfo.size() <= 2)
             return null;
@@ -83,21 +89,22 @@ public class SaveRssiServiceImpl implements ISaveRssiService {
 
     /**
      * 获取redis中数据量大于 80 所有的蓝牙信息
+     *
      * @return List
      */
     @Override
-    public List<BluetoothRssiInfo> getRssiList(){
+    public List<BluetoothRssiInfo> getRssiList() {
 
         List<BluetoothRssiInfo> list = new ArrayList<>();
         List<Coordinates> coordinatesList = coordinatesService.selectCoordinatesListNoPageHelper(new Coordinates());
-        HashMap<String,String> gatewayInfo;
+        HashMap<String, String> gatewayInfo;
 
-        for(Coordinates coordinates : coordinatesList){
-            gatewayInfo = getRssiWithHashMap(coordinates.getBluetoothId().toString());
-            if(gatewayInfo != null){
+        for (Coordinates coordinates : coordinatesList) {
+            gatewayInfo = getRssiWithHashMap(coordinates.getBluetoothId());
+            if (gatewayInfo != null) {
                 BluetoothRssiInfo bluetoothRssiInfo = new BluetoothRssiInfo();
-                bluetoothRssiInfo.setBluetoothId(coordinates.getBluetoothId().toString());
-                bluetoothRssiInfo.setLastPoint(new Point(coordinates.getCoordinateX() , coordinates.getCoordinateY()));
+                bluetoothRssiInfo.setBluetoothId(coordinates.getBluetoothId());
+                bluetoothRssiInfo.setLastPoint(new Point(coordinates.getCoordinateX(), coordinates.getCoordinateY()));
                 bluetoothRssiInfo.setGatewayInfo(gatewayInfo);
 
                 list.add(bluetoothRssiInfo);
@@ -109,27 +116,29 @@ public class SaveRssiServiceImpl implements ISaveRssiService {
 
     /**
      * 通过蓝牙id 删除 数据
+     *
      * @param bluetoothId
      */
     @Override
-    public void delByBluetoothId(String bluetoothId){
-        for(String s : redisUtil.keys(bluetoothId)) {
+    public void delByBluetoothId(String bluetoothId) {
+        for (String s : redisUtil.keys(bluetoothId +"*")) {
             redisUtil.del(s);
         }
     }
 
     /**
      * 清空数据库
+     *
      * @return 状态码
      */
     @Override
-    public String flushAll(){
+    public String flushAll() {
         return redisUtil.flushDB();
     }
 
 
     @Override
-    public String getByKey(String key,int indexDB){
-        return redisUtil.get(key,indexDB);
+    public String getByKey(String key, int indexDB) {
+        return redisUtil.get(key, indexDB);
     }
 }

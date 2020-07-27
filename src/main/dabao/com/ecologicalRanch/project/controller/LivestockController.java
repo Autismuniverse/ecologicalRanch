@@ -69,7 +69,11 @@ public class LivestockController {
     @PostMapping("/insertLivestock")
     @ResponseBody
     public CommonResult insertLivestock(@RequestBody @Validated Livestock livestock){
-        return CommonResult.success(livestockService.insertLivestock(livestock));
+        try{
+            return CommonResult.success(livestockService.insertLivestock(livestock));}
+        catch (Exception e){
+            return CommonResult.failed("请检查是否数据输入错误");
+        }
     }
 
     /**
@@ -134,7 +138,7 @@ public class LivestockController {
     @ApiOperation(" 查询Livestock出售时间去重")
     @PostMapping("/selectOutTime")
     @ResponseBody
-    public CommonResult selectPrice(@RequestBody Livestock livestock){
+    public CommonResult selectOutTime(@RequestBody Livestock livestock){
         return CommonResult.success(livestockService.selectOutTime(livestock));
     }
 

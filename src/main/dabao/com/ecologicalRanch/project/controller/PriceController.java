@@ -8,6 +8,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -62,7 +63,7 @@ public class PriceController {
     @ApiOperation("新增Price")
     @PostMapping("/insertPrice")
     @ResponseBody
-    public CommonResult insertPrice(@RequestBody Price price){
+    public CommonResult insertPrice(@RequestBody @Validated Price price){
         return CommonResult.success(priceService.insertPrice(price));
     }
 

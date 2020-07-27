@@ -28,7 +28,6 @@ public class RedisController {
     @PostMapping("/saveRSSI")
     @ApiOperation(value = "储存RSSI值", notes = "bluetoothMac,gatewayMac,RSSI")
     public CommonResult saveRSSI(String bluetoothMac, String gatewayMac, String rssi) {
-        System.out.println(bluetoothMac + "网关：" + gatewayMac + "RSSI" + rssi);
         try {
             saveRssiService.saveRssi(bluetoothMac, gatewayMac, rssi);
             return CommonResult.success("OK");

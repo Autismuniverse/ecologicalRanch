@@ -2,6 +2,7 @@ package com.ecologicalRanch.project.entity;
 
 import lombok.Data;
 
+import javax.validation.constraints.Max;
 import java.sql.Date;
 
 /**
@@ -31,9 +32,9 @@ public class Price  {
     private String type;
 
     /**
-     *
+     * 原价
      */
-
+    @Max(value = 500,message = "定价不能高于500")
     private double originalPrice;
 
     /**

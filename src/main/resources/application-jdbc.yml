@@ -10,7 +10,7 @@ spring:
       initialSize: 5
       # 最小连接池数量
       minIdle: 10
-      # 最大连接池数量
+      # 最大连接池数量ping
       maxActive: 20
       # 配置获取连接等待超时的时间
       maxWait: 60000

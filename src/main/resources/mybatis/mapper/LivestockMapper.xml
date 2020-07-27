@@ -46,7 +46,7 @@
         <if test="rfidId != null and rfidId != ''">
             and rfid_id = #{rfidId}
         </if>
-        <if test="outTime != null and outTime!= ''">
+        <if test="outTime!= null">
             and out_time = #{outTime}
         </if>
             <if test="type != null and type!= ''">
@@ -87,7 +87,7 @@
             <if test="sex != null  and sex != ''">#{sex},</if>
             <if test="weight != null  and weight != ''">#{weight},</if>
             <if test="batch != null  and batch != ''">#{batch},</if>
-            <if test="outTime != null  and outTime != ''">#{outTime},</if>
+            <if test="outTime != null ">#{outTime},</if>
             <if test="type != null  and type != ''">#{type},</if>
             <if test="status != null  and status != ''">#{status}</if>
         </trim>
@@ -104,7 +104,7 @@
             <if test="sex != null  and sex != ''">sex = #{sex},</if>
             <if test="weight != null  and weight != ''">weight = #{weight},</if>
             <if test="batch != null  and batch != ''">batch = #{batch},</if>
-            <if test="outTime != null  and outTime != ''">out_time = #{outTime},</if>
+            <if test="outTime != null ">out_time = #{outTime},</if>
             <if test="type != null  and type != ''">type = #{type},</if>
             <if test="status != null">status = #{status}</if>
         </trim>
@@ -132,7 +132,7 @@
     <select id="fuzzyLivestockList" parameterType="Livestock" resultMap="LivestockResult">
         <include refid="LivestockResultVo"/>
         <where>
-        <if test="outTime != null and outTime != ''">
+        <if test="outTime != null">
             and out_time like CONCAT(CONCAT('%',#{outTime}),'%')
         </if>
         <if test="livestockId != null and livestockId != ''">
@@ -150,7 +150,7 @@
         <if test="rfidId != null and rfidId != ''">
             and rfid_id like CONCAT(CONCAT('%',#{rfidId}),'%')
         </if>
-        <if test="outTime != null and batch != ''">
+        <if test="outTime != null">
             and out_time like CONCAT(CONCAT('%',#{outTime}),'%')
         </if>
         <if test="type != null and type != ''">
@@ -192,8 +192,8 @@
 
     <select id="selectOutTime" parameterType="Livestock" resultMap="LivestockOutTime">
         SELECT  DISTINCT out_time  FROM livestock
-
         where field_id = #{fieldId}
+        order  by out_time DESC
     </select>
 
     <select id="selectLivestockListByIds" parameterType="String" resultMap="LivestockResult">

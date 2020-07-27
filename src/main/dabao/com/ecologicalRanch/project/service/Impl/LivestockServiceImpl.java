@@ -14,6 +14,7 @@ import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -152,7 +153,7 @@ public class LivestockServiceImpl implements LivestockService {
 
         StringBuffer stringBuffer = new StringBuffer();
         Date day = new Date();
-        SimpleDateFormat df = new SimpleDateFormat("yyyyMMdd");
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
         Map<String,Double> map = new HashMap<>();
 
         for (Livestock s : selectLivestockListByIds(livestockIds)) {
@@ -161,10 +162,14 @@ public class LivestockServiceImpl implements LivestockService {
 //
                     Discount discount = discountMapper.selectDiscountByFieldId(p.getFieldId());
                     double nowDis = 0;
+                    try {
+                        Date dd = df.parse(s.getOutTime());
+
 
                     System.out.println("获取的折扣id："+discount.getPredeterminedDiscountId());
 
-                    switch (Days.differentDays(df.format(day), df.format(s.getOutTime()))/30){
+
+                    switch (Days.differentDays(df.format(day), df.format(dd))/30){
                         case 0: nowDis = discount.getFirstMonth(); break;
                         case 1: nowDis = discount.getSecondMonth(); break;
                         case 2: nowDis = discount.getThirdMonth(); break;
@@ -178,6 +183,9 @@ public class LivestockServiceImpl implements LivestockService {
                         case 10: nowDis = discount.getEleventhMonth(); break;
                         case 11: nowDis = discount.getTwelfthMonth(); break;
                         default: nowDis = 1;break;
+                    }
+                    }catch (ParseException e){
+                        e.getErrorOffset();
                     }
 
                     stringBuffer.append(s.getLivestockId().toString()).append(":")

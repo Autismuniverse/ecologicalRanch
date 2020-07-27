@@ -48,7 +48,6 @@ public class RedisConfig {
         if (StringUtils.isNotBlank(password)) {
             return new JedisPool(jedisPoolConfig, host, port, timeout, password, database);
         } else {
-            System.out.println(host + port + timeout+ database);
             return new JedisPool(jedisPoolConfig, host, port, timeout, null, database);
         }
     }
