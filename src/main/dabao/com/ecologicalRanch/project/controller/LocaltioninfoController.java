@@ -34,7 +34,11 @@ public class LocaltioninfoController {
     public CommonResult selectLocaltioninfoList(Localtioninfo localtioninfo,
                                                 @RequestParam(value = "pageNum",defaultValue = "1",required = false) int pageNum,
                                                 @RequestParam(value = "pageNum",defaultValue = "10",required = false)int pageSize){
-        return CommonResult.success(CommonPage.restPage(localtioninfoService.selectLocaltioninfoList(localtioninfo,pageNum,pageSize)));
+        try{
+            return CommonResult.success(CommonPage.restPage(localtioninfoService.selectLocaltioninfoList(localtioninfo,pageNum,pageSize)));
+        }catch (Exception e) {
+            return CommonResult.failed(e.getMessage());
+        }
     }
 
     /**
@@ -44,7 +48,11 @@ public class LocaltioninfoController {
     @GetMapping("/selectLocaltioninfoById/{bluetoothId}")
     @ResponseBody
     public CommonResult selectLocaltioninfoById(@PathVariable("bluetoothId") Long bluetoothId){
-        return CommonResult.success(localtioninfoService.selectLocaltioninfoById(bluetoothId));
+        try{
+            return CommonResult.success(localtioninfoService.selectLocaltioninfoById(bluetoothId));
+        }catch (Exception e) {
+            return CommonResult.failed(e.getMessage());
+        }
     }
 
     /**
@@ -54,7 +62,11 @@ public class LocaltioninfoController {
     @PostMapping("/insertLocaltioninfo")
     @ResponseBody
     public CommonResult insertLocaltioninfo(Localtioninfo localtioninfo){
-        return CommonResult.success(localtioninfoService.insertLocaltioninfo(localtioninfo));
+        try{
+            return CommonResult.success(localtioninfoService.insertLocaltioninfo(localtioninfo));
+        }catch (Exception e) {
+            return CommonResult.failed(e.getMessage());
+        }
     }
 
     /**
@@ -64,7 +76,11 @@ public class LocaltioninfoController {
     @PostMapping("/updateLocaltioninfo")
     @ResponseBody
     public CommonResult updateLocaltioninfo(Localtioninfo localtioninfo){
-        return CommonResult.success(localtioninfoService.updateLocaltioninfo(localtioninfo));
+        try{
+            return CommonResult.success(localtioninfoService.updateLocaltioninfo(localtioninfo));
+        }catch (Exception e) {
+            return CommonResult.failed(e.getMessage());
+        }
     }
 
     /**
@@ -74,7 +90,11 @@ public class LocaltioninfoController {
     @PostMapping("/deleteLocaltioninfoById/{bluetoothId}")
     @ResponseBody
     public CommonResult deleteLocaltioninfoById(@PathVariable("bluetoothId") Long bluetoothId){
-        return CommonResult.success(localtioninfoService.deleteLocaltioninfoById(bluetoothId));
+        try{
+            return CommonResult.success(localtioninfoService.deleteLocaltioninfoById(bluetoothId));
+        }catch (Exception e) {
+            return CommonResult.failed(e.getMessage());
+        }
     }
 
     /**
@@ -84,6 +104,10 @@ public class LocaltioninfoController {
     @PostMapping("/deleteList")
     @ResponseBody
     public CommonResult deleteLocaltioninfoByIds(String bluetoothIds){
-        return CommonResult.success(localtioninfoService.deleteLocaltioninfoByIds(bluetoothIds));
+        try{
+            return CommonResult.success(localtioninfoService.deleteLocaltioninfoByIds(bluetoothIds));
+        }catch (Exception e) {
+            return CommonResult.failed(e.getMessage());
+        }
     }
 }

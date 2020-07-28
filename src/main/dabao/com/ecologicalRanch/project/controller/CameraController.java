@@ -13,8 +13,6 @@ import org.springframework.web.bind.annotation.*;
 
 
 /**
- *
- *
  * @author xxxFredYang
  * @date '2020-07-20 16:11:14'
  */
@@ -34,9 +32,13 @@ public class CameraController {
     @PostMapping("/selectCameraList")
     @ResponseBody
     public CommonResult selectCameraList(Camera camera,
-                                         @RequestParam(value = "pageNum",defaultValue = "1",required = false) int pageNum,
-                                         @RequestParam(value = "pageSize",defaultValue = "10",required = false)int pageSize){
-        return CommonResult.success(CommonPage.restPage(cameraService.selectCameraList(camera,pageNum,pageSize)));
+                                         @RequestParam(value = "pageNum", defaultValue = "1", required = false) int pageNum,
+                                         @RequestParam(value = "pageSize", defaultValue = "10", required = false) int pageSize) {
+        try {
+            return CommonResult.success(CommonPage.restPage(cameraService.selectCameraList(camera, pageNum, pageSize)));
+        } catch (Exception e) {
+            return CommonResult.failed(e.getMessage());
+        }
     }
 
     /**
@@ -45,8 +47,12 @@ public class CameraController {
     @ApiOperation(" 查询Camera列表不分页")
     @PostMapping("/selectCameraListNoPageHelper")
     @ResponseBody
-    public CommonResult selectCameraListNoPageHelper(Camera camera){
-        return CommonResult.success(CommonPage.restPage(cameraService.selectCameraListNoPageHelper(camera)));
+    public CommonResult selectCameraListNoPageHelper(Camera camera) {
+        try {
+            return CommonResult.success(CommonPage.restPage(cameraService.selectCameraListNoPageHelper(camera)));
+        } catch (Exception e) {
+            return CommonResult.failed(e.getMessage());
+        }
     }
 
 
@@ -57,8 +63,12 @@ public class CameraController {
     @GetMapping("/selectCameraById/{cameraId}")
     @ResponseBody
 
-    public CommonResult selectCameraById(@PathVariable("cameraId") Integer cameraId){
-        return CommonResult.success(cameraService.selectCameraById(cameraId));
+    public CommonResult selectCameraById(@PathVariable("cameraId") Integer cameraId) {
+        try {
+            return CommonResult.success(cameraService.selectCameraById(cameraId));
+        } catch (Exception e) {
+            return CommonResult.failed(e.getMessage());
+        }
     }
 
     /**
@@ -67,8 +77,12 @@ public class CameraController {
     @ApiOperation("新增Camera")
     @PostMapping("/insertCamera")
     @ResponseBody
-    public CommonResult insertCamera(@RequestBody @Validated Camera camera){
-        return CommonResult.success(cameraService.insertCamera(camera));
+    public CommonResult insertCamera(@RequestBody @Validated Camera camera) {
+        try {
+            return CommonResult.success(cameraService.insertCamera(camera));
+        } catch (Exception e) {
+            return CommonResult.failed(e.getMessage());
+        }
     }
 
     /**
@@ -77,8 +91,12 @@ public class CameraController {
     @ApiOperation("修改Camera信息")
     @PostMapping("/updateCamera")
     @ResponseBody
-    public CommonResult updateCamera(@Validated Camera camera){
-        return CommonResult.success(cameraService.updateCamera(camera));
+    public CommonResult updateCamera(@Validated Camera camera) {
+        try {
+            return CommonResult.success(cameraService.updateCamera(camera));
+        } catch (Exception e) {
+            return CommonResult.failed(e.getMessage());
+        }
     }
 
     /**
@@ -87,8 +105,12 @@ public class CameraController {
     @ApiOperation("通过id删除Camera")
     @PostMapping("/deleteCameraById/{cameraId}")
     @ResponseBody
-    public CommonResult deleteCameraById(@PathVariable("cameraId") Integer cameraId){
-        return CommonResult.success(cameraService.deleteCameraById(cameraId));
+    public CommonResult deleteCameraById(@PathVariable("cameraId") Integer cameraId) {
+        try {
+            return CommonResult.success(cameraService.deleteCameraById(cameraId));
+        } catch (Exception e) {
+            return CommonResult.failed(e.getMessage());
+        }
     }
 
     /**
@@ -97,7 +119,11 @@ public class CameraController {
     @ApiOperation("通过id批量删除Camera")
     @PostMapping("/deleteList")
     @ResponseBody
-    public CommonResult deleteCameraByIds(String cameraIds){
-        return CommonResult.success(cameraService.deleteCameraByIds(cameraIds));
+    public CommonResult deleteCameraByIds(String cameraIds) {
+        try {
+            return CommonResult.success(cameraService.deleteCameraByIds(cameraIds));
+        } catch (Exception e) {
+            return CommonResult.failed(e.getMessage());
+        }
     }
 }

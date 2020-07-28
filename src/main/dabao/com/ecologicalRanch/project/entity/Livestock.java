@@ -84,10 +84,10 @@ public class Livestock {
      */
     private String type;
 
-
-
-
-
+    /**
+     * 鸡的价格
+     */
+    private Price price;
 
 
 }

@@ -34,7 +34,11 @@ public class TotalBluetoothController {
     public CommonResult selectBluetoothList(TotalBluetooth totalBluetooth,
                                             @RequestParam(value = "pageNum",defaultValue = "1",required = false) int pageNum,
                                             @RequestParam(value = "pageSize",defaultValue = "10",required = false)int pageSize){
-        return CommonResult.success(CommonPage.restPage(totalBluetoothService.selectTotalBluetoothList(totalBluetooth,pageNum,pageSize)));
+        try{
+            return CommonResult.success(CommonPage.restPage(totalBluetoothService.selectTotalBluetoothList(totalBluetooth,pageNum,pageSize)));
+        }catch (Exception e) {
+            return CommonResult.failed(e.getMessage());
+        }
     }
 
     /**
@@ -44,7 +48,11 @@ public class TotalBluetoothController {
     @PostMapping("/selectTotalBluetoothListNoPageHelper")
     @ResponseBody
     public CommonResult selectBluetoothList(TotalBluetooth totalBluetooth){
-        return CommonResult.success(totalBluetoothService.selectTotalBluetoothListNoPageHelper(totalBluetooth));
+        try{
+            return CommonResult.success(totalBluetoothService.selectTotalBluetoothListNoPageHelper(totalBluetooth));
+        }catch (Exception e) {
+            return CommonResult.failed(e.getMessage());
+        }
     }
 
     /**
@@ -54,7 +62,11 @@ public class TotalBluetoothController {
     @GetMapping("/selectBluetoothById/{totalBluetoothId}")
     @ResponseBody
     public CommonResult selectBluetoothById(@PathVariable String totalBluetoothId){
-        return CommonResult.success(totalBluetoothService.selectTotalBluetoothById(totalBluetoothId));
+        try{
+            return CommonResult.success(totalBluetoothService.selectTotalBluetoothById(totalBluetoothId));
+        }catch (Exception e) {
+            return CommonResult.failed(e.getMessage());
+        }
     }
 
     /**
@@ -64,7 +76,11 @@ public class TotalBluetoothController {
     @PostMapping("/insertBluetooth")
     @ResponseBody
     public CommonResult insertBluetooth(@RequestBody TotalBluetooth totalBluetooth){
-        return CommonResult.success(totalBluetoothService.insertTotalBluetooth(totalBluetooth));
+        try{
+            return CommonResult.success(totalBluetoothService.insertTotalBluetooth(totalBluetooth));
+        }catch (Exception e) {
+            return CommonResult.failed(e.getMessage());
+        }
     }
 
     /**
@@ -74,7 +90,11 @@ public class TotalBluetoothController {
     @PostMapping("/updateBluetooth")
     @ResponseBody
     public CommonResult updateBluetooth(@RequestBody TotalBluetooth totalbluetooth){
-        return CommonResult.success(totalBluetoothService.updateTotalBluetooth(totalbluetooth));
+        try{
+            return CommonResult.success(totalBluetoothService.updateTotalBluetooth(totalbluetooth));
+        }catch (Exception e) {
+            return CommonResult.failed(e.getMessage());
+        }
     }
 
     /**
@@ -84,8 +104,13 @@ public class TotalBluetoothController {
     @PostMapping("/deleteBluetoothById/{bluetoothId}")
     @ResponseBody
     public CommonResult deleteBluetoothById(@PathVariable("bluetoothId") String bluetoothId){
-        return CommonResult.success(totalBluetoothService.deleteTotalBluetoothById(bluetoothId));
+        try{
+            return CommonResult.success(totalBluetoothService.deleteTotalBluetoothById(bluetoothId));
+        }catch (Exception e) {
+            return CommonResult.failed(e.getMessage());
+        }
     }
+
 
     /**
      * 通过id批量删除Bluetooth
@@ -94,7 +119,11 @@ public class TotalBluetoothController {
     @PostMapping("/deleteList")
     @ResponseBody
     public CommonResult deleteBluetoothByIds(@RequestBody String bluetoothIds){
-        return CommonResult.success(totalBluetoothService.deleteTotalBluetoothByIds(bluetoothIds));
+        try{
+            return CommonResult.success(totalBluetoothService.deleteTotalBluetoothByIds(bluetoothIds));
+        }catch (Exception e) {
+            return CommonResult.failed(e.getMessage());
+        }
     }
 }
 

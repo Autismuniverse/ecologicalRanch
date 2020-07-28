@@ -37,7 +37,11 @@ public class LivestockController {
     public CommonResult selectLivestockList(@RequestBody @Validated Livestock livestock,
                                             @RequestParam(value = "pageNum",defaultValue = "1",required = false) int pageNum,
                                             @RequestParam(value = "pageSize",defaultValue = "10",required = false)int pageSize){
-        return CommonResult.success(CommonPage.restPage(livestockService.selectLivestockList(livestock,pageNum,pageSize)));
+        try{
+            return CommonResult.success(CommonPage.restPage(livestockService.selectLivestockList(livestock,pageNum,pageSize)));
+        }catch (Exception e) {
+            return CommonResult.failed(e.getMessage());
+        }
     }
 
     /**
@@ -48,7 +52,11 @@ public class LivestockController {
     @GetMapping("/selectLivestockById/{livestockId}")
     @ResponseBody
     public CommonResult selectLivestockById(@PathVariable("livestockId") Long livestockId){
-        return CommonResult.success(livestockService.selectLivestockById(livestockId));
+        try{
+            return CommonResult.success(livestockService.selectLivestockById(livestockId));
+        }catch (Exception e) {
+            return CommonResult.failed(e.getMessage());
+        }
     }
 
 
@@ -59,7 +67,11 @@ public class LivestockController {
     @PostMapping("/selectLivestockListNoPageHelper")
     @ResponseBody
     public CommonResult selectLivestockList(@RequestBody @Validated Livestock livestock){
-        return CommonResult.success(livestockService.selectLivestockListNoPageHelper(livestock));
+        try{
+            return CommonResult.success(livestockService.selectLivestockListNoPageHelper(livestock));
+        }catch (Exception e) {
+            return CommonResult.failed(e.getMessage());
+        }
     }
 
     /**
@@ -83,7 +95,11 @@ public class LivestockController {
     @PostMapping("/updateLivestock")
     @ResponseBody
     public CommonResult updateLivestock(@RequestBody @Validated Livestock livestock){
-        return CommonResult.success(livestockService.updateLivestock(livestock));
+        try{
+            return CommonResult.success(livestockService.updateLivestock(livestock));
+        }catch (Exception e) {
+            return CommonResult.failed(e.getMessage());
+        }
     }
 
     /**
@@ -93,7 +109,11 @@ public class LivestockController {
     @PostMapping("/deleteLivestockById/{livestockId}")
     @ResponseBody
     public CommonResult deleteLivestockById(@PathVariable("livestockId") Long livestockId){
-        return CommonResult.success(livestockService.deleteLivestockById(livestockId));
+        try{
+            return CommonResult.success(livestockService.deleteLivestockById(livestockId));
+        }catch (Exception e) {
+            return CommonResult.failed(e.getMessage());
+        }
     }
 
     /**
@@ -103,7 +123,11 @@ public class LivestockController {
     @GetMapping("/deleteList")
     @ResponseBody
     public CommonResult deleteLivestockByIds(String livestockIds){
-        return CommonResult.success(livestockService.deleteLivestockByIds(livestockIds));
+        try{
+            return CommonResult.success(livestockService.deleteLivestockByIds(livestockIds));
+        }catch (Exception e) {
+            return CommonResult.failed(e.getMessage());
+        }
     }
 
     /**
@@ -116,7 +140,11 @@ public class LivestockController {
                                            @RequestParam(value = "pageNum",defaultValue = "1",required = false) int pageNum,
                                            @RequestParam(value = "pageSize",defaultValue = "10",required = false)int pageSize){
 
-        return CommonResult.success(CommonPage.restPage(livestockService.fuzzyLivestockList(livestock,pageNum,pageSize)));
+        try{
+            return CommonResult.success(CommonPage.restPage(livestockService.fuzzyLivestockList(livestock,pageNum,pageSize)));
+        }catch (Exception e) {
+            return CommonResult.failed(e.getMessage());
+        }
 
     }
 
@@ -139,7 +167,11 @@ public class LivestockController {
     @PostMapping("/selectOutTime")
     @ResponseBody
     public CommonResult selectOutTime(@RequestBody Livestock livestock){
-        return CommonResult.success(livestockService.selectOutTime(livestock));
+        try{
+            return CommonResult.success(livestockService.selectOutTime(livestock));
+        }catch (Exception e) {
+            return CommonResult.failed(e.getMessage());
+        }
     }
 
     /**
@@ -149,7 +181,11 @@ public class LivestockController {
     @GetMapping("/selectLivestockListByIds/{livestockIds}")
     @ResponseBody
     public CommonResult selectLivestockById(@PathVariable String livestockIds){
-        return CommonResult.success(livestockService.selectLivestockListByIds(livestockIds));
+        try{
+            return CommonResult.success(livestockService.selectLivestockListByIds(livestockIds));
+        }catch (Exception e) {
+            return CommonResult.failed(e.getMessage());
+        }
     }
 
     /**
@@ -159,7 +195,11 @@ public class LivestockController {
     @GetMapping("/selectLivestockPriceByIds/{livestockIds}")
     @ResponseBody
     public CommonResult selectLivestockPrice(@PathVariable String livestockIds){
-        return CommonResult.success(livestockService.selectLivestockPrice(livestockIds));
+        try{
+            return CommonResult.success(livestockService.selectLivestockPrice(livestockIds));
+        }catch (Exception e) {
+            return CommonResult.failed(e.getMessage());
+        }
     }
 
 
@@ -167,7 +207,40 @@ public class LivestockController {
     @GetMapping("/selectLivestockListRank/{fieldId}")
     @ResponseBody
     public CommonResult selectLivestockListRank(@PathVariable Long fieldId){
-        return CommonResult.success(livestockService.selectLivestockListRank(fieldId));
+        try{
+            return CommonResult.success(livestockService.selectLivestockListRank(fieldId));
+        }catch (Exception e) {
+            return CommonResult.failed(e.getMessage());
+        }
+    }
+
+
+    /**
+     * 通过types和outTimes查询Livestock
+     */
+    @ApiOperation("通过Ids查询Livestock列表")
+    @PostMapping("/queryOptions")
+    @ResponseBody
+    public CommonResult queryOptions(String outTimes,String types,Integer fieldId){
+        try{
+            return CommonResult.success(livestockService.queryOptions(outTimes,types,fieldId));
+        }catch (Exception e) {
+            return CommonResult.failed(e.getMessage());
+        }
+    }
+
+    /**
+     * 通过types和outTimes查询Livestock
+     */
+    @ApiOperation("通过Ids查询Livestock以及原始price列表")
+    @PostMapping("/selectLivestockAndOriginalPriceById")
+    @ResponseBody
+    public CommonResult selectLivestockAndOriginalPriceById(String livestockIds,Long fieldId){
+        try{
+            return CommonResult.success(livestockService.selectLivestockAndOriginalPriceById(livestockIds,fieldId));
+        }catch (Exception e) {
+            return CommonResult.failed(e.getMessage());
+        }
     }
 
 

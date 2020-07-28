@@ -12,8 +12,6 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 /**
- *
- *
  * @author xxxfredyang
  * @date '2020-05-28 14:32:02'
  */
@@ -33,9 +31,13 @@ public class CoordinatesController {
     @PostMapping("/selectCoordinatesList")
     @ResponseBody
     public CommonResult selectCoordinatesList(@RequestBody Coordinates coordinates,
-                                              @RequestParam(value = "pageNum",defaultValue = "1",required = false) int pageNum,
-                                              @RequestParam(value = "pageSize",defaultValue = "10",required = false)int pageSize){
-        return CommonResult.success(CommonPage.restPage(coordinatesService.selectCoordinatesList(coordinates,pageNum,pageSize)));
+                                              @RequestParam(value = "pageNum", defaultValue = "1", required = false) int pageNum,
+                                              @RequestParam(value = "pageSize", defaultValue = "10", required = false) int pageSize) {
+        try {
+            return CommonResult.success(CommonPage.restPage(coordinatesService.selectCoordinatesList(coordinates, pageNum, pageSize)));
+        } catch (Exception e) {
+            return CommonResult.failed(e.getMessage());
+        }
     }
 
     /**
@@ -44,8 +46,12 @@ public class CoordinatesController {
     @ApiOperation(" 查询Coordinates列表无分页")
     @PostMapping("/selectCoordinatesListNoPageHelper")
     @ResponseBody
-    public CommonResult selectCoordinatesListNoPageHelper(@RequestBody Coordinates coordinates){
-        return CommonResult.success(coordinatesService.selectCoordinatesListNoPageHelper(coordinates));
+    public CommonResult selectCoordinatesListNoPageHelper(@RequestBody Coordinates coordinates) {
+        try {
+            return CommonResult.success(coordinatesService.selectCoordinatesListNoPageHelper(coordinates));
+        } catch (Exception e) {
+            return CommonResult.failed(e.getMessage());
+        }
     }
 
     /**
@@ -54,8 +60,12 @@ public class CoordinatesController {
     @ApiOperation("通过Id查询Coordinates")
     @PostMapping("/selectCoordinatesById")
     @ResponseBody
-    public CommonResult selectCoordinatesById(@RequestBody Coordinates coordinates){
-        return CommonResult.success(coordinatesService.selectCoordinatesById(coordinates.getBluetoothId()));
+    public CommonResult selectCoordinatesById(@RequestBody Coordinates coordinates) {
+        try {
+            return CommonResult.success(coordinatesService.selectCoordinatesById(coordinates.getBluetoothId()));
+        } catch (Exception e) {
+            return CommonResult.failed(e.getMessage());
+        }
     }
 
     /**
@@ -64,8 +74,12 @@ public class CoordinatesController {
     @ApiOperation("通过Mac查询Coordinates")
     @PostMapping("/selectCoordinatesByMac")
     @ResponseBody
-    public CommonResult selectCoordinatesByMac(@RequestBody @Validated Coordinates coordinates){
-        return CommonResult.success(coordinatesService.selectCoordinatesByMac(coordinates.getBluetoothMac()));
+    public CommonResult selectCoordinatesByMac(@RequestBody @Validated Coordinates coordinates) {
+        try {
+            return CommonResult.success(coordinatesService.selectCoordinatesByMac(coordinates.getBluetoothMac()));
+        } catch (Exception e) {
+            return CommonResult.failed(e.getMessage());
+        }
     }
 
     /**
@@ -74,8 +88,12 @@ public class CoordinatesController {
     @ApiOperation("新增Coordinates")
     @PostMapping("/insertCoordinates")
     @ResponseBody
-    public CommonResult insertCoordinates(@RequestBody @Validated Coordinates coordinates){
-        return CommonResult.success(coordinatesService.insertCoordinates(coordinates));
+    public CommonResult insertCoordinates(@RequestBody @Validated Coordinates coordinates) {
+        try {
+            return CommonResult.success(coordinatesService.insertCoordinates(coordinates));
+        } catch (Exception e) {
+            return CommonResult.failed(e.getMessage());
+        }
     }
 
     /**
@@ -84,8 +102,12 @@ public class CoordinatesController {
     @ApiOperation("修改Coordinates信息")
     @PostMapping("/updateCoordinates")
     @ResponseBody
-    public CommonResult updateCoordinates(@RequestBody @Validated Coordinates coordinates){
-        return CommonResult.success(coordinatesService.updateCoordinates(coordinates));
+    public CommonResult updateCoordinates(@RequestBody @Validated Coordinates coordinates) {
+        try {
+            return CommonResult.success(coordinatesService.updateCoordinates(coordinates));
+        } catch (Exception e) {
+            return CommonResult.failed(e.getMessage());
+        }
     }
 
     /**
@@ -94,8 +116,12 @@ public class CoordinatesController {
     @ApiOperation("通过id删除Coordinates")
     @PostMapping("/deleteCoordinatesById/{bluetoothId}")
     @ResponseBody
-    public CommonResult deleteCoordinatesById(@PathVariable("bluetoothId") String bluetoothId){
-        return CommonResult.success(coordinatesService.deleteCoordinatesById(bluetoothId));
+    public CommonResult deleteCoordinatesById(@PathVariable("bluetoothId") String bluetoothId) {
+        try {
+            return CommonResult.success(coordinatesService.deleteCoordinatesById(bluetoothId));
+        } catch (Exception e) {
+            return CommonResult.failed(e.getMessage());
+        }
     }
 
     /**
@@ -104,7 +130,11 @@ public class CoordinatesController {
     @ApiOperation("通过id批量删除Coordinates")
     @PostMapping("/deleteList")
     @ResponseBody
-    public CommonResult deleteCoordinatesByIds(String bluetoothIds){
-        return CommonResult.success(coordinatesService.deleteCoordinatesByIds(bluetoothIds));
+    public CommonResult deleteCoordinatesByIds(String bluetoothIds) {
+        try {
+            return CommonResult.success(coordinatesService.deleteCoordinatesByIds(bluetoothIds));
+        } catch (Exception e) {
+            return CommonResult.failed(e.getMessage());
+        }
     }
 }

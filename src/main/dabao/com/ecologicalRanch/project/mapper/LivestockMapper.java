@@ -90,6 +90,21 @@ public interface LivestockMapper {
      */
     List<Livestock> selectLivestockListRank(Long fieldId);
 
+    /**
+     * 出笼时间和品种
+     * @param outTime
+     * @param type
+     * @return
+     */
+    List<Livestock> queryOptions(String[] outTime,String[] type,Integer fieldId);
+
+    /**
+     * 通过ids查询鸡和原始价格
+     * @param livestockIds
+     * @return
+     */
+    List<Livestock> selectLivestockAndOriginalPriceById(String[] livestockIds,Long fieldId);
+
 
 
 }

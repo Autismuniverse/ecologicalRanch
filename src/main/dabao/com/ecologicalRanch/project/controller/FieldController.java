@@ -11,8 +11,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 /**
- *
- *
  * @author u-fun
  * @date '2019-12-30 14:31:08'
  */
@@ -32,25 +30,33 @@ public class FieldController {
     @PostMapping("/selectFieldList")
     @ResponseBody
     public CommonResult selectFieldList(@RequestBody Field field,
-                                        @RequestParam(value = "pageNum",defaultValue = "1",required = false) int pageNum,
-                                        @RequestParam(value = "pageSize",defaultValue = "10",required = false)int pageSize){
-        return CommonResult.success(CommonPage.restPage(fieldService.selectFieldList(field,pageNum,pageSize)));
+                                        @RequestParam(value = "pageNum", defaultValue = "1", required = false) int pageNum,
+                                        @RequestParam(value = "pageSize", defaultValue = "10", required = false) int pageSize) {
+        try {
+            return CommonResult.success(CommonPage.restPage(fieldService.selectFieldList(field, pageNum, pageSize)));
+        } catch (Exception e) {
+            return CommonResult.failed(e.getMessage());
+        }
     }
 
     /**
      * 通过Id查询Field
-     *
+     * <p>
      * {
-     *     "fieldId":1
+     * "fieldId":1
      * }
      */
     @ApiOperation("通过Id查询Field")
     @PostMapping("/selectFieldById/")
     @ResponseBody
-    public CommonResult selectFieldById(@RequestBody Field field){
+    public CommonResult selectFieldById(@RequestBody Field field) {
 
 
-        return CommonResult.success(fieldService.selectFieldById(field.getFieldId()));
+        try {
+            return CommonResult.success(fieldService.selectFieldById(field.getFieldId()));
+        } catch (Exception e) {
+            return CommonResult.failed(e.getMessage());
+        }
     }
 
     /**
@@ -59,8 +65,12 @@ public class FieldController {
     @ApiOperation("新增Field")
     @PostMapping("/insertField")
     @ResponseBody
-    public CommonResult insertField(@RequestBody Field field){
-        return CommonResult.success(fieldService.insertField(field));
+    public CommonResult insertField(@RequestBody Field field) {
+        try{
+            return CommonResult.success(fieldService.insertField(field));
+        }catch (Exception e) {
+            return CommonResult.failed(e.getMessage());
+        }
     }
 
     /**
@@ -69,8 +79,12 @@ public class FieldController {
     @ApiOperation("修改Field信息")
     @PostMapping("/updateField")
     @ResponseBody
-    public CommonResult updateField(@RequestBody Field field){
-        return CommonResult.success(fieldService.updateField(field));
+    public CommonResult updateField(@RequestBody Field field) {
+        try{
+            return CommonResult.success(fieldService.updateField(field));
+        }catch (Exception e) {
+            return CommonResult.failed(e.getMessage());
+        }
     }
 
     /**
@@ -79,8 +93,12 @@ public class FieldController {
     @ApiOperation("通过id删除Field")
     @PostMapping("/deleteFieldById/{fieldId}")
     @ResponseBody
-    public CommonResult deleteFieldById(@PathVariable("fieldId") Long fieldId){
-        return CommonResult.success(fieldService.deleteFieldById(fieldId));
+    public CommonResult deleteFieldById(@PathVariable("fieldId") Long fieldId) {
+        try{
+            return CommonResult.success(fieldService.deleteFieldById(fieldId));
+        }catch (Exception e) {
+            return CommonResult.failed(e.getMessage());
+        }
     }
 
     /**
@@ -89,8 +107,12 @@ public class FieldController {
     @ApiOperation("通过id批量删除Field")
     @PostMapping("/deleteList")
     @ResponseBody
-    public CommonResult deleteFieldByIds(String fieldIds){
-        return CommonResult.success(fieldService.deleteFieldByIds(fieldIds));
+    public CommonResult deleteFieldByIds(String fieldIds) {
+        try{
+            return CommonResult.success(fieldService.deleteFieldByIds(fieldIds));
+        }catch (Exception e) {
+            return CommonResult.failed(e.getMessage());
+        }
     }
 
     /**
@@ -99,11 +121,15 @@ public class FieldController {
     @ApiOperation("通过adminId查询Field")
     @PostMapping("/selectFieldByAdminId/")
     @ResponseBody
-    public CommonResult selectFieldByAdminId(@RequestBody Field field){
+    public CommonResult selectFieldByAdminId(@RequestBody Field field) {
 
 
 //        return CommonResult.success(fieldService.selectFieldById(field.getFieldId()));
-        return CommonResult.success(fieldService.selectFieldByAdminId(field.getAdminId()));
+        try{
+            return CommonResult.success(fieldService.selectFieldByAdminId(field.getAdminId()));
+        }catch (Exception e) {
+            return CommonResult.failed(e.getMessage());
+        }
     }
 
     /**
@@ -112,9 +138,13 @@ public class FieldController {
     @ApiOperation("通过FieldIds数组查询Field")
     @GetMapping("/selectFieldByFieldIds/{fieldIds}")
     @ResponseBody
-    public CommonResult selectFieldByFieldIds(@PathVariable String fieldIds){
+    public CommonResult selectFieldByFieldIds(@PathVariable String fieldIds) {
 
-        return CommonResult.success(fieldService.selectFieldByFieldIds(fieldIds));
+        try{
+            return CommonResult.success(fieldService.selectFieldByFieldIds(fieldIds));
+        }catch (Exception e) {
+            return CommonResult.failed(e.getMessage());
+        }
 
     }
 }

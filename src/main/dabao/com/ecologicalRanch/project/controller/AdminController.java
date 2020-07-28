@@ -39,7 +39,14 @@ public class AdminController {
      */
     @ApiOperation(value = "通过adminID查询管理员信息",notes = "adminId")
     @GetMapping("selectById/{adminId}")
-    public CommonResult selectById(@PathVariable Long adminId) { return CommonResult.success((adminService.selectById(adminId)));}
+    public CommonResult selectById(@PathVariable Long adminId) {
+        try{
+            return CommonResult.success((adminService.selectById(adminId)));
+        }
+        catch (Exception e){
+            return CommonResult.failed(e.getMessage());
+        }
+    }
 
     /**
      * 登录
@@ -49,7 +56,11 @@ public class AdminController {
 //    @ApiOperation(value = "登录",notes = "userId,password")
     @PostMapping("login/")
     public CommonResult login(@RequestBody Admin admin){
-        return CommonResult.success(adminService.login(admin)); }
+        try{return CommonResult.success(adminService.login(admin)); }
+        catch (Exception e){
+        return CommonResult.failed(e.getMessage());
+    }
+    }
 
     /**
      * 新增管理员
@@ -59,7 +70,13 @@ public class AdminController {
     @ApiOperation(value = "插入")
     @PostMapping("insert/")
     public CommonResult insert(@RequestBody Admin admin){
-        return CommonResult.success(adminService.insertAdmin(admin)); }
+        try{
+            return CommonResult.success(adminService.insertAdmin(admin));
+        }
+        catch (Exception e){
+            return CommonResult.failed(e.getMessage());
+        }
+    }
 
 }
 

@@ -34,7 +34,11 @@ public class PriceController {
     public CommonResult selectPriceList(@RequestBody Price price,
                                         @RequestParam(value = "pageNum",defaultValue = "1",required = false) int pageNum,
                                         @RequestParam(value = "pageSize",defaultValue = "10",required = false)int pageSize){
-        return CommonResult.success(CommonPage.restPage(priceService.selectPriceList(price,pageNum,pageSize)));
+        try{
+            return CommonResult.success(CommonPage.restPage(priceService.selectPriceList(price,pageNum,pageSize)));
+        }catch (Exception e) {
+            return CommonResult.failed(e.getMessage());
+        }
     }
 
     /**
@@ -44,7 +48,11 @@ public class PriceController {
     @PostMapping("/selectPriceListNoPageHelper")
     @ResponseBody
     public CommonResult selectPriceListNoPageHelper(@RequestBody Price price){
-        return CommonResult.success(priceService.selectPriceListNoPageHelper(price));
+        try{
+            return CommonResult.success(priceService.selectPriceListNoPageHelper(price));
+        }catch (Exception e) {
+            return CommonResult.failed(e.getMessage());
+        }
     }
 
     /**
@@ -54,7 +62,11 @@ public class PriceController {
     @PostMapping("/selectPriceById")
     @ResponseBody
     public CommonResult selectPriceById(@RequestBody Long livestockPriceId){
-        return CommonResult.success(priceService.selectPriceById(livestockPriceId));
+        try{
+            return CommonResult.success(priceService.selectPriceById(livestockPriceId));
+        }catch (Exception e) {
+            return CommonResult.failed(e.getMessage());
+        }
     }
 
     /**
@@ -64,7 +76,11 @@ public class PriceController {
     @PostMapping("/insertPrice")
     @ResponseBody
     public CommonResult insertPrice(@RequestBody @Validated Price price){
-        return CommonResult.success(priceService.insertPrice(price));
+        try{
+            return CommonResult.success(priceService.insertPrice(price));
+        }catch (Exception e) {
+            return CommonResult.failed(e.getMessage());
+        }
     }
 
     /**
@@ -74,7 +90,11 @@ public class PriceController {
     @PostMapping("/updatePrice")
     @ResponseBody
     public CommonResult updatePrice(@RequestBody Price price){
-        return CommonResult.success(priceService.updatePrice(price));
+        try{
+            return CommonResult.success(priceService.updatePrice(price));
+        }catch (Exception e) {
+            return CommonResult.failed(e.getMessage());
+        }
     }
 
     /**
@@ -84,7 +104,11 @@ public class PriceController {
     @PostMapping("/deletePriceById")
     @ResponseBody
     public CommonResult deletePriceById(@RequestBody Price price){
-        return CommonResult.success(priceService.deletePriceById(price.getLivestockPriceId()));
+        try{
+            return CommonResult.success(priceService.deletePriceById(price.getLivestockPriceId()));
+        }catch (Exception e) {
+            return CommonResult.failed(e.getMessage());
+        }
     }
 
     /**
@@ -94,7 +118,11 @@ public class PriceController {
     @PostMapping("/deleteList")
     @ResponseBody
     public CommonResult deletePriceByIds(String livestockPriceIds){
-        return CommonResult.success(priceService.deletePriceByIds(livestockPriceIds));
+        try{
+            return CommonResult.success(priceService.deletePriceByIds(livestockPriceIds));
+        }catch (Exception e) {
+            return CommonResult.failed(e.getMessage());
+        }
     }
     /**
      * 查询Price只返回一个type字段
@@ -103,6 +131,10 @@ public class PriceController {
     @PostMapping("/selectPriceListNoPageHelperOneType")
     @ResponseBody
     public CommonResult selectPriceListNoPageHelperOneType(@RequestBody Price price){
-        return CommonResult.success(priceService.selectPriceListNoPageHelperOneType(price));
+        try{
+            return CommonResult.success(priceService.selectPriceListNoPageHelperOneType(price));
+        }catch (Exception e) {
+            return CommonResult.failed(e.getMessage());
+        }
     }
 }

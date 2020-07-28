@@ -59,7 +59,11 @@ public class UserController {
     @GetMapping("/selectUserById/{userId}")
     @ResponseBody
     public CommonResult selectUserById(@PathVariable("userId") Long userId){
-        return CommonResult.success(userService.selectUserById(userId));
+        try{
+            return CommonResult.success(userService.selectUserById(userId));
+        }catch (Exception e) {
+            return CommonResult.failed(e.getMessage());
+        }
     }
 
     /**
@@ -69,7 +73,11 @@ public class UserController {
     @PostMapping("/insertUser")
     @ResponseBody
     public CommonResult insertUser(@RequestBody User user){
-        return CommonResult.success(userService.insertUser(user));
+        try{
+            return CommonResult.success(userService.insertUser(user));
+        }catch (Exception e) {
+            return CommonResult.failed(e.getMessage());
+        }
     }
 
     /**
@@ -79,7 +87,11 @@ public class UserController {
     @PostMapping("/updateUser")
     @ResponseBody
     public CommonResult updateUser(@RequestBody User user){
-        return CommonResult.success(userService.updateUser(user));
+        try{
+            return CommonResult.success(userService.updateUser(user));
+        }catch (Exception e) {
+            return CommonResult.failed(e.getMessage());
+        }
     }
 
     /**
@@ -89,7 +101,11 @@ public class UserController {
     @PostMapping("/deleteUserById/{userId}")
     @ResponseBody
     public CommonResult deleteUserById(@PathVariable("userId") Long userId){
-        return CommonResult.success(userService.deleteUserById(userId));
+        try{
+            return CommonResult.success(userService.deleteUserById(userId));
+        }catch (Exception e) {
+            return CommonResult.failed(e.getMessage());
+        }
     }
 
     /**
@@ -99,7 +115,11 @@ public class UserController {
     @PostMapping("/deleteList")
     @ResponseBody
     public CommonResult deleteUserByIds(String userIds){
-        return CommonResult.success(userService.deleteUserByIds(userIds));
+        try{
+            return CommonResult.success(userService.deleteUserByIds(userIds));
+        }catch (Exception e) {
+            return CommonResult.failed(e.getMessage());
+        }
     }
 }
 

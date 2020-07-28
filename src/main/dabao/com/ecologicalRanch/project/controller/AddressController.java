@@ -33,21 +33,21 @@ public class AddressController {
     @Autowired
     private AddressService addressService;
 
-    /**
-     * 根据id查询
-     */
-    @ApiOperation(value = "根据id查询数据")
-    @GetMapping(value = "/test")
-    @ResponseBody
-    public CommonResult test(String username,String password){
-
-        if (username.equals("123") && password.equals("123")){
-        return CommonResult.success("登陆成功");
-        }
-
-        System.out.println("账号："+username+"密码："+password);
-        return CommonResult.failed("账号是123，你输成了："+username+"+++++++++++++++密码是123，你输成了："+password);
-    }
+//    /**
+//     * 根据id查询
+//     */
+//    @ApiOperation(value = "根据id查询数据")
+//    @GetMapping(value = "/test")
+//    @ResponseBody
+//    public CommonResult test(String username,String password){
+//
+//        if (username.equals("123") && password.equals("123")){
+//        return CommonResult.success("登陆成功");
+//        }
+//
+//        System.out.println("账号："+username+"密码："+password);
+//        return CommonResult.failed("账号是123，你输成了："+username+"+++++++++++++++密码是123，你输成了："+password);
+//    }
 
     /**
      * 查询Address列表
@@ -58,7 +58,12 @@ public class AddressController {
     public CommonResult selectAddressList(@RequestBody Address address,
                                           @RequestParam(value = "pageNum",defaultValue = "1",required = false) int pageNum,
                                           @RequestParam(value = "pageSize",defaultValue = "10",required = false)int pageSize){
-        return CommonResult.success(CommonPage.restPage(addressService.selectAddressList(address,pageNum,pageSize)));
+        try{
+            return CommonResult.success(CommonPage.restPage(addressService.selectAddressList(address,pageNum,pageSize)));
+        }
+        catch (Exception e){
+            return CommonResult.failed(e.getMessage());
+        }
     }
 
     /**
@@ -68,7 +73,10 @@ public class AddressController {
     @PostMapping("/selectAddressById")
     @ResponseBody
     public CommonResult selectAddressById(@RequestBody Address address){
-        return CommonResult.success(addressService.selectAddressById(address.getAddressId()));
+        try{return CommonResult.success(addressService.selectAddressById(address.getAddressId()));}
+        catch (Exception e){
+            return CommonResult.failed(e.getMessage());
+        }
     }
 
 
@@ -80,7 +88,10 @@ public class AddressController {
     @PostMapping("/insertAddress")
     @ResponseBody
     public CommonResult insertAddress(@RequestBody @Validated Address address){
-        return CommonResult.success(addressService.insertAddress(address));
+        try{return CommonResult.success(addressService.insertAddress(address));}
+        catch (Exception e){
+            return CommonResult.failed(e.getMessage());
+        }
     }
 
     /**
@@ -90,7 +101,10 @@ public class AddressController {
     @PostMapping("/updateAddress")
     @ResponseBody
     public CommonResult updateAddress(@RequestBody Address address){
-        return CommonResult.success(addressService.updateAddress(address));
+        try{return CommonResult.success(addressService.updateAddress(address));}
+        catch (Exception e){
+            return CommonResult.failed(e.getMessage());
+        }
     }
 
     /**
@@ -100,7 +114,10 @@ public class AddressController {
     @PostMapping("/deleteAddressById")
     @ResponseBody
     public CommonResult deleteAddressById(Long addressId){
-        return CommonResult.success(addressService.deleteAddressById(addressId));
+        try{return CommonResult.success(addressService.deleteAddressById(addressId));}
+        catch (Exception e){
+            return CommonResult.failed(e.getMessage());
+        }
     }
 
     /**
@@ -110,7 +127,10 @@ public class AddressController {
     @PostMapping("/deleteList")
     @ResponseBody
     public CommonResult deleteAddressByIds(@RequestBody String addressIds){
-        return CommonResult.success(addressService.deleteAddressByIds(addressIds));
+        try{return CommonResult.success(addressService.deleteAddressByIds(addressIds));}
+        catch (Exception e){
+            return CommonResult.failed(e.getMessage());
+        }
     }
 
 
@@ -121,10 +141,13 @@ public class AddressController {
     @PostMapping("/selectDefaultAddressByUserId")
     @ResponseBody
     public CommonResult selectDefaultAddressByUserId(@RequestBody Address address){
-        if(addressService.selectDefaultAddressByUserId(address)==null) {
+        try{if(addressService.selectDefaultAddressByUserId(address)==null) {
             return CommonResult.success(addressService.selectDefaultAddressByUserIdElse(address));
         }
-        return CommonResult.success(addressService.selectDefaultAddressByUserId(address));
+        return CommonResult.success(addressService.selectDefaultAddressByUserId(address));}
+        catch (Exception e){
+            return CommonResult.failed(e.getMessage());
+        }
     }
 
 //    /**

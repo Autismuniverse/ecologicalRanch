@@ -84,4 +84,19 @@ public interface LivestockService {
      * @return
      */
     List<Livestock> selectLivestockListRank(Long fieldId);
+
+    /**
+     * 根据养殖场id查询Livestock步数排名列表
+     * @param outTimes
+     * @param types
+     * @return
+     */
+    List<Livestock> queryOptions(String outTimes,String types,Integer fieldId);
+
+    /**
+     * 根据养殖场id查询Livestock步数排名列表
+     * @param livestockIds
+     * @return
+     */
+    List<Livestock> selectLivestockAndOriginalPriceById(String livestockIds,Long fieldId);
 }

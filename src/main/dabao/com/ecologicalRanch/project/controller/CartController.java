@@ -12,8 +12,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 /**
- *
- *
  * @author xxxfredyang
  * @date '2020-06-27 16:34:04'
  */
@@ -32,11 +30,14 @@ public class CartController {
     @PostMapping("/selectCartList")
     @ResponseBody
     public CommonResult selectCartList(Cart cart,
-                                       @RequestParam(value = "pageNum",defaultValue = "1",required = false) int pageNum,
-                                       @RequestParam(value = "pageSize",defaultValue = "10",required = false)int pageSize){
-        return CommonResult.success(CommonPage.restPage(cartService.selectCartList(cart,pageNum,pageSize)));
+                                       @RequestParam(value = "pageNum", defaultValue = "1", required = false) int pageNum,
+                                       @RequestParam(value = "pageSize", defaultValue = "10", required = false) int pageSize) {
+        try {
+            return CommonResult.success(CommonPage.restPage(cartService.selectCartList(cart, pageNum, pageSize)));
+        } catch (Exception e) {
+            return CommonResult.failed(e.getMessage());
+        }
     }
-
 
 
     /**
@@ -45,8 +46,12 @@ public class CartController {
     @ApiOperation(" 查询user的Cart列表")
     @PostMapping("/selectUserCart")
     @ResponseBody
-    public CommonResult selectUserCart(Integer userId){
-        return CommonResult.success(cartService.selectUserCart(userId));
+    public CommonResult selectUserCart(Integer userId) {
+        try {
+            return CommonResult.success(cartService.selectUserCart(userId));
+        } catch (Exception e) {
+            return CommonResult.failed(e.getMessage());
+        }
     }
 
     /**
@@ -55,8 +60,12 @@ public class CartController {
     @ApiOperation("通过Id查询Cart")
     @GetMapping("/selectCartById/{shoppingCartId}")
     @ResponseBody
-    public CommonResult selectCartById(@PathVariable("shoppingCartId") Long shoppingCartId){
-        return CommonResult.success(cartService.selectCartById(shoppingCartId));
+    public CommonResult selectCartById(@PathVariable("shoppingCartId") Long shoppingCartId) {
+        try {
+            return CommonResult.success(cartService.selectCartById(shoppingCartId));
+        } catch (Exception e) {
+            return CommonResult.failed(e.getMessage());
+        }
     }
 
     /**
@@ -65,8 +74,12 @@ public class CartController {
     @ApiOperation("新增Cart")
     @PostMapping("/insertCart")
     @ResponseBody
-    public CommonResult insertCart(@RequestBody Cart cart){
-        return CommonResult.success(cartService.insertCart(cart));
+    public CommonResult insertCart(@RequestBody Cart cart) {
+        try {
+            return CommonResult.success(cartService.insertCart(cart));
+        } catch (Exception e) {
+            return CommonResult.failed(e.getMessage());
+        }
     }
 
     /**
@@ -75,8 +88,12 @@ public class CartController {
     @ApiOperation("修改Cart信息")
     @PostMapping("/updateCart")
     @ResponseBody
-    public CommonResult updateCart(@RequestBody Cart cart){
-        return CommonResult.success(cartService.updateCart(cart));
+    public CommonResult updateCart(@RequestBody Cart cart) {
+        try {
+            return CommonResult.success(cartService.updateCart(cart));
+        } catch (Exception e) {
+            return CommonResult.failed(e.getMessage());
+        }
     }
 
     /**
@@ -85,8 +102,12 @@ public class CartController {
     @ApiOperation("通过id删除Cart")
     @PostMapping("/deleteCartById/{shoppingCartId}")
     @ResponseBody
-    public CommonResult deleteCartById(@PathVariable("shoppingCartId") Long shoppingCartId){
-        return CommonResult.success(cartService.deleteCartById(shoppingCartId));
+    public CommonResult deleteCartById(@PathVariable("shoppingCartId") Long shoppingCartId) {
+        try {
+            return CommonResult.success(cartService.deleteCartById(shoppingCartId));
+        } catch (Exception e) {
+            return CommonResult.failed(e.getMessage());
+        }
     }
 
     /**
@@ -95,8 +116,12 @@ public class CartController {
     @ApiOperation("通过id批量删除Cart")
     @PostMapping("/deleteList")
     @ResponseBody
-    public CommonResult deleteCartByIds(@RequestBody String shoppingCartIds){
-        return CommonResult.success(cartService.deleteCartByIds(shoppingCartIds));
+    public CommonResult deleteCartByIds(String shoppingCartIds) {
+        try {
+            return CommonResult.success(cartService.deleteCartByIds(shoppingCartIds));
+        } catch (Exception e) {
+            return CommonResult.failed(e.getMessage());
+        }
     }
 }
 

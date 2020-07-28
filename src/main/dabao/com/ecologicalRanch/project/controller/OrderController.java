@@ -38,7 +38,11 @@ public class OrderController {
     public CommonResult selectOrderList(@RequestBody Order order,
                                         @RequestParam(value = "pageNum",defaultValue = "1",required = false) int pageNum,
                                         @RequestParam(value = "pageSize",defaultValue = "10",required = false)int pageSize){
-        return CommonResult.success(CommonPage.restPage(orderService.selectOrderList(order,pageNum,pageSize)));
+        try{
+            return CommonResult.success(CommonPage.restPage(orderService.selectOrderList(order,pageNum,pageSize)));
+        }catch (Exception e) {
+            return CommonResult.failed(e.getMessage());
+        }
     }
 
     /**
@@ -48,7 +52,11 @@ public class OrderController {
     @PostMapping("/selectOrderById")
     @ResponseBody
     public CommonResult selectOrderById(@RequestBody Long orderId){
-        return CommonResult.success(orderService.selectOrderById(orderId));
+        try{
+            return CommonResult.success(orderService.selectOrderById(orderId));
+        }catch (Exception e) {
+            return CommonResult.failed(e.getMessage());
+        }
     }
 
     /**
@@ -67,7 +75,11 @@ public class OrderController {
 
 //        order1.setCreationTime();
 
-        return CommonResult.success(orderService.insertOrder(order));
+        try{
+            return CommonResult.success(orderService.insertOrder(order));
+        }catch (Exception e) {
+            return CommonResult.failed(e.getMessage());
+        }
     }
 
     /**
@@ -77,7 +89,11 @@ public class OrderController {
     @PostMapping("/updateOrder")
     @ResponseBody
     public CommonResult updateOrder(@RequestBody Order order){
-        return CommonResult.success(orderService.updateOrder(order));
+        try{
+            return CommonResult.success(orderService.updateOrder(order));
+        }catch (Exception e) {
+            return CommonResult.failed(e.getMessage());
+        }
     }
 
     /**
@@ -87,7 +103,11 @@ public class OrderController {
     @PostMapping("/deleteOrderById/{orderId}")
     @ResponseBody
     public CommonResult deleteOrderById(@PathVariable("orderId") Long orderId){
-        return CommonResult.success(orderService.deleteOrderById(orderId));
+        try{
+            return CommonResult.success(orderService.deleteOrderById(orderId));
+        }catch (Exception e) {
+            return CommonResult.failed(e.getMessage());
+        }
     }
 
     /**
@@ -97,7 +117,11 @@ public class OrderController {
     @PostMapping("/deleteList")
     @ResponseBody
     public CommonResult deleteOrderByIds(String orderIds){
-        return CommonResult.success(orderService.deleteOrderByIds(orderIds));
+        try{
+            return CommonResult.success(orderService.deleteOrderByIds(orderIds));
+        }catch (Exception e) {
+            return CommonResult.failed(e.getMessage());
+        }
     }
 
     /**
@@ -109,6 +133,10 @@ public class OrderController {
     public CommonResult selectOrderInfoListByUserId(@RequestBody Order order,
                                    @RequestParam(value = "pageNum",defaultValue = "1",required = false) int pageNum,
                                    @RequestParam(value = "pageSize",defaultValue = "10",required = false)int pageSize){
-        return CommonResult.success(CommonPage.restPage(orderService.selectOrderInfoListByUserId(order,pageNum,pageSize)));
+        try{
+            return CommonResult.success(CommonPage.restPage(orderService.selectOrderInfoListByUserId(order,pageNum,pageSize)));
+        }catch (Exception e) {
+            return CommonResult.failed(e.getMessage());
+        }
     }
 }

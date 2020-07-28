@@ -216,4 +216,13 @@ public class LivestockServiceImpl implements LivestockService {
     public List<Livestock> selectLivestockListRank(Long fieldId) {
         return livestockMapper.selectLivestockListRank(fieldId);
     }
+
+    @Override
+    public List<Livestock> queryOptions(String outTimes,String types,Integer fieldId){
+        return livestockMapper.queryOptions(Convert.toStrArray(outTimes),Convert.toStrArray(types),fieldId);
+    }
+
+    public List<Livestock> selectLivestockAndOriginalPriceById(String livestockIds,Long fieldId){
+        return livestockMapper.selectLivestockAndOriginalPriceById(Convert.toStrArray(livestockIds),fieldId);
+    }
 }

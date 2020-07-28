@@ -34,7 +34,11 @@ public class GatewayController {
     public CommonResult selectGatewayList(@RequestBody Gateway gateway,
                                           @RequestParam(value = "pageNum",defaultValue = "1",required = false) int pageNum,
                                           @RequestParam(value = "pageSize",defaultValue = "10",required = false)int pageSize){
-        return CommonResult.success(CommonPage.restPage(gatewayService.selectGatewayList(gateway,pageNum,pageSize)));
+        try{
+            return CommonResult.success(CommonPage.restPage(gatewayService.selectGatewayList(gateway,pageNum,pageSize)));
+        }catch (Exception e) {
+            return CommonResult.failed(e.getMessage());
+        }
     }
 
     /**
@@ -44,7 +48,11 @@ public class GatewayController {
     @PostMapping("/selectGatewayByMac")
     @ResponseBody
     public CommonResult selectGatewayById(@RequestBody Gateway gateway){
-        return CommonResult.success(gatewayService.selectGatewayByMac(gateway));
+        try{
+            return CommonResult.success(gatewayService.selectGatewayByMac(gateway));
+        }catch (Exception e) {
+            return CommonResult.failed(e.getMessage());
+        }
     }
 
     /**
@@ -54,7 +62,11 @@ public class GatewayController {
     @PostMapping("/insertGateway")
     @ResponseBody
     public CommonResult insertGateway(@RequestBody Gateway gateway){
-        return CommonResult.success(gatewayService.insertGateway(gateway));
+        try{
+            return CommonResult.success(gatewayService.insertGateway(gateway));
+        }catch (Exception e) {
+            return CommonResult.failed(e.getMessage());
+        }
     }
 
     /**
@@ -64,7 +76,11 @@ public class GatewayController {
     @PostMapping("/updateGateway")
     @ResponseBody
     public CommonResult updateGateway(Gateway gateway){
-        return CommonResult.success(gatewayService.updateGateway(gateway));
+        try{
+            return CommonResult.success(gatewayService.updateGateway(gateway));
+        }catch (Exception e) {
+            return CommonResult.failed(e.getMessage());
+        }
     }
 
     /**
@@ -74,7 +90,11 @@ public class GatewayController {
     @PostMapping("/deleteGatewayById/{gatewayId}")
     @ResponseBody
     public CommonResult deleteGatewayById(@PathVariable("gatewayId") Long gatewayId){
-        return CommonResult.success(gatewayService.deleteGatewayById(gatewayId));
+        try{
+            return CommonResult.success(gatewayService.deleteGatewayById(gatewayId));
+        }catch (Exception e) {
+            return CommonResult.failed(e.getMessage());
+        }
     }
 
     /**
@@ -84,6 +104,10 @@ public class GatewayController {
     @PostMapping("/deleteList")
     @ResponseBody
     public CommonResult deleteGatewayByIds(String gatewayIds){
-        return CommonResult.success(gatewayService.deleteGatewayByIds(gatewayIds));
+        try{
+            return CommonResult.success(gatewayService.deleteGatewayByIds(gatewayIds));
+        }catch (Exception e) {
+            return CommonResult.failed(e.getMessage());
+        }
     }
 }

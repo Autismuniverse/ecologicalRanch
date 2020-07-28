@@ -17,6 +17,23 @@
         <result column="type" property="type" />
     </resultMap>
 
+    <resultMap id="LivestockAndPriceResult" type="Livestock" >
+        <result column="livestock_id" property="livestockId" />
+        <result column="field_id" property="fieldId" />
+        <result column="step_num" property="stepNum" />
+        <result column="bluetooth_id" property="bluetoothId" />
+        <result column="rfid_id" property="rfidId" />
+        <result column="sex" property="sex" />
+        <result column="weight" property="weight" />
+        <result column="batch" property="batch" />
+        <result column="out_time" property="outTime" />
+        <result column="status" property="status" />
+        <result column="type" property="type" />
+        <association property="price" javaType="com.ecologicalRanch.project.entity.Price">
+            <result column="original_price" property="originalPrice" />
+        </association>
+    </resultMap>
+
     <sql id="LivestockResultVo">
         select
         livestock_id,field_id,step_num,bluetooth_id,rfid_id,sex,weight,batch,out_time,status,type
@@ -28,6 +45,24 @@
 --         l.livestock_id,l.field_id,l.step_num,l.bluetooth_id,l.rfid_id,l.sex,l.weight,l.batch,l.out_time,l.status,
 --         s.step_num
     </sql>
+
+    <sql id="LivestockAndOriginalPriceVo">
+        select
+        l.livestock_id,l.field_id,l.step_num,l.bluetooth_id,l.rfid_id,l.sex,l.weight,l.batch,l.out_time,l.status,l.type,
+        p.original_price from livestock l,livestock_price p
+    </sql>
+
+    <select id="selectLivestockAndOriginalPriceById" parameterType="String" resultMap="LivestockAndPriceResult">
+        <include refid="LivestockAndOriginalPriceVo" />
+        WHERE p.type = l.type
+        and p.field_id =#{fieldId}
+        and l.field_id =#{fieldId}
+        and l.livestock_id in
+        <foreach item="item" collection="livestockIds" open="(" separator="," close=")">
+        #{item}
+        </foreach>
+    </select>
+
 
     <select id="selectLivestockById" parameterType="Long" resultMap="LivestockResult">
       <include refid="LivestockResultVo" />
@@ -208,7 +243,25 @@
     <select id="selectLivestockListRank" parameterType="Long" resultMap="LivestockResult">
     <include refid="LivestockResultVo"/>
     where field_id = #{fieldId}  order by step_num desc
+    </select>
 
+    <select id="queryOptions"  resultMap="LivestockResult">
+        <include refid="LivestockResultVo"/>
+        <if test="outTime != null and outTime.length != 0">
+        where out_time in
+        <foreach item="item" collection="outTime" open="(" separator="," close=")">
+        #{item}
+        </foreach>
+        </if>
+
+        <if test="type != null and type.length != 0">
+        and  type in
+        <foreach item="item" collection="type" open="(" separator="," close=")">
+        #{item}
+        </foreach>
+        </if>
+        and status = 0
+        and field_id = #{fieldId}
     </select>
 
 </mapper>

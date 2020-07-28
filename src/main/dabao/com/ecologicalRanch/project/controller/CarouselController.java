@@ -12,8 +12,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 /**
- *
- *
  * @author u-fun
  * @date '2020-01-10 16:30:19'
  */
@@ -32,9 +30,13 @@ public class CarouselController {
     @PostMapping("/selectCarouselList")
     @ResponseBody
     public CommonResult selectCarouselList(@RequestBody Carousel carousel,
-                                           @RequestParam(value = "pageNum",defaultValue = "1",required = false) int pageNum,
-                                           @RequestParam(value = "pageSize",defaultValue = "10",required = false) int pageSize){
-        return CommonResult.success(CommonPage.restPage(carouselService.selectCarouselList(carousel,pageNum,pageSize)));
+                                           @RequestParam(value = "pageNum", defaultValue = "1", required = false) int pageNum,
+                                           @RequestParam(value = "pageSize", defaultValue = "10", required = false) int pageSize) {
+        try {
+            return CommonResult.success(CommonPage.restPage(carouselService.selectCarouselList(carousel, pageNum, pageSize)));
+        } catch (Exception e) {
+            return CommonResult.failed(e.getMessage());
+        }
     }
 
     /**
@@ -43,8 +45,12 @@ public class CarouselController {
     @ApiOperation("通过Id查询Carousel")
     @GetMapping("/selectCarouselById")
     @ResponseBody
-    public CommonResult selectCarouselById(@RequestBody Carousel carousel){
-        return CommonResult.success(carouselService.selectCarouselById(carousel.getCarouselId()));
+    public CommonResult selectCarouselById(@RequestBody Carousel carousel) {
+        try {
+            return CommonResult.success(carouselService.selectCarouselById(carousel.getCarouselId()));
+        } catch (Exception e) {
+            return CommonResult.failed(e.getMessage());
+        }
     }
 
     /**
@@ -53,8 +59,12 @@ public class CarouselController {
     @ApiOperation("新增Carousel")
     @PostMapping("/insertCarousel")
     @ResponseBody
-    public CommonResult insertCarousel(@RequestBody Carousel carousel){
-        return CommonResult.success(carouselService.insertCarousel(carousel));
+    public CommonResult insertCarousel(@RequestBody Carousel carousel) {
+        try {
+            return CommonResult.success(carouselService.insertCarousel(carousel));
+        } catch (Exception e) {
+            return CommonResult.failed(e.getMessage());
+        }
     }
 
     /**
@@ -63,8 +73,12 @@ public class CarouselController {
     @ApiOperation("修改Carousel信息")
     @PostMapping("/updateCarousel")
     @ResponseBody
-    public CommonResult updateCarousel(@RequestBody Carousel carousel){
-        return CommonResult.success(carouselService.updateCarousel(carousel));
+    public CommonResult updateCarousel(@RequestBody Carousel carousel) {
+        try {
+            return CommonResult.success(carouselService.updateCarousel(carousel));
+        } catch (Exception e) {
+            return CommonResult.failed(e.getMessage());
+        }
     }
 
     /**
@@ -73,8 +87,12 @@ public class CarouselController {
     @ApiOperation("通过id删除Carousel")
     @PostMapping("/deleteCarouselById/{carouselId}")
     @ResponseBody
-    public CommonResult deleteCarouselById(@PathVariable("carouselId") Long carouselId){
-        return CommonResult.success(carouselService.deleteCarouselById(carouselId));
+    public CommonResult deleteCarouselById(@PathVariable("carouselId") Long carouselId) {
+        try {
+            return CommonResult.success(carouselService.deleteCarouselById(carouselId));
+        } catch (Exception e) {
+            return CommonResult.failed(e.getMessage());
+        }
     }
 
     /**
@@ -83,7 +101,11 @@ public class CarouselController {
     @ApiOperation("通过id批量删除Carousel")
     @PostMapping("/deleteList")
     @ResponseBody
-    public CommonResult deleteCarouselByIds(String carouselIds){
-        return CommonResult.success(carouselService.deleteCarouselByIds(carouselIds));
+    public CommonResult deleteCarouselByIds(String carouselIds) {
+        try {
+            return CommonResult.success(carouselService.deleteCarouselByIds(carouselIds));
+        } catch (Exception e) {
+            return CommonResult.failed(e.getMessage());
+        }
     }
 }

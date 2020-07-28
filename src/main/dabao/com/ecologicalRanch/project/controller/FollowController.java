@@ -35,7 +35,11 @@ public class FollowController {
     public CommonResult selectFollowList(@RequestBody Follow follow,
                                          @RequestParam(value = "pageNum",defaultValue = "1",required = false) int pageNum,
                                          @RequestParam(value = "pageSize",defaultValue = "10",required = false)int pageSize){
-        return CommonResult.success(CommonPage.restPage(followService.selectFollowList(follow,pageNum,pageSize)));
+        try{
+            return CommonResult.success(CommonPage.restPage(followService.selectFollowList(follow,pageNum,pageSize)));
+        }catch (Exception e) {
+            return CommonResult.failed(e.getMessage());
+        }
     }
 
 
@@ -46,7 +50,11 @@ public class FollowController {
     @PostMapping("/insertFollow")
     @ResponseBody
     public CommonResult insertFollow(@RequestBody Follow follow){
-        return CommonResult.success(followService.insertFollow(follow));
+        try{
+            return CommonResult.success(followService.insertFollow(follow));
+        }catch (Exception e) {
+            return CommonResult.failed(e.getMessage());
+        }
     }
 
 
@@ -58,7 +66,11 @@ public class FollowController {
     @PostMapping("/deleteFollow")
     @ResponseBody
     public CommonResult deleteFollow(@RequestBody Follow follow){
-        return CommonResult.success(followService.deleteFollow(follow));
+        try{
+            return CommonResult.success(followService.deleteFollow(follow));
+        }catch (Exception e) {
+            return CommonResult.failed(e.getMessage());
+        }
     }
 
     /**
@@ -68,6 +80,10 @@ public class FollowController {
     @PostMapping("/deleteList")
     @ResponseBody
     public CommonResult deleteFollowByIds(String userIds){
-        return CommonResult.success(followService.deleteFollowByIds(userIds));
+        try{
+            return CommonResult.success(followService.deleteFollowByIds(userIds));
+        }catch (Exception e) {
+            return CommonResult.failed(e.getMessage());
+        }
     }
 }
