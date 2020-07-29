@@ -37,7 +37,7 @@ public class TotalBluetoothController {
         try{
             return CommonResult.success(CommonPage.restPage(totalBluetoothService.selectTotalBluetoothList(totalBluetooth,pageNum,pageSize)));
         }catch (Exception e) {
-            return CommonResult.failed(e.getMessage());
+            return CommonResult.failed(e.toString());
         }
     }
 
@@ -51,7 +51,7 @@ public class TotalBluetoothController {
         try{
             return CommonResult.success(totalBluetoothService.selectTotalBluetoothListNoPageHelper(totalBluetooth));
         }catch (Exception e) {
-            return CommonResult.failed(e.getMessage());
+            return CommonResult.failed(e.toString());
         }
     }
 
@@ -65,7 +65,7 @@ public class TotalBluetoothController {
         try{
             return CommonResult.success(totalBluetoothService.selectTotalBluetoothById(totalBluetoothId));
         }catch (Exception e) {
-            return CommonResult.failed(e.getMessage());
+            return CommonResult.failed(e.toString());
         }
     }
 
@@ -79,7 +79,7 @@ public class TotalBluetoothController {
         try{
             return CommonResult.success(totalBluetoothService.insertTotalBluetooth(totalBluetooth));
         }catch (Exception e) {
-            return CommonResult.failed(e.getMessage());
+            return CommonResult.failed(e.toString());
         }
     }
 
@@ -93,7 +93,7 @@ public class TotalBluetoothController {
         try{
             return CommonResult.success(totalBluetoothService.updateTotalBluetooth(totalbluetooth));
         }catch (Exception e) {
-            return CommonResult.failed(e.getMessage());
+            return CommonResult.failed(e.toString());
         }
     }
 
@@ -107,7 +107,7 @@ public class TotalBluetoothController {
         try{
             return CommonResult.success(totalBluetoothService.deleteTotalBluetoothById(bluetoothId));
         }catch (Exception e) {
-            return CommonResult.failed(e.getMessage());
+            return CommonResult.failed(e.toString());
         }
     }
 
@@ -122,7 +122,7 @@ public class TotalBluetoothController {
         try{
             return CommonResult.success(totalBluetoothService.deleteTotalBluetoothByIds(bluetoothIds));
         }catch (Exception e) {
-            return CommonResult.failed(e.getMessage());
+            return CommonResult.failed(e.toString());
         }
     }
 }

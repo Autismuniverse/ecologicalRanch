@@ -35,7 +35,7 @@ public class CartController {
         try {
             return CommonResult.success(CommonPage.restPage(cartService.selectCartList(cart, pageNum, pageSize)));
         } catch (Exception e) {
-            return CommonResult.failed(e.getMessage());
+            return CommonResult.failed(e.toString());
         }
     }
 
@@ -50,7 +50,7 @@ public class CartController {
         try {
             return CommonResult.success(cartService.selectUserCart(userId));
         } catch (Exception e) {
-            return CommonResult.failed(e.getMessage());
+            return CommonResult.failed(e.toString());
         }
     }
 
@@ -64,7 +64,7 @@ public class CartController {
         try {
             return CommonResult.success(cartService.selectCartById(shoppingCartId));
         } catch (Exception e) {
-            return CommonResult.failed(e.getMessage());
+            return CommonResult.failed(e.toString());
         }
     }
 
@@ -78,7 +78,7 @@ public class CartController {
         try {
             return CommonResult.success(cartService.insertCart(cart));
         } catch (Exception e) {
-            return CommonResult.failed(e.getMessage());
+            return CommonResult.failed(e.toString());
         }
     }
 
@@ -92,7 +92,7 @@ public class CartController {
         try {
             return CommonResult.success(cartService.updateCart(cart));
         } catch (Exception e) {
-            return CommonResult.failed(e.getMessage());
+            return CommonResult.failed(e.toString());
         }
     }
 
@@ -106,7 +106,7 @@ public class CartController {
         try {
             return CommonResult.success(cartService.deleteCartById(shoppingCartId));
         } catch (Exception e) {
-            return CommonResult.failed(e.getMessage());
+            return CommonResult.failed(e.toString());
         }
     }
 
@@ -120,7 +120,7 @@ public class CartController {
         try {
             return CommonResult.success(cartService.deleteCartByIds(shoppingCartIds));
         } catch (Exception e) {
-            return CommonResult.failed(e.getMessage());
+            return CommonResult.failed(e.toString());
         }
     }
 }

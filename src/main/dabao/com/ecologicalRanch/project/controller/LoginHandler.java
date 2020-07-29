@@ -52,7 +52,7 @@ public class LoginHandler {
                         + "&grant_type=authorization_code", null
             ));
         } catch (Exception e) {
-            log.error(e.getMessage());
+            log.error(e.toString());
             return CommonResult.failed();
         }
     }

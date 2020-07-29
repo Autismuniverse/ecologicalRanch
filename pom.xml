@@ -175,6 +175,7 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+
         <dependency>
             <groupId>org.junit.platform</groupId>
             <artifactId>junit-platform-commons</artifactId>
@@ -195,6 +196,7 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-freemarker</artifactId>
         </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-autoconfigure</artifactId>
@@ -206,10 +208,12 @@
             <artifactId>jedis</artifactId>
             <version>2.9.0</version>
         </dependency>
+
 <!--        <dependency>-->
 <!--            <groupId>junit</groupId>-->
 <!--            <artifactId>junit</artifactId>-->
 <!--        </dependency>-->
+
         <dependency>
             <groupId>net.minidev</groupId>
             <artifactId>json-smart</artifactId>

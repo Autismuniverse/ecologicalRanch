@@ -159,34 +159,56 @@ public class LivestockServiceImpl implements LivestockService {
         for (Livestock s : selectLivestockListByIds(livestockIds)) {
             for (Price p : priceList) {
                 if (s.getFieldId().equals(p.getFieldId()) && s.getType().equals(p.getType())) {
-//
                     Discount discount = discountMapper.selectDiscountByFieldId(p.getFieldId());
-                    double nowDis = 0;
-                    try {
-                        Date dd = df.parse(s.getOutTime());
+                    System.out.println("获取折扣id"+discount.getFieldId());
+                    double nowDis = 1;
+                        try {
+                            Date dd = df.parse(s.getOutTime());
+                            switch (Days.differentDays(df.format(day), df.format(dd)) / 30) {
+                                case 0:
+                                    nowDis = discount.getFirstMonth();
+                                    break;
+                                case 1:
+                                    nowDis = discount.getSecondMonth();
+                                    break;
+                                case 2:
+                                    nowDis = discount.getThirdMonth();
+                                    break;
+                                case 3:
+                                    nowDis = discount.getFourthMonth();
+                                    break;
+                                case 4:
+                                    nowDis = discount.getFifthMonth();
+                                    break;
+                                case 5:
+                                    nowDis = discount.getSixthMonth();
+                                    break;
+                                case 6:
+                                    nowDis = discount.getSeventhMonth();
+                                    break;
+                                case 7:
+                                    nowDis = discount.getEighthMonth();
+                                    break;
+                                case 8:
+                                    nowDis = discount.getNinthMonth();
+                                    break;
+                                case 9:
+                                    nowDis = discount.getTenthMonth();
+                                    break;
+                                case 10:
+                                    nowDis = discount.getEleventhMonth();
+                                    break;
+                                case 11:
+                                    nowDis = discount.getTwelfthMonth();
+                                    break;
+                                default:
+                                    nowDis = 1;
+                                    break;
+                            }
+                        } catch (ParseException e) {
+                            e.getErrorOffset();
+                        }
 
-
-                    System.out.println("获取的折扣id："+discount.getPredeterminedDiscountId());
-
-
-                    switch (Days.differentDays(df.format(day), df.format(dd))/30){
-                        case 0: nowDis = discount.getFirstMonth(); break;
-                        case 1: nowDis = discount.getSecondMonth(); break;
-                        case 2: nowDis = discount.getThirdMonth(); break;
-                        case 3: nowDis = discount.getFourthMonth(); break;
-                        case 4: nowDis = discount.getFifthMonth(); break;
-                        case 5: nowDis = discount.getSixthMonth(); break;
-                        case 6: nowDis = discount.getSeventhMonth(); break;
-                        case 7: nowDis = discount.getEighthMonth(); break;
-                        case 8: nowDis = discount.getNinthMonth(); break;
-                        case 9: nowDis = discount.getTenthMonth(); break;
-                        case 10: nowDis = discount.getEleventhMonth(); break;
-                        case 11: nowDis = discount.getTwelfthMonth(); break;
-                        default: nowDis = 1;break;
-                    }
-                    }catch (ParseException e){
-                        e.getErrorOffset();
-                    }
 
                     stringBuffer.append(s.getLivestockId().toString()).append(":")
                             .append(p.getOriginalPrice() * nowDis).append(",");

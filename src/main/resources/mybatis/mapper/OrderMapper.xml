@@ -16,11 +16,12 @@
         <result column="payment_time" property="paymentTime" />
         <result column="delivery_time" property="deliveryTime" />
         <result column="address_id" property="addressId" />
+        <result column="logistics" property="logistics" />
     </resultMap>
 
     <sql id="OrderResultVo">
         select
-        order_id,user_id,livestock_id,status,field_id,payment_amount,original_price,comment_id,creation_time,payment_time,delivery_time,address_id
+        order_id,user_id,livestock_id,status,field_id,payment_amount,original_price,comment_id,creation_time,payment_time,delivery_time,address_id,logistics
          from my_order
     </sql>
 
@@ -52,9 +53,10 @@
             <if test="paymentAmount != null  and paymentAmount != ''">payment_amount, </if>
             <if test="originalPrice != null  and originalPrice != ''">original_price, </if>
             <if test="commentId != null  and commentId != ''">comment_id, </if>
-            <if test="creationTime != null  and creationTime != ''">creation_time, </if>
-            <if test="paymentTime != null  and paymentTime != ''">payment_time, </if>
-            <if test="deliveryTime != null  and deliveryTime != ''">delivery_time, </if>
+            <if test="creationTime != null">creation_time, </if>
+            <if test="paymentTime != null">payment_time, </if>
+            <if test="deliveryTime != null">delivery_time, </if>
+            <if test="logistics != null and logistics != ''">logistics, </if>
             <if test="addressId != null  and addressId != ''">address_id </if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -66,9 +68,10 @@
             <if test="paymentAmount != null  and paymentAmount != ''">#{paymentAmount},</if>
             <if test="originalPrice != null  and originalPrice != ''">#{originalPrice},</if>
             <if test="commentId != null  and commentId != ''">#{commentId},</if>
-            <if test="creationTime != null  and creationTime != ''">#{creationTime},</if>
-            <if test="paymentTime != null  and paymentTime != ''">#{paymentTime},</if>
-            <if test="deliveryTime != null  and deliveryTime != ''">#{deliveryTime},</if>
+            <if test="creationTime != null">#{creationTime},</if>
+            <if test="paymentTime != null">#{paymentTime},</if>
+            <if test="deliveryTime != null">#{deliveryTime},</if>
+            <if test="logistics != null and logistics != ''">#{logistics},</if>
             <if test="addressId != null  and addressId != ''">#{addressId}</if>
         </trim>
     </insert>
@@ -87,6 +90,7 @@
             <if test="creationTime != null">creation_time = #{creationTime},</if>
             <if test="paymentTime != null">payment_time = #{paymentTime},</if>
             <if test="deliveryTime != null">delivery_time = #{deliveryTime},</if>
+            <if test="logistics != null and logistics != ''">logistics, </if>
             <if test="addressId != null  and addressId != ''">address_id = #{addressId},</if>
         </trim>
         WHERE  order_id = #{orderId}
@@ -119,6 +123,7 @@
         <result column="payment_time" property="paymentTime" />
         <result column="delivery_time" property="deliveryTime" />
         <result column="address_id" property="addressId" />
+        <result column="logistics" property="logistics" />
         <association property="Field" javaType="java.util.HashMap">
             <result column="field_name" property="fieldName" />
         </association>

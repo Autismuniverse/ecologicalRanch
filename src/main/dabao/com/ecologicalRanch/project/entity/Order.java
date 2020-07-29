@@ -3,7 +3,7 @@ package com.ecologicalRanch.project.entity;
 
 import lombok.Data;
 
-import java.time.LocalDateTime;
+import java.sql.Timestamp;
 
 /**
  *
@@ -65,19 +65,19 @@ public class Order  {
      * 创建时间
      */
 
-    private LocalDateTime creationTime;
+    private Timestamp creationTime;
 
     /**
      * 支付时间
      */
 
-    private LocalDateTime paymentTime;
+    private Timestamp paymentTime;
 
     /**
      * 发货时间
      */
 
-    private LocalDateTime deliveryTime;
+    private Timestamp deliveryTime;
 
     /**
      * 物流地址id
@@ -100,6 +100,9 @@ public class Order  {
      */
     private Step step;
 
-
+    /**
+     * 物流单号
+     */
+    private String logistics;
 
 }

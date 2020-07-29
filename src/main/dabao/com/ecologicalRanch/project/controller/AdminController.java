@@ -44,7 +44,7 @@ public class AdminController {
             return CommonResult.success((adminService.selectById(adminId)));
         }
         catch (Exception e){
-            return CommonResult.failed(e.getMessage());
+            return CommonResult.failed(e.toString());
         }
     }
 
@@ -58,7 +58,7 @@ public class AdminController {
     public CommonResult login(@RequestBody Admin admin){
         try{return CommonResult.success(adminService.login(admin)); }
         catch (Exception e){
-        return CommonResult.failed(e.getMessage());
+        return CommonResult.failed(e.toString());
     }
     }
 
@@ -74,7 +74,7 @@ public class AdminController {
             return CommonResult.success(adminService.insertAdmin(admin));
         }
         catch (Exception e){
-            return CommonResult.failed(e.getMessage());
+            return CommonResult.failed(e.toString());
         }
     }
 

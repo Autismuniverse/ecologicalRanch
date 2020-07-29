@@ -41,7 +41,7 @@ public class OrderController {
         try{
             return CommonResult.success(CommonPage.restPage(orderService.selectOrderList(order,pageNum,pageSize)));
         }catch (Exception e) {
-            return CommonResult.failed(e.getMessage());
+            return CommonResult.failed(e.toString());
         }
     }
 
@@ -55,7 +55,7 @@ public class OrderController {
         try{
             return CommonResult.success(orderService.selectOrderById(orderId));
         }catch (Exception e) {
-            return CommonResult.failed(e.getMessage());
+            return CommonResult.failed(e.toString());
         }
     }
 
@@ -66,19 +66,10 @@ public class OrderController {
     @PostMapping("/insertOrder")
     @ResponseBody
     public CommonResult insertOrder(@RequestBody Order order){
-//        Order order1 = order;
-//        Price price  =new Price();
-//        price.setFieldId(order1.getFieldId());
-////        price.setType(priceService.selectPriceListNoPageHelper(pr));
-//        order1.setOriginalPrice(priceService.selectPriceListNoPageHelper());
-
-
-//        order1.setCreationTime();
-
         try{
             return CommonResult.success(orderService.insertOrder(order));
         }catch (Exception e) {
-            return CommonResult.failed(e.getMessage());
+            return CommonResult.failed(e.toString());
         }
     }
 
@@ -89,11 +80,11 @@ public class OrderController {
     @PostMapping("/updateOrder")
     @ResponseBody
     public CommonResult updateOrder(@RequestBody Order order){
-        try{
+//        try{
             return CommonResult.success(orderService.updateOrder(order));
-        }catch (Exception e) {
-            return CommonResult.failed(e.getMessage());
-        }
+//        }catch (Exception e) {
+//            return CommonResult.failed(e.toString());
+//        }
     }
 
     /**
@@ -106,7 +97,7 @@ public class OrderController {
         try{
             return CommonResult.success(orderService.deleteOrderById(orderId));
         }catch (Exception e) {
-            return CommonResult.failed(e.getMessage());
+            return CommonResult.failed(e.toString());
         }
     }
 
@@ -120,7 +111,7 @@ public class OrderController {
         try{
             return CommonResult.success(orderService.deleteOrderByIds(orderIds));
         }catch (Exception e) {
-            return CommonResult.failed(e.getMessage());
+            return CommonResult.failed(e.toString());
         }
     }
 
@@ -136,7 +127,7 @@ public class OrderController {
         try{
             return CommonResult.success(CommonPage.restPage(orderService.selectOrderInfoListByUserId(order,pageNum,pageSize)));
         }catch (Exception e) {
-            return CommonResult.failed(e.getMessage());
+            return CommonResult.failed(e.toString());
         }
     }
 }

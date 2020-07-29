@@ -20,7 +20,7 @@
          from field
     </sql>
 
-    <select id="selectFieldById" parameterType="Long" resultMap="FieldResult">
+    <select id="selectFieldById" parameterType="Integer" resultMap="FieldResult">
         <include refid="FieldResultVo" />
         WHERE field_id = #{fieldId}
     </select>
@@ -47,7 +47,7 @@
         </where>
     </select>
 
-    <insert id="insertField" parameterType="Field" useGeneratedKeys="true">
+    <insert id="insertField" parameterType="Field" useGeneratedKeys="true" keyProperty="fieldId">
         INSERT INTO field
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="fieldId != null  and fieldId != ''">field_id, </if>

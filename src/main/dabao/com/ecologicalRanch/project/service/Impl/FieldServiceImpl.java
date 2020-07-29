@@ -1,6 +1,8 @@
 package com.ecologicalRanch.project.service.Impl;
 
+import com.ecologicalRanch.project.entity.Discount;
 import com.ecologicalRanch.project.entity.Field;
+import com.ecologicalRanch.project.mapper.DiscountMapper;
 import com.ecologicalRanch.project.mapper.FieldMapper;
 import com.ecologicalRanch.project.service.FieldService;
 import com.ecologicalRanch.utils2.Convert;
@@ -21,12 +23,14 @@ public class FieldServiceImpl implements FieldService {
 
     @Autowired
     private FieldMapper fieldMapper;
+    @Autowired
+    private DiscountMapper discountMapper;
 
     /**
      * 通过Id查询 Field
      */
     @Override
-    public Field selectFieldById(Long fieldId) {
+    public Field selectFieldById(Integer fieldId) {
         return fieldMapper.selectFieldById(fieldId);
     }
 
@@ -44,7 +48,12 @@ public class FieldServiceImpl implements FieldService {
      */
     @Override
     public int insertField(Field field) {
-        return fieldMapper.insertField(field);
+        fieldMapper.insertField(field);
+        Discount discount = new Discount();
+        System.out.println(field.getFieldId());
+        discount.setFieldId(field.getFieldId());
+        System.out.println(discount);
+        return discountMapper.insertDiscount(discount);
     }
 
     /**

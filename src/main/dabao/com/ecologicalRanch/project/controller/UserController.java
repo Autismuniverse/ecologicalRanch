@@ -62,7 +62,7 @@ public class UserController {
         try{
             return CommonResult.success(userService.selectUserById(userId));
         }catch (Exception e) {
-            return CommonResult.failed(e.getMessage());
+            return CommonResult.failed(e.toString());
         }
     }
 
@@ -76,7 +76,7 @@ public class UserController {
         try{
             return CommonResult.success(userService.insertUser(user));
         }catch (Exception e) {
-            return CommonResult.failed(e.getMessage());
+            return CommonResult.failed(e.toString());
         }
     }
 
@@ -90,7 +90,7 @@ public class UserController {
         try{
             return CommonResult.success(userService.updateUser(user));
         }catch (Exception e) {
-            return CommonResult.failed(e.getMessage());
+            return CommonResult.failed(e.toString());
         }
     }
 
@@ -104,7 +104,7 @@ public class UserController {
         try{
             return CommonResult.success(userService.deleteUserById(userId));
         }catch (Exception e) {
-            return CommonResult.failed(e.getMessage());
+            return CommonResult.failed(e.toString());
         }
     }
 
@@ -118,7 +118,7 @@ public class UserController {
         try{
             return CommonResult.success(userService.deleteUserByIds(userIds));
         }catch (Exception e) {
-            return CommonResult.failed(e.getMessage());
+            return CommonResult.failed(e.toString());
         }
     }
 }

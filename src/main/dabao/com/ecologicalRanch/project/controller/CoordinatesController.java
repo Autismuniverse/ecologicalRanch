@@ -36,7 +36,7 @@ public class CoordinatesController {
         try {
             return CommonResult.success(CommonPage.restPage(coordinatesService.selectCoordinatesList(coordinates, pageNum, pageSize)));
         } catch (Exception e) {
-            return CommonResult.failed(e.getMessage());
+            return CommonResult.failed(e.toString());
         }
     }
 
@@ -50,7 +50,7 @@ public class CoordinatesController {
         try {
             return CommonResult.success(coordinatesService.selectCoordinatesListNoPageHelper(coordinates));
         } catch (Exception e) {
-            return CommonResult.failed(e.getMessage());
+            return CommonResult.failed(e.toString());
         }
     }
 
@@ -64,7 +64,7 @@ public class CoordinatesController {
         try {
             return CommonResult.success(coordinatesService.selectCoordinatesById(coordinates.getBluetoothId()));
         } catch (Exception e) {
-            return CommonResult.failed(e.getMessage());
+            return CommonResult.failed(e.toString());
         }
     }
 
@@ -78,7 +78,7 @@ public class CoordinatesController {
         try {
             return CommonResult.success(coordinatesService.selectCoordinatesByMac(coordinates.getBluetoothMac()));
         } catch (Exception e) {
-            return CommonResult.failed(e.getMessage());
+            return CommonResult.failed(e.toString());
         }
     }
 
@@ -92,7 +92,7 @@ public class CoordinatesController {
         try {
             return CommonResult.success(coordinatesService.insertCoordinates(coordinates));
         } catch (Exception e) {
-            return CommonResult.failed(e.getMessage());
+            return CommonResult.failed(e.toString());
         }
     }
 
@@ -106,7 +106,7 @@ public class CoordinatesController {
         try {
             return CommonResult.success(coordinatesService.updateCoordinates(coordinates));
         } catch (Exception e) {
-            return CommonResult.failed(e.getMessage());
+            return CommonResult.failed(e.toString());
         }
     }
 
@@ -120,7 +120,7 @@ public class CoordinatesController {
         try {
             return CommonResult.success(coordinatesService.deleteCoordinatesById(bluetoothId));
         } catch (Exception e) {
-            return CommonResult.failed(e.getMessage());
+            return CommonResult.failed(e.toString());
         }
     }
 
@@ -134,7 +134,7 @@ public class CoordinatesController {
         try {
             return CommonResult.success(coordinatesService.deleteCoordinatesByIds(bluetoothIds));
         } catch (Exception e) {
-            return CommonResult.failed(e.getMessage());
+            return CommonResult.failed(e.toString());
         }
     }
 }

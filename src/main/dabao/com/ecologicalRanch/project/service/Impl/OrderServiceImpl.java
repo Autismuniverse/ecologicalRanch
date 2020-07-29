@@ -5,6 +5,8 @@ import com.ecologicalRanch.project.entity.Livestock;
 import com.ecologicalRanch.project.entity.Order;
 import com.ecologicalRanch.project.mapper.LivestockMapper;
 import com.ecologicalRanch.project.mapper.OrderMapper;
+import com.ecologicalRanch.project.mapper.PriceMapper;
+import com.ecologicalRanch.project.service.LivestockService;
 import com.ecologicalRanch.project.service.OrderService;
 import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +29,10 @@ public class OrderServiceImpl implements OrderService {
     private OrderMapper orderMapper;
     @Autowired
     private LivestockMapper livestockMapper;
-
+    @Autowired
+    private PriceMapper priceMapper;
+    @Autowired
+    private LivestockService livestockService;
     /**
      * 通过Id查询 Order
      */
@@ -54,6 +59,7 @@ public class OrderServiceImpl implements OrderService {
         livestock.setLivestockId(order.getLivestockId().longValue());
         livestock.setStatus(order.getStatus());
         livestockMapper.updateLivestock(livestock);
+//        order.setOriginalPrice(priceMapper.selectPriceById(livestock.getLivestockId()).getOriginalPrice());
 
         return orderMapper.insertOrder(order);
     }

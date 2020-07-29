@@ -20,7 +20,7 @@ public interface FieldService {
     /**
      * 通过Id查询 Field
      */
-    Field selectFieldById(Long fieldId);
+    Field selectFieldById(Integer fieldId);
 
     /**
      * 新增Field

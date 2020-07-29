@@ -38,7 +38,7 @@ public class CommentController {
         try {
             return CommonResult.success(CommonPage.restPage(commentService.selectCommentList(comment, pageNum, pageSize)));
         } catch (Exception e) {
-            return CommonResult.failed(e.getMessage());
+            return CommonResult.failed(e.toString());
         }
     }
 

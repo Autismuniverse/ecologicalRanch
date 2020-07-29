@@ -37,7 +37,7 @@ public class GatewayController {
         try{
             return CommonResult.success(CommonPage.restPage(gatewayService.selectGatewayList(gateway,pageNum,pageSize)));
         }catch (Exception e) {
-            return CommonResult.failed(e.getMessage());
+            return CommonResult.failed(e.toString());
         }
     }
 
@@ -51,7 +51,7 @@ public class GatewayController {
         try{
             return CommonResult.success(gatewayService.selectGatewayByMac(gateway));
         }catch (Exception e) {
-            return CommonResult.failed(e.getMessage());
+            return CommonResult.failed(e.toString());
         }
     }
 
@@ -65,7 +65,7 @@ public class GatewayController {
         try{
             return CommonResult.success(gatewayService.insertGateway(gateway));
         }catch (Exception e) {
-            return CommonResult.failed(e.getMessage());
+            return CommonResult.failed(e.toString());
         }
     }
 
@@ -79,7 +79,7 @@ public class GatewayController {
         try{
             return CommonResult.success(gatewayService.updateGateway(gateway));
         }catch (Exception e) {
-            return CommonResult.failed(e.getMessage());
+            return CommonResult.failed(e.toString());
         }
     }
 
@@ -93,7 +93,7 @@ public class GatewayController {
         try{
             return CommonResult.success(gatewayService.deleteGatewayById(gatewayId));
         }catch (Exception e) {
-            return CommonResult.failed(e.getMessage());
+            return CommonResult.failed(e.toString());
         }
     }
 
@@ -107,7 +107,7 @@ public class GatewayController {
         try{
             return CommonResult.success(gatewayService.deleteGatewayByIds(gatewayIds));
         }catch (Exception e) {
-            return CommonResult.failed(e.getMessage());
+            return CommonResult.failed(e.toString());
         }
     }
 }

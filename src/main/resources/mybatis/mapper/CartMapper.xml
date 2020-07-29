@@ -70,7 +70,8 @@
         <include refid="userCart" />
         from livestock l,shopping_cart s,field f,livestock_price p
         WHERE l.livestock_id = s.livestock_id
-        AND	f.field_id = l.field_id
+        AND	p.field_id = l.field_id = f.field_id
+        and l.type = p.type
         AND s.user_id = #{userId}
     </select>
 

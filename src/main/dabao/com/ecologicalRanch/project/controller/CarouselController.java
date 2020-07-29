@@ -35,7 +35,7 @@ public class CarouselController {
         try {
             return CommonResult.success(CommonPage.restPage(carouselService.selectCarouselList(carousel, pageNum, pageSize)));
         } catch (Exception e) {
-            return CommonResult.failed(e.getMessage());
+            return CommonResult.failed(e.toString());
         }
     }
 
@@ -49,7 +49,7 @@ public class CarouselController {
         try {
             return CommonResult.success(carouselService.selectCarouselById(carousel.getCarouselId()));
         } catch (Exception e) {
-            return CommonResult.failed(e.getMessage());
+            return CommonResult.failed(e.toString());
         }
     }
 
@@ -63,7 +63,7 @@ public class CarouselController {
         try {
             return CommonResult.success(carouselService.insertCarousel(carousel));
         } catch (Exception e) {
-            return CommonResult.failed(e.getMessage());
+            return CommonResult.failed(e.toString());
         }
     }
 
@@ -77,7 +77,7 @@ public class CarouselController {
         try {
             return CommonResult.success(carouselService.updateCarousel(carousel));
         } catch (Exception e) {
-            return CommonResult.failed(e.getMessage());
+            return CommonResult.failed(e.toString());
         }
     }
 
@@ -91,7 +91,8 @@ public class CarouselController {
         try {
             return CommonResult.success(carouselService.deleteCarouselById(carouselId));
         } catch (Exception e) {
-            return CommonResult.failed(e.getMessage());
+
+            return CommonResult.failed(e.toString());
         }
     }
 
@@ -105,7 +106,7 @@ public class CarouselController {
         try {
             return CommonResult.success(carouselService.deleteCarouselByIds(carouselIds));
         } catch (Exception e) {
-            return CommonResult.failed(e.getMessage());
+            return CommonResult.failed(e.toString());
         }
     }
 }

@@ -4,6 +4,7 @@ import com.ecologicalRanch.common.pagehelper.CommonPage;
 import com.ecologicalRanch.project.entity.Field;
 import com.ecologicalRanch.project.result.CommonResult;
 import com.ecologicalRanch.project.service.FieldService;
+import com.ecologicalRanch.project.service.PriceService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,8 @@ public class FieldController {
 
     @Autowired
     private FieldService fieldService;
+    @Autowired
+    private PriceService priceService;
 
 
     /**
@@ -35,7 +38,7 @@ public class FieldController {
         try {
             return CommonResult.success(CommonPage.restPage(fieldService.selectFieldList(field, pageNum, pageSize)));
         } catch (Exception e) {
-            return CommonResult.failed(e.getMessage());
+            return CommonResult.failed(e.toString());
         }
     }
 
@@ -50,12 +53,10 @@ public class FieldController {
     @PostMapping("/selectFieldById/")
     @ResponseBody
     public CommonResult selectFieldById(@RequestBody Field field) {
-
-
         try {
             return CommonResult.success(fieldService.selectFieldById(field.getFieldId()));
         } catch (Exception e) {
-            return CommonResult.failed(e.getMessage());
+            return CommonResult.failed(e.toString());
         }
     }
 
@@ -66,11 +67,12 @@ public class FieldController {
     @PostMapping("/insertField")
     @ResponseBody
     public CommonResult insertField(@RequestBody Field field) {
-        try{
+//        try{
+            
             return CommonResult.success(fieldService.insertField(field));
-        }catch (Exception e) {
-            return CommonResult.failed(e.getMessage());
-        }
+//        }catch (Exception e) {
+//            return CommonResult.failed(e.toString());
+//        }
     }
 
     /**
@@ -83,7 +85,7 @@ public class FieldController {
         try{
             return CommonResult.success(fieldService.updateField(field));
         }catch (Exception e) {
-            return CommonResult.failed(e.getMessage());
+            return CommonResult.failed(e.toString());
         }
     }
 
@@ -97,7 +99,7 @@ public class FieldController {
         try{
             return CommonResult.success(fieldService.deleteFieldById(fieldId));
         }catch (Exception e) {
-            return CommonResult.failed(e.getMessage());
+            return CommonResult.failed(e.toString());
         }
     }
 
@@ -111,7 +113,7 @@ public class FieldController {
         try{
             return CommonResult.success(fieldService.deleteFieldByIds(fieldIds));
         }catch (Exception e) {
-            return CommonResult.failed(e.getMessage());
+            return CommonResult.failed(e.toString());
         }
     }
 
@@ -128,7 +130,7 @@ public class FieldController {
         try{
             return CommonResult.success(fieldService.selectFieldByAdminId(field.getAdminId()));
         }catch (Exception e) {
-            return CommonResult.failed(e.getMessage());
+            return CommonResult.failed(e.toString());
         }
     }
 
@@ -143,7 +145,7 @@ public class FieldController {
         try{
             return CommonResult.success(fieldService.selectFieldByFieldIds(fieldIds));
         }catch (Exception e) {
-            return CommonResult.failed(e.getMessage());
+            return CommonResult.failed(e.toString());
         }
 
     }

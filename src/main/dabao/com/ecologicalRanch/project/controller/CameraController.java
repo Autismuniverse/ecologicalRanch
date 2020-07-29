@@ -37,7 +37,7 @@ public class CameraController {
         try {
             return CommonResult.success(CommonPage.restPage(cameraService.selectCameraList(camera, pageNum, pageSize)));
         } catch (Exception e) {
-            return CommonResult.failed(e.getMessage());
+            return CommonResult.failed(e.toString());
         }
     }
 
@@ -51,7 +51,7 @@ public class CameraController {
         try {
             return CommonResult.success(CommonPage.restPage(cameraService.selectCameraListNoPageHelper(camera)));
         } catch (Exception e) {
-            return CommonResult.failed(e.getMessage());
+            return CommonResult.failed(e.toString());
         }
     }
 
@@ -67,7 +67,7 @@ public class CameraController {
         try {
             return CommonResult.success(cameraService.selectCameraById(cameraId));
         } catch (Exception e) {
-            return CommonResult.failed(e.getMessage());
+            return CommonResult.failed(e.toString());
         }
     }
 
@@ -81,7 +81,7 @@ public class CameraController {
         try {
             return CommonResult.success(cameraService.insertCamera(camera));
         } catch (Exception e) {
-            return CommonResult.failed(e.getMessage());
+            return CommonResult.failed(e.toString());
         }
     }
 
@@ -95,7 +95,7 @@ public class CameraController {
         try {
             return CommonResult.success(cameraService.updateCamera(camera));
         } catch (Exception e) {
-            return CommonResult.failed(e.getMessage());
+            return CommonResult.failed(e.toString());
         }
     }
 
@@ -109,7 +109,7 @@ public class CameraController {
         try {
             return CommonResult.success(cameraService.deleteCameraById(cameraId));
         } catch (Exception e) {
-            return CommonResult.failed(e.getMessage());
+            return CommonResult.failed(e.toString());
         }
     }
 
@@ -123,7 +123,7 @@ public class CameraController {
         try {
             return CommonResult.success(cameraService.deleteCameraByIds(cameraIds));
         } catch (Exception e) {
-            return CommonResult.failed(e.getMessage());
+            return CommonResult.failed(e.toString());
         }
     }
 }

@@ -32,7 +32,7 @@ public class DiscountController {
         try {
             return CommonResult.success(discountService.selectDiscountList(discount));
         } catch (Exception e) {
-            return CommonResult.failed(e.getMessage());
+            return CommonResult.failed(e.toString());
         }
     }
 
@@ -46,7 +46,7 @@ public class DiscountController {
         try {
             return CommonResult.success(discountService.selectDiscountById(predeterminedDiscountId));
         } catch (Exception e) {
-            return CommonResult.failed(e.getMessage());
+            return CommonResult.failed(e.toString());
         }
     }
 
@@ -60,7 +60,7 @@ public class DiscountController {
         try {
             return CommonResult.success(discountService.insertDiscount(discount));
         } catch (Exception e) {
-            return CommonResult.failed(e.getMessage());
+            return CommonResult.failed(e.toString());
         }
     }
 
@@ -74,7 +74,7 @@ public class DiscountController {
         try {
             return CommonResult.success(discountService.updateDiscount(discount));
         } catch (Exception e) {
-            return CommonResult.failed(e.getMessage());
+            return CommonResult.failed(e.toString());
         }
     }
 
@@ -88,7 +88,7 @@ public class DiscountController {
         try {
             return CommonResult.success(discountService.deleteDiscountById(predeterminedDiscountId));
         } catch (Exception e) {
-            return CommonResult.failed(e.getMessage());
+            return CommonResult.failed(e.toString());
         }
     }
 
@@ -102,7 +102,7 @@ public class DiscountController {
         try {
             return CommonResult.success(discountService.deleteDiscountByIds(predeterminedDiscountIds));
         } catch (Exception e) {
-            return CommonResult.failed(e.getMessage());
+            return CommonResult.failed(e.toString());
         }
     }
 }

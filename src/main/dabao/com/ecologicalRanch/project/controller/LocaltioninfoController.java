@@ -37,7 +37,7 @@ public class LocaltioninfoController {
         try{
             return CommonResult.success(CommonPage.restPage(localtioninfoService.selectLocaltioninfoList(localtioninfo,pageNum,pageSize)));
         }catch (Exception e) {
-            return CommonResult.failed(e.getMessage());
+            return CommonResult.failed(e.toString());
         }
     }
 
@@ -51,7 +51,7 @@ public class LocaltioninfoController {
         try{
             return CommonResult.success(localtioninfoService.selectLocaltioninfoById(bluetoothId));
         }catch (Exception e) {
-            return CommonResult.failed(e.getMessage());
+            return CommonResult.failed(e.toString());
         }
     }
 
@@ -65,7 +65,7 @@ public class LocaltioninfoController {
         try{
             return CommonResult.success(localtioninfoService.insertLocaltioninfo(localtioninfo));
         }catch (Exception e) {
-            return CommonResult.failed(e.getMessage());
+            return CommonResult.failed(e.toString());
         }
     }
 
@@ -79,7 +79,7 @@ public class LocaltioninfoController {
         try{
             return CommonResult.success(localtioninfoService.updateLocaltioninfo(localtioninfo));
         }catch (Exception e) {
-            return CommonResult.failed(e.getMessage());
+            return CommonResult.failed(e.toString());
         }
     }
 
@@ -93,7 +93,7 @@ public class LocaltioninfoController {
         try{
             return CommonResult.success(localtioninfoService.deleteLocaltioninfoById(bluetoothId));
         }catch (Exception e) {
-            return CommonResult.failed(e.getMessage());
+            return CommonResult.failed(e.toString());
         }
     }
 
@@ -107,7 +107,7 @@ public class LocaltioninfoController {
         try{
             return CommonResult.success(localtioninfoService.deleteLocaltioninfoByIds(bluetoothIds));
         }catch (Exception e) {
-            return CommonResult.failed(e.getMessage());
+            return CommonResult.failed(e.toString());
         }
     }
 }

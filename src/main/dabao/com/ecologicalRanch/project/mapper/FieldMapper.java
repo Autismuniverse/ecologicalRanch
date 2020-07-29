@@ -24,7 +24,7 @@ public interface FieldMapper {
      * @param fieldId 查询Id
      * @return 查询对象
      */
-    Field selectFieldById(Long fieldId);
+    Field selectFieldById(Integer fieldId);
 
     /**
      * 新增Field

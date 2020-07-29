@@ -37,7 +37,7 @@ public class PriceController {
         try{
             return CommonResult.success(CommonPage.restPage(priceService.selectPriceList(price,pageNum,pageSize)));
         }catch (Exception e) {
-            return CommonResult.failed(e.getMessage());
+            return CommonResult.failed(e.toString());
         }
     }
 
@@ -51,7 +51,7 @@ public class PriceController {
         try{
             return CommonResult.success(priceService.selectPriceListNoPageHelper(price));
         }catch (Exception e) {
-            return CommonResult.failed(e.getMessage());
+            return CommonResult.failed(e.toString());
         }
     }
 
@@ -65,7 +65,7 @@ public class PriceController {
         try{
             return CommonResult.success(priceService.selectPriceById(livestockPriceId));
         }catch (Exception e) {
-            return CommonResult.failed(e.getMessage());
+            return CommonResult.failed(e.toString());
         }
     }
 
@@ -79,7 +79,7 @@ public class PriceController {
         try{
             return CommonResult.success(priceService.insertPrice(price));
         }catch (Exception e) {
-            return CommonResult.failed(e.getMessage());
+            return CommonResult.failed(e.toString());
         }
     }
 
@@ -93,7 +93,7 @@ public class PriceController {
         try{
             return CommonResult.success(priceService.updatePrice(price));
         }catch (Exception e) {
-            return CommonResult.failed(e.getMessage());
+            return CommonResult.failed(e.toString());
         }
     }
 
@@ -107,7 +107,7 @@ public class PriceController {
         try{
             return CommonResult.success(priceService.deletePriceById(price.getLivestockPriceId()));
         }catch (Exception e) {
-            return CommonResult.failed(e.getMessage());
+            return CommonResult.failed(e.toString());
         }
     }
 
@@ -121,7 +121,7 @@ public class PriceController {
         try{
             return CommonResult.success(priceService.deletePriceByIds(livestockPriceIds));
         }catch (Exception e) {
-            return CommonResult.failed(e.getMessage());
+            return CommonResult.failed(e.toString());
         }
     }
     /**
@@ -134,7 +134,7 @@ public class PriceController {
         try{
             return CommonResult.success(priceService.selectPriceListNoPageHelperOneType(price));
         }catch (Exception e) {
-            return CommonResult.failed(e.getMessage());
+            return CommonResult.failed(e.toString());
         }
     }
 }

@@ -4,12 +4,14 @@ import com.ecologicalRanch.config.ApplicationContextProvider;
 import com.ecologicalRanch.redis.service.ISaveRssiService;
 import org.msgpack.core.MessagePack;
 import org.msgpack.core.MessageUnpacker;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * MessagePacker数据类型解析
  */
 public class MessagePacker {
 
+	@Autowired
 	private ISaveRssiService saveRssiService;
 	private  String gateway_mac;
 	private static long Data_length;

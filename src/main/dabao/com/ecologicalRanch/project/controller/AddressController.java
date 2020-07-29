@@ -62,7 +62,7 @@ public class AddressController {
             return CommonResult.success(CommonPage.restPage(addressService.selectAddressList(address,pageNum,pageSize)));
         }
         catch (Exception e){
-            return CommonResult.failed(e.getMessage());
+            return CommonResult.failed(e.toString());
         }
     }
 
@@ -75,7 +75,7 @@ public class AddressController {
     public CommonResult selectAddressById(@RequestBody Address address){
         try{return CommonResult.success(addressService.selectAddressById(address.getAddressId()));}
         catch (Exception e){
-            return CommonResult.failed(e.getMessage());
+            return CommonResult.failed(e.toString());
         }
     }
 
@@ -90,7 +90,7 @@ public class AddressController {
     public CommonResult insertAddress(@RequestBody @Validated Address address){
         try{return CommonResult.success(addressService.insertAddress(address));}
         catch (Exception e){
-            return CommonResult.failed(e.getMessage());
+            return CommonResult.failed(e.toString());
         }
     }
 
@@ -103,7 +103,7 @@ public class AddressController {
     public CommonResult updateAddress(@RequestBody Address address){
         try{return CommonResult.success(addressService.updateAddress(address));}
         catch (Exception e){
-            return CommonResult.failed(e.getMessage());
+            return CommonResult.failed(e.toString());
         }
     }
 
@@ -116,7 +116,7 @@ public class AddressController {
     public CommonResult deleteAddressById(Long addressId){
         try{return CommonResult.success(addressService.deleteAddressById(addressId));}
         catch (Exception e){
-            return CommonResult.failed(e.getMessage());
+            return CommonResult.failed(e.toString());
         }
     }
 
@@ -129,7 +129,7 @@ public class AddressController {
     public CommonResult deleteAddressByIds(@RequestBody String addressIds){
         try{return CommonResult.success(addressService.deleteAddressByIds(addressIds));}
         catch (Exception e){
-            return CommonResult.failed(e.getMessage());
+            return CommonResult.failed(e.toString());
         }
     }
 
@@ -146,7 +146,8 @@ public class AddressController {
         }
         return CommonResult.success(addressService.selectDefaultAddressByUserId(address));}
         catch (Exception e){
-            return CommonResult.failed(e.getMessage());
+
+            return CommonResult.failed(e.toString());
         }
     }
 

@@ -38,7 +38,7 @@ public class FollowController {
         try{
             return CommonResult.success(CommonPage.restPage(followService.selectFollowList(follow,pageNum,pageSize)));
         }catch (Exception e) {
-            return CommonResult.failed(e.getMessage());
+            return CommonResult.failed(e.toString());
         }
     }
 
@@ -53,7 +53,7 @@ public class FollowController {
         try{
             return CommonResult.success(followService.insertFollow(follow));
         }catch (Exception e) {
-            return CommonResult.failed(e.getMessage());
+            return CommonResult.failed(e.toString());
         }
     }
 
@@ -69,7 +69,7 @@ public class FollowController {
         try{
             return CommonResult.success(followService.deleteFollow(follow));
         }catch (Exception e) {
-            return CommonResult.failed(e.getMessage());
+            return CommonResult.failed(e.toString());
         }
     }
 
@@ -83,7 +83,7 @@ public class FollowController {
         try{
             return CommonResult.success(followService.deleteFollowByIds(userIds));
         }catch (Exception e) {
-            return CommonResult.failed(e.getMessage());
+            return CommonResult.failed(e.toString());
         }
     }
 }
