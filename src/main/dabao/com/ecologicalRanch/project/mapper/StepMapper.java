@@ -2,6 +2,7 @@ package com.ecologicalRanch.project.mapper;
 
 import com.ecologicalRanch.project.entity.Step;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 /**
@@ -19,12 +20,34 @@ public interface StepMapper {
      */
     List<Step> selectStepList(Step step);
 
+
+
     /**
      * 通过Id查询 Step
      * @param stepNumId 查询Id
      * @return 查询对象
      */
     Step selectStepById(Long stepNumId);
+
+    /**
+     * 查询上次记录的数据
+     * @param step
+     * @return 查询对象
+     */
+    Step selectLastrecorded(Step step);
+
+    /**
+     * 查询最近一次数据
+     * @return
+     */
+    Step selectRecentStep(Long livestockId);
+
+    /**
+     * 查询指定时间某只鸡的数据列表
+     * @return
+     */
+    List<Step> bySpecifying(Long livestockId, Timestamp startTime,Timestamp endTime);
+
 
     /**
      * 新增Step

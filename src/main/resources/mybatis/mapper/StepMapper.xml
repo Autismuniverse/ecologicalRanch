@@ -13,7 +13,7 @@
     <sql id="StepResultVo">
         select
         step_num_id,livestock_id,step_num,creat_time
-         from step
+         from step_number
     </sql>
 
     <select id="selectStepById" parameterType="Long" resultMap="StepResult">
@@ -27,22 +27,45 @@
             <if test="stepNumId != null and stepNumId != 0">
                 and step_num_id = #{stepNumId}
             </if>
+            <if test="livestockId != null and livestockId != 0">
+                and livestock_id = #{livestockId}
+            </if>
+        </where>
+    </select>
+
+
+
+    <select id="selectRecentStep" parameterType="Long" resultMap="StepResult">
+        <include refid="StepResultVo"/>
+            <where>
+                livestock_id = #{livestockId}
+                order by  creat_time  desc limit 1
+            </where>
+    </select>
+
+    <select id="bySpecifying"  resultMap="StepResult">
+        <include refid="StepResultVo"/>
+        <where>
+            <if test="livestockId != null and livestockId != 0">
+                and livestock_id = #{livestockId}
+            </if>
+            and create_time between #{startTime} and #{endTime}
         </where>
     </select>
 
     <insert id="insertStep" parameterType="Step" useGeneratedKeys="true">
-        INSERT INTO step
+        INSERT INTO step_number
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="stepNumId != null  and stepNumId != ''">step_num_id, </if>
             <if test="livestockId != null  and livestockId != ''">livestock_id, </if>
             <if test="stepNum != null  and stepNum != ''">step_num, </if>
-            <if test="creatTime != null  and creatTime != ''">creat_time </if>
+            <if test="creatTime != null">creat_time </if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="stepNumId != null  and stepNumId != ''">#{stepNumId},</if>
             <if test="livestockId != null  and livestockId != ''">#{livestockId},</if>
             <if test="stepNum != null  and stepNum != ''">#{stepNum},</if>
-            <if test="creatTime != null  and creatTime != ''">#{creatTime}</if>
+            <if test="creatTime != null">#{creatTime}</if>
         </trim>
     </insert>
 
@@ -52,13 +75,13 @@
             <if test="stepNumId != null  and stepNumId != ''">step_num_id = #{stepNumId},</if>
             <if test="livestockId != null  and livestockId != ''">livestock_id = #{livestockId},</if>
             <if test="stepNum != null  and stepNum != ''">step_num = #{stepNum},</if>
-            <if test="creatTime != null  and creatTime != ''">creat_time = #{creatTime},</if>
+            <if test="creatTime != null ">creat_time = #{creatTime},</if>
         </trim>
         WHERE  step_num_id = #{stepNumId}
     </update>
 
     <delete id="deleteStepById" parameterType="Long">
-        DELETE FROM step
+        DELETE FROM step_number
         WHERE  step_num_id = #{stepNumId}
     </delete>
 

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ecologicalRanch.project.mapper.SurroundingsMapper">
+
+    <resultMap id="SurroundingsResult" type="Surroundings" >
+        <result column="surroundings_id" property="surroundingsId" />
+        <result column="field_id" property="fieldId" />
+        <result column="pic_src" property="picSrc" />
+    </resultMap>
+
+    <sql id="SurroundingsResultVo">
+        select
+        surroundings_id,field_id,pic_src
+         from surroundings
+    </sql>
+
+    <select id="selectSurroundingsByFieldId" parameterType="Integer" resultMap="SurroundingsResult">
+        <include refid="SurroundingsResultVo" />
+        WHERE field_id = #{field_id}
+    </select>
+
+    <select id="selectSurroundingsList" parameterType="Surroundings" resultMap="SurroundingsResult">
+        <include refid="SurroundingsResultVo"/>
+        <where>
+            <if test="surroundingsId != null and surroundingsId != 0">
+                and surroundings_id = #{surroundingsId}
+            </if>
+            <if test="fieldId != null and fieldId != 0">
+                and field_id = #{fieldId}
+            </if>
+        </where>
+    </select>
+
+    <insert id="insertSurroundings" parameterType="Surroundings" useGeneratedKeys="true">
+        INSERT INTO surroundings
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="surroundingsId != null  and surroundingsId != ''">surroundings_id, </if>
+            <if test="fieldId != null  and fieldId != ''">field_id, </if>
+            <if test="picSrc != null  and picSrc != ''">pic_src </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="surroundingsId != null  and surroundingsId != ''">#{surroundingsId},</if>
+            <if test="fieldId != null  and fieldId != ''">#{fieldId},</if>
+            <if test="picSrc != null  and picSrc != ''">#{picSrc}</if>
+        </trim>
+    </insert>
+
+    <update id="updateSurroundings" parameterType="Surroundings" >
+        UPDATE surroundings
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="surroundingsId != null  and surroundingsId != ''">surroundings_id = #{surroundingsId},</if>
+            <if test="fieldId != null  and fieldId != ''">field_id = #{fieldId},</if>
+            <if test="picSrc != null  and picSrc != ''">pic_src = #{picSrc},</if>
+        </trim>
+        WHERE  surroundings_id = #{surroundingsId}
+    </update>
+
+    <delete id="deleteSurroundingsById" parameterType="Long">
+        DELETE FROM surroundings
+        WHERE  surroundings_id = #{surroundingsId}
+    </delete>
+
+    <delete id="deleteSurroundingsByIds" parameterType="String">
+        delete from surroundings where surroundings_id in
+        <foreach item="item" collection="array" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+
+</mapper>
+

@@ -52,7 +52,16 @@ public class CartServiceImpl implements CartService {
      */
     @Override
     public int insertCart(Cart cart) {
-        return cartMapper.insertCart(cart);
+        System.out.println(cart);
+        System.out.println(cartMapper.selectCartList(cart));
+        if (cartMapper.selectCartList(cart).toArray().length == 0)
+        {
+            System.out.println(cart);
+            return cartMapper.insertCart(cart);
+        }
+
+        else
+            return 0;
     }
 
     /**

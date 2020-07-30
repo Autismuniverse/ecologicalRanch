@@ -39,13 +39,18 @@ public class Comment  {
      * 订单id
      */
 
-    private Integer orderId;
+    private Long orderId;
 
     /**
      * 养殖场id
      */
 
-    private String fieldId;
+    private Integer fieldId;
+
+    /**
+     * 评分 1-5星
+     */
+    private Integer score;
 
 
     /**

@@ -1,12 +1,20 @@
 package com.ecologicalRanch.stepCounting;
 
+import com.ecologicalRanch.project.entity.Livestock;
+import com.ecologicalRanch.project.entity.Step;
+import com.ecologicalRanch.project.mapper.StepMapper;
 import com.ecologicalRanch.project.service.CoordinatesService;
+import com.ecologicalRanch.project.service.LivestockService;
+import com.ecologicalRanch.project.service.StepService;
 import com.ecologicalRanch.redis.entity.BluetoothRssiInfo;
 import com.ecologicalRanch.redis.service.ISaveRssiService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
+import java.sql.Timestamp;
+import java.util.Date;
 import java.util.List;
 
 @Component
@@ -16,6 +24,40 @@ public class Timing{
     ISaveRssiService saveRssiService;
     @Autowired
     CoordinatesService coordinatesService;
+    @Autowired
+    StepService stepService;
+    @Autowired
+    StepMapper stepMapper;
+    @Autowired
+    LivestockService livestockService;
+
+    /**
+     * 记录鸡每8个小时中的运动数据
+     */
+    @Async
+    @Scheduled(cron = "* * 0/8 * * ? ")
+    public void pedometer() {
+        List<Livestock> livestockList = livestockService.selectLivestockListNoPageHelper(new Livestock());
+        if (livestockList.toArray().length != 0) {
+            for (Livestock l : livestockList) {
+                Step step = new Step();
+                step.setLivestockId(l.getLivestockId());
+                List<Step> stepList = stepService.selectStepListNoPageHelper(step);
+                Date df = new Date();
+                Timestamp ts = new Timestamp(df.getTime());
+                step.setCreatTime(ts);
+                if (stepList.toArray().length == 0) {
+                    stepService.insertStep(step);
+                } else {
+                    Integer lastStepNum = stepMapper.selectRecentStep(l.getLivestockId()).getStepNum();
+                    Integer thisStepNum = l.getStepNum();
+                    Integer cuunt = thisStepNum - lastStepNum;
+                    step.setStepNum(cuunt);
+                    stepService.insertStep(step);
+                }
+            }
+        }
+    }
 
     @Scheduled(cron = "0/3 * * * * ?")
     public void proces(){

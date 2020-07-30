@@ -145,7 +145,7 @@ public class FieldController {
         try{
             return CommonResult.success(fieldService.selectFieldByFieldIds(fieldIds));
         }catch (Exception e) {
-            return CommonResult.failed(e.toString());
+            return CommonResult.failed("请输入正确的fieldId");
         }
 
     }

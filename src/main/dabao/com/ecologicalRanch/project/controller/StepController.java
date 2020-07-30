@@ -10,6 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.constraints.NotNull;
+import java.sql.Timestamp;
+
 /**
  *
  *
@@ -34,6 +37,18 @@ public class StepController {
                                        @RequestParam(value = "pageNum",defaultValue = "1",required = false) int pageNum,
                                        @RequestParam(value = "pageSize",defaultValue = "10",required = false)int pageSize){
         return CommonResult.success(CommonPage.restPage(stepService.selectStepList(step,pageNum,pageSize)));
+    }
+
+    /**
+     * 查询Step列表
+     */
+    @ApiOperation(" 根据指定时间段查询时间段内的步数")
+    @PostMapping ("/bySpecifying")
+    @ResponseBody
+    public CommonResult bySpecifying(Long livestockId,
+                                     @RequestBody @NotNull Timestamp startTime,
+                                     @RequestBody @NotNull Timestamp endTime){
+        return CommonResult.success(stepService.bySpecifying(livestockId,startTime,endTime));
     }
 
     /**

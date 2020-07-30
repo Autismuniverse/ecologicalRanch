@@ -9,6 +9,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -79,7 +80,7 @@ public class OrderController {
     @ApiOperation("修改Order信息")
     @PostMapping("/updateOrder")
     @ResponseBody
-    public CommonResult updateOrder(@RequestBody Order order){
+    public CommonResult updateOrder(@RequestBody @Validated Order order){
 //        try{
             return CommonResult.success(orderService.updateOrder(order));
 //        }catch (Exception e) {

@@ -34,7 +34,7 @@ public class CommentController {
     @ResponseBody
     public CommonResult selectCommentList(Comment comment,
                                           @RequestParam(value = "pageNum", defaultValue = "1", required = false) int pageNum,
-                                          @RequestParam(value = "pageNum", defaultValue = "10", required = false) int pageSize) {
+                                          @RequestParam(value = "pageSize", defaultValue = "10", required = false) int pageSize) {
         try {
             return CommonResult.success(CommonPage.restPage(commentService.selectCommentList(comment, pageNum, pageSize)));
         } catch (Exception e) {

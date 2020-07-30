@@ -28,9 +28,19 @@ public interface UserService {
     User selectUserById(Long userId);
 
     /**
+     * 通过Id查询 User
+     */
+    User selectUserByOpenId(String openId);
+
+    /**
      * 新增User
      */
     int insertUser(User user);
+
+    /**
+     * weChat新增User
+     */
+    int weinsertUser(User user);
 
     /**
      * 通过id删除User

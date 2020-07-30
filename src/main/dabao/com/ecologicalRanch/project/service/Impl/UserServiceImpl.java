@@ -32,6 +32,14 @@ public class UserServiceImpl implements UserService {
     }
 
     /**
+     * 通过openId查询 User
+     */
+    @Override
+    public User selectUserByOpenId(String openId){
+        return userMapper.selectUserByOpenId(openId);
+    }
+
+    /**
      * 查询User列表
      */
 
@@ -55,6 +63,13 @@ public class UserServiceImpl implements UserService {
         user.setUserPwd(MD5Utils.string2MD5(user.getUserPwd(),salt));
         return userMapper.insertUser(user);
     }
+
+    @Override
+    public int weinsertUser(User user) {
+
+        return userMapper.insertUser(user);
+    }
+
 
     /**
      * 通过id删除User

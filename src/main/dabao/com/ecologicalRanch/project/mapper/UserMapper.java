@@ -27,6 +27,13 @@ public interface UserMapper {
     User selectUserById(Long userId);
 
     /**
+     * 通过OpenId查询 User
+     * @param userId 查询Id
+     * @return 查询对象
+     */
+    User selectUserByOpenId(String userId);
+
+    /**
      * 登录
      * @param user 登录
      * @return 查询对象

@@ -1,7 +1,8 @@
 package com.ecologicalRanch.project.entity;
 
 import lombok.Data;
-import java.util.Date;
+
+import java.sql.Timestamp;
 
 /**
  *
@@ -11,6 +12,7 @@ import java.util.Date;
  */
 @Data
 public class Step  {
+
     /**
      * 步数表ID
      */
@@ -21,7 +23,7 @@ public class Step  {
      * 牲畜的ID
      */
 
-    private Integer livestockId;
+    private Long livestockId;
 
     /**
      * 牲畜的步数
@@ -33,7 +35,7 @@ public class Step  {
      * 记录时间
      */
 
-    private Date creatTime;
+    private Timestamp creatTime;
 
 
 }

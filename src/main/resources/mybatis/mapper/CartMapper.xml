@@ -59,6 +59,7 @@
         s.shopping_cart_id,s.user_id,s.livestock_id,s.status,s.create_time,s.delete_time,
         l.livestock_id,l.field_id,l.step_num,l.bluetooth_id,l.rfid_id,l.sex,l.weight,l.batch,l.out_time,l.status,l.type,
         p.original_price
+        from livestock l,shopping_cart s,field f,livestock_price p
     </sql>
 
     <select id="selectCartById" parameterType="Long" resultMap="CartResult">
@@ -68,9 +69,9 @@
 
     <select id="selectUserCart" parameterType="Integer" resultMap="CartSelectResult">
         <include refid="userCart" />
-        from livestock l,shopping_cart s,field f,livestock_price p
         WHERE l.livestock_id = s.livestock_id
-        AND	p.field_id = l.field_id = f.field_id
+        AND	l.field_id  = p.field_id
+        and f.field_id =l.field_id
         and l.type = p.type
         AND s.user_id = #{userId}
     </select>
@@ -80,6 +81,12 @@
         <where>
             <if test="shoppingCartId != null and shoppingCartId != 0">
                 and shopping_cart_id = #{shoppingCartId}
+            </if>
+            <if test="livestockId != null and livestockId != 0">
+                and livestock_id = #{livestockId}
+            </if>
+            <if test="userId != null and userId != 0">
+                and user_id = #{userId}
             </if>
         </where>
     </select>

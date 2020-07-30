@@ -8,6 +8,7 @@ import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 /**
@@ -38,6 +39,12 @@ public class StepServiceImpl implements StepService {
     public List<Step> selectStepList(Step step, int pageNum, int pageSize){
         return  PageHelper.startPage(pageNum,pageSize).doSelectPage(()->stepMapper.selectStepList(step));
     }
+
+    @Override
+     public List<Step> selectStepListNoPageHelper(Step step){
+        return stepMapper.selectStepList(step);
+    }
+
 
     /**
      * 新增Step
@@ -71,4 +78,33 @@ public class StepServiceImpl implements StepService {
         return stepMapper.updateStep(step);
     }
 
+    /**
+     * 查询指定时间鸡的步数
+     */
+
+    public int bySpecifying(Long livestockId, Timestamp startTime, Timestamp endTime){
+        List<Step>  stepList= stepMapper.bySpecifying(livestockId,startTime,endTime);
+        int count=0;
+
+        for (Step s:stepList) {
+            count =count + s.getStepNum();
+        }
+
+        return count;
+    }
+
+    /**
+     * 查询指定时间所有鸡平均的步数
+     */
+    public int average(Timestamp startTime, Timestamp endTime){
+        List<Step>  stepList= stepMapper.bySpecifying(null,startTime,endTime);
+        int count=0;
+        int aver=0;
+        for (Step s:stepList) {
+            count =count + s.getStepNum();
+        }
+        aver=count/stepList.toArray().length;
+
+        return aver;
+    }
 }

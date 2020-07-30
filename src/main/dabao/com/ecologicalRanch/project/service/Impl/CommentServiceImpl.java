@@ -2,7 +2,9 @@ package com.ecologicalRanch.project.service.Impl;
 
 import com.ecologicalRanch.common.utils.text.Convert;
 import com.ecologicalRanch.project.entity.Comment;
+import com.ecologicalRanch.project.entity.Order;
 import com.ecologicalRanch.project.mapper.CommentMapper;
+import com.ecologicalRanch.project.mapper.OrderMapper;
 import com.ecologicalRanch.project.service.CommentService;
 import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +23,8 @@ public class CommentServiceImpl implements CommentService {
 
     @Autowired
     private CommentMapper commentMapper;
+    @Autowired
+    private OrderMapper orderMapper;
 
     /**
      * 通过Id查询 Comment
@@ -49,7 +53,14 @@ public class CommentServiceImpl implements CommentService {
      */
     @Override
     public int insertComment(Comment comment) {
-        return commentMapper.insertComment(comment);
+        System.out.println(comment);
+        commentMapper.insertComment(comment);
+        System.out.println(comment);
+        Order order = new Order();
+        order.setOrderId(comment.getOrderId());
+        order.setCommentId(comment.getCommentId());
+        orderMapper.updateOrder(order);
+        return 1;
     }
 
     /**

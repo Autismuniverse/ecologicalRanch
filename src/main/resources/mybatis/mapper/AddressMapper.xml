@@ -43,7 +43,7 @@
             <if test="consignee != null  and consignee != ''">consignee, </if>
             <if test="address != null  and address != ''">address, </if>
             <if test="consigneePhone != null  and consigneePhone != ''">consignee_phone, </if>
-            <if test="addressStatus != null  and addressStatus != ''">address_status </if>
+            <if test="addressStatus != null ">address_status </if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="addressId != null  and addressId != ''">#{addressId},</if>
@@ -51,7 +51,7 @@
             <if test="consignee != null  and consignee != ''">#{consignee},</if>
             <if test="address != null  and address != ''">#{address},</if>
             <if test="consigneePhone != null  and consigneePhone != ''">#{consigneePhone},</if>
-            <if test="addressStatus != null  and addressStatus != ''">#{addressStatus}</if>
+            <if test="addressStatus != null">#{addressStatus}</if>
         </trim>
     </insert>
 

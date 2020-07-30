@@ -10,6 +10,7 @@
         <result column="contents" property="contents" />
         <result column="order_id" property="orderId" />
         <result column="field_id" property="fieldId" />
+        <result column="score" property="score" />
     </resultMap>
 
     <resultMap id="selectCommentUserByFieldId" type="Comment" >
@@ -19,6 +20,7 @@
         <result column="contents" property="contents" />
         <result column="order_id" property="orderId" />
         <result column="field_id" property="fieldId" />
+        <result column="score" property="score" />
         <association property="user" javaType="com.ecologicalRanch.project.entity.User">
             <result column="user_id" property="userId" />
             <result column="user_pwd" property="userPwd" />
@@ -37,13 +39,13 @@
 
     <sql id="CommentResultVo">
         select
-        comment_id,user_id,livestock_id,contents,order_id,field_id
+        comment_id,user_id,livestock_id,contents,order_id,field_id,score
          from comment
     </sql>
 
     <sql id="CommentUserResultVo">
         select
-        c.comment_id,c.user_id,c.livestock_id,c.contents,c.order_id,c.field_id,
+        c.comment_id,c.user_id,c.livestock_id,c.contents,c.order_id,c.field_id,c.score,
         u.user_id,u.user_pwd,u.username,u.sex,u.phone,u.address,u.birthday,u.email,u.open_id,u.head_portrait,u.creat_time,u.state
         from comment c,user u
     </sql>
@@ -77,13 +79,15 @@
         </where>
     </select>
 
-    <insert id="insertComment" parameterType="Comment" useGeneratedKeys="true">
+    <insert id="insertComment" parameterType="Comment" useGeneratedKeys="true" keyProperty="commentId">
         INSERT INTO comment
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="commentId != null  and commentId != ''">comment_id, </if>
             <if test="userId != null  and userId != ''">user_id, </if>
             <if test="livestockId != null  and livestockId != ''">livestock_id, </if>
             <if test="contents != null  and contents != ''">contents, </if>
+            <if test="score != null  and score != ''">score, </if>
+            <if test="fieldId != null  and fieldId != ''">field_id, </if>
             <if test="orderId != null  and orderId != ''">order_id </if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -91,6 +95,8 @@
             <if test="userId != null  and userId != ''">#{userId},</if>
             <if test="livestockId != null  and livestockId != ''">#{livestockId},</if>
             <if test="contents != null  and contents != ''">#{contents},</if>
+            <if test="score != null  and score != ''">#{score},</if>
+            <if test="fieldId != null  and fieldId != ''">#{fieldId}, </if>
             <if test="orderId != null  and orderId != ''">#{orderId}</if>
         </trim>
     </insert>
@@ -103,6 +109,8 @@
             <if test="livestockId != null  and livestockId != ''">livestock_id = #{livestockId},</if>
             <if test="contents != null  and contents != ''">contents = #{contents},</if>
             <if test="orderId != null  and orderId != ''">order_id = #{orderId},</if>
+            <if test="fieldId != null  and fieldId != ''">field_id = #{fieldId}, </if>
+            <if test="score != null  and score != ''">score = #{score},</if>
         </trim>
         WHERE  comment_id = #{commentId}
     </update>

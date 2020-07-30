@@ -69,6 +69,7 @@
             <if test="originalPrice != null  and originalPrice != ''">original_price = #{originalPrice},</if>
             <if test="createTime != null  and createTime != ''">create_time = #{createTime},</if>
             <if test="takeEffectTime != null  and takeEffectTime != ''">take_effect_time = #{takeEffectTime},</if>
+            <if test="img != null  and img != ''">livestock_img = #{img},</if>
         </trim>
         WHERE  livestock_price_id = #{livestockPriceId}
     </update>
