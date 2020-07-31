@@ -2,6 +2,7 @@ package com.ecologicalRanch.project.service.Impl;
 
 import com.ecologicalRanch.common.utils.text.Convert;
 import com.ecologicalRanch.project.entity.Step;
+import com.ecologicalRanch.project.entity.StepRult;
 import com.ecologicalRanch.project.mapper.StepMapper;
 import com.ecologicalRanch.project.service.StepService;
 import com.github.pagehelper.PageHelper;
@@ -81,27 +82,40 @@ public class StepServiceImpl implements StepService {
     /**
      * 查询指定时间鸡的步数
      */
-
+    @Override
     public int bySpecifying(Long livestockId, Timestamp startTime, Timestamp endTime){
-        List<Step>  stepList= stepMapper.bySpecifying(livestockId,startTime,endTime);
-        int count=0;
-
-        for (Step s:stepList) {
+            List<Step>  stepList= stepMapper.bySpecifying(livestockId,startTime,endTime);
+            int count=0;
+            for (Step s:stepList) {
             count =count + s.getStepNum();
-        }
-
+            }
         return count;
     }
+
+
+    @Override
+    public List<StepRult> appoint(StepRult stepRult){
+        Long endTime = stepRult.getEndTime().getTime();
+        Long startTime = stepRult.getStartTime().getTime();
+        Integer appoint = stepRult.getAppoint();
+        Integer livestockId =stepRult.getLivestockId();
+        return stepMapper.appoint(endTime,startTime, appoint, livestockId);
+    }
+
 
     /**
      * 查询指定时间所有鸡平均的步数
      */
+    @Override
     public int average(Timestamp startTime, Timestamp endTime){
         List<Step>  stepList= stepMapper.bySpecifying(null,startTime,endTime);
         int count=0;
         int aver=0;
         for (Step s:stepList) {
             count =count + s.getStepNum();
+        }
+        if (count==0){
+            return  0 ;
         }
         aver=count/stepList.toArray().length;
 

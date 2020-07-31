@@ -105,6 +105,12 @@
             <version>8.0.16</version>
         </dependency>
 
+        <!-- mongodb -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-mongodb</artifactId>
+        </dependency>
+
         <!-- 常用工具包-->
         <dependency>
             <groupId>org.apache.commons</groupId>

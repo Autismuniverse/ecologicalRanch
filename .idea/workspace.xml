@@ -11,46 +11,22 @@
     <bookmark url="file://$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/service/Impl/LivestockServiceImpl.java" line="179" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="39bc4dc4-f9c4-4ab6-91e3-8b6d746c1aa5" name="Default Changelist" comment="2020 7月29日">
-      <change afterPath="$PROJECT_DIR$/img/chiken.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/common/utils/UploadPic.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/controller/PictureUpload.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/controller/SurroundingsController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/entity/Surroundings.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/mapper/SurroundingsMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/service/Impl/SurroundingsServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/service/SurroundingsService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/SurroundingsMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+    <list default="true" id="39bc4dc4-f9c4-4ab6-91e3-8b6d746c1aa5" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/controller/MongoDBController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/entity/RssiSave.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/entity/StepRult.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/service/Impl/MongoDBServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/service/MongoDBService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/controller/CommentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/controller/CommentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/controller/FieldController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/controller/FieldController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/controller/LoginHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/controller/LoginHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/controller/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/controller/OrderController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/controller/StepController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/controller/StepController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/entity/Comment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/entity/Comment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/entity/Livestock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/entity/Livestock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/entity/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/entity/Order.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/entity/Step.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/entity/Step.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/mapper/StepMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/mapper/StepMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/mapper/UserMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/service/Impl/CartServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/service/Impl/CartServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/service/Impl/CommentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/service/Impl/CommentServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/service/Impl/StepServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/service/Impl/StepServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/service/Impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/service/Impl/UserServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/service/StepService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/service/StepService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/stepCounting/Timing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/stepCounting/Timing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/AddressMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/AddressMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/CartMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/CartMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/CommentMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/CommentMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/PriceMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/PriceMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/stepCounting/Calculation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/stepCounting/Calculation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/stepCounting/CalculationThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/stepCounting/CalculationThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application-jdbc.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application-jdbc.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/StepMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/StepMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/userMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/userMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/LiveStock/livestockByIds.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/LiveStock/livestockByIds.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/redis/RedisTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/redis/RedisTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mybatis/mapper/userMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/userMapper.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -83,52 +59,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/mapper/StepMapper.java">
+        <entry file="file://$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/service/MongoDBService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="70">
-              <caret line="57" lean-forward="true" selection-start-line="57" selection-end-line="57" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/stepCounting/Timing.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="653">
-              <caret line="59" column="5" lean-forward="true" selection-start-line="59" selection-start-column="5" selection-end-line="59" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/service/Impl/StepServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="361">
-              <caret line="106" lean-forward="true" selection-start-line="106" selection-end-line="106" />
-              <folding>
-                <element signature="e#1090#1091#0" expanded="true" />
-                <element signature="e#1144#1145#0" expanded="true" />
-                <element signature="e#1229#1230#0" expanded="true" />
-                <element signature="e#1279#1280#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/redis/service/impl/SaveRssiServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="203">
-              <caret line="76" column="70" lean-forward="true" selection-start-line="76" selection-start-column="70" selection-end-line="76" selection-end-column="70" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/controller/StepController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="134">
-              <caret line="50" column="56" selection-start-line="50" selection-start-column="56" selection-end-line="50" selection-end-column="56" />
+            <state relative-caret-position="225">
+              <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="45" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -137,46 +71,98 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/entity/Localtioninfo.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/entity/OpenIdJson.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/entity/Order.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="359">
-              <caret line="75" column="21" selection-start-line="75" selection-start-column="12" selection-end-line="75" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/controller/OrderController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-172">
-              <caret line="95" column="17" lean-forward="true" selection-start-line="95" selection-start-column="17" selection-end-line="95" selection-end-column="17" />
+            <state relative-caret-position="703">
+              <caret line="46" column="5" lean-forward="true" selection-start-line="35" selection-start-column="3" selection-end-line="46" selection-end-column="5" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/service/StepService.java">
+        <entry file="file://$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/service/Impl/LocaltioninfoServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="56" column="4" selection-start-line="56" selection-start-column="4" selection-end-line="59" selection-end-column="57" />
+            <state relative-caret-position="-83">
+              <caret line="26" column="7" lean-forward="true" selection-start-line="26" selection-start-column="7" selection-end-line="26" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/service/Impl/MongoDBServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="525">
+              <caret line="21" column="32" selection-start-line="21" selection-start-column="20" selection-end-line="21" selection-end-column="32" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#267#268#0" expanded="true" />
+                <element signature="e#290#291#0" expanded="true" />
+                <element signature="e#666#667#0" expanded="true" />
+                <element signature="e#717#718#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/entity/RssiSave.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="450">
+              <caret line="18" column="21" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="21" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/stepCounting/CalculationThread.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="354">
+              <caret line="99" column="50" lean-forward="true" selection-start-line="99" selection-start-column="50" selection-end-line="99" selection-end-column="50" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/stepCounting/Timing.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="45" column="16" selection-start-line="45" selection-start-column="16" selection-end-line="46" selection-end-column="59" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/stepCounting/Calculation.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="200">
+              <caret line="10" column="28" lean-forward="true" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/entity/StepRult.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="125">
+              <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/service/Impl/StepServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="254">
+              <caret line="115" column="9" lean-forward="true" selection-start-line="115" selection-start-column="9" selection-end-line="115" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -194,17 +180,14 @@
         <option value="Kotlin File" />
         <option value="FxmlFile" />
         <option value="AnnotationType" />
-        <option value="Interface" />
         <option value="mybatisMapper" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>day</find>
-      <find>selectOutTime</find>
-      <find>LivestockOutTime</find>
       <find>build</find>
       <find>org.springframework.boot</find>
       <find>[]</find>
@@ -232,6 +215,9 @@
       <find>selectFieldByFieldIds</find>
       <find>selectStepList</find>
       <find>Timestamp</find>
+      <find>create_time</find>
+      <find>AppointResult</find>
+      <find>Timesta</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -247,6 +233,7 @@
       <replace>field_id</replace>
       <replace>fieldId</replace>
       <replace>e.toString</replace>
+      <replace>creat_time</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -260,13 +247,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/controller/DiscountController.java" />
-        <option value="$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/controller/FollowController.java" />
-        <option value="$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/controller/GatewayController.java" />
-        <option value="$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/controller/LocaltioninfoController.java" />
-        <option value="$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/controller/PriceController.java" />
-        <option value="$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/controller/TotalBluetoothController.java" />
-        <option value="$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/controller/UserController.java" />
         <option value="$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/service/Impl/LivestockServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mybatis/mapper/FieldMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/service/Impl/OrderServiceImpl.java" />
@@ -286,7 +266,6 @@
         <option value="$PROJECT_DIR$/src/main/resources/mybatis/mapper/userMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/service/Impl/UserServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/service/UserService.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/controller/LoginHandler.java" />
         <option value="$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/entity/Surroundings.java" />
         <option value="$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/service/Impl/SurroundingsServiceImpl.java" />
@@ -295,7 +274,6 @@
         <option value="$PROJECT_DIR$/src/main/resources/mybatis/mapper/SurroundingsMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/service/Impl/CartServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mybatis/mapper/CartMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/stepCounting/CalculationThread.java" />
         <option value="$PROJECT_DIR$/src/test/java/LiveStock/livestockByIds.java" />
         <option value="$PROJECT_DIR$/src/test/java/redis/RedisTest.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mybatis/mapper/PriceMapper.xml" />
@@ -306,11 +284,20 @@
         <option value="$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/entity/Step.java" />
         <option value="$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/stepCounting/Timing.java" />
         <option value="$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/entity/Livestock.java" />
-        <option value="$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/mapper/StepMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/mybatis/mapper/StepMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/controller/StepController.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/entity/StepRult.java" />
         <option value="$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/service/StepService.java" />
+        <option value="$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/mapper/StepMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/controller/StepController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mybatis/mapper/StepMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/resources/application-jdbc.yml" />
         <option value="$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/service/Impl/StepServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/controller/MongoDBController.java" />
+        <option value="$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/service/MongoDBService.java" />
+        <option value="$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/service/Impl/MongoDBServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/stepCounting/Calculation.java" />
+        <option value="$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/entity/RssiSave.java" />
+        <option value="$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/stepCounting/CalculationThread.java" />
       </list>
     </option>
   </component>
@@ -417,16 +404,6 @@
               <item name="dabao" type="462c0819:PsiDirectoryNode" />
               <item name="ecologicalRanch" type="462c0819:PsiDirectoryNode" />
               <item name="project" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ecologicalRanch" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ecologicalRanch" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="dabao" type="462c0819:PsiDirectoryNode" />
-              <item name="ecologicalRanch" type="462c0819:PsiDirectoryNode" />
-              <item name="project" type="462c0819:PsiDirectoryNode" />
               <item name="entity" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -452,44 +429,6 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="mybatis" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ecologicalRanch" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ecologicalRanch" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="mybatis" type="462c0819:PsiDirectoryNode" />
-              <item name="mapper" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ecologicalRanch" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ecologicalRanch" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="img" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ecologicalRanch" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ecologicalRanch" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ecologicalRanch" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ecologicalRanch" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ecologicalRanch" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ecologicalRanch" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="LiveStock" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -718,7 +657,7 @@
       <workItem from="1595483853728" duration="15770000" />
       <workItem from="1595509063784" duration="53450000" />
       <workItem from="1595671358936" duration="90597000" />
-      <workItem from="1596004728494" duration="41584000" />
+      <workItem from="1596004728494" duration="62019000" />
     </task>
     <task id="LOCAL-00001" summary="首次提交">
       <created>1577609017162</created>
@@ -1000,7 +939,14 @@
       <option name="project" value="LOCAL" />
       <updated>1595986739271</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="2020 7月30日">
+      <created>1596102603838</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1596102603838</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1036,7 +982,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1398257000" />
+    <option name="totallyTimeSpent" value="1418692000" />
   </component>
   <component name="TodoView" selected-index="2">
     <todo-panel id="selected-file">
@@ -1057,7 +1003,7 @@
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Web" order="4" side_tool="true" />
       <window_info id="Designer" order="5" />
-      <window_info content_ui="combo" id="Project" order="6" visible="true" weight="0.1924307" />
+      <window_info active="true" content_ui="combo" id="Project" order="6" visible="true" weight="0.20469083" />
       <window_info id="Structure" order="7" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Spring" order="0" weight="0.32731378" />
       <window_info anchor="bottom" id="Terminal" order="1" weight="0.32731378" />
@@ -1072,7 +1018,7 @@
       <window_info anchor="bottom" id="Cvs" order="10" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="11" weight="0.4" />
       <window_info anchor="bottom" id="Version Control" order="12" sideWeight="0.49839056" weight="0.34127843" />
-      <window_info active="true" anchor="bottom" id="Run" order="13" sideWeight="0.44849786" visible="true" weight="0.4734561" />
+      <window_info anchor="bottom" id="Run" order="13" sideWeight="0.44849786" weight="0.34561214" />
       <window_info anchor="bottom" id="TODO" order="14" weight="0.32827735" />
       <window_info anchor="right" id="Palette" order="0" />
       <window_info anchor="right" id="Capture Analysis" order="1" />
@@ -1092,22 +1038,22 @@
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Web" order="4" side_tool="true" />
       <window_info id="Designer" order="5" />
-      <window_info active="true" content_ui="combo" id="Project" order="6" visible="true" weight="0.26984978" />
+      <window_info active="true" content_ui="combo" id="Project" order="6" visible="true" weight="0.20469083" />
       <window_info id="Structure" order="7" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Spring" order="0" weight="0.32731378" />
       <window_info anchor="bottom" id="Terminal" order="1" weight="0.32731378" />
       <window_info anchor="bottom" id="Docker" order="2" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="3" sideWeight="0.55150217" side_tool="true" weight="0.76072234" />
-      <window_info anchor="bottom" id="Messages" order="4" sideWeight="0.49946353" weight="0.33295712" />
+      <window_info anchor="bottom" id="Messages" order="4" sideWeight="0.49946353" weight="0.33261105" />
       <window_info anchor="bottom" id="Java Enterprise" order="5" weight="0.32731378" />
       <window_info anchor="bottom" id="Database Changes" order="6" />
       <window_info anchor="bottom" id="Message" order="7" />
       <window_info anchor="bottom" id="Find" order="8" weight="0.3194131" />
-      <window_info anchor="bottom" id="Debug" order="9" weight="0.37358916" />
+      <window_info anchor="bottom" id="Debug" order="9" weight="0.3726977" />
       <window_info anchor="bottom" id="Cvs" order="10" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="11" weight="0.4" />
-      <window_info anchor="bottom" id="Run" order="12" sideWeight="0.44849786" visible="true" weight="0.30361173" />
-      <window_info anchor="bottom" id="Version Control" order="13" sideWeight="0.49839056" weight="0.39164785" />
+      <window_info anchor="bottom" id="Version Control" order="12" sideWeight="0.49839056" weight="0.34127843" />
+      <window_info anchor="bottom" id="Run" order="13" sideWeight="0.44849786" visible="true" weight="0.34561214" />
       <window_info anchor="bottom" id="TODO" order="14" weight="0.32827735" />
       <window_info anchor="right" id="Palette" order="0" />
       <window_info anchor="right" id="Capture Analysis" order="1" />
@@ -1118,7 +1064,7 @@
       <window_info anchor="right" id="Database" order="6" weight="0.3299356" />
       <window_info anchor="right" id="Ant Build" order="7" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="8" weight="0.25" />
-      <window_info anchor="right" id="Maven" order="9" visible="true" weight="0.14002146" />
+      <window_info anchor="right" id="Maven" order="9" weight="0.13965885" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1165,7 +1111,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="2020 4月17日" />
     <MESSAGE value="2020 5月14日" />
     <MESSAGE value="2020 5月26日 写好商城单独字段检索接口" />
     <MESSAGE value="2020 5月28日写好很多个接口，基本完成，明日写购物车接口，模糊查询order列表" />
@@ -1190,7 +1135,8 @@
     <MESSAGE value="2020 7月27日 测试后修改 第一个版本" />
     <MESSAGE value="2020 7月28日 测试前修改" />
     <MESSAGE value="2020 7月29日" />
-    <option name="LAST_COMMIT_MESSAGE" value="2020 7月29日" />
+    <MESSAGE value="2020 7月30日" />
+    <option name="LAST_COMMIT_MESSAGE" value="2020 7月30日" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -1202,128 +1148,10 @@
     </SUITE>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/service/SurroundingsService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/mapper/SurroundingsMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="26" column="44" selection-start-line="26" selection-start-column="17" selection-end-line="26" selection-end-column="44" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/TotalBluetoothMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="5" column="59" lean-forward="true" selection-start-line="5" selection-start-column="59" selection-end-line="5" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/service/Impl/SurroundingsServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="27" column="13" lean-forward="true" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/controller/CommentController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="34" column="41" selection-start-line="34" selection-start-column="24" selection-end-line="34" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/controller/CartController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="474">
-          <caret line="78" column="58" lean-forward="true" selection-start-line="78" selection-start-column="58" selection-end-line="78" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/service/CartService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="33" selection-start-line="33" selection-end-line="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/mapper/CartMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="20" column="29" selection-start-line="20" selection-start-column="15" selection-end-line="20" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/service/Impl/CartServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="398">
-          <caret line="46" column="40" selection-start-line="46" selection-start-column="26" selection-end-line="46" selection-end-column="40" />
-          <folding>
-            <element signature="e#1744#1745#0" expanded="true" />
-            <element signature="e#2073#2074#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/CartMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="267">
-          <caret line="73" column="34" lean-forward="true" selection-start-line="73" selection-start-column="34" selection-end-line="73" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/stepCounting/CalculationThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="550">
-          <caret line="78" column="54" lean-forward="true" selection-start-line="78" selection-start-column="54" selection-end-line="78" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/LivestockMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="175" column="53" lean-forward="true" selection-start-line="175" selection-start-column="53" selection-end-line="175" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/service/LivestockService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="24" column="20" selection-start-line="24" selection-start-column="20" selection-end-line="24" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/LiveStock/livestockByIds.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="19" column="44" selection-end-line="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/redis/RedisTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="55">
           <caret line="29" column="9" selection-start-line="29" selection-start-column="9" selection-end-line="29" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
-          <caret line="90" column="25" selection-start-line="90" selection-start-column="25" selection-end-line="90" selection-end-column="25" />
         </state>
       </provider>
     </entry>
@@ -1427,13 +1255,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/entity/Step.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="37" column="22" selection-start-line="37" selection-start-column="22" selection-end-line="37" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/entity/Device.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="299">
@@ -1469,27 +1290,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/StepMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="49" column="49" lean-forward="true" selection-start-line="49" selection-start-column="49" selection-end-line="49" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/stepCounting/Timing.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="653">
-          <caret line="59" column="5" lean-forward="true" selection-start-line="59" selection-start-column="5" selection-end-line="59" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/mapper/StepMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="70">
-          <caret line="57" lean-forward="true" selection-start-line="57" selection-end-line="57" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/entity/OpenIdJson.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -1504,54 +1304,203 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/controller/OrderController.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/mysql/mysql-connector-java/8.0.16/mysql-connector-java-8.0.16.jar!/com/mysql/cj/jdbc/exceptions/SQLError.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-172">
-          <caret line="95" column="17" lean-forward="true" selection-start-line="95" selection-start-column="17" selection-end-line="95" selection-end-column="17" />
+        <state relative-caret-position="153">
+          <caret line="72" selection-start-line="72" selection-end-line="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/entity/Step.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="21" column="7" lean-forward="true" selection-start-line="21" selection-start-column="7" selection-end-line="21" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/stepCounting/PushCallback.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="10" column="3" lean-forward="true" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/entity/Localtioninfo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        <state relative-caret-position="170">
+          <caret line="12" column="6" lean-forward="true" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/service/StepService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="423">
+          <caret line="55" column="15" selection-start-line="55" selection-start-column="15" selection-end-line="55" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/mapper/StepMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="291">
+          <caret line="56" column="19" selection-start-line="56" selection-start-column="19" selection-end-line="56" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/redis/entity/RedisRssiKey.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-125">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/redis/service/impl/SaveRssiServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="129">
+          <caret line="84" column="36" lean-forward="true" selection-start-line="84" selection-start-column="36" selection-end-line="84" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="109">
+          <caret line="112" lean-forward="true" selection-start-line="112" selection-end-line="112" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/StepMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="70" column="13" lean-forward="true" selection-start-line="70" selection-start-column="13" selection-end-line="70" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/sql/Timestamp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="203" column="18" selection-start-line="203" selection-start-column="18" selection-end-line="203" selection-end-column="18" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/controller/StepController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="134">
-          <caret line="50" column="56" selection-start-line="50" selection-start-column="56" selection-end-line="50" selection-end-column="56" />
+        <state relative-caret-position="192">
+          <caret line="60" column="48" lean-forward="true" selection-start-line="60" selection-start-column="48" selection-end-line="60" selection-end-column="48" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/service/StepService.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="56" column="4" selection-start-line="56" selection-start-column="4" selection-end-line="59" selection-end-column="57" />
+        <state relative-caret-position="175">
+          <caret line="7" column="25" lean-forward="true" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application-jdbc.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="3" column="26" lean-forward="true" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/service/Impl/StepServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="106" lean-forward="true" selection-start-line="106" selection-end-line="106" />
+        <state relative-caret-position="254">
+          <caret line="115" column="9" lean-forward="true" selection-start-line="115" selection-start-column="9" selection-end-line="115" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/controller/OrderController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="703">
+          <caret line="46" column="5" lean-forward="true" selection-start-line="35" selection-start-column="3" selection-end-line="46" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/controller/MongoDBController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="329">
+          <caret line="26" column="9" lean-forward="true" selection-start-line="26" selection-start-column="9" selection-end-line="26" selection-end-column="9" />
           <folding>
-            <element signature="e#1090#1091#0" expanded="true" />
-            <element signature="e#1144#1145#0" expanded="true" />
-            <element signature="e#1229#1230#0" expanded="true" />
-            <element signature="e#1279#1280#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/redis/service/impl/SaveRssiServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/service/Impl/LocaltioninfoServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="76" column="70" lean-forward="true" selection-start-line="76" selection-start-column="70" selection-end-line="76" selection-end-column="70" />
+        <state relative-caret-position="-83">
+          <caret line="26" column="7" lean-forward="true" selection-start-line="26" selection-start-column="7" selection-end-line="26" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/entity/StepRult.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/stepCounting/Calculation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="10" column="28" lean-forward="true" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/service/MongoDBService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="45" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/service/Impl/MongoDBServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="21" column="32" selection-start-line="21" selection-start-column="20" selection-end-line="21" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#267#268#0" expanded="true" />
+            <element signature="e#290#291#0" expanded="true" />
+            <element signature="e#666#667#0" expanded="true" />
+            <element signature="e#717#718#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/stepCounting/Timing.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="45" column="16" selection-start-line="45" selection-start-column="16" selection-end-line="46" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/project/entity/RssiSave.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="18" column="21" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/dabao/com/ecologicalRanch/stepCounting/CalculationThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="354">
+          <caret line="99" column="50" lean-forward="true" selection-start-line="99" selection-start-column="50" selection-end-line="99" selection-end-column="50" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

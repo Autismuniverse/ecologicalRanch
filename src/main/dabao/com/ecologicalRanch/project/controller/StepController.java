@@ -3,6 +3,7 @@ package com.ecologicalRanch.project.controller;
 import com.ecologicalRanch.common.pagehelper.CommonPage;
 import com.ecologicalRanch.common.result.CommonResult;
 import com.ecologicalRanch.project.entity.Step;
+import com.ecologicalRanch.project.entity.StepRult;
 import com.ecologicalRanch.project.service.StepService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -10,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.constraints.NotNull;
 import java.sql.Timestamp;
 
 /**
@@ -45,10 +45,32 @@ public class StepController {
     @ApiOperation(" 根据指定时间段查询时间段内的步数")
     @PostMapping ("/bySpecifying")
     @ResponseBody
-    public CommonResult bySpecifying(Long livestockId,
-                                     @RequestBody @NotNull Timestamp startTime,
-                                     @RequestBody @NotNull Timestamp endTime){
-        return CommonResult.success(stepService.bySpecifying(livestockId,startTime,endTime));
+    public CommonResult bySpecifying(Long livestockId, String startTime, String endTime){
+        Timestamp timestamp1=Timestamp.valueOf(startTime);
+        Timestamp timestamp2=Timestamp.valueOf(endTime);
+        return CommonResult.success(stepService.bySpecifying(livestockId,timestamp1,timestamp2));
+    }
+
+    /**
+     * 查询Step列表
+     */
+    @ApiOperation("根据指定时间段查询时间段内的所有鸡的平均步数")
+    @PostMapping ("/average")
+    @ResponseBody
+    public CommonResult average(String startTime, String endTime){
+        Timestamp timestamp1=Timestamp.valueOf(startTime);
+        Timestamp timestamp2=Timestamp.valueOf(endTime);
+        return CommonResult.success(stepService.average(timestamp1,timestamp2));
+    }
+
+    /**
+     * 查询Step列表
+     */
+    @ApiOperation("根据指定时间以及指定格式段查询时间段内的所有鸡的平均步数")
+    @PostMapping ("/appoint")
+    @ResponseBody
+    public CommonResult appoint(@RequestBody StepRult stepRult){
+        return CommonResult.success(stepService.appoint(stepRult));
     }
 
     /**

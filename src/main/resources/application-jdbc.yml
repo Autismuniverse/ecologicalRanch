@@ -1,4 +1,7 @@
 spring:
+
+  mongodb:
+    url: 10.12.9.210:27017
   datasource:
     username: root
     password: password

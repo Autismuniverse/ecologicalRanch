@@ -3,14 +3,17 @@ package com.ecologicalRanch.stepCounting;
 import com.ecologicalRanch.config.ApplicationContextProvider;
 import com.ecologicalRanch.project.entity.Coordinates;
 import com.ecologicalRanch.project.entity.Livestock;
+import com.ecologicalRanch.project.entity.RssiSave;
 import com.ecologicalRanch.project.service.CoordinatesService;
 import com.ecologicalRanch.project.service.GatewayService;
 import com.ecologicalRanch.project.service.LivestockService;
+import com.ecologicalRanch.project.service.MongoDBService;
 import com.ecologicalRanch.redis.entity.BluetoothRssiInfo;
 import com.ecologicalRanch.redis.service.ISaveRssiService;
 import com.ecologicalRanch.redis.utils.PointUtil;
 
 import java.awt.*;
+import java.sql.Timestamp;
 import java.util.HashMap;
 
 /**
@@ -25,6 +28,8 @@ public class CalculationThread extends Thread {
 
     private String bluetoothId;
     private HashMap<String, String> bluetoothInfo;
+    private RssiSave rssiSave;
+    private MongoDBService mongoDBService;
 
     private static Calculation datasourcePro;
     private static Kalman kalman_1 ;
@@ -34,6 +39,8 @@ public class CalculationThread extends Thread {
 
  */
     public CalculationThread(BluetoothRssiInfo bluetoothRssiInfo) {//  String bluetoothId
+        this.mongoDBService=ApplicationContextProvider.getBean(MongoDBService.class);
+        this.rssiSave=ApplicationContextProvider.getBean(RssiSave.class);
         this.datasourcePro=ApplicationContextProvider.getBean(Calculation.class);
         this.saveRssiService = ApplicationContextProvider.getBean(ISaveRssiService.class);
         this.coordinatesService = ApplicationContextProvider.getBean(CoordinatesService.class);
@@ -81,6 +88,16 @@ public class CalculationThread extends Thread {
                 livestock.setBluetoothId(bluetoothId);
                 livestockService.updateLivestockStep(livestock);
             }
+            rssiSave.setMacA(data[0]);
+            rssiSave.setMacB(data[1]);
+            rssiSave.setMacC(data[2]);
+            rssiSave.setMacAFromBlue(rssi[0]);
+            rssiSave.setMacBFromBlue(rssi[1]);
+            rssiSave.setMacCFromBlue(rssi[2]);
+            rssiSave.setBlueToothId(bluetoothId);
+            rssiSave.setPoint(point);
+            rssiSave.setTimestamp(new Timestamp(System.currentTimeMillis()));
+            mongoDBService.insertRssiDB(rssiSave);
         }
         catch (Exception e)
         {

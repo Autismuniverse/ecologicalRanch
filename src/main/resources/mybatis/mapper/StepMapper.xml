@@ -10,6 +10,13 @@
         <result column="creat_time" property="creatTime" />
     </resultMap>
 
+    <resultMap id="AppointResult" type="StepRult" >
+        <result column="livestock_id" property="livestockId" />
+        <result column="total_stp" property="totalStp" />
+        <result column="TIMESAPN" property="timeSanp" />
+    </resultMap>
+
+
     <sql id="StepResultVo">
         select
         step_num_id,livestock_id,step_num,creat_time
@@ -49,9 +56,26 @@
             <if test="livestockId != null and livestockId != 0">
                 and livestock_id = #{livestockId}
             </if>
-            and create_time between #{startTime} and #{endTime}
+            and creat_time between #{startTime} and #{endTime}
         </where>
     </select>
+
+
+
+    <select id="appoint"  resultMap="AppointResult">
+        SELECT
+        SUM( step_num ) AS total_stp,livestock_id,
+            floor(( DAY (#{endTime}) - DAY (creat_time))/ #{appoint} ) AS TIMESAPN
+        FROM
+            step_number
+        WHERE
+            livestock_id = #{livestockId}
+        and creat_time between #{startTime} and #{endTime}
+        GROUP BY TIMESAPN
+    </select>
+
+
+
 
     <insert id="insertStep" parameterType="Step" useGeneratedKeys="true">
         INSERT INTO step_number
