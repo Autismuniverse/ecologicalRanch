@@ -1,6 +1,7 @@
 package com.ecologicalRanch.project.controller;
 
 import com.ecologicalRanch.common.result.CommonResult;
+import com.ecologicalRanch.project.entity.RssiSave;
 import com.ecologicalRanch.project.entity.User;
 import com.ecologicalRanch.project.service.MongoDBService;
 import io.swagger.annotations.Api;
@@ -22,6 +23,17 @@ public class MongoDBController {
     public CommonResult MongoDB(@RequestBody User user){
         try{
             return CommonResult.success(mongoDBService.insert(user));
+        }catch (Exception e) {
+            return CommonResult.failed(e.toString());
+        }
+    }
+
+    @ApiOperation("添加一个rssi")
+    @PostMapping("/rssi")
+    @ResponseBody
+    public CommonResult MongoDB(@RequestBody RssiSave rssiSave){
+        try{
+            return CommonResult.success(mongoDBService.insertRssiDB(rssiSave));
         }catch (Exception e) {
             return CommonResult.failed(e.toString());
         }

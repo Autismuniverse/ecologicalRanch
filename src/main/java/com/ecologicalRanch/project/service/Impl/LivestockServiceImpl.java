@@ -160,7 +160,7 @@ public class LivestockServiceImpl implements LivestockService {
             for (Price p : priceList) {
                 if (s.getFieldId().equals(p.getFieldId()) && s.getType().equals(p.getType())) {
                     Discount discount = discountMapper.selectDiscountByFieldId(p.getFieldId());
-                    System.out.println("获取折扣id"+discount.getFieldId());
+//                    System.out.println("获取折扣id"+discount.getFieldId());
                     double nowDis = 1;
                         try {
                             Date dd = df.parse(s.getOutTime());
@@ -214,7 +214,7 @@ public class LivestockServiceImpl implements LivestockService {
                             .append(p.getOriginalPrice() * nowDis).append(",");
                     map.put(s.getLivestockId().toString(),p.getOriginalPrice() * nowDis);
 
-                    System.out.println(stringBuffer);
+//                    System.out.println(stringBuffer);
 
 
 

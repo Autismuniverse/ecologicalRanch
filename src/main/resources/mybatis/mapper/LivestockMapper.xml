@@ -15,6 +15,7 @@
         <result column="out_time" property="outTime" />
         <result column="status" property="status" />
         <result column="type" property="type" />
+        <result column="storage_time" property="storageTime" />
     </resultMap>
 
     <resultMap id="LivestockAndPriceResult" type="Livestock" >
@@ -29,14 +30,16 @@
         <result column="out_time" property="outTime" />
         <result column="status" property="status" />
         <result column="type" property="type" />
+        <result column="storage_time" property="storageTime" />
         <association property="price" javaType="com.ecologicalRanch.project.entity.Price">
             <result column="original_price" property="originalPrice" />
+            <result column="livestock_img" property="img" />
         </association>
     </resultMap>
 
     <sql id="LivestockResultVo">
         select
-        livestock_id,field_id,step_num,bluetooth_id,rfid_id,sex,weight,batch,out_time,status,type
+        livestock_id,field_id,step_num,bluetooth_id,rfid_id,sex,weight,batch,out_time,status,type,storage_time
         from livestock
     </sql>
 
@@ -48,8 +51,8 @@
 
     <sql id="LivestockAndOriginalPriceVo">
         select
-        l.livestock_id,l.field_id,l.step_num,l.bluetooth_id,l.rfid_id,l.sex,l.weight,l.batch,l.out_time,l.status,l.type,
-        p.original_price from livestock l,livestock_price p
+        l.livestock_id,l.field_id,l.step_num,l.bluetooth_id,l.rfid_id,l.sex,l.weight,l.batch,l.out_time,l.status,l.type,l.storage_time,
+        p.original_price,p.livestock_img from livestock l,livestock_price p
     </sql>
 
     <select id="selectLivestockAndOriginalPriceById" parameterType="String" resultMap="LivestockAndPriceResult">
@@ -110,6 +113,7 @@
             <if test="weight != null  and weight != ''">weight, </if>
             <if test="batch != null  and batch != ''">batch, </if>
             <if test="outTime != null">out_time, </if>
+            <if test="storageTime != null">storage_time, </if>
             <if test="type != null  and type != ''">type, </if>
             <if test="status != null  and status != ''">status </if>
         </trim>
@@ -123,6 +127,7 @@
             <if test="weight != null  and weight != ''">#{weight},</if>
             <if test="batch != null  and batch != ''">#{batch},</if>
             <if test="outTime != null ">#{outTime},</if>
+            <if test="storageTime != null">#{storageTime}, </if>
             <if test="type != null  and type != ''">#{type},</if>
             <if test="status != null  and status != ''">#{status}</if>
         </trim>
@@ -140,6 +145,7 @@
             <if test="weight != null  and weight != ''">weight = #{weight},</if>
             <if test="batch != null  and batch != ''">batch = #{batch},</if>
             <if test="outTime != null ">out_time = #{outTime},</if>
+            <if test="storageTime != null ">storage_time = #{storageTime},</if>
             <if test="type != null  and type != ''">type = #{type},</if>
             <if test="status != null">status = #{status}</if>
         </trim>
@@ -245,23 +251,22 @@
     where field_id = #{fieldId}  order by step_num desc
     </select>
 
-    <select id="queryOptions"  resultMap="LivestockResult">
-        <include refid="LivestockResultVo"/>
+    <select id="queryOptions"  resultMap="LivestockAndPriceResult">
+        <include refid="LivestockAndOriginalPriceVo"/>
         <if test="outTime != null and outTime.length != 0">
-        where out_time in
+        where l.out_time in
         <foreach item="item" collection="outTime" open="(" separator="," close=")">
         #{item}
         </foreach>
         </if>
-
         <if test="type != null and type.length != 0">
-        and  type in
+        and  l.type in
         <foreach item="item" collection="type" open="(" separator="," close=")">
         #{item}
         </foreach>
         </if>
-        and status = 0
-        and field_id = #{fieldId}
+        and l.status = 0
+        and l.field_id = #{fieldId}
     </select>
 
 </mapper>

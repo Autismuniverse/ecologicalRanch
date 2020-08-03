@@ -2,6 +2,8 @@ package com.ecologicalRanch.project.entity;
 
 import lombok.Data;
 
+import java.sql.Timestamp;
+
 /**
  *
  *
@@ -71,6 +73,12 @@ public class Livestock {
      */
 
     private String outTime;
+
+    /**
+     * 入笼时间
+     */
+
+    private Timestamp storageTime;
 
     /**
      * 预购状态（0，正常；1，被预定；-1，已售出）

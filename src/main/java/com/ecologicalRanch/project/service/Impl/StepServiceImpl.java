@@ -9,7 +9,6 @@ import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.sql.Timestamp;
 import java.util.List;
 
 /**
@@ -83,7 +82,7 @@ public class StepServiceImpl implements StepService {
      * 查询指定时间鸡的步数
      */
     @Override
-    public int bySpecifying(Long livestockId, Timestamp startTime, Timestamp endTime){
+    public int bySpecifying(Long livestockId, Long startTime, Long endTime){
             List<Step>  stepList= stepMapper.bySpecifying(livestockId,startTime,endTime);
             int count=0;
             for (Step s:stepList) {
@@ -94,12 +93,8 @@ public class StepServiceImpl implements StepService {
 
 
     @Override
-    public List<StepRult> appoint(StepRult stepRult){
-        Long endTime = stepRult.getEndTime().getTime();
-        Long startTime = stepRult.getStartTime().getTime();
-        Integer appoint = stepRult.getAppoint();
-        Integer livestockId =stepRult.getLivestockId();
-        return stepMapper.appoint(endTime,startTime, appoint, livestockId);
+    public List<StepRult> appoint(Long startTime,Long endTime,int appoint,Integer livestockId){
+        return stepMapper.appoint(startTime,endTime, appoint, livestockId);
     }
 
 
@@ -107,7 +102,7 @@ public class StepServiceImpl implements StepService {
      * 查询指定时间所有鸡平均的步数
      */
     @Override
-    public int average(Timestamp startTime, Timestamp endTime){
+    public int average(Long startTime, Long endTime){
         List<Step>  stepList= stepMapper.bySpecifying(null,startTime,endTime);
         int count=0;
         int aver=0;

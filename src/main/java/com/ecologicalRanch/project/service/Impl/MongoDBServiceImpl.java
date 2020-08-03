@@ -20,7 +20,7 @@ public class MongoDBServiceImpl implements MongoDBService {
 
     @Override
     public RssiSave insertRssiDB(RssiSave rssiSave){
-        return mongoTemplate.save(rssiSave);
+        return mongoTemplate.save(rssiSave,"Rssi" );
     }
 
 }

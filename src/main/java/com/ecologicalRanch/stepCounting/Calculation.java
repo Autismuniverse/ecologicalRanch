@@ -14,6 +14,4 @@ public class Calculation {
     private int Error;
     private double Varianc;
     private double NoiseVariance;
-
-
 }

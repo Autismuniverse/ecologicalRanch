@@ -64,5 +64,9 @@ public class Field {
 
     private String style;
 
+    /**
+     * 继承admin
+     */
+    private String consumerHotline;
 
 }

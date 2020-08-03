@@ -33,7 +33,7 @@ public class Days {
                 }
                 return timeDistance + (day2 - day1);
             } else {
-                System.out.println("判断day2 - day1 : " + (day2 - day1));
+//                System.out.println("判断day2 - day1 : " + (day2 - day1));
                 return day2 - day1 + 1;
             }
         } catch (Exception ex) {

@@ -12,11 +12,12 @@
         <result column="grade" property="grade" />
         <result column="logo_Src" property="logoSrc" />
         <result column="style_class" property="styleClass" />
+        <result column="consumer_hotline" property="consumerHotline"/>
     </resultMap>
 
     <sql id="FieldResultVo">
         select
-        field_id,admin_id,field_name,address,qualified,grade,logo_Src,style_class
+        field_id,admin_id,field_name,address,qualified,grade,logo_Src,style_class,consumer_hotline
          from field
     </sql>
 
@@ -29,8 +30,6 @@
         <include refid="FieldResultVo" />
         WHERE admin_id = #{adminId}
     </select>
-
-
 
     <select id="selectFieldList" parameterType="Field" resultMap="FieldResult">
         <include refid="FieldResultVo"/>
@@ -57,6 +56,7 @@
             <if test="qualified != null  and qualified != ''">qualified, </if>
             <if test="grade != null  and grade != ''">grade, </if>
             <if test="logoSrc != null  and logoSrc != ''">logo_Src, </if>
+            <if test="consumerHotline != null  and consumerHotline != ''">consumer_hotline, </if>
             <if test="styleClass != null  and styleClass != ''">style_class </if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -67,6 +67,7 @@
             <if test="qualified != null  and qualified != ''">#{qualified},</if>
             <if test="grade != null  and grade != ''">#{grade},</if>
             <if test="logoSrc != null  and logoSrc != ''">#{logoSrc},</if>
+            <if test="consumerHotline != null  and consumerHotline != ''">#{consumer_hotline}, </if>
             <if test="styleClass != null  and styleClass != ''">#{styleClass}</if>
         </trim>
     </insert>
@@ -80,6 +81,7 @@
             <if test="address != null  and address != ''">address = #{address},</if>
             <if test="qualified != null  and qualified != ''">qualified = #{qualified},</if>
             <if test="grade != null  and grade != ''">grade = #{grade},</if>
+            <if test="consumerHotline != null  and consumerHotline != ''">consumer_hotline = #{consumerHotline}, </if>
             <if test="logoSrc != null  and logoSrc != ''">logo_Src = #{logoSrc},</if>
             <if test="styleClass != null  and styleClass != ''">style_class = #{styleClass},</if>
         </trim>

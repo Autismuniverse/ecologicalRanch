@@ -19,16 +19,15 @@ import java.util.HashMap;
 /**
  * 用于计算的线程
  */
+
 public class CalculationThread extends Thread {
 
     private ISaveRssiService saveRssiService;
     private CoordinatesService coordinatesService;
     private GatewayService gatewayService;
     private LivestockService livestockService;
-
     private String bluetoothId;
     private HashMap<String, String> bluetoothInfo;
-    private RssiSave rssiSave;
     private MongoDBService mongoDBService;
 
     private static Calculation datasourcePro;
@@ -40,7 +39,6 @@ public class CalculationThread extends Thread {
  */
     public CalculationThread(BluetoothRssiInfo bluetoothRssiInfo) {//  String bluetoothId
         this.mongoDBService=ApplicationContextProvider.getBean(MongoDBService.class);
-        this.rssiSave=ApplicationContextProvider.getBean(RssiSave.class);
         this.datasourcePro=ApplicationContextProvider.getBean(Calculation.class);
         this.saveRssiService = ApplicationContextProvider.getBean(ISaveRssiService.class);
         this.coordinatesService = ApplicationContextProvider.getBean(CoordinatesService.class);
@@ -88,6 +86,8 @@ public class CalculationThread extends Thread {
                 livestock.setBluetoothId(bluetoothId);
                 livestockService.updateLivestockStep(livestock);
             }
+
+            RssiSave rssiSave = new RssiSave();
             rssiSave.setMacA(data[0]);
             rssiSave.setMacB(data[1]);
             rssiSave.setMacC(data[2]);

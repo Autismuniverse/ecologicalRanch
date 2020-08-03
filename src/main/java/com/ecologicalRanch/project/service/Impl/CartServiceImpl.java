@@ -43,7 +43,7 @@ public class CartServiceImpl implements CartService {
 
     @Override
     public List<Cart> selectUserCart(Integer userId){
-        System.out.println(userId);
+//        System.out.println(userId);
         return cartMapper.selectUserCart(userId);
     }
 
@@ -52,8 +52,8 @@ public class CartServiceImpl implements CartService {
      */
     @Override
     public int insertCart(Cart cart) {
-        System.out.println(cart);
-        System.out.println(cartMapper.selectCartList(cart));
+//        System.out.println(cart);
+//        System.out.println(cartMapper.selectCartList(cart));
         if (cartMapper.selectCartList(cart).toArray().length == 0)
         {
             System.out.println(cart);

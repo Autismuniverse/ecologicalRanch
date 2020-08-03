@@ -3,7 +3,6 @@ package com.ecologicalRanch.project.mapper;
 import com.ecologicalRanch.project.entity.Step;
 import com.ecologicalRanch.project.entity.StepRult;
 
-import java.sql.Timestamp;
 import java.util.List;
 
 /**
@@ -47,14 +46,14 @@ public interface StepMapper {
      * 查询指定时间某只鸡的数据列表
      * @return
      */
-    List<Step> bySpecifying(Long livestockId, Timestamp startTime,Timestamp endTime);
+    List<Step> bySpecifying(Long livestockId, Long startTime,Long endTime);
 
 
     /**
      * 按照格式查询指定时间某只鸡的数据列表
      * @return
      */
-    List<StepRult> appoint(Long endTime,Long startTime,Integer appoint,Integer livestockId);
+    List<StepRult> appoint(Long startTime,Long endTime,Integer appoint,Integer livestockId);
 
 
     /**
