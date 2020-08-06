@@ -6,6 +6,7 @@ import com.ecologicalRanch.project.entity.Camera;
 import com.ecologicalRanch.project.service.CameraService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.annotation.Validated;
@@ -20,6 +21,7 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 @RequestMapping("/app/camera")
 @Validated
+@Slf4j
 public class CameraController {
 
     @Autowired
@@ -37,6 +39,7 @@ public class CameraController {
         try {
             return CommonResult.success(CommonPage.restPage(cameraService.selectCameraList(camera, pageNum, pageSize)));
         } catch (Exception e) {
+            log.error(e.getMessage());
             return CommonResult.failed(e.toString());
         }
     }
@@ -51,6 +54,7 @@ public class CameraController {
         try {
             return CommonResult.success(CommonPage.restPage(cameraService.selectCameraListNoPageHelper(camera)));
         } catch (Exception e) {
+            log.error(e.getMessage());
             return CommonResult.failed(e.toString());
         }
     }
@@ -67,6 +71,7 @@ public class CameraController {
         try {
             return CommonResult.success(cameraService.selectCameraById(cameraId));
         } catch (Exception e) {
+            log.error(e.getMessage());
             return CommonResult.failed(e.toString());
         }
     }
@@ -81,6 +86,7 @@ public class CameraController {
         try {
             return CommonResult.success(cameraService.insertCamera(camera));
         } catch (Exception e) {
+            log.error(e.getMessage());
             return CommonResult.failed(e.toString());
         }
     }
@@ -95,6 +101,7 @@ public class CameraController {
         try {
             return CommonResult.success(cameraService.updateCamera(camera));
         } catch (Exception e) {
+            log.error(e.getMessage());
             return CommonResult.failed(e.toString());
         }
     }
@@ -109,6 +116,7 @@ public class CameraController {
         try {
             return CommonResult.success(cameraService.deleteCameraById(cameraId));
         } catch (Exception e) {
+            log.error(e.getMessage());
             return CommonResult.failed(e.toString());
         }
     }
@@ -123,6 +131,7 @@ public class CameraController {
         try {
             return CommonResult.success(cameraService.deleteCameraByIds(cameraIds));
         } catch (Exception e) {
+            log.error(e.getMessage());
             return CommonResult.failed(e.toString());
         }
     }

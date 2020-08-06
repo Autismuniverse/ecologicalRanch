@@ -6,6 +6,7 @@ import com.ecologicalRanch.project.service.AdminService;
 import com.ecologicalRanch.stepCounting.Mqtt;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/admin")
 //@CrossOrigin
+@Slf4j
 public class AdminController {
 
     @Autowired
@@ -44,6 +46,7 @@ public class AdminController {
             return CommonResult.success((adminService.selectById(adminId)));
         }
         catch (Exception e){
+            log.error(e.getMessage());
             return CommonResult.failed(e.toString());
         }
     }
@@ -74,6 +77,7 @@ public class AdminController {
             return CommonResult.success(adminService.insertAdmin(admin));
         }
         catch (Exception e){
+            log.error(e.getMessage());
             return CommonResult.failed(e.toString());
         }
     }

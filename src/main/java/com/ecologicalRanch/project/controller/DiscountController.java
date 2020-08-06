@@ -5,6 +5,7 @@ import com.ecologicalRanch.project.result.CommonResult;
 import com.ecologicalRanch.project.service.DiscountService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.annotation.Validated;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.*;
 @Api(tags = "折扣")
 @Controller
 @RequestMapping("/app/discount")
+@Slf4j
 public class DiscountController {
 
     @Autowired
@@ -32,6 +34,7 @@ public class DiscountController {
         try {
             return CommonResult.success(discountService.selectDiscountList(discount));
         } catch (Exception e) {
+            log.error(e.getMessage());
             return CommonResult.failed(e.toString());
         }
     }
@@ -46,6 +49,7 @@ public class DiscountController {
         try {
             return CommonResult.success(discountService.selectDiscountById(predeterminedDiscountId));
         } catch (Exception e) {
+            log.error(e.getMessage());
             return CommonResult.failed(e.toString());
         }
     }
@@ -60,6 +64,7 @@ public class DiscountController {
         try {
             return CommonResult.success(discountService.insertDiscount(discount));
         } catch (Exception e) {
+            log.error(e.getMessage());
             return CommonResult.failed(e.toString());
         }
     }
@@ -74,6 +79,7 @@ public class DiscountController {
         try {
             return CommonResult.success(discountService.updateDiscount(discount));
         } catch (Exception e) {
+            log.error(e.getMessage());
             return CommonResult.failed(e.toString());
         }
     }
@@ -88,6 +94,7 @@ public class DiscountController {
         try {
             return CommonResult.success(discountService.deleteDiscountById(predeterminedDiscountId));
         } catch (Exception e) {
+            log.error(e.getMessage());
             return CommonResult.failed(e.toString());
         }
     }
@@ -102,6 +109,7 @@ public class DiscountController {
         try {
             return CommonResult.success(discountService.deleteDiscountByIds(predeterminedDiscountIds));
         } catch (Exception e) {
+            log.error(e.getMessage());
             return CommonResult.failed(e.toString());
         }
     }

@@ -6,6 +6,7 @@ import com.ecologicalRanch.project.result.CommonResult;
 import com.ecologicalRanch.project.service.LocaltioninfoService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.*;
 @Api(tags = "位置信息")
 @Controller
 @RequestMapping("/app/localtioninfo")
+@Slf4j
 public class LocaltioninfoController {
 
     @Autowired
@@ -37,6 +39,7 @@ public class LocaltioninfoController {
         try{
             return CommonResult.success(CommonPage.restPage(localtioninfoService.selectLocaltioninfoList(localtioninfo,pageNum,pageSize)));
         }catch (Exception e) {
+            log.error(e.getMessage());
             return CommonResult.failed(e.toString());
         }
     }
@@ -51,6 +54,7 @@ public class LocaltioninfoController {
         try{
             return CommonResult.success(localtioninfoService.selectLocaltioninfoById(bluetoothId));
         }catch (Exception e) {
+            log.error(e.getMessage());
             return CommonResult.failed(e.toString());
         }
     }
@@ -65,6 +69,7 @@ public class LocaltioninfoController {
         try{
             return CommonResult.success(localtioninfoService.insertLocaltioninfo(localtioninfo));
         }catch (Exception e) {
+            log.error(e.getMessage());
             return CommonResult.failed(e.toString());
         }
     }
@@ -79,6 +84,7 @@ public class LocaltioninfoController {
         try{
             return CommonResult.success(localtioninfoService.updateLocaltioninfo(localtioninfo));
         }catch (Exception e) {
+            log.error(e.getMessage());
             return CommonResult.failed(e.toString());
         }
     }
@@ -93,6 +99,7 @@ public class LocaltioninfoController {
         try{
             return CommonResult.success(localtioninfoService.deleteLocaltioninfoById(bluetoothId));
         }catch (Exception e) {
+            log.error(e.getMessage());
             return CommonResult.failed(e.toString());
         }
     }
@@ -107,6 +114,7 @@ public class LocaltioninfoController {
         try{
             return CommonResult.success(localtioninfoService.deleteLocaltioninfoByIds(bluetoothIds));
         }catch (Exception e) {
+            log.error(e.getMessage());
             return CommonResult.failed(e.toString());
         }
     }

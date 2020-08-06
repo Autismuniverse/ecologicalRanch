@@ -6,6 +6,7 @@ import com.ecologicalRanch.project.entity.Price;
 import com.ecologicalRanch.project.service.PriceService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.annotation.Validated;
@@ -20,6 +21,7 @@ import org.springframework.web.bind.annotation.*;
 @Api(tags = "价格与品种")
 @Controller
 @RequestMapping("/app/price")
+@Slf4j
 public class PriceController {
 
     @Autowired
@@ -37,6 +39,7 @@ public class PriceController {
         try{
             return CommonResult.success(CommonPage.restPage(priceService.selectPriceList(price,pageNum,pageSize)));
         }catch (Exception e) {
+            log.error(e.getMessage());
             return CommonResult.failed(e.toString());
         }
     }
@@ -51,6 +54,7 @@ public class PriceController {
         try{
             return CommonResult.success(priceService.selectPriceListNoPageHelper(price));
         }catch (Exception e) {
+            log.error(e.getMessage());
             return CommonResult.failed(e.toString());
         }
     }
@@ -65,6 +69,7 @@ public class PriceController {
         try{
             return CommonResult.success(priceService.selectPriceById(livestockPriceId));
         }catch (Exception e) {
+            log.error(e.getMessage());
             return CommonResult.failed(e.toString());
         }
     }
@@ -79,6 +84,7 @@ public class PriceController {
         try{
             return CommonResult.success(priceService.insertPrice(price));
         }catch (Exception e) {
+            log.error(e.getMessage());
             return CommonResult.failed(e.toString());
         }
     }
@@ -93,6 +99,7 @@ public class PriceController {
         try{
             return CommonResult.success(priceService.updatePrice(price));
         }catch (Exception e) {
+            log.error(e.getMessage());
             return CommonResult.failed(e.toString());
         }
     }
@@ -107,6 +114,7 @@ public class PriceController {
         try{
             return CommonResult.success(priceService.deletePriceById(price.getLivestockPriceId()));
         }catch (Exception e) {
+            log.error(e.getMessage());
             return CommonResult.failed(e.toString());
         }
     }
@@ -121,6 +129,7 @@ public class PriceController {
         try{
             return CommonResult.success(priceService.deletePriceByIds(livestockPriceIds));
         }catch (Exception e) {
+            log.error(e.getMessage());
             return CommonResult.failed(e.toString());
         }
     }
@@ -134,6 +143,7 @@ public class PriceController {
         try{
             return CommonResult.success(priceService.selectPriceListNoPageHelperOneType(price));
         }catch (Exception e) {
+            log.error(e.getMessage());
             return CommonResult.failed(e.toString());
         }
     }

@@ -6,6 +6,7 @@ import com.ecologicalRanch.project.entity.Address;
 import com.ecologicalRanch.project.service.AddressService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.annotation.Validated;
@@ -22,6 +23,7 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 @RequestMapping("/app/address")
 @Validated
+@Slf4j
 public class AddressController {
 
 
@@ -59,9 +61,11 @@ public class AddressController {
                                           @RequestParam(value = "pageNum",defaultValue = "1",required = false) int pageNum,
                                           @RequestParam(value = "pageSize",defaultValue = "10",required = false)int pageSize){
         try{
+
             return CommonResult.success(CommonPage.restPage(addressService.selectAddressList(address,pageNum,pageSize)));
         }
         catch (Exception e){
+            log.error(e.getMessage());
             return CommonResult.failed(e.toString());
         }
     }
@@ -75,6 +79,7 @@ public class AddressController {
     public CommonResult selectAddressById(@RequestBody Address address){
         try{return CommonResult.success(addressService.selectAddressById(address.getAddressId()));}
         catch (Exception e){
+            log.error(e.getMessage());
             return CommonResult.failed(e.toString());
         }
     }
@@ -90,6 +95,7 @@ public class AddressController {
     public CommonResult insertAddress(@RequestBody @Validated Address address){
         try{return CommonResult.success(addressService.insertAddress(address));}
         catch (Exception e){
+            log.error(e.getMessage());
             return CommonResult.failed(e.toString());
         }
     }
@@ -103,6 +109,7 @@ public class AddressController {
     public CommonResult updateAddress(@RequestBody Address address){
         try{return CommonResult.success(addressService.updateAddress(address));}
         catch (Exception e){
+            log.error(e.getMessage());
             return CommonResult.failed(e.toString());
         }
     }
@@ -116,6 +123,7 @@ public class AddressController {
     public CommonResult deleteAddressById(Long addressId){
         try{return CommonResult.success(addressService.deleteAddressById(addressId));}
         catch (Exception e){
+            log.error(e.getMessage());
             return CommonResult.failed(e.toString());
         }
     }
@@ -129,6 +137,7 @@ public class AddressController {
     public CommonResult deleteAddressByIds(@RequestBody String addressIds){
         try{return CommonResult.success(addressService.deleteAddressByIds(addressIds));}
         catch (Exception e){
+            log.error(e.getMessage());
             return CommonResult.failed(e.toString());
         }
     }
@@ -146,7 +155,7 @@ public class AddressController {
         }
         return CommonResult.success(addressService.selectDefaultAddressByUserId(address));}
         catch (Exception e){
-
+            log.error(e.getMessage());
             return CommonResult.failed(e.toString());
         }
     }

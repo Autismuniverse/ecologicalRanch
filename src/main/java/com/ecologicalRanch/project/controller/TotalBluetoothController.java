@@ -7,6 +7,7 @@ import com.ecologicalRanch.project.entity.TotalBluetooth;
 import com.ecologicalRanch.project.service.TotalBluetoothService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -20,6 +21,7 @@ import org.springframework.web.bind.annotation.*;
 @Api(tags = "查询入库设备mac地址")
 @Controller
 @RequestMapping("/app/totalBluetooth")
+@Slf4j
 public class TotalBluetoothController {
 
     @Autowired
@@ -37,6 +39,7 @@ public class TotalBluetoothController {
         try{
             return CommonResult.success(CommonPage.restPage(totalBluetoothService.selectTotalBluetoothList(totalBluetooth,pageNum,pageSize)));
         }catch (Exception e) {
+            log.error(e.getMessage());
             return CommonResult.failed(e.toString());
         }
     }

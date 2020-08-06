@@ -6,6 +6,7 @@ import com.ecologicalRanch.common.result.CommonResult;
 import com.ecologicalRanch.project.entity.Comment;
 import com.ecologicalRanch.project.service.CommentService;
 import io.swagger.annotations.ApiOperation;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -19,6 +20,7 @@ import javax.validation.constraints.NotNull;
  */
 @Controller
 @RequestMapping("/app/comment")
+@Slf4j
 public class CommentController {
 
     @Autowired
@@ -38,6 +40,7 @@ public class CommentController {
         try {
             return CommonResult.success(CommonPage.restPage(commentService.selectCommentList(comment, pageNum, pageSize)));
         } catch (Exception e) {
+            log.error(e.getMessage());
             return CommonResult.failed(e.toString());
         }
     }
@@ -53,6 +56,7 @@ public class CommentController {
         try {
             return CommonResult.success(commentService.selectCommentUserByFieldId(fieldId));
         } catch (Exception e) {
+            log.error(e.getMessage());
             return CommonResult.failed(e.getMessage());
         }
     }
@@ -67,6 +71,7 @@ public class CommentController {
         try {
             return CommonResult.success(commentService.selectCommentById(commentId));
         } catch (Exception e) {
+            log.error(e.getMessage());
             return CommonResult.failed(e.getMessage());
         }
     }
@@ -81,6 +86,7 @@ public class CommentController {
         try {
             return CommonResult.success(commentService.insertComment(comment));
         } catch (Exception e) {
+            log.error(e.getMessage());
             return CommonResult.failed(e.getMessage());
         }
     }
@@ -95,6 +101,7 @@ public class CommentController {
         try {
             return CommonResult.success(commentService.updateComment(comment));
         } catch (Exception e) {
+            log.error(e.getMessage());
             return CommonResult.failed(e.getMessage());
         }
     }
@@ -109,6 +116,7 @@ public class CommentController {
         try {
             return CommonResult.success(commentService.deleteCommentById(commentId));
         } catch (Exception e) {
+            log.error(e.getMessage());
             return CommonResult.failed(e.getMessage());
         }
     }
@@ -123,6 +131,7 @@ public class CommentController {
         try {
             return CommonResult.success(commentService.deleteCommentByIds(commentIds));
         } catch (Exception e) {
+            log.error(e.getMessage());
             return CommonResult.failed(e.getMessage());
         }
     }

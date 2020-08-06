@@ -5,6 +5,7 @@ import com.ecologicalRanch.project.result.CommonResult;
 import com.ecologicalRanch.project.service.UserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -24,6 +25,7 @@ import org.springframework.web.bind.annotation.*;
 @Api(tags = "用户")
 @Controller
 @RequestMapping("/app/user")
+@Slf4j
 public class UserController {
 
     @Autowired
@@ -62,6 +64,7 @@ public class UserController {
         try{
             return CommonResult.success(userService.selectUserById(userId));
         }catch (Exception e) {
+            log.error(e.getMessage());
             return CommonResult.failed(e.toString());
         }
     }
@@ -76,6 +79,7 @@ public class UserController {
         try{
             return CommonResult.success(userService.insertUser(user));
         }catch (Exception e) {
+            log.error(e.getMessage());
             return CommonResult.failed(e.toString());
         }
     }
@@ -90,6 +94,7 @@ public class UserController {
         try{
             return CommonResult.success(userService.updateUser(user));
         }catch (Exception e) {
+            log.error(e.getMessage());
             return CommonResult.failed(e.toString());
         }
     }
@@ -104,6 +109,7 @@ public class UserController {
         try{
             return CommonResult.success(userService.deleteUserById(userId));
         }catch (Exception e) {
+            log.error(e.getMessage());
             return CommonResult.failed(e.toString());
         }
     }
@@ -118,6 +124,7 @@ public class UserController {
         try{
             return CommonResult.success(userService.deleteUserByIds(userIds));
         }catch (Exception e) {
+            log.error(e.getMessage());
             return CommonResult.failed(e.toString());
         }
     }

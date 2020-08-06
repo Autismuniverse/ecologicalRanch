@@ -7,20 +7,20 @@ import com.ecologicalRanch.project.service.LivestockService;
 import com.ecologicalRanch.project.service.PriceService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 /**
- *
- *
  * @author u-fun
  * @date '2019-12-31 15:23:10'
  */
 @Api(tags = "牲畜")
 @Controller
 @RequestMapping("/app/livestock")
+@Slf4j
 public class LivestockController {
 
     @Autowired
@@ -35,11 +35,12 @@ public class LivestockController {
     @PostMapping("/selectLivestockList")
     @ResponseBody
     public CommonResult selectLivestockList(@RequestBody @Validated Livestock livestock,
-                                            @RequestParam(value = "pageNum",defaultValue = "1",required = false) int pageNum,
-                                            @RequestParam(value = "pageSize",defaultValue = "10",required = false)int pageSize){
-        try{
-            return CommonResult.success(CommonPage.restPage(livestockService.selectLivestockList(livestock,pageNum,pageSize)));
-        }catch (Exception e) {
+                                            @RequestParam(value = "pageNum", defaultValue = "1", required = false) int pageNum,
+                                            @RequestParam(value = "pageSize", defaultValue = "10", required = false) int pageSize) {
+        try {
+            return CommonResult.success(CommonPage.restPage(livestockService.selectLivestockList(livestock, pageNum, pageSize)));
+        } catch (Exception e) {
+            log.error(e.getMessage());
             return CommonResult.failed(e.toString());
         }
     }
@@ -51,10 +52,11 @@ public class LivestockController {
 
     @GetMapping("/selectLivestockById/{livestockId}")
     @ResponseBody
-    public CommonResult selectLivestockById(@PathVariable("livestockId") Long livestockId){
-        try{
+    public CommonResult selectLivestockById(@PathVariable("livestockId") Long livestockId) {
+        try {
             return CommonResult.success(livestockService.selectLivestockById(livestockId));
-        }catch (Exception e) {
+        } catch (Exception e) {
+            log.error(e.getMessage());
             return CommonResult.failed(e.toString());
         }
     }
@@ -66,10 +68,11 @@ public class LivestockController {
     @ApiOperation(" 查询Livestock列表无分页")
     @PostMapping("/selectLivestockListNoPageHelper")
     @ResponseBody
-    public CommonResult selectLivestockList(@RequestBody @Validated Livestock livestock){
-        try{
+    public CommonResult selectLivestockList(@RequestBody @Validated Livestock livestock) {
+        try {
             return CommonResult.success(livestockService.selectLivestockListNoPageHelper(livestock));
-        }catch (Exception e) {
+        } catch (Exception e) {
+            log.error(e.getMessage());
             return CommonResult.failed(e.toString());
         }
     }
@@ -80,10 +83,11 @@ public class LivestockController {
     @ApiOperation("新增Livestock")
     @PostMapping("/insertLivestock")
     @ResponseBody
-    public CommonResult insertLivestock(@RequestBody @Validated Livestock livestock){
-        try{
-            return CommonResult.success(livestockService.insertLivestock(livestock));}
-        catch (Exception e){
+    public CommonResult insertLivestock(@RequestBody @Validated Livestock livestock) {
+        try {
+            return CommonResult.success(livestockService.insertLivestock(livestock));
+        } catch (Exception e) {
+            log.error(e.getMessage());
             return CommonResult.failed("请检查是否数据输入错误");
         }
     }
@@ -94,10 +98,11 @@ public class LivestockController {
     @ApiOperation("修改Livestock信息")
     @PostMapping("/updateLivestock")
     @ResponseBody
-    public CommonResult updateLivestock(@RequestBody @Validated Livestock livestock){
-        try{
+    public CommonResult updateLivestock(@RequestBody @Validated Livestock livestock) {
+        try {
             return CommonResult.success(livestockService.updateLivestock(livestock));
-        }catch (Exception e) {
+        } catch (Exception e) {
+            log.error(e.getMessage());
             return CommonResult.failed(e.toString());
         }
     }
@@ -108,10 +113,11 @@ public class LivestockController {
     @ApiOperation("通过id删除Livestock")
     @PostMapping("/deleteLivestockById/{livestockId}")
     @ResponseBody
-    public CommonResult deleteLivestockById(@PathVariable("livestockId") Long livestockId){
-        try{
+    public CommonResult deleteLivestockById(@PathVariable("livestockId") Long livestockId) {
+        try {
             return CommonResult.success(livestockService.deleteLivestockById(livestockId));
-        }catch (Exception e) {
+        } catch (Exception e) {
+            log.error(e.getMessage());
             return CommonResult.failed(e.toString());
         }
     }
@@ -122,10 +128,11 @@ public class LivestockController {
     @ApiOperation("通过id批量删除Livestock")
     @GetMapping("/deleteList")
     @ResponseBody
-    public CommonResult deleteLivestockByIds(String livestockIds){
-        try{
+    public CommonResult deleteLivestockByIds(String livestockIds) {
+        try {
             return CommonResult.success(livestockService.deleteLivestockByIds(livestockIds));
-        }catch (Exception e) {
+        } catch (Exception e) {
+            log.error(e.getMessage());
             return CommonResult.failed(e.toString());
         }
     }
@@ -137,12 +144,13 @@ public class LivestockController {
     @PostMapping("/fuzzyLivestockList")
     @ResponseBody
     public CommonResult fuzzyLivestockList(@RequestBody Livestock livestock,
-                                           @RequestParam(value = "pageNum",defaultValue = "1",required = false) int pageNum,
-                                           @RequestParam(value = "pageSize",defaultValue = "10",required = false)int pageSize){
+                                           @RequestParam(value = "pageNum", defaultValue = "1", required = false) int pageNum,
+                                           @RequestParam(value = "pageSize", defaultValue = "10", required = false) int pageSize) {
 
-        try{
-            return CommonResult.success(CommonPage.restPage(livestockService.fuzzyLivestockList(livestock,pageNum,pageSize)));
-        }catch (Exception e) {
+        try {
+            return CommonResult.success(CommonPage.restPage(livestockService.fuzzyLivestockList(livestock, pageNum, pageSize)));
+        } catch (Exception e) {
+            log.error(e.getMessage());
             return CommonResult.failed(e.toString());
         }
 
@@ -166,10 +174,11 @@ public class LivestockController {
     @ApiOperation(" 查询Livestock出售时间去重")
     @PostMapping("/selectOutTime")
     @ResponseBody
-    public CommonResult selectOutTime(@RequestBody Livestock livestock){
-        try{
+    public CommonResult selectOutTime(@RequestBody Livestock livestock) {
+        try {
             return CommonResult.success(livestockService.selectOutTime(livestock));
-        }catch (Exception e) {
+        } catch (Exception e) {
+            log.error(e.getMessage());
             return CommonResult.failed(e.toString());
         }
     }
@@ -180,10 +189,11 @@ public class LivestockController {
     @ApiOperation("通过Ids查询Livestock列表")
     @GetMapping("/selectLivestockListByIds/{livestockIds}")
     @ResponseBody
-    public CommonResult selectLivestockById(@PathVariable String livestockIds){
-        try{
+    public CommonResult selectLivestockById(@PathVariable String livestockIds) {
+        try {
             return CommonResult.success(livestockService.selectLivestockListByIds(livestockIds));
-        }catch (Exception e) {
+        } catch (Exception e) {
+            log.error(e.getMessage());
             return CommonResult.failed(e.toString());
         }
     }
@@ -194,9 +204,9 @@ public class LivestockController {
     @ApiOperation("通过LivestockIds查询Livestock价格列表")
     @GetMapping("/selectLivestockPriceByIds/{livestockIds}")
     @ResponseBody
-    public CommonResult selectLivestockPrice(@PathVariable String livestockIds){
+    public CommonResult selectLivestockPrice(@PathVariable String livestockIds) {
 
-            return CommonResult.success(livestockService.selectLivestockPrice(livestockIds));
+        return CommonResult.success(livestockService.selectLivestockPrice(livestockIds));
 
     }
 
@@ -204,10 +214,11 @@ public class LivestockController {
     @ApiOperation("根据养殖场id查询Livestock步数排名列表")
     @GetMapping("/selectLivestockListRank/{fieldId}")
     @ResponseBody
-    public CommonResult selectLivestockListRank(@PathVariable Long fieldId){
-        try{
+    public CommonResult selectLivestockListRank(@PathVariable Long fieldId) {
+        try {
             return CommonResult.success(livestockService.selectLivestockListRank(fieldId));
-        }catch (Exception e) {
+        } catch (Exception e) {
+            log.error(e.getMessage());
             return CommonResult.failed(e.toString());
         }
     }
@@ -219,10 +230,11 @@ public class LivestockController {
     @ApiOperation("通过Ids查询Livestock列表")
     @PostMapping("/queryOptions")
     @ResponseBody
-    public CommonResult queryOptions(String outTimes,String types,Integer fieldId){
-        try{
-            return CommonResult.success(livestockService.queryOptions(outTimes,types,fieldId));
-        }catch (Exception e) {
+    public CommonResult queryOptions(String outTimes, String types, Integer fieldId) {
+        try {
+            return CommonResult.success(livestockService.queryOptions(outTimes, types, fieldId));
+        } catch (Exception e) {
+            log.error(e.getMessage());
             return CommonResult.failed(e.toString());
         }
     }
@@ -233,14 +245,14 @@ public class LivestockController {
     @ApiOperation("通过Ids查询Livestock以及原始price列表")
     @PostMapping("/selectLivestockAndOriginalPriceById")
     @ResponseBody
-    public CommonResult selectLivestockAndOriginalPriceById(String livestockIds,Long fieldId){
-        try{
-            return CommonResult.success(livestockService.selectLivestockAndOriginalPriceById(livestockIds,fieldId));
-        }catch (Exception e) {
+    public CommonResult selectLivestockAndOriginalPriceById(String livestockIds, Long fieldId) {
+        try {
+            return CommonResult.success(livestockService.selectLivestockAndOriginalPriceById(livestockIds, fieldId));
+        } catch (Exception e) {
+            log.error(e.getMessage());
             return CommonResult.failed(e.toString());
         }
     }
-
 
 
 }

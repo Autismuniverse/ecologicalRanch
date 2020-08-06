@@ -6,6 +6,7 @@ import com.ecologicalRanch.project.entity.Follow;
 import com.ecologicalRanch.project.service.FollowService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -21,6 +22,7 @@ import org.springframework.web.bind.annotation.*;
 @Api(tags = "关注")
 @Controller
 @RequestMapping("/app/follow")
+@Slf4j
 public class FollowController {
 
     @Autowired
@@ -38,6 +40,7 @@ public class FollowController {
         try{
             return CommonResult.success(CommonPage.restPage(followService.selectFollowList(follow,pageNum,pageSize)));
         }catch (Exception e) {
+            log.error(e.getMessage());
             return CommonResult.failed(e.toString());
         }
     }
@@ -53,6 +56,7 @@ public class FollowController {
         try{
             return CommonResult.success(followService.insertFollow(follow));
         }catch (Exception e) {
+            log.error(e.getMessage());
             return CommonResult.failed(e.toString());
         }
     }
@@ -69,6 +73,7 @@ public class FollowController {
         try{
             return CommonResult.success(followService.deleteFollow(follow));
         }catch (Exception e) {
+            log.error(e.getMessage());
             return CommonResult.failed(e.toString());
         }
     }
@@ -83,6 +88,7 @@ public class FollowController {
         try{
             return CommonResult.success(followService.deleteFollowByIds(userIds));
         }catch (Exception e) {
+            log.error(e.getMessage());
             return CommonResult.failed(e.toString());
         }
     }

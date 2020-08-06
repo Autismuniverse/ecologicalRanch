@@ -29,13 +29,7 @@ public class ProgramStart {
 		if(state) {
 //			System.out.println("执行线程");
 			pool.execute(new CalculationThread(bluetoothRssiInfo));
-			Thread thread=new Thread(new Runnable() {
-				@Override
-				public void run() {
 
-				}
-			});
-			thread.start();
 
 		}
 	}

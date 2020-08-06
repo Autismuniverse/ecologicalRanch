@@ -11,6 +11,7 @@ import com.ecologicalRanch.project.service.MongoDBService;
 import com.ecologicalRanch.redis.entity.BluetoothRssiInfo;
 import com.ecologicalRanch.redis.service.ISaveRssiService;
 import com.ecologicalRanch.redis.utils.PointUtil;
+import lombok.extern.slf4j.Slf4j;
 
 import java.awt.*;
 import java.sql.Timestamp;
@@ -19,6 +20,7 @@ import java.util.HashMap;
 /**
  * 用于计算的线程
  */
+@Slf4j
 
 public class CalculationThread extends Thread {
 
@@ -77,7 +79,7 @@ public class CalculationThread extends Thread {
             coordinates.setCoordinateX(point.x);
             coordinates.setCoordinateY(point.y);
             coordinates.setBluetoothId(bluetoothId);
-            System.out.println(bluetoothId+"计算结果："+point.x+","+point.y);
+//            System.out.println(bluetoothId+"计算结果："+point.x+","+point.y);
             coordinatesService.updateCoordinates(coordinates);
             int Steps = (int) count_distance(point, po) / 5;
             if(Steps>datasourcePro.getError()) {
@@ -101,7 +103,8 @@ public class CalculationThread extends Thread {
         }
         catch (Exception e)
         {
-            System.out.println("计算出错"+e.getMessage());
+            log.error(e.getMessage());
+//            System.out.println("计算出错"+e.getMessage());
         }
     }
 

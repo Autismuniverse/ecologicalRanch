@@ -7,6 +7,7 @@ import com.ecologicalRanch.project.entity.Carousel;
 import com.ecologicalRanch.project.service.CarouselService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.*;
 @Api(tags = "轮播图")
 @Controller
 @RequestMapping("/app/carousel")
+@Slf4j
 public class CarouselController {
 
     @Autowired
@@ -35,6 +37,7 @@ public class CarouselController {
         try {
             return CommonResult.success(CommonPage.restPage(carouselService.selectCarouselList(carousel, pageNum, pageSize)));
         } catch (Exception e) {
+            log.error(e.getMessage());
             return CommonResult.failed(e.toString());
         }
     }
@@ -49,6 +52,7 @@ public class CarouselController {
         try {
             return CommonResult.success(carouselService.selectCarouselById(carousel.getCarouselId()));
         } catch (Exception e) {
+            log.error(e.getMessage());
             return CommonResult.failed(e.toString());
         }
     }
@@ -63,6 +67,7 @@ public class CarouselController {
         try {
             return CommonResult.success(carouselService.insertCarousel(carousel));
         } catch (Exception e) {
+            log.error(e.getMessage());
             return CommonResult.failed(e.toString());
         }
     }
@@ -77,6 +82,7 @@ public class CarouselController {
         try {
             return CommonResult.success(carouselService.updateCarousel(carousel));
         } catch (Exception e) {
+            log.error(e.getMessage());
             return CommonResult.failed(e.toString());
         }
     }
@@ -91,7 +97,7 @@ public class CarouselController {
         try {
             return CommonResult.success(carouselService.deleteCarouselById(carouselId));
         } catch (Exception e) {
-
+            log.error(e.getMessage());
             return CommonResult.failed(e.toString());
         }
     }
@@ -106,6 +112,7 @@ public class CarouselController {
         try {
             return CommonResult.success(carouselService.deleteCarouselByIds(carouselIds));
         } catch (Exception e) {
+            log.error(e.getMessage());
             return CommonResult.failed(e.toString());
         }
     }

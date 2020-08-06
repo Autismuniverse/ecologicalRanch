@@ -6,6 +6,7 @@ import com.ecologicalRanch.project.entity.Coordinates;
 import com.ecologicalRanch.project.service.CoordinatesService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.annotation.Validated;
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 @RequestMapping("/app/coordinates")
 @Validated
+@Slf4j
 public class CoordinatesController {
 
     @Autowired
@@ -36,6 +38,7 @@ public class CoordinatesController {
         try {
             return CommonResult.success(CommonPage.restPage(coordinatesService.selectCoordinatesList(coordinates, pageNum, pageSize)));
         } catch (Exception e) {
+            log.error(e.getMessage());
             return CommonResult.failed(e.toString());
         }
     }
@@ -50,6 +53,7 @@ public class CoordinatesController {
         try {
             return CommonResult.success(coordinatesService.selectCoordinatesListNoPageHelper(coordinates));
         } catch (Exception e) {
+            log.error(e.getMessage());
             return CommonResult.failed(e.toString());
         }
     }
@@ -64,9 +68,27 @@ public class CoordinatesController {
         try {
             return CommonResult.success(coordinatesService.selectCoordinatesById(coordinates.getBluetoothId()));
         } catch (Exception e) {
+            log.error(e.getMessage());
             return CommonResult.failed(e.toString());
         }
     }
+
+
+    /**
+     * 通过Id查询Coordinates
+     */
+    @ApiOperation("通过FieldId查询可用的Coordinates")
+    @PostMapping("/selectAbleCoordinatesList")
+    @ResponseBody
+    public CommonResult selectAbleCoordinatesList(@RequestBody Coordinates coordinates) {
+        try {
+            return CommonResult.success(coordinatesService.selectAbleCoordinatesList(coordinates));
+        } catch (Exception e) {
+            log.error(e.getMessage());
+            return CommonResult.failed(e.toString());
+        }
+    }
+
 
     /**
      * 通过Id查询Coordinates
@@ -78,6 +100,7 @@ public class CoordinatesController {
         try {
             return CommonResult.success(coordinatesService.selectCoordinatesByMac(coordinates.getBluetoothMac()));
         } catch (Exception e) {
+            log.error(e.getMessage());
             return CommonResult.failed(e.toString());
         }
     }
@@ -92,6 +115,7 @@ public class CoordinatesController {
         try {
             return CommonResult.success(coordinatesService.insertCoordinates(coordinates));
         } catch (Exception e) {
+            log.error(e.getMessage());
             return CommonResult.failed(e.toString());
         }
     }
@@ -106,6 +130,7 @@ public class CoordinatesController {
         try {
             return CommonResult.success(coordinatesService.updateCoordinates(coordinates));
         } catch (Exception e) {
+            log.error(e.getMessage());
             return CommonResult.failed(e.toString());
         }
     }
@@ -120,6 +145,7 @@ public class CoordinatesController {
         try {
             return CommonResult.success(coordinatesService.deleteCoordinatesById(bluetoothId));
         } catch (Exception e) {
+            log.error(e.getMessage());
             return CommonResult.failed(e.toString());
         }
     }
@@ -134,6 +160,7 @@ public class CoordinatesController {
         try {
             return CommonResult.success(coordinatesService.deleteCoordinatesByIds(bluetoothIds));
         } catch (Exception e) {
+            log.error(e.getMessage());
             return CommonResult.failed(e.toString());
         }
     }

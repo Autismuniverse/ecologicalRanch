@@ -33,9 +33,6 @@ calculation:
   Varianc: 8.2
   #噪声误差的方差
   NoiseVariance: 100
-
-
-
-
-
-
+#  指定日志生成文件
+logging:
+  file: log

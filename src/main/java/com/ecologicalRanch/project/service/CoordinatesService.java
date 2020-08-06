@@ -24,6 +24,11 @@ public interface CoordinatesService {
     List<Coordinates> selectCoordinatesListNoPageHelper(Coordinates coordinates);
 
     /**
+     * 查询可用Coordinates列表
+     */
+    List<Coordinates> selectAbleCoordinatesList(Coordinates coordinates);
+
+    /**
      * 通过Id查询 Coordinates
      */
     Coordinates selectCoordinatesById(String bluetoothId);

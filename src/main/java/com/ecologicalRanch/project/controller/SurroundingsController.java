@@ -6,6 +6,7 @@ import com.ecologicalRanch.project.entity.Surroundings;
 import com.ecologicalRanch.project.service.SurroundingsService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.*;
 @Api(tags = "养殖场环境图片")
 @Controller
 @RequestMapping("/app/surroundings")
+@Slf4j
 public class SurroundingsController {
 
     @Autowired

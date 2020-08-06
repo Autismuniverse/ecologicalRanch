@@ -15,7 +15,7 @@ public class Kalman {
     private  double P;
 
     public Kalman(double q, double r)
-    {//��ʼ��
+    {
           A=1;
           H=1;
           P=8;

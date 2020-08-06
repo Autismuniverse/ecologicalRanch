@@ -6,6 +6,7 @@ import com.ecologicalRanch.project.entity.Gateway;
 import com.ecologicalRanch.project.service.GatewayService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -20,6 +21,7 @@ import org.springframework.web.bind.annotation.*;
 @Api(tags = "网关")
 @Controller
 @RequestMapping("/app/gateway")
+@Slf4j
 public class GatewayController {
 
     @Autowired
@@ -37,6 +39,7 @@ public class GatewayController {
         try{
             return CommonResult.success(CommonPage.restPage(gatewayService.selectGatewayList(gateway,pageNum,pageSize)));
         }catch (Exception e) {
+            log.error(e.getMessage());
             return CommonResult.failed(e.toString());
         }
     }
@@ -51,6 +54,7 @@ public class GatewayController {
         try{
             return CommonResult.success(gatewayService.selectGatewayByMac(gateway));
         }catch (Exception e) {
+            log.error(e.getMessage());
             return CommonResult.failed(e.toString());
         }
     }
@@ -65,6 +69,7 @@ public class GatewayController {
         try{
             return CommonResult.success(gatewayService.insertGateway(gateway));
         }catch (Exception e) {
+            log.error(e.getMessage());
             return CommonResult.failed(e.toString());
         }
     }
@@ -79,6 +84,7 @@ public class GatewayController {
         try{
             return CommonResult.success(gatewayService.updateGateway(gateway));
         }catch (Exception e) {
+            log.error(e.getMessage());
             return CommonResult.failed(e.toString());
         }
     }
@@ -93,6 +99,7 @@ public class GatewayController {
         try{
             return CommonResult.success(gatewayService.deleteGatewayById(gatewayId));
         }catch (Exception e) {
+            log.error(e.getMessage());
             return CommonResult.failed(e.toString());
         }
     }
@@ -107,6 +114,7 @@ public class GatewayController {
         try{
             return CommonResult.success(gatewayService.deleteGatewayByIds(gatewayIds));
         }catch (Exception e) {
+            log.error(e.getMessage());
             return CommonResult.failed(e.toString());
         }
     }

@@ -7,6 +7,7 @@ import com.ecologicalRanch.project.service.OrderService;
 import com.ecologicalRanch.project.service.PriceService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.annotation.Validated;
@@ -22,6 +23,7 @@ import org.springframework.web.bind.annotation.*;
 @Api(tags = "订单接口")
 @Controller
 @RequestMapping("/app/order")
+@Slf4j
 public class OrderController {
 
     @Autowired
@@ -42,6 +44,7 @@ public class OrderController {
         try{
             return CommonResult.success(CommonPage.restPage(orderService.selectOrderList(order,pageNum,pageSize)));
         }catch (Exception e) {
+            log.error(e.getMessage());
             return CommonResult.failed(e.toString());
         }
     }
@@ -56,6 +59,7 @@ public class OrderController {
         try{
             return CommonResult.success(orderService.selectOrderById(orderId));
         }catch (Exception e) {
+            log.error(e.getMessage());
             return CommonResult.failed(e.toString());
         }
     }
@@ -70,6 +74,7 @@ public class OrderController {
         try{
             return CommonResult.success(orderService.insertOrder(order));
         }catch (Exception e) {
+            log.error(e.getMessage());
             return CommonResult.failed(e.toString());
         }
     }
@@ -81,11 +86,12 @@ public class OrderController {
     @PostMapping("/updateOrder")
     @ResponseBody
     public CommonResult updateOrder(@RequestBody @Validated Order order){
-//        try{
+        try{
             return CommonResult.success(orderService.updateOrder(order));
-//        }catch (Exception e) {
-//            return CommonResult.failed(e.toString());
-//        }
+        }catch (Exception e) {
+            log.error(e.getMessage());
+            return CommonResult.failed(e.toString());
+        }
     }
 
     /**
@@ -98,6 +104,7 @@ public class OrderController {
         try{
             return CommonResult.success(orderService.deleteOrderById(orderId));
         }catch (Exception e) {
+            log.error(e.getMessage());
             return CommonResult.failed(e.toString());
         }
     }
@@ -112,6 +119,7 @@ public class OrderController {
         try{
             return CommonResult.success(orderService.deleteOrderByIds(orderIds));
         }catch (Exception e) {
+            log.error(e.getMessage());
             return CommonResult.failed(e.toString());
         }
     }
@@ -128,6 +136,7 @@ public class OrderController {
         try{
             return CommonResult.success(CommonPage.restPage(orderService.selectOrderInfoListByUserId(order,pageNum,pageSize)));
         }catch (Exception e) {
+            log.error(e.getMessage());
             return CommonResult.failed(e.toString());
         }
     }
