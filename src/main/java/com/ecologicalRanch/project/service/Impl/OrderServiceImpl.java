@@ -85,6 +85,12 @@ public class OrderServiceImpl implements OrderService {
      */
     @Override
     public int updateOrder(Order order) {
+//        if (order.getStatus() != null){
+//            Livestock livestock = new Livestock();
+//            livestock.setLivestockId(order.getLivestockId().longValue());
+//            livestock.setStatus(order.getStatus());
+//            livestockService.updateLivestock(livestock);
+//        }
         return orderMapper.updateOrder(order);
     }
 

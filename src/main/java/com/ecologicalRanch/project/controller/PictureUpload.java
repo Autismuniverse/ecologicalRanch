@@ -32,7 +32,12 @@ public class PictureUpload {
     @ResponseBody
     public String Upload(@RequestParam(value="file",required=false) MultipartFile file, HttpServletRequest request, HttpServletResponse response){
             UploadPic uploadPic = new UploadPic();
-            uploadPic.upload(file,request,response);
-            return uploadPic.getPath();
+            try {
+                uploadPic.upload(file,request,response);
+                return uploadPic.getPath();
+            }catch (Exception e){
+                e.getMessage();
+                return "上传失败";
+            }
     }
 }

@@ -10,17 +10,17 @@ import java.util.concurrent.Executors;
 public class ProgramStart {
 
 	public static ExecutorService pool=Executors.newCachedThreadPool();
-//	public  static ClientMQTT clientMQTT=new ClientMQTT();
+	public  static ClientMQTT clientMQTT=new ClientMQTT();
 	public  static boolean state=false;
 
 
 	public void start() {
-		MqttLoadServer.mqttReceiveTest.start();
+		clientMQTT.start();
 		state=true;
 	}
 
 	public void close() {
-		MqttLoadServer.mqttReceiveTest.stop();
+		clientMQTT.stop();
 		state=false;
 	}
 
