@@ -9,11 +9,12 @@
         <result column="camera_mac" property="cameraMac" />
         <result column="streaming" property="streaming" />
         <result column="field_id" property="fieldId" />
+        <result column="description" property="description" />
     </resultMap>
 
     <sql id="CameraResultVo">
         select
-        camera_id,camera_ip,camera_mac,streaming,field_id
+        camera_id,camera_ip,camera_mac,streaming,field_id,description
          from camera
     </sql>
 
@@ -42,6 +43,8 @@
             <if test="cameraMac != null  and cameraMac != ''">camera_mac, </if>
             <if test="streaming != null  and streaming != ''">streaming, </if>
             <if test="fieldId != null  and fieldId != ''">field_id </if>
+            <if test="description != null  and description != ''">description </if>
+
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="cameraId != null  and cameraId != ''">#{cameraId},</if>
@@ -49,6 +52,7 @@
             <if test="cameraMac != null  and cameraMac != ''">#{cameraMac},</if>
             <if test="streaming != null  and streaming != ''">#{streaming},</if>
             <if test="fieldId != null  and fieldId != ''">#{fieldId}</if>
+            <if test="description != null  and description != ''">#{description}</if>
         </trim>
     </insert>
 
@@ -60,6 +64,7 @@
             <if test="cameraMac != null  and cameraMac != ''">camera_mac = #{cameraMac},</if>
             <if test="streaming != null  and streaming != ''">streaming = #{streaming},</if>
             <if test="fieldId != null  and fieldId != ''">field_id = #{fieldId},</if>
+            <if test="description != null  and description != ''">description = #{description},</if>
         </trim>
         WHERE  camera_id = #{cameraId}
     </update>

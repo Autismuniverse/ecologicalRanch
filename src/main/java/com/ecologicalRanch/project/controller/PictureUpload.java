@@ -1,5 +1,6 @@
 package com.ecologicalRanch.project.controller;
 
+import com.ecologicalRanch.common.result.CommonResult;
 import com.ecologicalRanch.common.utils.UploadPic;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -30,14 +31,14 @@ public class PictureUpload {
     @ApiOperation("上传图片")
     @PostMapping("/PictureUpload")
     @ResponseBody
-    public String Upload(@RequestParam(value="file",required=false) MultipartFile file, HttpServletRequest request, HttpServletResponse response){
+    public CommonResult Upload(@RequestParam(value="file",required=false) MultipartFile file, HttpServletRequest request, HttpServletResponse response){
             UploadPic uploadPic = new UploadPic();
             try {
                 uploadPic.upload(file,request,response);
-                return uploadPic.getPath();
+                return CommonResult.success(uploadPic.getPath(),"上传成功");
             }catch (Exception e){
                 e.getMessage();
-                return "上传失败";
+                return CommonResult.failed("上传失败");
             }
     }
 }

@@ -3,7 +3,6 @@ package com.ecologicalRanch.project.controller;
 import com.ecologicalRanch.common.result.CommonResult;
 import com.ecologicalRanch.project.entity.Admin;
 import com.ecologicalRanch.project.service.AdminService;
-import com.ecologicalRanch.stepCounting.Mqtt;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
@@ -21,8 +20,6 @@ public class AdminController {
     @Autowired
     private AdminService adminService;
 
-    @Autowired
-    private Mqtt mqtt;
     /**
      * 查询所有管理员信息
      * @return admin对象集

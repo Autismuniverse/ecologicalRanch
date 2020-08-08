@@ -42,5 +42,10 @@ public class Camera {
 
     private Long fieldId;
 
+    /**
+     * 摄像头描述
+     */
+    private String description;
+
 
 }

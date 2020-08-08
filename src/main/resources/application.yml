@@ -1,11 +1,25 @@
 server:
   port: 8087
 spring:
+  servlet:
+#    设置文件上传大小
+    multipart:
+      enabled: true
+      max-file-size: 3MB
+      max-request-size: 3MB
+#静态资源访问路径，自定义了{frame.upload}，要写上spring自带的静态资源路径，否则只会有一个静态济源路径
+  resources:
+    static-locations: classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/,file:${frame.upload}
   profiles:
     include: jdbc
-  preread:
-    #文件上传目录（注意Linux和Windows上的目录结构不同）
-    uploadPath: E:/image/
+  mvc:
+    static-path-pattern: /**
+
+#自定义属性
+frame:
+#  文件上传路径
+  upload: D:\test
+
 
 # MyBatis 映射配置
 mybatis:
@@ -33,6 +47,7 @@ calculation:
   Varianc: 8.2
   #噪声误差的方差
   NoiseVariance: 100
+
 #  指定日志生成文件
 logging:
   file: log
