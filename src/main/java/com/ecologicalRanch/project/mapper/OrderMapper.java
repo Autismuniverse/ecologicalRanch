@@ -42,6 +42,14 @@ public interface OrderMapper {
      */
     int updateOrder(Order order);
 
+
+    /**
+     * 取消发货
+     * @param orderId
+     * @return
+     */
+    int cancelDelivery(Long orderId);
+
     /**
      * 通过id删除Order
      * @param orderId 删除id

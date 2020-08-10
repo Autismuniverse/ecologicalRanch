@@ -11,8 +11,8 @@
         <setting name="useGeneratedKeys"         value="true" />
         <!-- 字段为null时，不予以显示该字段 好像没用 -->
         <setting name="callSettersOnNulls"       value="true"/>
-<!--        &lt;!&ndash;打印执行sql&ndash;&gt;-->
-<!--        <setting name="logImpl" value="STDOUT_LOGGING" />-->
+        <!--打印执行sql-->
+        <setting name="logImpl" value="STDOUT_LOGGING" />
     </settings>
 
 </configuration>

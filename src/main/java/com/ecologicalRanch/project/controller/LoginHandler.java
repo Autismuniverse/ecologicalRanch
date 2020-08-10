@@ -17,6 +17,9 @@ import org.springframework.web.bind.annotation.RestController;
 @Log4j2
 public class LoginHandler {
 
+    private String sig;
+
+
     @Autowired
     private UserService userService;
 
@@ -43,19 +46,13 @@ public class LoginHandler {
         String str2 = str1.replaceAll("code:", "");
 
         try {//请求微信服务器，用code换取openid。HttpUtil是工具类，后面会给出实现，Configure类是小程序配置信息，后面会给出代码
-//            System.out.println(
-//                    "https://api.weixin.qq.com/sns/jscode2session?appid="
-//                            + appID + "&secret="
-//                            + appSecret + "&js_code="
-//                            + code
-//                            + "&grant_type=authorization_code"
-//            );
+
             String reslut= HttpUtil.doGet(
                     "https://api.weixin.qq.com/sns/jscode2session?appid="
                             + appID + "&secret="
                             + appSecret + "&js_code="
                             + code
-                            + "&grant_type=authorization_code", null
+                            + "&grant_type=authorization_code",null
             );
 //            System.out.println(reslut);
 

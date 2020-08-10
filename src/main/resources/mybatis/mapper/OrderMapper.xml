@@ -90,9 +90,16 @@
             <if test="creationTime != null">creation_time = #{creationTime},</if>
             <if test="paymentTime != null">payment_time = #{paymentTime},</if>
             <if test="deliveryTime != null">delivery_time = #{deliveryTime},</if>
-            <if test="logistics != null and logistics != ''">logistics, </if>
+            <if test="deliveryTime == null">delivery_time = null,</if>
+            <if test="logistics != null and logistics != ''">logistics= #{logistics}, </if>
             <if test="addressId != null  and addressId != ''">address_id = #{addressId},</if>
         </trim>
+        WHERE  order_id = #{orderId}
+    </update>
+
+    <update id="cancelDelivery" parameterType="Long" >
+        UPDATE my_order SET
+        delivery_time = null,status = 3
         WHERE  order_id = #{orderId}
     </update>
 
@@ -137,6 +144,9 @@
             <result column="batch" property="batch" />
             <result column="out_time" property="outTime" />
         </association>
+        <association property="Price" javaType="java.util.HashMap">
+            <result column="livestock_img" property="img" />
+        </association>
         <association property="Step" javaType="java.util.HashMap">
             <result column="step_num" property="stepNum" />
         </association>
@@ -146,8 +156,11 @@
 
     <select id="selectOrderInfoListByUserId" parameterType="Order" resultMap="OrderFieldResult">
         Select *
-        from my_order o,field f,livestock l
-        Where f.field_id=o.field_id and o.livestock_id=l.livestock_id
+        from my_order o,field f,livestock l,livestock_price p
+        Where f.field_id=o.field_id
+        and o.livestock_id=l.livestock_id
+        and l.type = p.type
+        and f.field_id = p.field_id
         <if test="userId != null  and userId != 0">
         and o.user_id = #{userId}
         </if>

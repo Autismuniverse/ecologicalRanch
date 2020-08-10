@@ -52,11 +52,10 @@ public class CartServiceImpl implements CartService {
      */
     @Override
     public int insertCart(Cart cart) {
-//        System.out.println(cart);
-//        System.out.println(cartMapper.selectCartList(cart));
+        System.out.println("查询结果："+cartMapper.selectCartList(cart));
         if (cartMapper.selectCartList(cart).toArray().length == 0)
         {
-            System.out.println(cart);
+            System.out.println("该用户没有添加过购物车，添加成功");
             return cartMapper.insertCart(cart);
         }
 
@@ -89,4 +88,3 @@ public class CartServiceImpl implements CartService {
     }
 
 }
-
