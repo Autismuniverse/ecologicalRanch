@@ -58,9 +58,11 @@ public class OrderServiceImpl implements OrderService {
         Livestock livestock = new Livestock();
         livestock.setLivestockId(order.getLivestockId().longValue());
         livestock.setStatus(order.getStatus());
+        livestock.setStatus(8);
+        if(livestockService.selectLivestockById(order.getLivestockId().longValue()).getStatus() == 8 ){
+            return 0;
+        }
         livestockMapper.updateLivestock(livestock);
-//        order.setOriginalPrice(priceMapper.selectPriceById(livestock.getLivestockId()).getOriginalPrice());
-
         return orderMapper.insertOrder(order);
     }
 
@@ -85,13 +87,27 @@ public class OrderServiceImpl implements OrderService {
      */
     @Override
     public int updateOrder(Order order) {
-//        if (order.getStatus() != null){
-//            Livestock livestock = new Livestock();
-//            livestock.setLivestockId(order.getLivestockId().longValue());
-//            livestock.setStatus(order.getStatus());
-//            livestockService.updateLivestock(livestock);
-//        }
+        if (order.getStatus() != null){
+            Livestock livestock = new Livestock();
+            livestock.setLivestockId(order.getLivestockId().longValue());
+            livestock.setStatus(order.getStatus());
+            livestockService.updateLivestock(livestock);
+        }
         return orderMapper.updateOrder(order);
+    }
+
+    /**
+     * 取消订单
+     * @param orderId
+     * @return
+     */
+    @Override
+    public int  cancelDelivery(Order order){
+        Livestock livestock = new Livestock();
+        livestock.setLivestockId(order.getLivestockId());
+        livestock.setStatus(3);
+        livestockService.updateLivestock(livestock);
+        return orderMapper.cancelDelivery(order.getOrderId());
     }
 
     /**

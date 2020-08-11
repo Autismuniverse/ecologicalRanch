@@ -42,7 +42,7 @@
             <if test="cameraIp != null  and cameraIp != ''">camera_ip, </if>
             <if test="cameraMac != null  and cameraMac != ''">camera_mac, </if>
             <if test="streaming != null  and streaming != ''">streaming, </if>
-            <if test="fieldId != null  and fieldId != ''">field_id </if>
+            <if test="fieldId != null  and fieldId != ''">field_id, </if>
             <if test="description != null  and description != ''">description </if>
 
         </trim>
@@ -51,7 +51,7 @@
             <if test="cameraIp != null  and cameraIp != ''">#{cameraIp},</if>
             <if test="cameraMac != null  and cameraMac != ''">#{cameraMac},</if>
             <if test="streaming != null  and streaming != ''">#{streaming},</if>
-            <if test="fieldId != null  and fieldId != ''">#{fieldId}</if>
+            <if test="fieldId != null  and fieldId != ''">#{fieldId},</if>
             <if test="description != null  and description != ''">#{description}</if>
         </trim>
     </insert>

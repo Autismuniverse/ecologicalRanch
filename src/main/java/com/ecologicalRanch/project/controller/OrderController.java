@@ -15,8 +15,6 @@ import org.springframework.web.bind.annotation.*;
 
 
 /**
- *
- *
  * @author xxxfredyang
  * @date '2020-05-26 18:55:17'
  */
@@ -39,11 +37,11 @@ public class OrderController {
     @PostMapping("/selectOrderList")
     @ResponseBody
     public CommonResult selectOrderList(@RequestBody Order order,
-                                        @RequestParam(value = "pageNum",defaultValue = "1",required = false) int pageNum,
-                                        @RequestParam(value = "pageSize",defaultValue = "10",required = false)int pageSize){
-        try{
-            return CommonResult.success(CommonPage.restPage(orderService.selectOrderList(order,pageNum,pageSize)));
-        }catch (Exception e) {
+                                        @RequestParam(value = "pageNum", defaultValue = "1", required = false) int pageNum,
+                                        @RequestParam(value = "pageSize", defaultValue = "10", required = false) int pageSize) {
+        try {
+            return CommonResult.success(CommonPage.restPage(orderService.selectOrderList(order, pageNum, pageSize)));
+        } catch (Exception e) {
             log.error(e.getMessage());
             return CommonResult.failed(e.toString());
         }
@@ -55,10 +53,10 @@ public class OrderController {
     @ApiOperation("通过Id查询Order")
     @PostMapping("/selectOrderById")
     @ResponseBody
-    public CommonResult selectOrderById(@RequestBody Long orderId){
-        try{
+    public CommonResult selectOrderById(@RequestBody Long orderId) {
+        try {
             return CommonResult.success(orderService.selectOrderById(orderId));
-        }catch (Exception e) {
+        } catch (Exception e) {
             log.error(e.getMessage());
             return CommonResult.failed(e.toString());
         }
@@ -70,29 +68,43 @@ public class OrderController {
     @ApiOperation("新增Order")
     @PostMapping("/insertOrder")
     @ResponseBody
-    public CommonResult insertOrder(@RequestBody Order order){
-        try{
-            return CommonResult.success(orderService.insertOrder(order));
-        }catch (Exception e) {
-            log.error(e.getMessage());
-            return CommonResult.failed(e.toString());
-        }
+    public CommonResult insertOrder(@RequestBody Order order) {
+        if (orderService.insertOrder(order) == 0) {
+            return CommonResult.failed("添加失败");
+        } else
+            return CommonResult.success("添加成功");
     }
 
     /**
      * 修改Order信息
      */
+    @ApiOperation("取消订单")
+    @PostMapping("/cancelDelivery")
+    @ResponseBody
+    public CommonResult cancelDelivery(@RequestBody Order order) {
+//        try {
+            return CommonResult.success(orderService.cancelDelivery(order));
+//        } catch (Exception e) {
+//            log.error(e.getMessage());
+//            return CommonResult.failed(e.toString());
+//        }
+    }
+
+    /**
+     * 取消订单
+     */
     @ApiOperation("修改Order信息")
     @PostMapping("/updateOrder")
     @ResponseBody
-    public CommonResult updateOrder(@RequestBody @Validated Order order){
-        try{
+    public CommonResult updateOrder(@RequestBody @Validated Order order) {
+        try {
             return CommonResult.success(orderService.updateOrder(order));
-        }catch (Exception e) {
+        } catch (Exception e) {
             log.error(e.getMessage());
             return CommonResult.failed(e.toString());
         }
     }
+
 
     /**
      * 通过id删除Order
@@ -100,10 +112,10 @@ public class OrderController {
     @ApiOperation("通过id删除Order")
     @PostMapping("/deleteOrderById/{orderId}")
     @ResponseBody
-    public CommonResult deleteOrderById(@PathVariable("orderId") Long orderId){
-        try{
+    public CommonResult deleteOrderById(@PathVariable("orderId") Long orderId) {
+        try {
             return CommonResult.success(orderService.deleteOrderById(orderId));
-        }catch (Exception e) {
+        } catch (Exception e) {
             log.error(e.getMessage());
             return CommonResult.failed(e.toString());
         }
@@ -115,10 +127,10 @@ public class OrderController {
     @ApiOperation("通过id批量删除Order")
     @PostMapping("/deleteList")
     @ResponseBody
-    public CommonResult deleteOrderByIds(String orderIds){
-        try{
+    public CommonResult deleteOrderByIds(String orderIds) {
+        try {
             return CommonResult.success(orderService.deleteOrderByIds(orderIds));
-        }catch (Exception e) {
+        } catch (Exception e) {
             log.error(e.getMessage());
             return CommonResult.failed(e.toString());
         }
@@ -131,11 +143,11 @@ public class OrderController {
     @PostMapping("/selectOrderInfoListByUserId")
     @ResponseBody
     public CommonResult selectOrderInfoListByUserId(@RequestBody Order order,
-                                   @RequestParam(value = "pageNum",defaultValue = "1",required = false) int pageNum,
-                                   @RequestParam(value = "pageSize",defaultValue = "10",required = false)int pageSize){
-        try{
-            return CommonResult.success(CommonPage.restPage(orderService.selectOrderInfoListByUserId(order,pageNum,pageSize)));
-        }catch (Exception e) {
+                                                    @RequestParam(value = "pageNum", defaultValue = "1", required = false) int pageNum,
+                                                    @RequestParam(value = "pageSize", defaultValue = "10", required = false) int pageSize) {
+        try {
+            return CommonResult.success(CommonPage.restPage(orderService.selectOrderInfoListByUserId(order, pageNum, pageSize)));
+        } catch (Exception e) {
             log.error(e.getMessage());
             return CommonResult.failed(e.toString());
         }

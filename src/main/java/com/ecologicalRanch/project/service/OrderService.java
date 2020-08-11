@@ -44,6 +44,14 @@ public interface OrderService {
      */
     int updateOrder(Order order);
 
+
+    /**
+     * 取消订单
+     * @param orderId
+     * @return
+     */
+    int  cancelDelivery(Order order);
+
     /**
      * 根据Order查询field
      */
