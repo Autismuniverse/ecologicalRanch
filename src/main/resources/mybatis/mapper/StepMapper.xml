@@ -41,13 +41,18 @@
     </select>
 
 
-
     <select id="selectRecentStep" parameterType="Long" resultMap="StepResult">
-        <include refid="StepResultVo"/>
-            <where>
-                livestock_id = #{livestockId}
-                order by  creat_time  desc limit 1
-            </where>
+        SELECT
+        step_num_id,
+        livestock_id,
+        step_num,
+        MAX( creat_time )
+        FROM
+        step_number
+        WHERE
+        livestock_id = #{livestockId}
+        GROUP BY
+        livestock_id
     </select>
 
     <select id="bySpecifying"  resultMap="StepResult">
