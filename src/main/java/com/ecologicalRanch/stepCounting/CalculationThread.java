@@ -31,11 +31,8 @@ public class CalculationThread extends Thread {
     private String bluetoothId;
     private HashMap<String, String> bluetoothInfo;
     private MongoDBService mongoDBService;
-
-    private static Calculation datasourcePro;
-    private static Kalman kalman_1 ;
-    private static Kalman kalman_2 ;
-    private static Kalman kalman_3 ;
+    private  Calculation datasourcePro;
+    private double Side;
 /*
 
  */
@@ -48,9 +45,7 @@ public class CalculationThread extends Thread {
         this.livestockService = ApplicationContextProvider.getBean(LivestockService.class);
         this.bluetoothId = bluetoothRssiInfo.getBluetoothId();
         this.bluetoothInfo = bluetoothRssiInfo.getGatewayInfo();//saveRssiService.getRssiWithHashMap(bluetoothId);
-        kalman_1 = new Kalman(datasourcePro.getVarianc(), datasourcePro.getNoiseVariance());
-        kalman_2 = new Kalman(datasourcePro.getVarianc(), datasourcePro.getNoiseVariance());
-        kalman_3 = new Kalman(datasourcePro.getVarianc(), datasourcePro.getNoiseVariance());
+
     }
 
     @Override
@@ -58,109 +53,99 @@ public class CalculationThread extends Thread {
         int[] rssi = new int[3];
         int[][] data = new int[3][100];
         Point[] gatewayPoint = new Point[3];
-        if (bluetoothInfo != null)
-        try {
-            Coordinates coordinates = new Coordinates();
-            int count = 0;
-            for (Object key : bluetoothInfo.keySet()) {
-                gatewayPoint[count] = PointUtil.stringToPoint(key.toString());
-                String[] r = bluetoothInfo.get(key).split(",");
-                for (int i = 0; i < 100 && i < r.length; i++) {
-                    data[count][i] = Integer.parseInt(r[i]);
+        if (bluetoothInfo != null) {
+            try {
+                Coordinates coordinates = new Coordinates();
+                int count = 0;
+                for (Object key : bluetoothInfo.keySet()) {
+                    gatewayPoint[count] = PointUtil.stringToPoint(key.toString());
+                    String[] r = bluetoothInfo.get(key).split(",");
+                    for (int i = 0; i < 100 && i < r.length; i++) {
+                        data[count][i] = Integer.parseInt(r[i]);
+                    }
+                    count++;
                 }
-                count++;
-            }
-            coordinates = coordinatesService.selectCoordinatesById(bluetoothId);
-            Point po = new Point(coordinates.getCoordinateX(), coordinates.getCoordinateY());
-            rssi[0] = (new Double(kalman_count(kalman_1, data[0]) * 100)).intValue();
-            rssi[1] = (new Double(kalman_count(kalman_2, data[1]) * 100)).intValue();
-            rssi[2] = (new Double(kalman_count(kalman_3, data[2]) * 100)).intValue();
-            Point point = threePoints(rssi, gatewayPoint);//������ı�ǩλ��
-            coordinates.setCoordinateX(point.x);
-            coordinates.setCoordinateY(point.y);
-            coordinates.setBluetoothId(bluetoothId);
-//            System.out.println(bluetoothId+"计算结果："+point.x+","+point.y);
-            coordinatesService.updateCoordinates(coordinates);
-            int Steps = (int) count_distance(point, po) / 5;
-            if(Steps>datasourcePro.getError()) {
-                Livestock livestock = new Livestock();
-                livestock.setStepNum(Steps);
-                livestock.setBluetoothId(bluetoothId);
-                livestockService.updateLivestockStep(livestock);
-            }
+                coordinates = coordinatesService.selectCoordinatesById(bluetoothId);
+                Point po = new Point(coordinates.getCoordinateX(), coordinates.getCoordinateY());
+                GetSide(gatewayPoint);
+                for(int i=0;i<3;i++)
+                {
+                    rssi[i] = (new Double(new Optimization(data[i]).data() * 100)).intValue();
+                }
+                rssi=LongDouble(rssi);
+                Point point = threePoints(rssi, gatewayPoint);//������ı�ǩλ��
+                coordinates.setCoordinateX(point.x);
+                coordinates.setCoordinateY(point.y);
+                coordinates.setBluetoothId(bluetoothId);
+    //            System.out.println(bluetoothId+"计算结果："+point.x+","+point.y);
+                coordinatesService.updateCoordinates(coordinates);
+                int Steps = (int) count_distance(point, po) / 5;
+                if(Steps>datasourcePro.getError()) {
+                    Livestock livestock = new Livestock();
+                    livestock.setStepNum(Steps);
+                    livestock.setBluetoothId(bluetoothId);
+                    livestockService.updateLivestockStep(livestock);
+                }
 
-            RssiSave rssiSave = new RssiSave();
-            rssiSave.setMacA(data[0]);
-            rssiSave.setMacB(data[1]);
-            rssiSave.setMacC(data[2]);
-            rssiSave.setMacAFromBlue(rssi[0]);
-            rssiSave.setMacBFromBlue(rssi[1]);
-            rssiSave.setMacCFromBlue(rssi[2]);
-            rssiSave.setBlueToothId(bluetoothId);
-            rssiSave.setPoint(point);
-            rssiSave.setTimestamp(new Timestamp(System.currentTimeMillis()));
-            mongoDBService.insertRssiDB(rssiSave);
-        }
-        catch (Exception e)
-        {
-            log.error(e.getMessage());
-//            System.out.println("计算出错"+e.getMessage());
+                RssiSave rssiSave = new RssiSave();
+                rssiSave.setMacA(data[0]);
+                rssiSave.setMacB(data[1]);
+                rssiSave.setMacC(data[2]);
+                rssiSave.setMacAFromBlue(rssi[0]);
+                rssiSave.setMacBFromBlue(rssi[1]);
+                rssiSave.setMacCFromBlue(rssi[2]);
+                rssiSave.setBlueToothId(bluetoothId);
+                rssiSave.setPoint(point);
+                rssiSave.setTimestamp(new Timestamp(System.currentTimeMillis()));
+                mongoDBService.insertRssiDB(rssiSave);
+            }
+            catch (Exception e)
+            {
+                log.error(e.getMessage());
+    //            System.out.println("计算出错"+e.getMessage());
+            }
         }
     }
-
-    /**
-     * 通过滤波计算距离
-     * @param kalman
-     * @param rssi
-     * @return
-     */
-    private static double kalman_count(Kalman kalman, int[] rssi) {
-        double gap = 0;
-        int d=0;
-        for (int i = 0; i < rssi.length && rssi[i] != 0; i++) {
-            gap = kalman.KalmanFilter(rssi[i]);
-        }
-        d=rssi[0];
-        for (int i = 1; i < rssi.length && rssi[i] != 0; i++)
-        {
-            if(d!=Limiting(d,rssi[i])) {
-                d=Limiting(d,rssi[i]);
-                gap = kalman.KalmanFilter(d);
-            }
-        }
-        return Count(gap);
-    }
-
-    /**
-     * 通过偏差筛选
-     * @param d
-     * @param b
-     * @return
-     */
-    private  static int Limiting(int d,int b)
+    public double GetSide(Point[] p)
     {
-        if((b-d)<=datasourcePro.getDeviation())//(((d-b)<=deviation)||((b-d)<=deviation))
-            return b;
-        else
-            return d;
+        double x = 0, y = 0;
+        double x1 = 0, y1 = 0;
+        for (Point point : p)
+        {
+            if (x < point.x)
+                x = point.y;
+            else if (point.x < x1)
+                x1 = point.x;
+            if (y < point.y)
+                y = point.y;
+            else if (point.y < y1)
+                y1 = point.y;
+        }
+        Side = x + y + Math.abs(y1 + x1);
+        return Side;
+    }
+    private int[] LongDouble(int[] s)
+    {
+        int n = 0,m=0;
+        for (int i = 0; i < s.length; i++) {
+            n += s[i];
+            if(s[i]<100)
+                m+=100;
+        }
+        if (n < Side)
+            for (int i = 0; i < s.length; i++)
+            {
+                if(s[i]<100)
+                    s[i] -= 100;
+                s[i] = (int)(s[i] * ((Side - m) / n));
+                if(s[i]<100)
+                    s[i] += 100;
+            }
+        return s;
+
     }
 
-    /**
-     * 通过RSSI计算距离
-     * @param rssi
-     * @return 距离
-     */
-    private static double Count(double rssi) {
-        double n;
-        n = Math.abs(rssi);
-        n = ((n - datasourcePro.getCalibration()) / (10 * datasourcePro.getEnvironmentalFactor()));
-        n =  Math.pow(10, n);
-        n += 0.005;
-        n *= 100;
-        n = (int) n;
-        n = n / 100;
-        return n;
-    }
+
 
     /**
      * 计算标签位置
@@ -169,7 +154,7 @@ public class CalculationThread extends Thread {
      * @param gateway_coordinate  网关位置
      * @return
      */
-    private static Point threePoints(int[] dis, Point[] gateway_coordinate) {
+    private Point threePoints(int[] dis, Point[] gateway_coordinate) {
         double x = 0, y = 0;
         double x2,y2;
         if (dis == null || gateway_coordinate == null)
@@ -203,7 +188,7 @@ public class CalculationThread extends Thread {
      * @param a
      * @param b
      */
-    private static double count_distance(Point a, Point b) {
+    private  double count_distance(Point a, Point b) {
         double m = Math.sqrt((a.x - b.x) * (a.x - b.x) + (a.y - b.y) * (a.y - b.y));
         return m;
     }

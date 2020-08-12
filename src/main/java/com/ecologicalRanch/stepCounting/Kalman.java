@@ -14,14 +14,14 @@ public class Kalman {
     private  double R;
     private  double P;
 
-    public Kalman(double q, double r)
+    public Kalman(double q, double r,double s)
     {
           A=1;
           H=1;
           P=8;
           Q=q;
           R=r;
-          startValue=60;
+          startValue=s;
     }
     public double KalmanFilter( double value)
     {

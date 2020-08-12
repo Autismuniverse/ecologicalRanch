@@ -29,7 +29,7 @@ public class UploadPic {
     public Map<String,Object> upload(MultipartFile file, HttpServletRequest request, HttpServletResponse response) throws FileNotFoundException {
         this. upload= ApplicationContextProvider.getBean(Upload.class);
         String fileName = file.getOriginalFilename();
-        String returnUrl = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath() ;//存储路径
+        String returnUrl = request.getScheme() + "://" + request.getServerName() + ":" +"8087" ;//存储路径
 
         String fileF = fileName.substring(fileName.lastIndexOf("."), fileName.length());//文件后缀
         fileName = new Date().getTime() + "_" + new Random().nextInt(1000) + fileF;//新的文件名
