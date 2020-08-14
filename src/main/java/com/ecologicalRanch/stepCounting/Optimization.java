@@ -30,68 +30,161 @@ public class Optimization {
         return average / d.length;
     }
 
-    public  double data( )
+    public int BrokenlLineAnalysis(int[] n)
     {
-        double n = K[R.length - 11];
-        int g = 0,s=0;
+        int[] d = new int[20];
+        int m=n[n.length-1];
+        for(int i=0;i<20;i++)
+        {
+            d[i] = Math.abs(m - (n[n.length - 2 - i]));
+            m = n[n.length - 2 - i];
+        }
+        d=Sort(d);
+        return d[12];
+    }
+    public double Data()
+    {
+        int d = BrokenlLineAnalysis(R);
+        R = Sort(R);
         double Result;
-        for(int i=(R.length-10);i<R.length;i++)
+        switch (d)
         {
-            n =Math.abs( n - K[i]);
-            if (n <= D)
-                g++;
-            else if (n >= 8)
-                s++;
-        }
-        if (g >= 4 && Max(R) < 80)
-        {
-            Result= Average(K);
-        }
-        else if (g >= 4 && Max(R) > 80)
-        {
-            Result=  Max(K);
-        }
-        else if(s>=4&& Max(R) > 80)
-        {
-            Result=  Max(K);
-        }
-        else if (s >= 4 && Max(R)< 70)
-        {
-            Result=  Min(K);
-        }
-        else {
-            if (Min(R) < 63 && Max(R) < 70)
-                Result=  Min(K);
-            else if (Min(R) < 65 && Max(R) < 70)
-                Result=  Sort(K)[40];
-            else if (Min(R) > 60 && Max(R) < 80)
-                Result=  Sort(K)[60];
-            else if (Min(R) > 70 && Max(R) < 80)
-                Result=  Sort(K)[70];
-            else if (Min(R) > 70 && Max(R) > 85)
-                Result=  Max(K);
-            else
-                Result=  Average(K);
+            case 7 : {
+                double max = Max(K);
+                if (R[70] > 80)
+                {
+                    double max1 = Max(R);
 
+                    Result = max + (max1 - max) * 0.15;
+                }
+                else
+                {
+                    double min = Min(R);
+                    Result = min + (max - min) * 0.9;
+                }
+            } ; break;
+            case 8:
+            {
+                double max = Max(K);
+                if (R[70] > 80)
+                {
+                    double max1 = Max(R);
+
+                    Result = max + (max1 - max) * 0.30;
+                }
+                else
+                {
+                    double min = Min(R);
+                    Result = min + (max - min) * 0.75;
+                }
+            }; break;
+            case 9 :
+            {
+                double max = Max(K);
+                if (R[70] > 80)
+                {
+                    double max1 = Max(R);
+
+                    Result= max + (max1 - max) * 0.45;
+                }
+                else
+                {
+                    double min = Min(R);
+                    Result = min + (max - min) * 0.60;
+                }
+            }; break;
+            case 10:
+            {
+
+                double max = Max(K);
+                if (R[70] > 80)
+                {
+                    double max1 = Max(R);
+
+                    Result = max + (max1 - max) * 0.60;
+                }
+                else
+                {
+                    double min = Min(R);
+                    Result = min + (max - min) * 0.45;
+                }
+            }; break;
+            case 11:
+            {
+
+                double max = Max(K);
+                if (R[70] > 80)
+                {
+                    double max1 = Max(R);
+
+                    Result = max + (max1 - max) * 0.75;
+                }
+                else
+                {
+                    double min = Min(R);
+                    Result = min + (max - min) * 0.30;
+                }
+            }; break;
+            case 12:
+            {
+
+                double max = Max(K);
+                if (R[70] > 80)
+                {
+                    double max1 = Max(R);
+
+                    Result = max + (max1 - max) * 0.90;
+                }
+                else
+                {
+                    double min = Min(R);
+                    Result = min + (max - min) * 0.15;
+                }
+            }; break;
+            default: {
+                if (Max(R) > 82 && d > 12)
+                    Result = Max(R);
+                else if (Min(R) < 62 && d < 8)
+                    Result = Average(K);
+                else
+                    Result = Max(K);
+            };break;
         }
         return Count (Result);
     }
-    public double[] Sort(double[] d)
+//    public double[] Sort(double[] d)
+//    {
+//
+//        double s = 0;
+//        for (int i = 0; i < d.length - 1; i++)
+//            for (int j = i + 1; j < d.length; j++)
+//            {
+//                if (d[i] < d[j])
+//                {
+//                    s = d[j];
+//                    d[j] = d[i];
+//                    d[i] = s;
+//                }
+//            }
+//        return d;
+//    }
+    public int[] Sort(int[] n)
     {
-        double s = 0;
-        for (int i = 0; i < d.length - 1; i++)
-            for (int j = i + 1; j < d.length; j++)
+
+        int s = 0;
+        for ( int i = 0; i < n.length - 1; i++)
+            for (int j = i + 1; j < n.length; j++)
             {
-                if (d[i] < d[j])
+                if (n[i] < n[j])
                 {
-                    s = d[j];
-                    d[j] = d[i];
-                    d[i] = s;
+                    s = n[j];
+                    n[j] = n[i];
+                    n[i] = s;
                 }
             }
-        return d;
+        return n;
     }
-    public double Min(int[] d)
+    public int Min(int[] d)
     {
         int min = d[0];
         for (int i = 1; i < d.length; i++)
@@ -101,32 +194,32 @@ public class Optimization {
         }
         return min;
     }
-    public double Max(int[] d)
+    public int Max(int[] d)
     {
         int max = d[0];
         for (int i = 1; i < d.length; i++)
         {
-            if (max > d[i])
+            if (max < d[i])
                 max = d[i];
         }
         return max;
     }
-    public double Min(double[] d)
-    {
-        double min=d[0];
-        for(int i=1;i<d.length;i++)
-        {
-            if (min > d[i])
-                min = d[i];
-        }
-        return min;
-    }
+//    public double Min(double[] d)
+//    {
+//        double min=d[0];
+//        for(int i=1;i<d.length;i++)
+//        {
+//            if (min > d[i])
+//                min = d[i];
+//        }
+//        return min;
+//    }
     public double Max(double[] d)
     {
         double max = d[0];
         for (int i = 1; i < d.length; i++)
         {
-            if (max > d[i])
+            if (max < d[i])
                 max = d[i];
         }
         return max;

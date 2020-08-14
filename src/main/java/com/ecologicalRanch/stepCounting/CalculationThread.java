@@ -15,7 +15,9 @@ import lombok.extern.slf4j.Slf4j;
 
 import java.awt.*;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * 用于计算的线程
@@ -51,6 +53,7 @@ public class CalculationThread extends Thread {
     @Override
     public void run() {
         int[] rssi = new int[3];
+        List[] lists = new List[]{new ArrayList<Integer>(), new ArrayList<Integer>(), new ArrayList<Integer>()};
         int[][] data = new int[3][100];
         Point[] gatewayPoint = new Point[3];
         if (bluetoothInfo != null) {
@@ -60,8 +63,8 @@ public class CalculationThread extends Thread {
                 for (Object key : bluetoothInfo.keySet()) {
                     gatewayPoint[count] = PointUtil.stringToPoint(key.toString());
                     String[] r = bluetoothInfo.get(key).split(",");
-                    for (int i = 0; i < 100 && i < r.length; i++) {
-                        data[count][i] = Integer.parseInt(r[i]);
+                    for (int i = 0;  i < r.length; i++) {//i < 100 &&
+                        lists[count].add(Integer.parseInt(r[i]));
                     }
                     count++;
                 }
@@ -70,7 +73,8 @@ public class CalculationThread extends Thread {
                 GetSide(gatewayPoint);
                 for(int i=0;i<3;i++)
                 {
-                    rssi[i] = (new Double(new Optimization(data[i]).data() * 100)).intValue();
+                   data[i]=ConvertIntegers(lists[i]);
+                    rssi[i] = (new Double(new Optimization(data[i]).Data() * 100)).intValue();
                 }
                 rssi=LongDouble(rssi);
                 Point point = threePoints(rssi, gatewayPoint);//������ı�ǩλ��
@@ -105,6 +109,15 @@ public class CalculationThread extends Thread {
     //            System.out.println("计算出错"+e.getMessage());
             }
         }
+    }
+    public  int[] ConvertIntegers(List<Integer> integers)
+    {
+        int[] ret = new int[integers.size()];
+        for (int i=0; i < ret.length; i++)
+        {
+            ret[i] = integers.get(i).intValue();
+        }
+        return ret;
     }
     public double GetSide(Point[] p)
     {
@@ -154,7 +167,7 @@ public class CalculationThread extends Thread {
      * @param gateway_coordinate  网关位置
      * @return
      */
-    private Point threePoints(int[] dis, Point[] gateway_coordinate) {
+    /*private Point threePoints(int[] dis, Point[] gateway_coordinate) {
         double x = 0, y = 0;
         double x2,y2;
         if (dis == null || gateway_coordinate == null)
@@ -181,6 +194,18 @@ public class CalculationThread extends Thread {
         x /= 3;
         y /= 3;
         return new Point((new Double(x).intValue()), (new Double(y).intValue()));
+    }*/
+    private Point threePoints(int[] dis, Point[] gateway_coordinate)
+    {
+        double a=gateway_coordinate[0].x-gateway_coordinate[2].x;
+        double b=gateway_coordinate[0].y-gateway_coordinate[2].y;
+        double c= Math.pow(gateway_coordinate[0].x, 2) - Math.pow(gateway_coordinate[2].x, 2) + Math.pow(gateway_coordinate[0].y, 2) - Math.pow(gateway_coordinate[2].y, 2) + Math.pow(dis[2], 2) - Math.pow(dis[0], 2);
+        double d=gateway_coordinate[1].x-gateway_coordinate[2].x;
+        double e=gateway_coordinate[1].y-gateway_coordinate[2].y;
+        double f=Math.pow(gateway_coordinate[1].x, 2) - Math.pow(gateway_coordinate[2].x, 2) + Math.pow(gateway_coordinate[1].y, 2) - Math.pow(gateway_coordinate[2].y, 2) + Math.pow(dis[2], 2) - Math.pow(dis[1], 2);
+        double x=(b*f-e*c)/(2*b*d-2*a*e);
+        double y=(a*f-d*c)/(2*a*e-2*b*d);
+        return (new Point((int)x,(int)y));
     }
 
     /**
