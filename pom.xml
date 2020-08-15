@@ -91,6 +91,13 @@
             <version>1.2.70</version>
         </dependency>
 
+<!--        七牛云上传图片SDK-->
+        <dependency>
+            <groupId>com.qiniu</groupId>
+            <artifactId>qiniu-java-sdk</artifactId>
+            <version>7.2.0</version>
+        </dependency>
+
         <!--阿里数据库连接池 -->
         <dependency>
             <groupId>com.alibaba</groupId>
