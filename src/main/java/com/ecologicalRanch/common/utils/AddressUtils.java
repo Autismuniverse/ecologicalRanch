@@ -9,8 +9,6 @@ import org.slf4j.LoggerFactory;
 
 /**
  * 通过 IP 查询地址
- *
- * @author DJun
  */
 public class AddressUtils {
     private static final Logger log = LoggerFactory.getLogger(AddressUtils.class);
