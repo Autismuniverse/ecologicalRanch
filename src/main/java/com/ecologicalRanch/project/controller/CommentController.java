@@ -41,7 +41,7 @@ public class CommentController {
             return CommonResult.success(CommonPage.restPage(commentService.selectCommentList(comment, pageNum, pageSize)));
         } catch (Exception e) {
             log.error(e.getMessage());
-            return CommonResult.failed(e.toString());
+            return CommonResult.failed("未知错误");
         }
     }
 

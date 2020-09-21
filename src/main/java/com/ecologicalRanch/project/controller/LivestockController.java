@@ -41,7 +41,7 @@ public class LivestockController {
             return CommonResult.success(CommonPage.restPage(livestockService.selectLivestockList(livestock, pageNum, pageSize)));
         } catch (Exception e) {
             log.error(e.getMessage());
-            return CommonResult.failed(e.toString());
+            return CommonResult.failed("未知错误");
         }
     }
 
@@ -57,7 +57,7 @@ public class LivestockController {
             return CommonResult.success(livestockService.selectLivestockById(livestockId));
         } catch (Exception e) {
             log.error(e.getMessage());
-            return CommonResult.failed(e.toString());
+            return CommonResult.failed("未知错误");
         }
     }
 
@@ -73,7 +73,7 @@ public class LivestockController {
             return CommonResult.success(livestockService.selectLivestockListNoPageHelper(livestock));
         } catch (Exception e) {
             log.error(e.getMessage());
-            return CommonResult.failed(e.toString());
+            return CommonResult.failed("未知错误");
         }
     }
 
@@ -103,7 +103,7 @@ public class LivestockController {
             return CommonResult.success(livestockService.updateLivestock(livestock));
         } catch (Exception e) {
             log.error(e.getMessage());
-            return CommonResult.failed(e.toString());
+            return CommonResult.failed("未知错误");
         }
     }
 
@@ -118,7 +118,7 @@ public class LivestockController {
             return CommonResult.success(livestockService.deleteLivestockById(livestockId));
         } catch (Exception e) {
             log.error(e.getMessage());
-            return CommonResult.failed(e.toString());
+            return CommonResult.failed("未知错误");
         }
     }
 
@@ -133,7 +133,7 @@ public class LivestockController {
             return CommonResult.success(livestockService.deleteLivestockByIds(livestockIds));
         } catch (Exception e) {
             log.error(e.getMessage());
-            return CommonResult.failed(e.toString());
+            return CommonResult.failed("未知错误");
         }
     }
 
@@ -151,7 +151,7 @@ public class LivestockController {
             return CommonResult.success(CommonPage.restPage(livestockService.fuzzyLivestockList(livestock, pageNum, pageSize)));
         } catch (Exception e) {
             log.error(e.getMessage());
-            return CommonResult.failed(e.toString());
+            return CommonResult.failed("未知错误");
         }
 
     }
@@ -179,7 +179,7 @@ public class LivestockController {
             return CommonResult.success(livestockService.selectOutTime(livestock));
         } catch (Exception e) {
             log.error(e.getMessage());
-            return CommonResult.failed(e.toString());
+            return CommonResult.failed("未知错误");
         }
     }
 
@@ -194,7 +194,7 @@ public class LivestockController {
             return CommonResult.success(livestockService.selectLivestockListByIds(livestockIds));
         } catch (Exception e) {
             log.error(e.getMessage());
-            return CommonResult.failed(e.toString());
+            return CommonResult.failed("未知错误");
         }
     }
 
@@ -219,7 +219,7 @@ public class LivestockController {
             return CommonResult.success(livestockService.selectLivestockListRank(fieldId));
         } catch (Exception e) {
             log.error(e.getMessage());
-            return CommonResult.failed(e.toString());
+            return CommonResult.failed("未知错误");
         }
     }
 
@@ -235,7 +235,7 @@ public class LivestockController {
             return CommonResult.success(livestockService.queryOptions(outTimes, types, fieldId));
         } catch (Exception e) {
             log.error(e.getMessage());
-            return CommonResult.failed(e.toString());
+            return CommonResult.failed("未知错误");
         }
     }
 
@@ -250,7 +250,7 @@ public class LivestockController {
             return CommonResult.success(livestockService.selectLivestockAndOriginalPriceById(livestockIds, fieldId));
         } catch (Exception e) {
             log.error(e.getMessage());
-            return CommonResult.failed(e.toString());
+            return CommonResult.failed("未知错误");
         }
     }
 

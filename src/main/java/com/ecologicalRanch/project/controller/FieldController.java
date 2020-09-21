@@ -41,7 +41,7 @@ public class FieldController {
             return CommonResult.success(CommonPage.restPage(fieldService.selectFieldList(field, pageNum, pageSize)));
         } catch (Exception e) {
             log.error(e.getMessage());
-            return CommonResult.failed(e.toString());
+            return CommonResult.failed("未知错误");
         }
     }
 
@@ -60,7 +60,7 @@ public class FieldController {
             return CommonResult.success(fieldService.selectFieldById(field.getFieldId()));
         } catch (Exception e) {
             log.error(e.getMessage());
-            return CommonResult.failed(e.toString());
+            return CommonResult.failed("未知错误");
         }
     }
 
@@ -76,7 +76,7 @@ public class FieldController {
             return CommonResult.success(fieldService.insertField(field));
         }catch (Exception e) {
             log.error(e.getMessage());
-            return CommonResult.failed(e.toString());
+            return CommonResult.failed("未知错误");
         }
     }
 
@@ -91,7 +91,7 @@ public class FieldController {
             return CommonResult.success(fieldService.updateField(field));
         }catch (Exception e) {
             log.error(e.getMessage());
-            return CommonResult.failed(e.toString());
+            return CommonResult.failed("未知错误");
         }
     }
 
@@ -106,7 +106,7 @@ public class FieldController {
             return CommonResult.success(fieldService.deleteFieldById(fieldId));
         }catch (Exception e) {
             log.error(e.getMessage());
-            return CommonResult.failed(e.toString());
+            return CommonResult.failed("未知错误");
         }
     }
 
@@ -121,7 +121,7 @@ public class FieldController {
             return CommonResult.success(fieldService.deleteFieldByIds(fieldIds));
         }catch (Exception e) {
             log.error(e.getMessage());
-            return CommonResult.failed(e.toString());
+            return CommonResult.failed("未知错误");
         }
     }
 
@@ -139,7 +139,7 @@ public class FieldController {
             return CommonResult.success(fieldService.selectFieldByAdminId(field.getAdminId()));
         }catch (Exception e) {
             log.error(e.getMessage());
-            return CommonResult.failed(e.toString());
+            return CommonResult.failed("未知错误");
         }
     }
 

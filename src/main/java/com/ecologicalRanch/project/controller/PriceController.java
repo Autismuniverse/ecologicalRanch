@@ -40,7 +40,7 @@ public class PriceController {
             return CommonResult.success(CommonPage.restPage(priceService.selectPriceList(price,pageNum,pageSize)));
         }catch (Exception e) {
             log.error(e.getMessage());
-            return CommonResult.failed(e.toString());
+            return CommonResult.failed("未知错误");
         }
     }
 
@@ -55,7 +55,7 @@ public class PriceController {
             return CommonResult.success(priceService.selectPriceListNoPageHelper(price));
         }catch (Exception e) {
             log.error(e.getMessage());
-            return CommonResult.failed(e.toString());
+            return CommonResult.failed("未知错误");
         }
     }
 
@@ -70,7 +70,7 @@ public class PriceController {
             return CommonResult.success(priceService.selectPriceById(livestockPriceId));
         }catch (Exception e) {
             log.error(e.getMessage());
-            return CommonResult.failed(e.toString());
+            return CommonResult.failed("未知错误");
         }
     }
 
@@ -85,7 +85,7 @@ public class PriceController {
             return CommonResult.success(priceService.insertPrice(price));
         }catch (Exception e) {
             log.error(e.getMessage());
-            return CommonResult.failed(e.toString());
+            return CommonResult.failed("未知错误");
         }
     }
 
@@ -100,7 +100,7 @@ public class PriceController {
             return CommonResult.success(priceService.updatePrice(price));
         }catch (Exception e) {
             log.error(e.getMessage());
-            return CommonResult.failed(e.toString());
+            return CommonResult.failed("未知错误");
         }
     }
 
@@ -115,7 +115,7 @@ public class PriceController {
             return CommonResult.success(priceService.deletePriceById(price.getLivestockPriceId()));
         }catch (Exception e) {
             log.error(e.getMessage());
-            return CommonResult.failed(e.toString());
+            return CommonResult.failed("未知错误");
         }
     }
 
@@ -130,7 +130,7 @@ public class PriceController {
             return CommonResult.success(priceService.deletePriceByIds(livestockPriceIds));
         }catch (Exception e) {
             log.error(e.getMessage());
-            return CommonResult.failed(e.toString());
+            return CommonResult.failed("未知错误");
         }
     }
     /**
@@ -144,7 +144,7 @@ public class PriceController {
             return CommonResult.success(priceService.selectPriceListNoPageHelperOneType(price));
         }catch (Exception e) {
             log.error(e.getMessage());
-            return CommonResult.failed(e.toString());
+            return CommonResult.failed("未知错误");
         }
     }
 }

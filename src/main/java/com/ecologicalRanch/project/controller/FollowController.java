@@ -41,7 +41,7 @@ public class FollowController {
             return CommonResult.success(CommonPage.restPage(followService.selectFollowList(follow,pageNum,pageSize)));
         }catch (Exception e) {
             log.error(e.getMessage());
-            return CommonResult.failed(e.toString());
+            return CommonResult.failed("未知错误");
         }
     }
 
@@ -57,7 +57,7 @@ public class FollowController {
             return CommonResult.success(followService.insertFollow(follow));
         }catch (Exception e) {
             log.error(e.getMessage());
-            return CommonResult.failed(e.toString());
+            return CommonResult.failed("未知错误");
         }
     }
 
@@ -74,7 +74,7 @@ public class FollowController {
             return CommonResult.success(followService.deleteFollow(follow));
         }catch (Exception e) {
             log.error(e.getMessage());
-            return CommonResult.failed(e.toString());
+            return CommonResult.failed("未知错误");
         }
     }
 
@@ -89,7 +89,7 @@ public class FollowController {
             return CommonResult.success(followService.deleteFollowByIds(userIds));
         }catch (Exception e) {
             log.error(e.getMessage());
-            return CommonResult.failed(e.toString());
+            return CommonResult.failed("未知错误");
         }
     }
 }

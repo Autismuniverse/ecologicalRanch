@@ -73,8 +73,7 @@ public class CalculationThread extends Thread {
                 GetSide(gatewayPoint);
                 for(int i=0;i<3;i++)
                 {
-                   data[i]=ConvertIntegers(lists[i]);
-                    rssi[i] = (new Double(new Optimization(data[i]).Data() * 100)).intValue();
+                    rssi[i] = (new Double(new Optimization(ConvertIntegers(lists[i])).Data() * 100)).intValue();
                 }
                 rssi=LongDouble(rssi);
                 Point point = threePoints(rssi, gatewayPoint);//������ı�ǩλ��
@@ -92,9 +91,9 @@ public class CalculationThread extends Thread {
                 }
 
                 RssiSave rssiSave = new RssiSave();
-                rssiSave.setMacA(data[0]);
-                rssiSave.setMacB(data[1]);
-                rssiSave.setMacC(data[2]);
+                rssiSave.setMacA(ConvertIntegers(lists[0]));
+                rssiSave.setMacB(ConvertIntegers(lists[1]));
+                rssiSave.setMacC(ConvertIntegers(lists[2]));
                 rssiSave.setMacAFromBlue(rssi[0]);
                 rssiSave.setMacBFromBlue(rssi[1]);
                 rssiSave.setMacCFromBlue(rssi[2]);

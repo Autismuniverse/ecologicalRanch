@@ -66,7 +66,7 @@ public class AddressController {
         }
         catch (Exception e){
             log.error(e.getMessage());
-            return CommonResult.failed(e.toString());
+            return CommonResult.failed("未知错误");
         }
     }
 
@@ -80,7 +80,7 @@ public class AddressController {
         try{return CommonResult.success(addressService.selectAddressById(address.getAddressId()));}
         catch (Exception e){
             log.error(e.getMessage());
-            return CommonResult.failed(e.toString());
+            return CommonResult.failed("未知错误");
         }
     }
 
@@ -96,7 +96,7 @@ public class AddressController {
         try{return CommonResult.success(addressService.insertAddress(address));}
         catch (Exception e){
             log.error(e.getMessage());
-            return CommonResult.failed(e.toString());
+            return CommonResult.failed("未知错误");
         }
     }
 
@@ -110,7 +110,7 @@ public class AddressController {
         try{return CommonResult.success(addressService.updateAddress(address));}
         catch (Exception e){
             log.error(e.getMessage());
-            return CommonResult.failed(e.toString());
+            return CommonResult.failed("未知错误");
         }
     }
 
@@ -124,7 +124,7 @@ public class AddressController {
         try{return CommonResult.success(addressService.deleteAddressById(addressId));}
         catch (Exception e){
             log.error(e.getMessage());
-            return CommonResult.failed(e.toString());
+            return CommonResult.failed("未知错误");
         }
     }
 
@@ -138,7 +138,7 @@ public class AddressController {
         try{return CommonResult.success(addressService.deleteAddressByIds(addressIds));}
         catch (Exception e){
             log.error(e.getMessage());
-            return CommonResult.failed(e.toString());
+            return CommonResult.failed("未知错误");
         }
     }
 
@@ -156,7 +156,7 @@ public class AddressController {
         return CommonResult.success(addressService.selectDefaultAddressByUserId(address));}
         catch (Exception e){
             log.error(e.getMessage());
-            return CommonResult.failed(e.toString());
+            return CommonResult.failed("未知错误");
         }
     }
 

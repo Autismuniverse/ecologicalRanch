@@ -26,7 +26,7 @@ public class MongoDBController {
             return CommonResult.success(mongoDBService.insert(user));
         }catch (Exception e) {
             log.error(e.getMessage());
-            return CommonResult.failed(e.toString());
+            return CommonResult.failed("未知错误");
         }
     }
 
@@ -38,7 +38,7 @@ public class MongoDBController {
             return CommonResult.success(mongoDBService.insertRssiDB(rssiSave));
         }catch (Exception e) {
             log.error(e.getMessage());
-            return CommonResult.failed(e.toString());
+            return CommonResult.failed("未知错误");
         }
     }
 }

@@ -40,7 +40,7 @@ public class LocaltioninfoController {
             return CommonResult.success(CommonPage.restPage(localtioninfoService.selectLocaltioninfoList(localtioninfo,pageNum,pageSize)));
         }catch (Exception e) {
             log.error(e.getMessage());
-            return CommonResult.failed(e.toString());
+            return CommonResult.failed("未知错误");
         }
     }
 
@@ -55,7 +55,7 @@ public class LocaltioninfoController {
             return CommonResult.success(localtioninfoService.selectLocaltioninfoById(bluetoothId));
         }catch (Exception e) {
             log.error(e.getMessage());
-            return CommonResult.failed(e.toString());
+            return CommonResult.failed("未知错误");
         }
     }
 
@@ -70,7 +70,7 @@ public class LocaltioninfoController {
             return CommonResult.success(localtioninfoService.insertLocaltioninfo(localtioninfo));
         }catch (Exception e) {
             log.error(e.getMessage());
-            return CommonResult.failed(e.toString());
+            return CommonResult.failed("未知错误");
         }
     }
 
@@ -85,7 +85,7 @@ public class LocaltioninfoController {
             return CommonResult.success(localtioninfoService.updateLocaltioninfo(localtioninfo));
         }catch (Exception e) {
             log.error(e.getMessage());
-            return CommonResult.failed(e.toString());
+            return CommonResult.failed("未知错误");
         }
     }
 
@@ -100,7 +100,7 @@ public class LocaltioninfoController {
             return CommonResult.success(localtioninfoService.deleteLocaltioninfoById(bluetoothId));
         }catch (Exception e) {
             log.error(e.getMessage());
-            return CommonResult.failed(e.toString());
+            return CommonResult.failed("未知错误");
         }
     }
 
@@ -115,7 +115,7 @@ public class LocaltioninfoController {
             return CommonResult.success(localtioninfoService.deleteLocaltioninfoByIds(bluetoothIds));
         }catch (Exception e) {
             log.error(e.getMessage());
-            return CommonResult.failed(e.toString());
+            return CommonResult.failed("未知错误");
         }
     }
 }

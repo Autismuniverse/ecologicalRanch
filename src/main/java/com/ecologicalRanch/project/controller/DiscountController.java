@@ -35,7 +35,7 @@ public class DiscountController {
             return CommonResult.success(discountService.selectDiscountList(discount));
         } catch (Exception e) {
             log.error(e.getMessage());
-            return CommonResult.failed(e.toString());
+            return CommonResult.failed("未知错误");
         }
     }
 
@@ -50,7 +50,7 @@ public class DiscountController {
             return CommonResult.success(discountService.selectDiscountById(predeterminedDiscountId));
         } catch (Exception e) {
             log.error(e.getMessage());
-            return CommonResult.failed(e.toString());
+            return CommonResult.failed("未知错误");
         }
     }
 
@@ -65,7 +65,7 @@ public class DiscountController {
             return CommonResult.success(discountService.insertDiscount(discount));
         } catch (Exception e) {
             log.error(e.getMessage());
-            return CommonResult.failed(e.toString());
+            return CommonResult.failed("未知错误");
         }
     }
 
@@ -80,7 +80,7 @@ public class DiscountController {
             return CommonResult.success(discountService.updateDiscount(discount));
         } catch (Exception e) {
             log.error(e.getMessage());
-            return CommonResult.failed(e.toString());
+            return CommonResult.failed("未知错误");
         }
     }
 
@@ -95,7 +95,7 @@ public class DiscountController {
             return CommonResult.success(discountService.deleteDiscountById(predeterminedDiscountId));
         } catch (Exception e) {
             log.error(e.getMessage());
-            return CommonResult.failed(e.toString());
+            return CommonResult.failed("未知错误");
         }
     }
 
@@ -110,7 +110,7 @@ public class DiscountController {
             return CommonResult.success(discountService.deleteDiscountByIds(predeterminedDiscountIds));
         } catch (Exception e) {
             log.error(e.getMessage());
-            return CommonResult.failed(e.toString());
+            return CommonResult.failed("未知错误");
         }
     }
 }

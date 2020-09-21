@@ -38,7 +38,7 @@ public class CarouselController {
             return CommonResult.success(CommonPage.restPage(carouselService.selectCarouselList(carousel, pageNum, pageSize)));
         } catch (Exception e) {
             log.error(e.getMessage());
-            return CommonResult.failed(e.toString());
+            return CommonResult.failed("未知错误");
         }
     }
 

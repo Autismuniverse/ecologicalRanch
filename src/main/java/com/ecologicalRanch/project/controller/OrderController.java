@@ -43,7 +43,7 @@ public class OrderController {
             return CommonResult.success(CommonPage.restPage(orderService.selectOrderList(order, pageNum, pageSize)));
         } catch (Exception e) {
             log.error(e.getMessage());
-            return CommonResult.failed(e.toString());
+            return CommonResult.failed("未知错误");
         }
     }
 
@@ -58,7 +58,7 @@ public class OrderController {
             return CommonResult.success(orderService.selectOrderById(orderId));
         } catch (Exception e) {
             log.error(e.getMessage());
-            return CommonResult.failed(e.toString());
+            return CommonResult.failed("未知错误");
         }
     }
 
@@ -86,7 +86,7 @@ public class OrderController {
             return CommonResult.success(orderService.cancelDelivery(order));
 //        } catch (Exception e) {
 //            log.error(e.getMessage());
-//            return CommonResult.failed(e.toString());
+//            return CommonResult.failed("未知错误");
 //        }
     }
 
@@ -101,7 +101,7 @@ public class OrderController {
             return CommonResult.success(orderService.updateOrder(order));
         } catch (Exception e) {
             log.error(e.getMessage());
-            return CommonResult.failed(e.toString());
+            return CommonResult.failed("未知错误");
         }
     }
 
@@ -117,7 +117,7 @@ public class OrderController {
             return CommonResult.success(orderService.deleteOrderById(orderId));
         } catch (Exception e) {
             log.error(e.getMessage());
-            return CommonResult.failed(e.toString());
+            return CommonResult.failed("未知错误");
         }
     }
 
@@ -132,7 +132,7 @@ public class OrderController {
             return CommonResult.success(orderService.deleteOrderByIds(orderIds));
         } catch (Exception e) {
             log.error(e.getMessage());
-            return CommonResult.failed(e.toString());
+            return CommonResult.failed("未知错误");
         }
     }
 
@@ -149,7 +149,7 @@ public class OrderController {
             return CommonResult.success(CommonPage.restPage(orderService.selectOrderInfoListByUserId(order, pageNum, pageSize)));
         } catch (Exception e) {
             log.error(e.getMessage());
-            return CommonResult.failed(e.toString());
+            return CommonResult.failed("未知错误");
         }
     }
 }

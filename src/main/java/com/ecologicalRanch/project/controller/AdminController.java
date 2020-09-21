@@ -44,7 +44,7 @@ public class AdminController {
         }
         catch (Exception e){
             log.error(e.getMessage());
-            return CommonResult.failed(e.toString());
+            return CommonResult.failed("未知错误");
         }
     }
 
@@ -58,7 +58,7 @@ public class AdminController {
     public CommonResult login(@RequestBody Admin admin){
         try{return CommonResult.success(adminService.login(admin)); }
         catch (Exception e){
-        return CommonResult.failed(e.toString());
+        return CommonResult.failed("未知错误");
     }
     }
 
@@ -75,7 +75,7 @@ public class AdminController {
         }
         catch (Exception e){
             log.error(e.getMessage());
-            return CommonResult.failed(e.toString());
+            return CommonResult.failed("未知错误");
         }
     }
 

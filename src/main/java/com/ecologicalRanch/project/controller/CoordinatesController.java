@@ -39,7 +39,7 @@ public class CoordinatesController {
             return CommonResult.success(CommonPage.restPage(coordinatesService.selectCoordinatesList(coordinates, pageNum, pageSize)));
         } catch (Exception e) {
             log.error(e.getMessage());
-            return CommonResult.failed(e.toString());
+            return CommonResult.failed("未知错误");
         }
     }
 
@@ -54,7 +54,7 @@ public class CoordinatesController {
             return CommonResult.success(coordinatesService.selectCoordinatesListNoPageHelper(coordinates));
         } catch (Exception e) {
             log.error(e.getMessage());
-            return CommonResult.failed(e.toString());
+            return CommonResult.failed("未知错误");
         }
     }
 
@@ -69,7 +69,7 @@ public class CoordinatesController {
             return CommonResult.success(coordinatesService.selectCoordinatesById(coordinates.getBluetoothId()));
         } catch (Exception e) {
             log.error(e.getMessage());
-            return CommonResult.failed(e.toString());
+            return CommonResult.failed("未知错误");
         }
     }
 
@@ -85,7 +85,7 @@ public class CoordinatesController {
             return CommonResult.success(coordinatesService.selectAbleCoordinatesList(coordinates));
         } catch (Exception e) {
             log.error(e.getMessage());
-            return CommonResult.failed(e.toString());
+            return CommonResult.failed("未知错误");
         }
     }
 
@@ -101,7 +101,7 @@ public class CoordinatesController {
             return CommonResult.success(coordinatesService.selectCoordinatesByMac(coordinates.getBluetoothMac()));
         } catch (Exception e) {
             log.error(e.getMessage());
-            return CommonResult.failed(e.toString());
+            return CommonResult.failed("未知错误");
         }
     }
 
@@ -116,7 +116,7 @@ public class CoordinatesController {
             return CommonResult.success(coordinatesService.insertCoordinates(coordinates));
         } catch (Exception e) {
             log.error(e.getMessage());
-            return CommonResult.failed(e.toString());
+            return CommonResult.failed("未知错误");
         }
     }
 
@@ -131,7 +131,7 @@ public class CoordinatesController {
             return CommonResult.success(coordinatesService.updateCoordinates(coordinates));
         } catch (Exception e) {
             log.error(e.getMessage());
-            return CommonResult.failed(e.toString());
+            return CommonResult.failed("未知错误");
         }
     }
 
@@ -146,7 +146,7 @@ public class CoordinatesController {
             return CommonResult.success(coordinatesService.deleteCoordinatesById(bluetoothId));
         } catch (Exception e) {
             log.error(e.getMessage());
-            return CommonResult.failed(e.toString());
+            return CommonResult.failed("未知错误");
         }
     }
 
@@ -161,7 +161,7 @@ public class CoordinatesController {
             return CommonResult.success(coordinatesService.deleteCoordinatesByIds(bluetoothIds));
         } catch (Exception e) {
             log.error(e.getMessage());
-            return CommonResult.failed(e.toString());
+            return CommonResult.failed("未知错误");
         }
     }
 }

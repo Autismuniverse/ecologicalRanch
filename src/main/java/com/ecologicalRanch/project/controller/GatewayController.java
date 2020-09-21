@@ -40,7 +40,7 @@ public class GatewayController {
             return CommonResult.success(CommonPage.restPage(gatewayService.selectGatewayList(gateway,pageNum,pageSize)));
         }catch (Exception e) {
             log.error(e.getMessage());
-            return CommonResult.failed(e.toString());
+            return CommonResult.failed("未知错误");
         }
     }
 
@@ -55,7 +55,7 @@ public class GatewayController {
             return CommonResult.success(gatewayService.selectGatewayByMac(gateway));
         }catch (Exception e) {
             log.error(e.getMessage());
-            return CommonResult.failed(e.toString());
+            return CommonResult.failed("未知错误");
         }
     }
 
@@ -70,7 +70,7 @@ public class GatewayController {
             return CommonResult.success(gatewayService.insertGateway(gateway));
         }catch (Exception e) {
             log.error(e.getMessage());
-            return CommonResult.failed(e.toString());
+            return CommonResult.failed("未知错误");
         }
     }
 
@@ -85,7 +85,7 @@ public class GatewayController {
             return CommonResult.success(gatewayService.updateGateway(gateway));
         }catch (Exception e) {
             log.error(e.getMessage());
-            return CommonResult.failed(e.toString());
+            return CommonResult.failed("未知错误");
         }
     }
 
@@ -100,7 +100,7 @@ public class GatewayController {
             return CommonResult.success(gatewayService.deleteGatewayById(gatewayId));
         }catch (Exception e) {
             log.error(e.getMessage());
-            return CommonResult.failed(e.toString());
+            return CommonResult.failed("未知错误");
         }
     }
 
@@ -115,7 +115,7 @@ public class GatewayController {
             return CommonResult.success(gatewayService.deleteGatewayByIds(gatewayIds));
         }catch (Exception e) {
             log.error(e.getMessage());
-            return CommonResult.failed(e.toString());
+            return CommonResult.failed("未知错误");
         }
     }
 }

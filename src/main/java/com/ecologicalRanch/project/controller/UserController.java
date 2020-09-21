@@ -65,7 +65,7 @@ public class UserController {
             return CommonResult.success(userService.selectUserById(userId));
         }catch (Exception e) {
             log.error(e.getMessage());
-            return CommonResult.failed(e.toString());
+            return CommonResult.failed("未知错误");
         }
     }
 
@@ -80,7 +80,7 @@ public class UserController {
             return CommonResult.success(userService.insertUser(user));
         }catch (Exception e) {
             log.error(e.getMessage());
-            return CommonResult.failed(e.toString());
+            return CommonResult.failed("未知错误");
         }
     }
 
@@ -95,7 +95,7 @@ public class UserController {
             return CommonResult.success(userService.updateUser(user));
         }catch (Exception e) {
             log.error(e.getMessage());
-            return CommonResult.failed(e.toString());
+            return CommonResult.failed("未知错误");
         }
     }
 
@@ -110,7 +110,7 @@ public class UserController {
             return CommonResult.success(userService.deleteUserById(userId));
         }catch (Exception e) {
             log.error(e.getMessage());
-            return CommonResult.failed(e.toString());
+            return CommonResult.failed("未知错误");
         }
     }
 
@@ -125,7 +125,7 @@ public class UserController {
             return CommonResult.success(userService.deleteUserByIds(userIds));
         }catch (Exception e) {
             log.error(e.getMessage());
-            return CommonResult.failed(e.toString());
+            return CommonResult.failed("未知错误");
         }
     }
 }

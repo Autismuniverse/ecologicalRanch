@@ -40,7 +40,7 @@ public class CameraController {
             return CommonResult.success(CommonPage.restPage(cameraService.selectCameraList(camera, pageNum, pageSize)));
         } catch (Exception e) {
             log.error(e.getMessage());
-            return CommonResult.failed(e.toString());
+            return CommonResult.failed("未知错误");
         }
     }
 
@@ -55,7 +55,7 @@ public class CameraController {
             return CommonResult.success(CommonPage.restPage(cameraService.selectCameraListNoPageHelper(camera)));
         } catch (Exception e) {
             log.error(e.getMessage());
-            return CommonResult.failed(e.toString());
+            return CommonResult.failed("未知错误");
         }
     }
 
@@ -72,7 +72,7 @@ public class CameraController {
             return CommonResult.success(cameraService.selectCameraById(cameraId));
         } catch (Exception e) {
             log.error(e.getMessage());
-            return CommonResult.failed(e.toString());
+            return CommonResult.failed("未知错误");
         }
     }
 
@@ -87,7 +87,7 @@ public class CameraController {
             return CommonResult.success(cameraService.insertCamera(camera));
         } catch (Exception e) {
             log.error(e.getMessage());
-            return CommonResult.failed(e.toString());
+            return CommonResult.failed("未知错误");
         }
     }
 
@@ -102,7 +102,7 @@ public class CameraController {
             return CommonResult.success(cameraService.updateCamera(camera));
         } catch (Exception e) {
             log.error(e.getMessage());
-            return CommonResult.failed(e.toString());
+            return CommonResult.failed("未知错误");
         }
     }
 
@@ -117,7 +117,7 @@ public class CameraController {
             return CommonResult.success(cameraService.deleteCameraById(cameraId));
         } catch (Exception e) {
             log.error(e.getMessage());
-            return CommonResult.failed(e.toString());
+            return CommonResult.failed("未知错误");
         }
     }
 
@@ -132,7 +132,7 @@ public class CameraController {
             return CommonResult.success(cameraService.deleteCameraByIds(cameraIds));
         } catch (Exception e) {
             log.error(e.getMessage());
-            return CommonResult.failed(e.toString());
+            return CommonResult.failed("未知错误");
         }
     }
 }

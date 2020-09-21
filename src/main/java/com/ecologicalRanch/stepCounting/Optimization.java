@@ -175,7 +175,7 @@ public class Optimization {
         for ( int i = 0; i < n.length - 1; i++)
             for (int j = i + 1; j < n.length; j++)
             {
-                if (n[i] < n[j])
+                if (n[i] > n[j])
                 {
                     s = n[j];
                     n[j] = n[i];
