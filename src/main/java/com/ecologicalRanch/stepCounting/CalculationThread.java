@@ -54,7 +54,6 @@ public class CalculationThread extends Thread {
     public void run() {
         int[] rssi = new int[3];
         List[] lists = new List[]{new ArrayList<Integer>(), new ArrayList<Integer>(), new ArrayList<Integer>()};
-        int[][] data = new int[3][100];
         Point[] gatewayPoint = new Point[3];
         if (bluetoothInfo != null) {
             try {
@@ -92,8 +91,8 @@ public class CalculationThread extends Thread {
 
                 RssiSave rssiSave = new RssiSave();
                 rssiSave.setMacA(ConvertIntegers(lists[0]));
-                rssiSave.setMacB(ConvertIntegers(lists[1]));
-                rssiSave.setMacC(ConvertIntegers(lists[2]));
+                rssiSave.setMacB(ConvertIntegers(lists[0]));
+                rssiSave.setMacC(ConvertIntegers(lists[0]));
                 rssiSave.setMacAFromBlue(rssi[0]);
                 rssiSave.setMacBFromBlue(rssi[1]);
                 rssiSave.setMacCFromBlue(rssi[2]);
