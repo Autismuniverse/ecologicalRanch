@@ -91,8 +91,8 @@ public class CalculationThread extends Thread {
 
                 RssiSave rssiSave = new RssiSave();
                 rssiSave.setMacA(ConvertIntegers(lists[0]));
-                rssiSave.setMacB(ConvertIntegers(lists[0]));
-                rssiSave.setMacC(ConvertIntegers(lists[0]));
+                rssiSave.setMacB(ConvertIntegers(lists[1]));
+                rssiSave.setMacC(ConvertIntegers(lists[2]));
                 rssiSave.setMacAFromBlue(rssi[0]);
                 rssiSave.setMacBFromBlue(rssi[1]);
                 rssiSave.setMacCFromBlue(rssi[2]);
@@ -103,7 +103,7 @@ public class CalculationThread extends Thread {
             }
             catch (Exception e)
             {
-                log.error(e.getMessage());
+                log.error(e.toString());
     //            System.out.println("计算出错"+e.getMessage());
             }
         }
