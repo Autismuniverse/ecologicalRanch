@@ -1,6 +1,7 @@
 package com.ecologicalRanch.stepCounting;
 
 import lombok.SneakyThrows;
+import lombok.extern.slf4j.Slf4j;
 import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
 import org.eclipse.paho.client.mqttv3.MqttCallback;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
@@ -9,8 +10,8 @@ import org.eclipse.paho.client.mqttv3.MqttMessage;
  * ������Ϣ�Ļص���
  *
  */
+@Slf4j
 public class PushCallback implements MqttCallback {
-	private static MessagePacker me=new MessagePacker();
 	@SneakyThrows
 	public void connectionLost(Throwable cause) {
 		try {
@@ -22,6 +23,7 @@ public class PushCallback implements MqttCallback {
 		}
 		catch (Exception e) {
 			MqttLoadServer.mqttReceiveTest.stop();//关闭
+			ProgramStart.setState(false);
 			e.printStackTrace();
 		}
     }
@@ -31,17 +33,16 @@ public class PushCallback implements MqttCallback {
     }
     @SuppressWarnings("static-access")
 	public void messageArrived(String topic, MqttMessage message) {
-
 		byte[] data;
 		try {
 			data = message.getPayload();
 			if (data[0] == -122 && data.length > 150) {
-				me.dataString(data);
+				ProgramStart.AppThread(data);
 			}
 		}
 		catch (Exception e)
 		{
-			e.printStackTrace();
+			log.error("获取数据："+e.toString());
 		}
     }
 

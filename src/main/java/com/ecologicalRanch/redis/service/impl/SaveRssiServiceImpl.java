@@ -76,14 +76,16 @@ public class SaveRssiServiceImpl implements ISaveRssiService {
             rssiKey = new RedisRssiKey(s);
             if (!gatewayInfo.containsKey(rssiKey.getGatewayPoint())) {
                 String r = redisUtil.get(s, 0);
-                if (r.split(",").length > 50)
+                if (r.split(",").length > 80)
                     gatewayInfo.put(rssiKey.getGatewayPoint(), r);
             }
-            if (gatewayInfo.size() > 2)
-                break;
         }
         if (gatewayInfo.size() <= 2)
             return null;
+        if (gatewayInfo.size() > 3)
+        {
+
+        }
         return gatewayInfo;
     }
 

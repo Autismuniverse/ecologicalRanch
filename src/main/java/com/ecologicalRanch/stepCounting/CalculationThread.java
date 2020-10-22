@@ -22,8 +22,8 @@ import java.util.List;
 /**
  * 用于计算的线程
  */
-@Slf4j
 
+@Slf4j
 public class CalculationThread extends Thread {
 
     private ISaveRssiService saveRssiService;
@@ -47,7 +47,6 @@ public class CalculationThread extends Thread {
         this.livestockService = ApplicationContextProvider.getBean(LivestockService.class);
         this.bluetoothId = bluetoothRssiInfo.getBluetoothId();
         this.bluetoothInfo = bluetoothRssiInfo.getGatewayInfo();//saveRssiService.getRssiWithHashMap(bluetoothId);
-
     }
 
     @Override
@@ -62,10 +61,12 @@ public class CalculationThread extends Thread {
                 for (Object key : bluetoothInfo.keySet()) {
                     gatewayPoint[count] = PointUtil.stringToPoint(key.toString());
                     String[] r = bluetoothInfo.get(key).split(",");
-                    for (int i = 0;  i < r.length; i++) {//i < 100 &&
+                    for (int i = 0; i < r.length ; i++) {//i < 100 &&
                         lists[count].add(Integer.parseInt(r[i]));
                     }
                     count++;
+                    if(count==3)
+                        break;
                 }
                 coordinates = coordinatesService.selectCoordinatesById(bluetoothId);
                 Point po = new Point(coordinates.getCoordinateX(), coordinates.getCoordinateY());
@@ -88,7 +89,7 @@ public class CalculationThread extends Thread {
                     livestock.setBluetoothId(bluetoothId);
                     livestockService.updateLivestockStep(livestock);
                 }
-
+//                System.out.println(bluetoothId+"步数："+Steps);
                 RssiSave rssiSave = new RssiSave();
                 rssiSave.setMacA(ConvertIntegers(lists[0]));
                 rssiSave.setMacB(ConvertIntegers(lists[1]));
@@ -103,17 +104,21 @@ public class CalculationThread extends Thread {
             }
             catch (Exception e)
             {
-                log.error(e.toString());
-    //            System.out.println("计算出错"+e.getMessage());
+                log.error("计算出错："+e.toString());
+              //  System.out.println("计算出错："+e.getMessage());
             }
         }
     }
     public  int[] ConvertIntegers(List<Integer> integers)
     {
-        int[] ret = new int[integers.size()];
+
+        int[] ret=integers.stream().mapToInt(Integer::valueOf).toArray();
+        if(integers.size()!=ret.length) {
+        ret = new int[integers.size()];
         for (int i=0; i < ret.length; i++)
         {
             ret[i] = integers.get(i).intValue();
+        }
         }
         return ret;
     }

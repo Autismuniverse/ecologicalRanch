@@ -3,7 +3,7 @@ package com.ecologicalRanch.stepCounting;
 import com.ecologicalRanch.config.ApplicationContextProvider;
 
 public class Optimization {
-    private Kalman kalman;
+    private static Kalman kalman;
     private Calculation datasourcePro;
     public int[] R;
     public int D;
@@ -12,13 +12,13 @@ public class Optimization {
     public Optimization(int[] n)
     {
         this.datasourcePro= ApplicationContextProvider.getBean(Calculation.class);
-        this.kalman = new Kalman(9, 100, Average(n));
-        this.K = new double[n.length];
+        this.kalman = new Kalman(9, 100,Average(n));
+        this.K = new double[20];
         this.R = n;
 
         this.D = datasourcePro.getDeviation();
-        for (int i = 0; i < R.length; i++)
-            K[1] = R[i];
+        for (int i = n.length-20; i < n.length; i++)
+            K[i-(n.length-20)] = kalman.KalmanFilter(n[i]);
     }
     private double Average(int[] d)
     {
@@ -51,7 +51,7 @@ public class Optimization {
         {
             case 7 : {
                 double max = Max(K);
-                if (R[70] > 80)
+                if (R[(int)(R.length*0.8)] > 80)
                 {
                     double max1 = Max(R);
 
@@ -62,11 +62,11 @@ public class Optimization {
                     double min = Min(R);
                     Result = min + (max - min) * 0.9;
                 }
-            } ; break;
+            }  break;
             case 8:
             {
                 double max = Max(K);
-                if (R[70] > 80)
+                if (R[(int)(R.length*0.8)]> 80)
                 {
                     double max1 = Max(R);
 
@@ -77,11 +77,11 @@ public class Optimization {
                     double min = Min(R);
                     Result = min + (max - min) * 0.75;
                 }
-            }; break;
+            } break;
             case 9 :
             {
                 double max = Max(K);
-                if (R[70] > 80)
+                if (R[(int)(R.length*0.8)] > 80)
                 {
                     double max1 = Max(R);
 
@@ -92,15 +92,14 @@ public class Optimization {
                     double min = Min(R);
                     Result = min + (max - min) * 0.60;
                 }
-            }; break;
+            }break;
             case 10:
             {
 
                 double max = Max(K);
-                if (R[70] > 80)
+                if (R[(int)(R.length*0.8)] > 80)
                 {
                     double max1 = Max(R);
-
                     Result = max + (max1 - max) * 0.60;
                 }
                 else
@@ -108,12 +107,12 @@ public class Optimization {
                     double min = Min(R);
                     Result = min + (max - min) * 0.45;
                 }
-            }; break;
+            }break;
             case 11:
             {
 
                 double max = Max(K);
-                if (R[70] > 80)
+                if (R[(int)(R.length*0.8)] > 80)
                 {
                     double max1 = Max(R);
 
@@ -124,12 +123,12 @@ public class Optimization {
                     double min = Min(R);
                     Result = min + (max - min) * 0.30;
                 }
-            }; break;
+            } break;
             case 12:
             {
 
                 double max = Max(K);
-                if (R[70] > 80)
+                if (R[(int)(R.length*0.8)] > 80)
                 {
                     double max1 = Max(R);
 
@@ -140,7 +139,7 @@ public class Optimization {
                     double min = Min(R);
                     Result = min + (max - min) * 0.15;
                 }
-            }; break;
+            } break;
             default: {
                 if (Max(R) > 82 && d > 12)
                     Result = Max(R);
@@ -148,7 +147,7 @@ public class Optimization {
                     Result = Average(K);
                 else
                     Result = Max(K);
-            };break;
+            } break;
         }
         return Count (Result);
     }
@@ -171,7 +170,7 @@ public class Optimization {
     public int[] Sort(int[] n)
     {
 
-        int s = 0;
+        int s ;
         for ( int i = 0; i < n.length - 1; i++)
             for (int j = i + 1; j < n.length; j++)
             {

@@ -13,6 +13,7 @@ import java.util.concurrent.ScheduledExecutorService;
  */
 
 public class ClientMQTT {
+    public static  ClientMQTT clientMQTT;
 
     private Mqtt datasourcePro;
     private MqttClient client;
@@ -43,7 +44,7 @@ public class ClientMQTT {
         try {
             while (true) {
                 try {
-                    if (!client.isConnected()) {
+                    if (client!=null&&!client.isConnected()) {
                         client.connect(options);
                     }
                     if (client.isConnected()) {//连接成功，跳出连接
@@ -65,7 +66,7 @@ public class ClientMQTT {
 
     public void stop() {
         try {
-            if(client.isConnected()) {
+            if(client!=null&&client.isConnected()) {
                 client.unsubscribe(datasourcePro.getTOPIC1());
                 // 断开连接
                 client.disconnect();

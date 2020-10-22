@@ -2,28 +2,32 @@ package com.ecologicalRanch.stepCounting;
 
 import com.ecologicalRanch.config.ApplicationContextProvider;
 import com.ecologicalRanch.redis.service.ISaveRssiService;
+import lombok.extern.slf4j.Slf4j;
 import org.msgpack.core.MessagePack;
 import org.msgpack.core.MessageUnpacker;
-import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * MessagePacker数据类型解析
  */
-public class MessagePacker {
+@Slf4j
+public class MessagePacker extends Thread {
 
-	@Autowired
 	private ISaveRssiService saveRssiService;
+//	private MessagePack messagepack;
 	private  String gateway_mac;
 	private static long Data_length;
+	private static byte[] bs;
 
-	public MessagePacker(){
+	public MessagePacker(byte[] b){
 		this.saveRssiService = ApplicationContextProvider.getBean(ISaveRssiService.class);
+//		this.messagepack=ApplicationContextProvider.getBean(MessagePack.class);
+		this.bs=b;
 	}
-
-	public boolean dataString(byte[] bs)
-    {
+	@Override
+	public void run() {
 		try {
 			MessageUnpacker unpacker = MessagePack.newDefaultUnpacker(bs);
+//			MessageUnpacker unpacker = messagepack.newDefaultUnpacker(bs);
 			int n=unpacker.unpackMapHeader();
 			for(int i=0;i<n;i++) {
 				switch (unpacker.unpackString()) {
@@ -44,12 +48,10 @@ public class MessagePacker {
 					break;
 				}
 			}
-			return true;
 		} catch (Exception e) {
-			e.printStackTrace();
+			log.error("数据解析："+e.toString()+bs.toString());
 		}
-		return false;
-    }
+	}
 
 	private boolean Label_up(String string){
         string = string.toUpperCase();
@@ -70,7 +72,7 @@ public class MessagePacker {
             }
             catch (Exception e)
             {
-                e.printStackTrace();
+				log.error("数据存储："+e.toString());
             }
 
 
